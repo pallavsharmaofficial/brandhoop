@@ -214,6 +214,29 @@ void main() {
       expect(r.order.payments.single.method, PaymentMethod.cardEmi);
     });
 
+    test('a no-cost scheme is refused for a phone that is not eligible', () async {
+      await expectLater(
+        h.services.checkout.placeOrder(CheckoutRequest(
+          customer: cust,
+          cart: const <CartLine>[CartLine(productId: 'ph_oppo', variantId: 'ph_oppo-v1')],
+          fulfilment: Fulfilment.pickup,
+          choice: PayChoice.bajajEmi,
+          emi: const EmiSelection(schemeId: 'bajaj_nocost', months: 6, downPayment: 2000),
+        )),
+        throwsA(isA<ShopException>().having((e) => e.code, 'code', 'badEmiScheme')),
+      );
+      // The same phone is fine on the standard scheme.
+      final CheckoutResult r = await h.services.checkout.placeOrder(CheckoutRequest(
+        customer: cust,
+        cart: const <CartLine>[CartLine(productId: 'ph_oppo', variantId: 'ph_oppo-v1')],
+        fulfilment: Fulfilment.pickup,
+        choice: PayChoice.bajajEmi,
+        emi: const EmiSelection(schemeId: 'bajaj_standard', months: 12, downPayment: 2000),
+      ));
+      expect(r.plan!.annualRatePct, 16);
+      expect(r.plan!.noCost, isFalse);
+    });
+
     test('a bad coupon stops the order instead of silently ignoring it', () async {
       expect(
         () => h.services.checkout.placeOrder(CheckoutRequest(

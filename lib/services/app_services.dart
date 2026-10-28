@@ -10,6 +10,7 @@ import 'order_service.dart';
 import 'payment_gateway.dart';
 import 'profile_service.dart';
 import 'repair_service.dart';
+import 'shop_admin_service.dart';
 
 /// Every service, wired once, handed to the widget tree as one object.
 class AppServices {
@@ -25,6 +26,7 @@ class AppServices {
     required this.repairs,
     required this.profile,
     required this.catalog,
+    required this.shopAdmin,
   });
 
   factory AppServices.create({
@@ -67,6 +69,7 @@ class AppServices {
       ),
       profile: ProfileService(repos, clock: clock),
       catalog: CatalogService(repos),
+      shopAdmin: ShopAdminService(repos),
     );
   }
 
@@ -81,4 +84,5 @@ class AppServices {
   final RepairService repairs;
   final ProfileService profile;
   final CatalogService catalog;
+  final ShopAdminService shopAdmin;
 }

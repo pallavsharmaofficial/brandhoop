@@ -209,7 +209,8 @@ class CheckoutService {
         if (s == null ||
             s.provider != EmiProvider.bajaj ||
             !s.allows(q.financeable) ||
-            !s.tenures.contains(sel.months)) {
+            !s.tenures.contains(sel.months) ||
+            (s.noCost && !q.allNoCostEligible)) {
           throw ShopException('badEmiScheme');
         }
         final int down = PaymentRules.clampDown(s, q.financeable, sel.downPayment);
@@ -250,7 +251,8 @@ class CheckoutService {
             s.provider != EmiProvider.bank ||
             !s.allows(q.total) ||
             !s.tenures.contains(sel.months) ||
-            i.method != PaymentMethod.card) {
+            i.method != PaymentMethod.card ||
+            (s.noCost && !q.allNoCostEligible)) {
           throw ShopException('badEmiScheme');
         }
         plan = await emi.create(

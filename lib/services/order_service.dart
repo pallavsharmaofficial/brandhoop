@@ -509,10 +509,12 @@ class OrderService {
     final StoreSettings settings = await repos.settings.get();
     final List<OrderLine> lines = <OrderLine>[];
     final Set<String> seen = <String>{};
+    final Set<String> noCostIds = <String>{};
     for (final WalkInLine w in req.lines) {
       final Product? p = await repos.catalog.get(w.productId);
       final ProductVariant? v = p?.variant(w.variantId);
       if (p == null || v == null) throw ShopException('stockChanged');
+      if (p.noCostEmi) noCostIds.add(p.id);
       if (v.stock < w.qty) throw ShopException('stockChanged');
       if (p.isPhone && req.emi == null && w.imeis.length != w.qty) {
         throw ShopException('imeiRequired');
@@ -587,7 +589,13 @@ class OrderService {
       final int financeable = lines
           .where((OrderLine l) => l.category.needsImei)
           .fold(0, (int sum, OrderLine l) => sum + l.total);
-      if (s == null || s.provider != EmiProvider.bajaj || financeable == 0) {
+      final bool noCostOk = lines
+          .where((OrderLine l) => l.category.needsImei)
+          .every((OrderLine l) => noCostIds.contains(l.productId));
+      if (s == null ||
+          s.provider != EmiProvider.bajaj ||
+          financeable == 0 ||
+          (s.noCost && !noCostOk)) {
         throw ShopException('badEmiScheme');
       }
       final int paidNow = payments.fold(0, (int sum, PaymentRecord p) => sum + p.amount);

@@ -1,0 +1,1571 @@
+{
+  "@@locale": "en",
+  "appName": "Brandhoop",
+  "appTagline": "Your own mobile shop, now in your pocket",
+  "chooseLanguage": "Choose your language",
+  "chooseLanguageHint": "You can change it any time from the top of the screen.",
+  "languageHindi": "हिन्दी",
+  "languageEnglish": "English",
+  "languageShortHi": "हिं",
+  "languageShortEn": "EN",
+  "switchLanguage": "Switch language",
+  "continueLabel": "Continue",
+  "ok": "OK",
+  "cancel": "Cancel",
+  "save": "Save",
+  "saved": "Saved",
+  "delete": "Delete",
+  "edit": "Edit",
+  "add": "Add",
+  "remove": "Remove",
+  "retry": "Try again",
+  "close": "Close",
+  "done": "Done",
+  "next": "Next",
+  "back": "Back",
+  "search": "Search",
+  "apply": "Apply",
+  "applied": "Applied",
+  "copy": "Copy",
+  "copied": "Copied",
+  "share": "Share",
+  "call": "Call",
+  "whatsapp": "WhatsApp",
+  "directions": "Directions",
+  "viewAll": "View all",
+  "confirm": "Confirm",
+  "yes": "Yes",
+  "no": "No",
+  "loading": "Loading…",
+  "optional": "Optional",
+  "required": "Required",
+  "noResults": "Nothing found",
+  "tryAgainLater": "Please try again in a moment.",
+  "somethingWrong": "Something went wrong",
+  "signIn": "Sign in",
+  "signOut": "Sign out",
+  "perMonth": "/month",
+  "perMonthShort": "/mo",
+  "freeLabel": "Free",
+  "inclGst": "Incl. GST",
+  "sample": "Sample",
+  "demoMode": "Demo mode",
+  "demoBanner": "Demo mode: sample products, simulated payments, no real money moves.",
+  "itemsCount": "{count, plural, =1{1 item} other{{count} items}}",
+  "@itemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysLeft": "{count, plural, =1{1 day left} other{{count} days left}}",
+  "@daysLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthsCount": "{count, plural, =1{1 month} other{{count} months}}",
+  "@monthsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursCount": "{count, plural, =1{1 hour} other{{count} hours}}",
+  "@hoursCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "navHome": "Home",
+  "navShop": "Shop",
+  "navEmi": "EMI",
+  "navOrders": "Orders",
+  "navAccount": "Account",
+  "navDashboard": "Dashboard",
+  "navStock": "Stock",
+  "navLeads": "Leads",
+  "navMore": "More",
+  "catSmartphone": "Smartphones",
+  "catFeaturePhone": "Feature phones",
+  "catTablet": "Tablets",
+  "catEarphones": "Earphones and buds",
+  "catCharger": "Chargers",
+  "catCable": "Cables",
+  "catCase": "Cases and covers",
+  "catScreenGuard": "Screen guards",
+  "catPowerBank": "Power banks",
+  "catSmartwatch": "Smartwatches",
+  "catSpeaker": "Speakers",
+  "catMemory": "Memory cards",
+  "catProtection": "Protection plans",
+  "groupPhones": "Phones",
+  "groupAccessories": "Accessories",
+  "groupProtection": "Protection",
+  "groupAll": "All",
+  "specRam": "RAM",
+  "specStorage": "Storage",
+  "specDisplay": "Display",
+  "specBattery": "Battery",
+  "specCamera": "Camera",
+  "specChip": "Processor",
+  "specOs": "Operating system",
+  "statusPendingPayment": "Waiting for payment",
+  "statusPlaced": "Order placed",
+  "statusConfirmed": "Confirmed",
+  "statusPacked": "Packed",
+  "statusOutForDelivery": "Out for delivery",
+  "statusReadyForPickup": "Ready to collect",
+  "statusDelivered": "Delivered",
+  "statusCancelled": "Cancelled",
+  "statusReturnRequested": "Return requested",
+  "statusReturned": "Returned",
+  "fulfilDelivery": "Home delivery",
+  "fulfilPickup": "Pick up at the store",
+  "fulfilWalkIn": "Bought in the store",
+  "payMethodUpi": "UPI",
+  "payMethodCard": "Card",
+  "payMethodNetbanking": "Net banking",
+  "payMethodCash": "Cash",
+  "payMethodBajaj": "Bajaj Finserv EMI",
+  "payMethodCardEmi": "Card EMI",
+  "payModeFull": "Paid in full",
+  "payModeToken": "Reserved with a token",
+  "payModeCod": "Cash on delivery",
+  "payModeCashStore": "Cash at the store",
+  "payModeBajaj": "Bajaj Finserv EMI",
+  "payModeCardEmi": "Card EMI",
+  "payModeMixed": "Part payments",
+  "payStatusPending": "Pending",
+  "payStatusPaid": "Paid",
+  "payStatusFailed": "Failed",
+  "payKindRefund": "Refund",
+  "payKindLender": "Paid by lender",
+  "planApplied": "Application sent",
+  "planApproved": "Approved",
+  "planActive": "Active",
+  "planClosed": "Fully paid",
+  "planRejected": "Not approved",
+  "planCancelled": "Cancelled",
+  "instUpcoming": "Upcoming",
+  "instPaid": "Paid",
+  "instOverdue": "Overdue",
+  "autopayNotSet": "Autopay is off",
+  "autopayPending": "Setting up",
+  "autopayActive": "Autopay is on",
+  "autopayPaused": "Autopay paused",
+  "autopayCancelled": "Autopay cancelled",
+  "autopayFailed": "Autopay failed",
+  "autopayUpi": "UPI Autopay",
+  "autopayCard": "Card standing instruction",
+  "autopayBank": "Bank mandate (e-NACH)",
+  "providerBajaj": "Bajaj Finserv",
+  "providerBank": "Your bank",
+  "providerShop": "Brandhoop",
+  "leadEnquiry": "Enquiry",
+  "leadCallback": "Call back",
+  "leadEmi": "EMI application",
+  "leadExchange": "Exchange",
+  "leadRepair": "Repair",
+  "leadReserve": "Reserved phone",
+  "leadVisit": "Store visit",
+  "leadFresh": "New",
+  "leadContacted": "Contacted",
+  "leadVisited": "Visited",
+  "leadConverted": "Bought",
+  "leadLost": "Lost",
+  "issueScreen": "Cracked or dead screen",
+  "issueBattery": "Battery",
+  "issueCharging": "Charging problem",
+  "issueWater": "Water damage",
+  "issueSpeaker": "Speaker or mic",
+  "issueCamera": "Camera",
+  "issueSoftware": "Software, hang or virus",
+  "issueOther": "Something else",
+  "repairBooked": "Booked",
+  "repairReceived": "Received in the shop",
+  "repairDiagnosing": "Being checked",
+  "repairAwaiting": "Waiting for your approval",
+  "repairInRepair": "Being repaired",
+  "repairReady": "Ready to collect",
+  "repairDelivered": "Handed over",
+  "repairCancelled": "Cancelled",
+  "roleCustomer": "Customer",
+  "roleStaff": "Counter staff",
+  "roleManager": "Manager",
+  "roleOwner": "Owner",
+  "dayMon": "Monday",
+  "dayTue": "Tuesday",
+  "dayWed": "Wednesday",
+  "dayThu": "Thursday",
+  "dayFri": "Friday",
+  "daySat": "Saturday",
+  "daySun": "Sunday",
+  "errBadPhone": "Enter a 10-digit mobile number.",
+  "errBadOtp": "That code is not right. Please check and try again.",
+  "errAccountDisabled": "This account has been switched off. Please contact the shop.",
+  "errBadAddress": "Please complete the delivery address with name, phone and a 6-digit pincode.",
+  "errEmptyCart": "Your cart is empty.",
+  "errStockChanged": "Stock has changed. Please review your cart.",
+  "errBadCoupon": "That coupon cannot be used on this order.",
+  "errPayNotAllowed": "That way of paying is not available for this order.",
+  "errNeedInstrument": "Please enter your payment details.",
+  "errBadEmiScheme": "That EMI option is not available for this amount.",
+  "errNothingToPay": "There is nothing to pay on this order.",
+  "errCannotCancel": "This can no longer be cancelled. Please call the shop.",
+  "errReturnWindowClosed": "The 7-day return window has closed.",
+  "errBadTransition": "That step is not allowed for this order right now.",
+  "errBadImei": "That IMEI is not valid. It must be 15 digits.",
+  "errDupImei": "The same IMEI is entered twice.",
+  "errImeiRequired": "Enter the IMEI of every phone before handing it over.",
+  "errEmiNotApproved": "The EMI is not approved yet. Do not hand the phone over.",
+  "errBalanceDue": "There is still money to collect on this order.",
+  "errBadAmount": "That amount is not right.",
+  "errDiscountTooHigh": "Counter staff can give at most 5% off. Ask a manager.",
+  "errPlanNotLive": "Autopay can be set once the EMI is approved.",
+  "errMandateFailed": "Could not set up Autopay. Check the details and try again.",
+  "errRefundFailed": "The refund could not be sent. Try again.",
+  "errQuoteRequired": "Enter the repair price first.",
+  "errNeedVariant": "Add at least one variant with a price.",
+  "errBadPrice": "Check the prices: MRP cannot be below the selling price.",
+  "errLastOwner": "There must always be at least one active owner.",
+  "errBadRole": "That role cannot be given.",
+  "errNoPermission": "Your role does not allow this.",
+  "errGatewayDeclined": "The payment was declined. Try another card, UPI ID or bank.",
+  "errGatewayInvalid": "Those payment details do not look right. Please check them.",
+  "errGatewayCancelled": "The payment was cancelled.",
+  "errGatewayTimeout": "The payment timed out. You have not been charged twice; check your orders.",
+  "payChoiceUpi": "UPI (GPay, PhonePe, Paytm)",
+  "payChoiceUpiHint": "Instant. Pay from any UPI app.",
+  "payChoiceCard": "Credit or debit card",
+  "payChoiceCardHint": "Visa, Mastercard, RuPay.",
+  "payChoiceNetbankingHint": "Pay from your bank account.",
+  "payChoiceCod": "Cash on delivery",
+  "payChoiceCodHint": "Pay in cash when it reaches your door. Available in town.",
+  "payChoiceCashStore": "Pay cash at the store",
+  "payChoiceCashStoreHint": "We keep it ready. Pay when you collect.",
+  "payChoiceReserve": "Reserve now, pay at the store",
+  "payChoiceReserveHint": "Pay {token} now to hold the phone for you. Pay the rest when you visit.",
+  "@payChoiceReserveHint": {
+    "placeholders": {
+      "token": {
+        "type": "String"
+      }
+    }
+  },
+  "payChoiceBajajHint": "Down payment now, easy monthly instalments. Quick approval in the store.",
+  "payChoiceCardEmiHint": "Convert the bill into EMIs on your credit or debit card.",
+  "openAdmin": "Open admin panel",
+  "openAdminHint": "Orders, stock, billing, EMI and reports",
+  "viewAsCustomer": "View as customer",
+  "visitStore": "Visit our store",
+  "visitUsAnytime": "Visit us any time we are open",
+  "searchHint": "Search phones, chargers, cases…",
+  "shopByCategory": "Shop by category",
+  "shopByBudget": "Shop by budget",
+  "budgetUnder10": "Under ₹10,000",
+  "budget10to15": "₹10,000 - ₹15,000",
+  "budget15to20": "₹15,000 - ₹20,000",
+  "budgetAbove20": "Above ₹20,000",
+  "zeroEmiPhones": "0% EMI phones",
+  "ourServices": "Our services",
+  "serviceRepair": "Phone repair",
+  "serviceExchange": "Exchange old phone",
+  "serviceEmiCalc": "EMI calculator",
+  "accessoryPicks": "Popular accessories",
+  "whyBrandhoop": "Why buy from Brandhoop",
+  "whyGenuineTitle": "Genuine, with a GST bill",
+  "whyGenuineBody": "Every phone is sealed with brand warranty. No second-hand surprises.",
+  "whyLocalTitle": "A shop you can walk into",
+  "whyLocalBody": "Order from home, then visit, collect or ask anything at the counter, any time we are open.",
+  "whyPayTitle": "Pay your way",
+  "whyPayBody": "Cash, UPI, cards, Bajaj Finserv EMI and Autopay, all in one place.",
+  "whySupportTitle": "Local support after you buy",
+  "whySupportBody": "Setup, data transfer, repair and warranty help from the same people you bought from.",
+  "trustGenuine": "Genuine",
+  "trustGstBill": "GST bill",
+  "trustLocal": "Local shop",
+  "trustService": "Repair and service",
+  "whyBuyFromUs": "Why buy from us",
+  "storeOpenNow": "Open now",
+  "storeClosedNow": "Closed now",
+  "storeClosesAt": "closes {time}",
+  "@storeClosesAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "storeOpensAt": "opens {time}",
+  "@storeOpensAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "storeOpensDay": "opens {day}, {time}",
+  "@storeOpensDay": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "resultsCount": "{n, plural, =1{1 product} other{{n} products}}",
+  "@resultsCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "filters": "Filters",
+  "sortBy": "Sort by",
+  "sortPopular": "Popular",
+  "sortPriceLow": "Price: low to high",
+  "sortPriceHigh": "Price: high to low",
+  "sortDiscount": "Biggest discount",
+  "noResultsHint": "Try a different word or clear the filters.",
+  "clearFilters": "Clear filters",
+  "priceRange": "Price",
+  "priceBelow": "Below {price}",
+  "@priceBelow": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "priceAbove": "Above {price}",
+  "@priceAbove": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "brand": "Brand",
+  "zeroEmiOnly": "0% EMI only",
+  "inStockOnly": "In stock only",
+  "off": "off",
+  "outOfStock": "Out of stock",
+  "emiFrom": "EMI from {amount}/month",
+  "@emiFrom": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "emiFromZero": "0% EMI from {amount}/month",
+  "@emiFromZero": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "productNotFound": "This product is not available",
+  "wishlist": "Wishlist",
+  "shareProductText": "Look at this on {shop}: {product} for {price}.",
+  "@shareProductText": {
+    "placeholders": {
+      "shop": {
+        "type": "String"
+      },
+      "product": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "sampleListing": "Sample listing",
+  "chooseVariant": "Choose a variant",
+  "onlyFewLeft": "{n, plural, =1{Only 1 left} other{Only {n} left}}",
+  "@onlyFewLeft": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "inStockAtStore": "In stock at the store",
+  "inStockCount": "{n, plural, =0{Out of stock} =1{1 in stock} other{{n} in stock}}",
+  "@inStockCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "emiPartners": "With Bajaj Finserv and card EMI. Tap to see plans.",
+  "reserveTitle": "Reserve this phone for {token}",
+  "@reserveTitle": {
+    "placeholders": {
+      "token": {
+        "type": "String"
+      }
+    }
+  },
+  "reserveBody": "We hold it for you for {hours}. Pay the rest when you visit the store.",
+  "@reserveBody": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      }
+    }
+  },
+  "reserveCta": "Reserve now",
+  "deliveryTitle": "Delivery and pickup",
+  "deliveryLocal": "Same-day home delivery in {city} and nearby areas we serve.",
+  "@deliveryLocal": {
+    "placeholders": {
+      "city": {
+        "type": "String"
+      }
+    }
+  },
+  "pickupAnytime": "Or collect from our store any time it is open.",
+  "enterPincode": "Enter your pincode",
+  "check": "Check",
+  "deliverySameDay": "Same-day delivery to this pincode.",
+  "deliveryCourier": "Courier delivery: {fee}, free above {free}.",
+  "@deliveryCourier": {
+    "placeholders": {
+      "fee": {
+        "type": "String"
+      },
+      "free": {
+        "type": "String"
+      }
+    }
+  },
+  "completeYourPhone": "Complete your phone",
+  "aboutProduct": "About this product",
+  "specifications": "Specifications",
+  "warranty": "Warranty",
+  "warrantyMonths": "{n, plural, =1{1 month} other{{n} months}}",
+  "@warrantyMonths": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "similarProducts": "Similar products",
+  "errBadPincode": "Enter a valid 6-digit pincode.",
+  "addToCart": "Add to cart",
+  "addedToCart": "Added to your cart",
+  "buyNow": "Buy now",
+  "notifyMe": "Ask us about it",
+  "askAboutThis": "Ask about this",
+  "enquiryText": "Hello! I am interested in {product} ({variant}) at {price}. Is it available?",
+  "@enquiryText": {
+    "placeholders": {
+      "product": {
+        "type": "String"
+      },
+      "variant": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "weWillCallYou": "Thank you. We will call you shortly.",
+  "yourDetails": "Your details",
+  "yourName": "Your name",
+  "mobileNumber": "Mobile number",
+  "send": "Send",
+  "cartTitle": "Your cart",
+  "cartEmpty": "Your cart is empty",
+  "cartEmptyHint": "Add a phone or an accessory and it will show up here.",
+  "startShopping": "Start shopping",
+  "subtotal": "Subtotal",
+  "proceedToCheckout": "Checkout",
+  "youSave": "You save",
+  "deliveryCalculatedAtCheckout": "Delivery and offers are worked out at checkout.",
+  "itemNoLongerAvailable": "This item is no longer available",
+  "viewCart": "View cart",
+  "openingHours": "Opening hours",
+  "closed": "Closed",
+  "planYourVisit": "Plan your visit",
+  "planYourVisitBody": "Tell us when you are coming and we will have your phone, bill and EMI papers ready.",
+  "today": "Today",
+  "tomorrow": "Tomorrow",
+  "closedThatDay": "The store is closed that day. Pick another day.",
+  "tellShopIAmComing": "Tell the shop I am coming",
+  "visitNoted": "Noted. We will see you then.",
+  "inTheShop": "In the shop",
+  "shopLine1": "New phones from every major brand",
+  "shopLine2": "Cash, UPI, cards and Bajaj Finserv EMI at the counter",
+  "shopLine3": "Exchange your old phone on the spot",
+  "shopLine4": "Screen, battery and charging repair",
+  "shopLine5": "SIM, recharge and free setup help",
+  "signInTitle": "Sign in to Brandhoop",
+  "signInBody": "Enter your mobile number. We will send a 6-digit code.",
+  "sendCode": "Send code",
+  "enterCode": "Enter the code",
+  "codeSentTo": "Code sent to +91 {phone}",
+  "@codeSentTo": {
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    }
+  },
+  "sixDigitCode": "6-digit code",
+  "demoCodeHint": "Demo mode: the code is {code}",
+  "@demoCodeHint": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "referralCode": "Referral code",
+  "verifyAndContinue": "Verify and continue",
+  "changeNumber": "Change number",
+  "tryAs": "Demo: try the app as",
+  "demoAccountsHint": "Or sign in with owner {owner} or customer {customer}, code 123456.",
+  "@demoAccountsHint": {
+    "placeholders": {
+      "owner": {
+        "type": "String"
+      },
+      "customer": {
+        "type": "String"
+      }
+    }
+  },
+  "checkoutTitle": "Checkout",
+  "orderTotal": "Order total",
+  "howToReceive": "How would you like to receive it?",
+  "addAddress": "Add address",
+  "offersAndCoins": "Offers and coins",
+  "payWith": "Pay with",
+  "orderSummary": "Order summary",
+  "couponCode": "Coupon code",
+  "coupon": "Coupon",
+  "couponNotFound": "This coupon code does not exist.",
+  "couponNotActive": "This coupon has expired or is switched off.",
+  "couponMinOrder": "Add more to your cart to use this coupon.",
+  "couponNotApplicable": "This coupon does not apply to the items in your cart.",
+  "couponApplied": "{code} applied: you save {amount}",
+  "@couponApplied": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "coinsUsed": "Brandhoop Coins",
+  "useCoins": "{coins, plural, =1{Use my 1 Brandhoop Coin} other{Use my {coins} Brandhoop Coins}}",
+  "@useCoins": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "coinsRule": "One coin is one rupee off accessories, up to a share of the accessory bill.",
+  "reserveExplain": "Pay {token} now. We hold the phone for {hours}. Pay the remaining {rest} when you visit.",
+  "@reserveExplain": {
+    "placeholders": {
+      "token": {
+        "type": "String"
+      },
+      "hours": {
+        "type": "String"
+      },
+      "rest": {
+        "type": "String"
+      }
+    }
+  },
+  "chooseTenure": "Choose how many months",
+  "zeroInterest": "0% interest",
+  "downPayment": "Down payment",
+  "downPaymentMin": "Minimum down payment: {amount}",
+  "@downPaymentMin": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "downPaymentFrom": "Down payment from {amount}",
+  "@downPaymentFrom": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "amountFinanced": "Amount financed",
+  "interestRate": "Interest rate",
+  "perYear": "a year",
+  "totalInterest": "Total interest",
+  "processingFeeLabel": "Processing fee",
+  "processingFee": "Processing fee {fee}",
+  "@processingFee": {
+    "placeholders": {
+      "fee": {
+        "type": "String"
+      }
+    }
+  },
+  "totalYouPay": "Total you pay",
+  "totalPayable": "Total {amount}",
+  "@totalPayable": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "noExtraCost": "No extra cost",
+  "emiIndicative": "These figures are indicative. The final amount, rate and approval are decided by the lender.",
+  "emiRatesUnconfirmed": "The shop is still confirming its EMI rates, so treat these as estimates.",
+  "noEmiForThis": "EMI is not available for this amount or product.",
+  "emiOptions": "EMI options",
+  "openCalculator": "Open EMI calculator",
+  "payDownHow": "Pay {amount} now",
+  "@payDownHow": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "payOnlineNow": "Pay online now",
+  "payAtStoreLater": "Pay at the store",
+  "whatHappensNext": "What happens next",
+  "bajajStep1": "You send this application and pay the down payment.",
+  "bajajStep2": "Visit the store with your Aadhaar, PAN and bank details. We complete the Bajaj Finserv check with you.",
+  "bajajStep3": "Once Bajaj Finserv approves, your phone is handed over with the bill and IMEI.",
+  "bajajStep4": "You pay the monthly EMI. Turn on Autopay in this app so you never miss a date.",
+  "applyAndPay": "Apply and pay {amount}",
+  "@applyAndPay": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "applyForEmi": "Apply for EMI",
+  "placeOrder": "Place order",
+  "payAmount": "Pay {amount}",
+  "@payAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "reserveFor": "Reserve for {amount}",
+  "@reserveFor": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "deliveryFee": "Delivery",
+  "totalSavings": "You save {amount} on this order",
+  "@totalSavings": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "orEnterUpiId": "Or enter a UPI ID",
+  "errBadUpi": "That UPI ID does not look right.",
+  "cardNumber": "Card number",
+  "errBadCard": "That card number is not valid.",
+  "cardExpiry": "Expiry",
+  "errBadExpiry": "That expiry date is not valid.",
+  "nameOnCard": "Name on card",
+  "testPaymentHint": "Test mode: no real money moves. Use card 4111 1111 1111 1111 with any future date and CVV. UPI ID fail@upi shows a failed payment.",
+  "activeOrders": "Active",
+  "pastOrders": "Past",
+  "signInToSeeOrders": "Sign in to see your orders",
+  "signInToSeeOrdersHint": "Your orders, bills and warranty are saved to your mobile number.",
+  "noOrdersYet": "No orders yet",
+  "noOrdersYetHint": "When you buy, your order and its tracking will appear here.",
+  "paymentNotDone": "Payment not completed",
+  "paymentNotDoneHint": "Your order is saved. Pay now to confirm it, or it is released in 30 minutes.",
+  "orderPlacedTitle": "Order placed",
+  "orderNumberIs": "Your order number is {number}",
+  "@orderNumberIs": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "showThisCode": "Show this code at the store",
+  "nextCod": "Keep {amount} in cash ready. Our team will call before delivery.",
+  "@nextCod": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "nextCashStore": "We are keeping it ready. Pay {amount} in cash when you collect.",
+  "@nextCashStore": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "nextReserve": "Your phone is held for you. Come in before {until} and pay the remaining {balance}.",
+  "@nextReserve": {
+    "placeholders": {
+      "balance": {
+        "type": "String"
+      },
+      "until": {
+        "type": "String"
+      }
+    }
+  },
+  "nextBajaj": "Visit the store with your Aadhaar, PAN and bank details to finish the Bajaj Finserv application. We will call you to confirm.",
+  "nextPickup": "We will message you when it is ready to collect. Show the code below at the counter.",
+  "nextDelivery": "We are getting it ready. You can track every step here.",
+  "viewOrder": "View order",
+  "continueShopping": "Continue shopping",
+  "tryAnotherWay": "Pay now",
+  "orderNotFound": "Order not found",
+  "shareInvoice": "Share bill",
+  "pickupCode": "Pickup code",
+  "reservedUntil": "Held for you until {when}",
+  "@reservedUntil": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "trackOrder": "Track order",
+  "itemsHeader": "Items",
+  "paymentHeader": "Payment",
+  "paymentMode": "Payment method",
+  "balanceDue": "Balance due",
+  "balanceToPay": "Balance to pay: {amount}",
+  "@balanceToPay": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "reserveTokenLabel": "Reserve token",
+  "viewEmiPlan": "View EMI plan",
+  "pickupHeader": "Collect from the store",
+  "deliveryHeader": "Delivery address",
+  "cancelOrder": "Cancel order",
+  "cancelOrderQ": "Cancel this order?",
+  "reasonOptional": "Reason (optional)",
+  "orderCancelled": "The order is cancelled. Any payment you made will be refunded.",
+  "returnItems": "Return",
+  "returnOrderQ": "Request a return?",
+  "returnRequestedMsg": "Return requested. We will call you.",
+  "orderAgain": "Order again",
+  "needHelp": "Need help?",
+  "warrantyUntil": "Warranty until {date}",
+  "@warrantyUntil": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "invoiceOrder": "Order",
+  "invoiceDate": "Date",
+  "invoiceCustomer": "Customer",
+  "invoiceItems": "Items",
+  "invoiceThanks": "Thank you for shopping at {shop}.",
+  "@invoiceThanks": {
+    "placeholders": {
+      "shop": {
+        "type": "String"
+      }
+    }
+  },
+  "emiAndAutopay": "EMI and Autopay",
+  "emiSignInTitle": "Sign in to see your EMI",
+  "emiSignInBody": "Your plans, due dates and Autopay settings are kept against your mobile number.",
+  "noEmiPlans": "No EMI plans yet",
+  "noEmiPlansBody": "Buy a phone on 0% or easy EMI and the plan, dates and Autopay will show up here.",
+  "browseEmiPhones": "Browse phones on EMI",
+  "yourEmiPlans": "Your EMI plans",
+  "emiHowItWorks": "How EMI works at Brandhoop",
+  "emiPointBajaj": "Bajaj Finserv EMI: a small down payment, then easy monthly instalments. Approval is by Bajaj Finserv.",
+  "emiPointCard": "Card EMI: turn the bill into instalments on your credit or debit card, if your bank offers it.",
+  "emiPointAutopay": "Autopay: each instalment is debited on its date. Pause or cancel any time.",
+  "emiPointDocs": "Keep your Aadhaar, PAN and bank details handy for the Bajaj Finserv check.",
+  "nextEmiDue": "Next EMI due",
+  "emiOverdue": "EMI overdue",
+  "inDays": "{days, plural, =0{today} =1{tomorrow} other{in {days} days}}",
+  "@inDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "paidOf": "{paid} of {total} paid",
+  "@paidOf": {
+    "placeholders": {
+      "paid": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "nextOn": "Next: {date}",
+  "@nextOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "emiPlan": "EMI plan",
+  "planNotFound": "Plan not found",
+  "itemPrice": "Item price",
+  "tenure": "Tenure",
+  "monthlyEmi": "Monthly EMI",
+  "lenderRef": "Loan reference",
+  "planAppliedHint": "Your application is with the shop and the lender. We will call you to finish it in the store.",
+  "planRejectedHint": "This application was not approved. You can still buy the phone with another way of paying. Please speak to the shop.",
+  "instalmentSchedule": "Instalment schedule",
+  "paidOn": "Paid on {date}",
+  "@paidOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "openBajajApp": "Pay or view on Bajaj Finserv",
+  "bankAutoDebit": "Your bank debits this EMI to your card each month. Keep enough limit available.",
+  "autopaySettings": "Autopay settings",
+  "autopayOnBody": "Each instalment is debited on its due date, up to your limit. We remind you before every debit.",
+  "autopayOffBody": "Turn on Autopay so you never miss an instalment. You stay in control and can stop it any time.",
+  "autopayMethodLabel": "Method",
+  "autopayAccount": "Account",
+  "autopayLimit": "Debit limit",
+  "nextDebit": "Next debit",
+  "remindMe": "Remind me",
+  "daysBefore": "{n, plural, =0{On the day} =1{1 day before} other{{n} days before}}",
+  "@daysBefore": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "pauseAutopay": "Pause Autopay",
+  "cancelAutopay": "Cancel Autopay",
+  "cancelAutopayQ": "Cancel Autopay?",
+  "cancelAutopayBody": "Future instalments will not be debited automatically. You will need to pay them yourself before the due date.",
+  "resumeAutopay": "Resume Autopay",
+  "turnOnAutopay": "Turn on Autopay",
+  "setupAutopayAgain": "Set up Autopay again",
+  "autopayLenderNote": "For Bajaj Finserv plans, the lender runs the final debit. This screen shows its status and your reminder.",
+  "autopaySheetBody": "Choose how your {emi} instalment should be paid each month.",
+  "@autopaySheetBody": {
+    "placeholders": {
+      "emi": {
+        "type": "String"
+      }
+    }
+  },
+  "autopayConsent": "I allow automatic debit of each instalment, up to {limit}, on its due date. I can pause or cancel this any time.",
+  "@autopayConsent": {
+    "placeholders": {
+      "limit": {
+        "type": "String"
+      }
+    }
+  },
+  "authoriseAutopay": "Authorise Autopay",
+  "phonePrice": "Phone price",
+  "emiScheme": "EMI scheme",
+  "priceOutsideScheme": "This scheme starts from {min}. Choose another scheme or a higher price.",
+  "@priceOutsideScheme": {
+    "placeholders": {
+      "min": {
+        "type": "String"
+      }
+    }
+  },
+  "exchangeIntro": "Tell us about your old phone and see an indicative value. The shop confirms the final price after a quick check.",
+  "model": "Model",
+  "priceWhenNew": "Price when new (approx.)",
+  "howOld": "How old is it?",
+  "ageUnder6": "Under 6 months",
+  "age6to12": "6 to 12 months",
+  "age1to2": "1 to 2 years",
+  "age2to3": "2 to 3 years",
+  "ageOver3": "Over 3 years",
+  "screenCondition": "Screen condition",
+  "screenPerfect": "Perfect",
+  "screenScratches": "Light scratches",
+  "screenCracked": "Cracked",
+  "bodyDents": "Dents or damage on the body",
+  "batteryWeak": "Battery drains fast",
+  "allWorking": "Everything works (camera, speaker, touch, buttons)",
+  "haveBill": "I have the bill and box",
+  "estimatedValue": "Indicative value",
+  "exchangeIndicative": "This is only a guide. The final value is set after the shop checks your phone, and may be higher or lower.",
+  "sendToShop": "Send to the shop",
+  "exchangeEnterPrice": "Enter roughly what the phone cost when new to see its value.",
+  "exchangeSent": "Sent. We will call you with the next step.",
+  "repairIntro": "Book a repair from home. Bring the phone in or ask us to collect it, and follow every step here.",
+  "whatIsWrong": "What is wrong?",
+  "fromPrice": "from {price}",
+  "@fromPrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "describeProblem": "Describe the problem (optional)",
+  "repairHowItWorks": "The price shown is a starting estimate. We check the phone, tell you the exact price, and repair only after you agree.",
+  "bookRepair": "Book repair",
+  "myRepairs": "My repairs",
+  "enterBrandModel": "Please enter the phone brand and model.",
+  "repairBookedMsg": "Repair booked: {number}",
+  "@repairBookedMsg": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "estimatedPrice": "Estimated price",
+  "quotedPrice": "Final price",
+  "repairApprovePrompt": "The shop has checked your phone. The repair will cost {price}. Approve to start.",
+  "@repairApprovePrompt": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "approveAndRepair": "Approve and repair",
+  "progress": "Progress",
+  "cancelRepairQ": "Cancel this repair?",
+  "welcomeGuest": "Welcome to Brandhoop",
+  "coinsBalance": "{coins, plural, =1{1 coin} other{{coins} coins}}",
+  "@coinsBalance": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "myAccount": "My account",
+  "myProfile": "My profile",
+  "myAddresses": "My addresses",
+  "referAndEarn": "Refer and earn",
+  "referShareText": "Buy phones and accessories from {shop} on the Brandhoop app. Use my code {code} and we both get {bonus} in coins after your first purchase.",
+  "@referShareText": {
+    "placeholders": {
+      "shop": {
+        "type": "String"
+      },
+      "code": {
+        "type": "String"
+      },
+      "bonus": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsHeader": "Settings",
+  "languageLabel": "Language",
+  "themeLabel": "Theme",
+  "themeSystem": "Phone setting",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "helpHeader": "Help",
+  "helpAndFaq": "Help and FAQ",
+  "signOutQ": "Sign out?",
+  "phoneCannotChange": "Your mobile number is your account and cannot be changed here.",
+  "myReferralCode": "My referral code",
+  "noAddresses": "No saved addresses",
+  "noAddressesHint": "Add an address to get home delivery.",
+  "deleteAddressQ": "Delete this address?",
+  "editAddress": "Edit address",
+  "addrHome": "Home",
+  "addrShop": "Shop",
+  "addrWork": "Work",
+  "addrOther": "Other",
+  "fullName": "Full name",
+  "houseNoStreet": "House no. and street",
+  "colonyOrVillage": "Colony, mohalla or village",
+  "landmark": "Landmark",
+  "cityTown": "City or town",
+  "pincode": "Pincode",
+  "stateLabel": "State",
+  "wishlistEmpty": "Your wishlist is empty",
+  "wishlistEmptyHint": "Tap the heart on any product to save it for later.",
+  "helpBody": "The quickest help is at the store. You can also call or message us.",
+  "faq1q": "How can I pay?",
+  "faq1a": "By UPI, credit or debit card, net banking, or cash (at the store, or on delivery in town). You can also use Bajaj Finserv EMI or card EMI.",
+  "faq2q": "How does Bajaj Finserv EMI work?",
+  "faq2a": "Apply in the app and pay a small down payment. Visit the store with your Aadhaar, PAN and bank details to complete the check. Once Bajaj Finserv approves, you take the phone and pay monthly. Approval is the lender decision, not the shop.",
+  "faq3q": "What is Autopay?",
+  "faq3a": "A standing instruction so each EMI is debited on its due date. You choose UPI, card or bank, set a limit, get a reminder before every debit, and can pause or cancel any time.",
+  "faq4q": "Can I return what I bought?",
+  "faq4a": "Within 7 days of delivery you can ask for a return of a wrong or defective item, with its box and bill. The shop checks it and refunds you. Opened phones are checked by the brand service centre.",
+  "faq5q": "How does the warranty work?",
+  "faq5a": "Every phone comes with the brand warranty. We record the IMEI on your bill, so your warranty and bill are always in your Orders, even if you lose the paper.",
+  "faq6q": "How does delivery work?",
+  "faq6a": "Same-day home delivery in town and nearby areas. Elsewhere we send by courier, and phones are prepaid. Cash on delivery is only for local delivery under the shop limit.",
+  "faq7q": "What does Reserve mean?",
+  "faq7a": "Pay a small token and we hold the phone for you for a few days. Visit the store, pay the rest and take it. If you cancel before the time ends, the token is refunded.",
+  "roadToTarget": "Road to {target} a month",
+  "@roadToTarget": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "onTrack": "On track",
+  "behindTarget": "Behind target",
+  "ofTarget": "of target",
+  "profitThisMonth": "Profit this month",
+  "projectedMonthEnd": "On this pace: {amount} by month end",
+  "@projectedMonthEnd": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "needPerDay": "Need {amount} a day for the {days, plural, =1{last day} other{next {days} days}}",
+  "@needPerDay": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "baselineLine": "From about {baseline} a month to the target: {multiple} times today.",
+  "@baselineLine": {
+    "placeholders": {
+      "baseline": {
+        "type": "String"
+      },
+      "multiple": {
+        "type": "String"
+      }
+    }
+  },
+  "todaySales": "Sales today",
+  "ordersToday": "Orders today",
+  "needsAttention": "Needs your attention",
+  "attnOrders": "{n, plural, =0{No orders to handle} =1{1 order to handle} other{{n} orders to handle}}",
+  "@attnOrders": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "attnEmiApprovals": "{n, plural, =0{No EMI applications waiting} =1{1 EMI application waiting} other{{n} EMI applications waiting}}",
+  "@attnEmiApprovals": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "attnOverdue": "{count, plural, =0{No overdue instalments} =1{1 overdue instalment ({amount})} other{{count} overdue instalments ({amount})}}",
+  "@attnOverdue": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "attnLeads": "{n, plural, =0{No new leads} =1{1 new lead to call} other{{n} new leads to call}}",
+  "@attnLeads": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "attnFollowUps": "{n, plural, =0{No follow-ups due} =1{1 follow-up due} other{{n} follow-ups due}}",
+  "@attnFollowUps": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "attnRepairs": "{n, plural, =0{No repairs waiting} =1{1 repair waiting} other{{n} repairs waiting}}",
+  "@attnRepairs": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "attnLowStock": "{n, plural, =0{Stock looks healthy} =1{1 item low or out of stock} other{{n} items low or out of stock}}",
+  "@attnLowStock": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "last14Days": "Profit, last 14 days",
+  "profit": "Profit",
+  "whereProfitComes": "Where the profit comes from",
+  "leverRepairs": "Repairs",
+  "leversHint": "Phones carry thin margins. Accessories, protection plans and repairs are where profit grows fastest: sell them with every phone.",
+  "growthScorecard": "Growth scorecard (last 30 days)",
+  "scorecardHint": "What you did against what the target month needs.",
+  "scPhones": "Phones sold",
+  "scAttach": "Phones sold with an accessory",
+  "scProtection": "Phones sold with a protection plan",
+  "scRepairs": "Repairs done",
+  "scLeadConv": "Leads that became a sale",
+  "scRepeat": "Sales to returning customers",
+  "finishSetup": "Finish setting up your shop",
+  "finishSetupBody": "The app hides buttons that need these until you add them, so customers never reach a wrong number.",
+  "setupPhone": "Shop phone",
+  "setupWhatsapp": "WhatsApp number",
+  "setupUpi": "UPI ID",
+  "setupGstin": "GSTIN",
+  "setupLocation": "Map location",
+  "setupEmiRates": "Confirm EMI rates",
+  "openSettings": "Open settings",
+  "quickActions": "Quick actions",
+  "newSale": "New sale",
+  "newSaleHint": "Bill a customer at the counter",
+  "addProduct": "Add product",
+  "runAutopayNow": "Run Autopay now",
+  "autopayRan": "{n, plural, =0{No instalments were due.} =1{Collected 1 instalment.} other{Collected {n} instalments.}}",
+  "@autopayRan": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "fltToHandle": "To handle",
+  "fltReady": "Out or ready",
+  "fltDone": "Done",
+  "fltCancelled": "Cancelled",
+  "searchOrdersHint": "Order number, name or phone",
+  "sourceCounter": "Counter",
+  "sourceApp": "App",
+  "customer": "Customer",
+  "orderUpdateText": "Update on your order {number}: {status}.",
+  "@orderUpdateText": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "actMarkPaid": "Mark as paid",
+  "actConfirm": "Confirm order",
+  "actPack": "Mark packed",
+  "actOut": "Out for delivery",
+  "actReady": "Ready for pickup",
+  "actDeliver": "Mark delivered",
+  "actCancel": "Cancel order",
+  "actRejectReturn": "Reject return",
+  "actAcceptReturn": "Accept return",
+  "confirmReturnQ": "Accept this return?",
+  "imeiMissing": "IMEI not entered yet",
+  "enterImei": "Enter IMEI",
+  "imeiHelp": "Dial *#06# on the phone to see its IMEI. Enter one for every phone.",
+  "discount": "Discount",
+  "collectPayment": "Collect payment",
+  "amount": "Amount",
+  "referenceOptional": "Reference (optional)",
+  "markLenderPaid": "Lender has paid us",
+  "lenderReference": "Lender reference",
+  "sendRefund": "Send refund {amount}",
+  "@sendRefund": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "notes": "Notes",
+  "stockLow": "Low stock",
+  "hidden": "Hidden",
+  "missingCosts": "{n, plural, =1{1 product has no cost price, so its profit counts as zero.} other{{n} products have no cost price, so their profit counts as zero.}}",
+  "@missingCosts": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "editProduct": "Edit product",
+  "hide": "Hide from customers",
+  "show": "Show to customers",
+  "productName": "Product name",
+  "categoryLabel": "Category",
+  "variantsHeader": "Variants and prices",
+  "addVariant": "Add variant",
+  "variantLabel": "Variant",
+  "colorLabel": "Colour",
+  "sellingPrice": "Selling price",
+  "stockLabel": "Stock",
+  "costPrice": "Cost price",
+  "costPriceHelp": "What you paid, GST included. Customers never see it.",
+  "profitPerUnit": "Profit per unit (after GST)",
+  "description": "Description",
+  "imageUrls": "Photo links",
+  "imageUrlsHelp": "One web link per line. Photo upload comes with the online shop server.",
+  "tags": "Tags",
+  "tagsHelp": "Comma separated, e.g. refurbished, festival",
+  "sellingOptions": "Selling options",
+  "warrantyMonthsLabel": "Warranty (months)",
+  "gstRate": "GST rate",
+  "emiEligible": "Can be bought on EMI",
+  "noCostEligible": "Eligible for 0% EMI",
+  "noCostEligibleHint": "Only if your lender and the brand offer it on this model.",
+  "featuredOnHome": "Show on the home screen",
+  "visibleToCustomers": "Visible to customers",
+  "fltOpen": "Open",
+  "fltFollowUpDue": "Follow-up due",
+  "noLeads": "No leads here",
+  "noLeadsHint": "Anyone who asks about a phone, applies for EMI, books a repair or sends an exchange will appear here.",
+  "followUpOn": "Follow up: {when}",
+  "@followUpOn": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "leadWhatsappText": "Hello {name}, this is {shop} about your {what}. How can we help you?",
+  "@leadWhatsappText": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "what": {
+        "type": "String"
+      },
+      "shop": {
+        "type": "String"
+      }
+    }
+  },
+  "yourEnquiry": "enquiry",
+  "changeStatus": "Change status",
+  "addNote": "Add note",
+  "followUp": "Follow up",
+  "emiDesk": "EMI desk",
+  "emiDeskHint": "Applications, approvals, due dates and Autopay",
+  "repairsDesk": "Repairs",
+  "offersAndCoupons": "Offers and coupons",
+  "customersTitle": "Customers",
+  "customersHint": "Everyone who has bought or asked, and who is due an upgrade",
+  "reportsTitle": "Reports",
+  "staffTitle": "Staff and roles",
+  "staffHint": "Who can do what in the app",
+  "shopSettings": "Shop settings",
+  "resetDemoHint": "You are looking at sample data. Reset it when you are ready to add your real stock.",
+  "resetDemo": "Reset demo data",
+  "resetDemoQ": "Reset all demo data?",
+  "resetDemoBody": "This erases every order, customer and change on this device and loads the sample shop again.",
+  "addItem": "Add item",
+  "discountHelp": "Counter staff can give up to {pct}%. A manager can give more.",
+  "@discountHelp": {
+    "placeholders": {
+      "pct": {
+        "type": "int"
+      }
+    }
+  },
+  "fullCash": "All cash",
+  "fullUpi": "All UPI",
+  "fullCard": "All card",
+  "addPayment": "Add a payment",
+  "paidSoFar": "Paid so far",
+  "financeBalanceBajaj": "Finance the rest with Bajaj Finserv",
+  "financeBalanceHint": "What the customer pays now is the down payment.",
+  "financeNeedsDown": "Enter the down payment above. The rest, up to the phone price, is financed.",
+  "bajajCounterNote": "The sale is held until the lender approves. IMEI is entered at hand-over.",
+  "completeSale": "Complete sale",
+  "saleDone": "Sale complete: {number}",
+  "@saleDone": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "saleDoneBody": "The bill and warranty are now in the customer app, under their mobile number.",
+  "saleDoneEmiBody": "The EMI application is open. Approve it on the EMI desk, then hand the phone over.",
+  "sendBill": "Send bill on WhatsApp",
+  "tabApplications": "Applications",
+  "tabActive": "Active",
+  "tabOther": "Closed",
+  "dueThisMonth": "Due this month",
+  "overdueLabel": "Overdue",
+  "overdueCount": "{n, plural, =1{1 overdue} other{{n} overdue}}",
+  "@overdueCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "approveHint": "Approve only after the lender (Bajaj Finserv or the bank) has approved the loan. Then the phone can be handed over.",
+  "approvePlan": "Approve",
+  "rejectPlan": "Reject",
+  "lenderRefHint": "Loan or application number",
+  "markPaid": "Mark paid",
+  "issueLabel": "Problem",
+  "quotePrice": "Price quoted to the customer",
+  "partsCostPrompt": "What did the parts cost you?",
+  "moveTo": "Move to: {status}",
+  "@moveTo": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "waitingForCustomer": "Waiting for the customer to approve the price.",
+  "customerApproved": "Customer agreed on the phone",
+  "addOffer": "Add offer",
+  "editOffer": "Edit offer",
+  "noOffers": "No offers yet",
+  "noOffersHint": "Add a festival banner or a coupon code. Customers see it on the home screen and at checkout.",
+  "shareOffer": "Share offer",
+  "offerShareBanner": "{title}. Visit {shop} or order on the Brandhoop app.",
+  "@offerShareBanner": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "shop": {
+        "type": "String"
+      }
+    }
+  },
+  "offerShareCoupon": "{title}. Use code {code} at {shop} or on the Brandhoop app.",
+  "@offerShareCoupon": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "code": {
+        "type": "String"
+      },
+      "shop": {
+        "type": "String"
+      }
+    }
+  },
+  "offerTitle": "Title",
+  "offerSubtitle": "Subtitle",
+  "kindCoupon": "Coupon",
+  "kindBanner": "Banner",
+  "percentOff": "Percent off",
+  "flatOff": "Flat off",
+  "minOrder": "Minimum order",
+  "maxDiscount": "Maximum discount",
+  "appliesTo": "Applies to",
+  "appliesToHint": "Leave all unselected to apply to everything. Keep phones out of big discounts: their margin is thin.",
+  "starts": "Starts",
+  "ends": "Ends",
+  "activeLabel": "Active",
+  "deleteOfferQ": "Delete this offer?",
+  "searchCustomersHint": "Name or phone",
+  "segUpgrade": "Due an upgrade",
+  "segTop": "Top spenders",
+  "segRepeat": "Repeat buyers",
+  "segNew": "New this month",
+  "upgradeHint": "These customers bought their last phone more than 18 months ago. They are the likeliest to buy again.",
+  "tapCustomerToMessage": "Open a customer to send them an offer on WhatsApp.",
+  "ordersCount": "{n, plural, =0{No orders} =1{1 order} other{{n} orders}}",
+  "@ordersCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "customerSince": "Customer since {date}",
+  "@customerSince": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "addedAtCounter": "added at the counter",
+  "lifetimeSpend": "Total bought",
+  "coinsLabel": "Brandhoop Coins",
+  "lastPhoneBought": "Last phone bought",
+  "sendOffer": "Send offer",
+  "sendUpgrade": "Upgrade message",
+  "customerOfferText": "Hello {name}! {shop} has new offers on phones and accessories this week. Visit us or reply here to know more.",
+  "@customerOfferText": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "shop": {
+        "type": "String"
+      }
+    }
+  },
+  "upgradeText": "Hello {name}! It has been a while since your last phone from {shop}. Come and see what you get for your old phone on the latest models.",
+  "@upgradeText": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "shop": {
+        "type": "String"
+      }
+    }
+  },
+  "addStaff": "Add staff",
+  "staffExplain": "Give a mobile number a role. When that person signs in with the code, they see the back office that role allows.",
+  "roleLabel": "Role",
+  "makeRole": "Make {role}",
+  "@makeRole": {
+    "placeholders": {
+      "role": {
+        "type": "String"
+      }
+    }
+  },
+  "disableAccount": "Switch off this account",
+  "enableAccount": "Switch this account on",
+  "disabled": "Switched off",
+  "staffAdded": "Added. They can sign in with their mobile number.",
+  "whatEachRoleCanDo": "What each role can do",
+  "roleStaffCan": "Bills at the counter, handles orders and leads, runs repairs, adjusts stock. Cannot see costs or profit, change prices, or approve EMI.",
+  "roleManagerCan": "Everything staff can do, plus products, prices, cost prices, offers, EMI approvals and reports. Cannot see profit totals, staff or settings.",
+  "roleOwnerCan": "Everything, including profit and the road to the target, refunds, staff and shop settings.",
+  "exportCsv": "Copy as CSV",
+  "csvCopied": "Copied. Paste it into a spreadsheet.",
+  "last7Days": "Last 7 days",
+  "last30Days": "Last 30 days",
+  "thisMonth": "This month",
+  "revenue": "Sales",
+  "ordersLabel": "Orders",
+  "avgOrder": "Average order",
+  "phonesSold": "Phones sold",
+  "margin": "Profit margin",
+  "dailyProfitRevenue": "Day by day",
+  "salesByGroup": "Sales by type",
+  "paymentMix": "How customers paid",
+  "topProducts": "Best sellers",
+  "unitsSold": "{n, plural, =1{1 sold} other{{n} sold}}",
+  "@unitsSold": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "setShopInfo": "Shop details",
+  "shopName": "Shop name",
+  "tagline": "Tagline",
+  "shopPhone": "Shop phone",
+  "shopPhoneHelp": "Customers tap this to call. Leave empty to hide the Call button.",
+  "shopWhatsapp": "WhatsApp number",
+  "addressLabel": "Address",
+  "latitude": "Latitude",
+  "longitude": "Longitude",
+  "mapsLink": "Google Maps link",
+  "mapsLinkHelp": "Optional. Open the shop on Google Maps, tap Share, paste the link here.",
+  "shopUpi": "Shop UPI ID",
+  "shopUpiHelp": "Where counter UPI payments go.",
+  "shopGstin": "GSTIN",
+  "opens": "Opens",
+  "closes": "Closes",
+  "deliveryAndOrders": "Delivery and orders",
+  "localPincodes": "Pincodes you deliver to yourself",
+  "localPincodesHelp": "Comma separated. Same-day delivery and cash on delivery work only here.",
+  "localDeliveryFee": "Local delivery fee",
+  "courierFee": "Courier fee",
+  "freeDeliveryAbove": "Free delivery above",
+  "reserveHoursLabel": "Reserve hours",
+  "codLimit": "Cash on delivery limit",
+  "allowCod": "Allow cash on delivery in town",
+  "allowReserve": "Allow reserve with a token",
+  "financeSettings": "EMI and Autopay",
+  "financeSettingsHint": "These rates start as placeholders. Replace them with what Bajaj Finserv and your card banks have agreed with you, then tick Rates confirmed.",
+  "allowBajaj": "Offer Bajaj Finserv EMI",
+  "allowCardEmi": "Offer card EMI",
+  "allowAutopay": "Offer Autopay",
+  "allowShopInstalments": "Instalments collected by the shop itself",
+  "allowShopInstalmentsHint": "Keep off until you have taken advice: collecting instalments yourself can fall under lending and deposit rules.",
+  "ratesConfirmed": "Rates confirmed",
+  "ratesConfirmedHint": "Switch on only when the rates below are the real ones.",
+  "lenderRateLabel": "Lender rate % a year",
+  "minPrice": "Minimum price",
+  "minDownPct": "Minimum down payment %",
+  "tenuresLabel": "Months offered",
+  "tenuresHelp": "Comma separated, e.g. 3, 6, 9, 12",
+  "noCostCostNote": "On a 0% scheme the customer pays only the price. The interest the lender would charge is counted as a cost of the sale in your profit.",
+  "targetsAndFees": "Target, fees and rewards",
+  "monthlyTarget": "Monthly profit target",
+  "baselineProfit": "Profit before the app",
+  "cardFee": "Card fee %",
+  "upiFee": "UPI fee %",
+  "profitAfterGst": "Count profit after GST",
+  "profitAfterGstHint": "The GST on your margin goes to the government, so it is not yours to keep.",
+  "coinsEarnPct": "Coins earned % (accessories)",
+  "referralBonus": "Referral bonus (coins)",
+  "maxCoinsPct": "Max coins use %",
+  "repairPricesHeader": "Repair starting prices"
+}
