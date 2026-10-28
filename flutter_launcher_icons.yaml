@@ -1,0 +1,13 @@
+# Settings for `dart run flutter_launcher_icons`, kept out of pubspec.yaml so
+# launchkit can add them without editing your pubspec. The images come from
+# tools/branding/make_icon.py. The web is left to that script, which draws a
+# small optical size that a plain downscale of the big icon would lose.
+flutter_launcher_icons:
+  image_path: assets/branding/icon-1024.png
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  min_sdk_android: 21
+  adaptive_icon_background: "#283593"
+  adaptive_icon_foreground: assets/branding/icon-foreground.png
+  adaptive_icon_monochrome: assets/branding/icon-monochrome.png

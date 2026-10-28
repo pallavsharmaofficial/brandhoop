@@ -41,6 +41,7 @@ class EmiDeskScreen extends StatelessWidget {
 
     return DefaultTabController(
       length: 3,
+      initialIndex: applied.isEmpty && active.isNotEmpty ? 1 : 0,
       child: Scaffold(
         appBar: AppBar(
           title: Text(context.tr.emiDesk),

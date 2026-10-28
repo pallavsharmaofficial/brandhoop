@@ -94,7 +94,11 @@ List<Product> applyQuery(List<Product> all, CatalogQuery q) {
     return true;
   }).toList();
 
+  // Phones lead, then what the shop features, then what is in stock, then the
+  // biggest discount.
   int byPopular(Product a, Product b) {
+    final int g = a.category.group.index.compareTo(b.category.group.index);
+    if (g != 0) return g;
     final int f = (b.featured ? 1 : 0).compareTo(a.featured ? 1 : 0);
     if (f != 0) return f;
     final int s = (b.inStock ? 1 : 0).compareTo(a.inStock ? 1 : 0);

@@ -197,14 +197,16 @@ class DayStats {
   final int profit;
 }
 
-/// Where the shop stands on the levers that make up the monthly target.
+/// The monthly levers behind the 5 lakh target at the end of the 12-month plan
+/// (docs/GROWTH_PLAN.md). They are the arithmetic of the target, not forecasts:
+/// the owner should replace them with what the shop can really reach.
 class GrowthTargets {
   const GrowthTargets._();
 
-  static const int phonesPerMonth = 120;
+  static const int phonesPerMonth = 220;
   static const double attachRate = 0.70;
   static const double protectionRate = 0.40;
   static const double leadConversion = 0.35;
   static const double repeatRate = 0.40;
-  static const int repairsPerMonth = 150;
+  static const int repairsPerMonth = 220;
 }

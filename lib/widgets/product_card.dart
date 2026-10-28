@@ -61,11 +61,14 @@ class ProductCard extends StatelessWidget {
                   children: <Widget>[
                     Text(product.brand.toUpperCase(), style: t.textTheme.labelSmall?.copyWith(color: t.colorScheme.onSurfaceVariant, letterSpacing: 0.8)),
                     const SizedBox(height: 2),
-                    Text(
-                      product.name.of(lang),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: t.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700, height: 1.25),
+                    ConstrainedBox(
+                      constraints: const BoxConstraints(minHeight: 36),
+                      child: Text(
+                        product.name.of(lang),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: t.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700, height: 1.25),
+                      ),
                     ),
                     const SizedBox(height: 6),
                     PriceBlock(price: product.minPrice, mrp: product.minMrp),

@@ -464,6 +464,73 @@ class DemoSeed {
     await openOrder(customers[5], <OrderLine>[lineOf(phones[5])],
         OrderStatus.confirmed, Fulfilment.pickup, PaymentMode.full, PaymentMethod.card, minutesAgo: 60);
 
+    // 2b) A fresh Bajaj application, waiting on the EMI desk.
+    {
+      final AppUser applicant = customers[2];
+      final Product p2 = phones[1];
+      final ProductVariant v2 = p2.variants.last;
+      const int down2 = 2500;
+      final int principal2 = v2.price - down2;
+      final EmiScheme std = settings.scheme('bajaj_standard')!;
+      final EmiQuote q2 = Emi.quote(principal: principal2, months: 12, annualRatePct: std.annualRatePct);
+      final DateTime at2 = now.subtract(const Duration(minutes: 35));
+      final String number2 = nextNumber(at2);
+      const String orderId2 = 'ord_seed_emi2';
+      await r.plans.save(EmiPlan(
+        id: 'emi_seed_2',
+        orderId: orderId2,
+        orderNumber: number2,
+        customerId: applicant.id,
+        customerName: applicant.name,
+        customerPhone: applicant.phone,
+        provider: EmiProvider.bajaj,
+        schemeId: std.id,
+        productSummary: p2.name.en,
+        price: v2.price,
+        downPayment: down2,
+        principal: principal2,
+        months: 12,
+        annualRatePct: std.annualRatePct,
+        emi: q2.emi,
+        processingFee: std.processingFee,
+        createdAt: at2,
+      ));
+      await r.orders.save(Order(
+        id: orderId2,
+        number: number2,
+        customerId: applicant.id,
+        customerName: applicant.name,
+        customerPhone: applicant.phone,
+        lines: <OrderLine>[
+          OrderLine(
+            productId: p2.id,
+            variantId: v2.id,
+            name: p2.name.en,
+            nameHi: p2.name.hi,
+            variantLabel: v2.label,
+            category: p2.category,
+            qty: 1,
+            unitPrice: v2.price,
+            unitMrp: v2.mrp,
+          ),
+        ],
+        fulfilment: Fulfilment.pickup,
+        subtotal: v2.price,
+        total: v2.price,
+        payments: <PaymentRecord>[
+          PaymentRecord(id: newId('pr'), method: PaymentMethod.upi, amount: down2, status: PaymentStatus.paid, at: at2),
+          PaymentRecord(id: newId('pr'), kind: PaymentKind.lenderDisbursement, method: PaymentMethod.bajajEmi, amount: principal2, status: PaymentStatus.pending, at: at2),
+        ],
+        paymentMode: PaymentMode.bajajEmi,
+        status: OrderStatus.placed,
+        events: <OrderEvent>[OrderEvent(status: OrderStatus.placed, at: at2)],
+        createdAt: at2,
+        updatedAt: at2,
+        pickupCode: newPickupCode(),
+        emiPlanId: 'emi_seed_2',
+      ));
+    }
+
     // 3) Leads.
     Lead lead(LeadType t, AppUser c, String product, String msg, int minutesAgo, {LeadStatus st = LeadStatus.fresh}) {
       final DateTime at = now.subtract(Duration(minutes: minutesAgo));

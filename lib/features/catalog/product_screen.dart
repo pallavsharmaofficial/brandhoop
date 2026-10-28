@@ -117,17 +117,14 @@ class _ProductScreenState extends State<ProductScreen> {
       ),
       body: MaxWidth(
         child: ListView(
-          padding: const EdgeInsets.only(bottom: 24),
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
           children: <Widget>[
             AspectRatio(
               aspectRatio: 1.5,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                child: ProductArt(product: p, radius: 20),
-              ),
+              child: ProductArt(product: p, radius: 20),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+              padding: const EdgeInsets.only(top: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -167,7 +164,7 @@ class _ProductScreenState extends State<ProductScreen> {
             ),
             if (emi != null)
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+                padding: const EdgeInsets.only(top: 16),
                 child: Card(
                   child: InkWell(
                     borderRadius: BorderRadius.circular(16),
@@ -203,7 +200,7 @@ class _ProductScreenState extends State<ProductScreen> {
               ),
             if (p.isPhone && store.reserveEnabled && v.price > store.reserveToken)
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+                padding: const EdgeInsets.only(top: 12),
                 child: Card(
                   color: BrandColors.saffronSoft.withValues(alpha: 0.35),
                   child: Padding(
@@ -243,7 +240,7 @@ class _ProductScreenState extends State<ProductScreen> {
                         children: <Widget>[
                           const Icon(Icons.local_shipping_outlined, size: 20),
                           const SizedBox(width: 10),
-                          Expanded(child: Text(context.tr.deliveryLocal(store.city), style: const TextStyle(height: 1.35))),
+                          Expanded(child: Text(context.tr.deliveryLocal(store.cityOf(lang)), style: const TextStyle(height: 1.35))),
                         ],
                       ),
                       const SizedBox(height: 10),
@@ -481,16 +478,18 @@ class _BottomBar extends StatelessWidget {
               IconButton.outlined(onPressed: onAsk, tooltip: askLabel, icon: const Icon(Icons.chat_outlined)),
               const SizedBox(width: 10),
               Expanded(
+                flex: 4,
                 child: OutlinedButton(
                   onPressed: ok ? onAdd : null,
-                  child: Text(context.tr.addToCart),
+                  child: FittedBox(fit: BoxFit.scaleDown, child: Text(context.tr.addToCart)),
                 ),
               ),
               const SizedBox(width: 10),
               Expanded(
+                flex: 5,
                 child: FilledButton(
                   onPressed: ok ? onBuy : onAsk,
-                  child: Text(ok ? '${context.tr.buyNow} · ${formatRupees(total)}' : context.tr.notifyMe),
+                  child: FittedBox(fit: BoxFit.scaleDown, child: Text(ok ? '${context.tr.buyNow} · ${formatRupees(total)}' : context.tr.notifyMe, maxLines: 1)),
                 ),
               ),
             ],

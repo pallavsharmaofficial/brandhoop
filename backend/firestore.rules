@@ -1,0 +1,56 @@
+// DRAFT. Not tested. Run against the Firebase emulator before use.
+// Roles come from custom claims: request.auth.token.role.
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function role() { return signedIn() ? request.auth.token.role : 'none'; }
+    function isStaff() { return role() in ['staff', 'manager', 'owner']; }
+    function isManager() { return role() in ['manager', 'owner']; }
+    function isOwner() { return role() == 'owner'; }
+
+    match /settings/{doc} {
+      allow read: if true;
+      allow write: if isOwner();
+    }
+    match /products/{id} {
+      allow read: if true;
+      allow write: if isManager();
+    }
+    match /costs/{id} {
+      allow read, write: if isManager();
+    }
+    match /users/{uid} {
+      allow read: if signedIn() && (request.auth.uid == uid || isStaff());
+      // Customers edit their own profile but never their role or active flag.
+      allow create: if signedIn() && request.auth.uid == uid
+        && !('role' in request.resource.data);
+      allow update: if signedIn() && request.auth.uid == uid
+        && !request.resource.data.diff(resource.data).affectedKeys()
+             .hasAny(['role', 'active', 'coins']);
+      allow update: if isOwner();
+    }
+    match /orders/{id} {
+      allow read: if signedIn() && (resource.data.userId == request.auth.uid || isStaff());
+      // Payment fields are written by Cloud Functions (admin SDK), not clients.
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid
+        && request.resource.data.paymentStatus == 'pending';
+      allow update: if isStaff();
+    }
+    match /emiPlans/{id} {
+      allow read: if signedIn() && (resource.data.userId == request.auth.uid || isStaff());
+      allow write: if isManager();
+    }
+    match /finance/{id} {
+      allow read, write: if isOwner();
+    }
+    match /repairs/{id} {
+      allow read: if signedIn() && (resource.data.userId == request.auth.uid || isStaff());
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow update: if isStaff();
+    }
+    match /{coll}/{id} {
+      allow read, write: if (coll in ['leads', 'offers', 'coupons']) && isStaff();
+    }
+  }
+}

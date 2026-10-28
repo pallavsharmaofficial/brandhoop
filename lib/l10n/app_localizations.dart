@@ -3770,6 +3770,12 @@ abstract class AppLocalizations {
   /// **'From about {baseline} a month to the target: {multiple} times today.'**
   String baselineLine(String baseline, String multiple);
 
+  /// No description provided for @profitBasisNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Profit after GST and fees, before rent, salaries and power.'**
+  String get profitBasisNote;
+
   /// No description provided for @todaySales.
   ///
   /// In en, this message translates to:

@@ -72,8 +72,8 @@ class DashboardScreen extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(16, 4, 16, 32),
           children: <Widget>[
             if (AppEnv.demo) Padding(padding: const EdgeInsets.only(bottom: 10), child: InfoBanner(text: context.tr.demoBanner, icon: Icons.science_outlined, color: BrandColors.saffron)),
-            if (owner && store.missingSetup.isNotEmpty) Padding(padding: const EdgeInsets.only(bottom: 10), child: _SetupCard(store: store)),
             if (money) _RoadHero(entries: entries, store: store, now: now),
+            if (owner && store.missingSetup.isNotEmpty) Padding(padding: const EdgeInsets.only(top: 12), child: _SetupCard(store: store)),
             const SizedBox(height: 12),
             Row(
               children: <Widget>[
@@ -237,6 +237,8 @@ class _RoadHero extends StatelessWidget {
             context.tr.baselineLine(formatCompactRupees(store.baselineMonthlyProfit, hindi: hi), multiple.toStringAsFixed(multiple >= 10 ? 0 : 1)),
             style: const TextStyle(color: Colors.white60, fontSize: 12),
           ),
+          const SizedBox(height: 2),
+          Text(context.tr.profitBasisNote, style: const TextStyle(color: Colors.white38, fontSize: 11)),
         ],
       ),
     );

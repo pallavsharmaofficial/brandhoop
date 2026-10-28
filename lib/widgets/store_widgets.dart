@@ -99,7 +99,7 @@ class AddressLines extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          '${settings.addressLine.of(lang)}, ${settings.city}, ${settings.state} ${settings.pincode}',
+          '${settings.addressLine.of(lang)}, ${settings.cityOf(lang)}, ${settings.stateOf(lang)} ${settings.pincode}',
           style: TextStyle(color: c, fontWeight: FontWeight.w600, height: 1.3),
         ),
         if (!settings.landmark.isEmpty)

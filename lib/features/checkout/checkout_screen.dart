@@ -180,7 +180,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     RadioListTile<Fulfilment>(
                       value: Fulfilment.delivery,
                       title: Text(context.tr.fulfilDelivery),
-                      subtitle: Text(context.tr.deliveryLocal(store.city)),
+                      subtitle: Text(context.tr.deliveryLocal(store.cityOf(context.lang))),
                       secondary: const Icon(Icons.local_shipping_outlined),
                     ),
                     const Divider(),
@@ -210,16 +210,15 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 _months = null;
                 _down = null;
               }),
-              child: Column(children: <Widget>[for (final PayChoice c in choices) _choiceTile(context, c, c == choice, store)]),
+              child: Column(
+                children: <Widget>[
+                  for (final PayChoice c in choices) ...<Widget>[
+                    _choiceTile(context, c, c == choice, store),
+                    if (c == choice) ?_panelFor(context, c, store, q, schemes, scheme, months, down, financeable, emi, payNow),
+                  ],
+                ],
+              ),
             ),
-            if (choice == PayChoice.upi) _panel(InstrumentPicker(key: const ValueKey<String>('upi'), methods: const <PaymentMethod>[PaymentMethod.upi], onChanged: _setInstrument)),
-            if (choice == PayChoice.card) _panel(InstrumentPicker(key: const ValueKey<String>('card'), methods: const <PaymentMethod>[PaymentMethod.card], onChanged: _setInstrument)),
-            if (choice == PayChoice.netbanking) _panel(InstrumentPicker(key: const ValueKey<String>('nb'), methods: const <PaymentMethod>[PaymentMethod.netbanking], onChanged: _setInstrument)),
-            if (choice == PayChoice.reserve) _panel(_reservePanel(context, store, q)),
-            if (choice == PayChoice.bajajEmi) _panel(_bajajPanel(context, store, q, schemes, scheme, months, down, financeable, emi, payNow)),
-            if (choice == PayChoice.cardEmi) _panel(_cardEmiPanel(context, store, q, schemes, scheme, months, emi)),
-            if (choice == PayChoice.cashOnDelivery || choice == PayChoice.cashAtStore)
-              _panel(InfoBanner(text: context.tr.payChoiceHint(choice), icon: Icons.payments_outlined)),
             _step(context, '4', context.tr.orderSummary),
             Card(
               child: Padding(
@@ -254,6 +253,26 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   }
 
   // ---- helpers ------------------------------------------------------------
+
+  Widget? _panelFor(BuildContext context, PayChoice c, StoreSettings store, Quote q, List<EmiScheme> schemes, EmiScheme? scheme, int months, int down, int financeable, EmiQuote? emi, int payNow) {
+    switch (c) {
+      case PayChoice.upi:
+        return _panel(InstrumentPicker(key: const ValueKey<String>('upi'), methods: const <PaymentMethod>[PaymentMethod.upi], onChanged: _setInstrument));
+      case PayChoice.card:
+        return _panel(InstrumentPicker(key: const ValueKey<String>('card'), methods: const <PaymentMethod>[PaymentMethod.card], onChanged: _setInstrument));
+      case PayChoice.netbanking:
+        return _panel(InstrumentPicker(key: const ValueKey<String>('nb'), methods: const <PaymentMethod>[PaymentMethod.netbanking], onChanged: _setInstrument));
+      case PayChoice.reserve:
+        return _panel(_reservePanel(context, store, q));
+      case PayChoice.bajajEmi:
+        return _panel(_bajajPanel(context, store, q, schemes, scheme, months, down, financeable, emi, payNow));
+      case PayChoice.cardEmi:
+        return _panel(_cardEmiPanel(context, store, q, schemes, scheme, months, emi));
+      case PayChoice.cashOnDelivery:
+      case PayChoice.cashAtStore:
+        return _panel(InfoBanner(text: context.tr.payChoiceHint(c), icon: Icons.payments_outlined));
+    }
+  }
 
   void _setInstrument(PayInstrument? i) {
     if (!mounted) return;

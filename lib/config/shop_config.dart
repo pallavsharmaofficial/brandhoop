@@ -30,6 +30,8 @@ class ShopConfig {
           'स्टडी पॉइंट लाइब्रेरी के सामने, सड़क के उस पार',
         ),
         city: 'Neem Ka Thana',
+        cityHi: 'नीम का थाना',
+        stateHi: 'राजस्थान',
         pincode: '332713',
         // Opening hours are a placeholder (10:00 to 21:00, every day).
         hours: StoreHours.everyDay(10 * 60, 21 * 60),

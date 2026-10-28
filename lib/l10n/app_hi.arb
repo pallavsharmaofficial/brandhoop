@@ -612,6 +612,7 @@
   "projectedMonthEnd": "इसी रफ़्तार से महीने के अंत तक: {amount}",
   "needPerDay": "अगले {days, plural, =1{1 दिन} other{{days} दिन}} में रोज़ {amount} चाहिए",
   "baselineLine": "करीब {baseline} प्रति माह से लक्ष्य तक: आज का {multiple} गुना।",
+  "profitBasisNote": "जीएसटी और शुल्क के बाद का मुनाफ़ा, किराया, वेतन और बिजली से पहले।",
   "todaySales": "आज की बिक्री",
   "ordersToday": "आज के ऑर्डर",
   "needsAttention": "आपके ध्यान की ज़रूरत",

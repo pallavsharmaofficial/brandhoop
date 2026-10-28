@@ -148,7 +148,9 @@ void main() {
     final AppUnderTest app = await AppUnderTest.pump(tester);
     expect((await app.repos.users.byPhone(DemoSeed.ownerPhone))!.role.name, 'owner');
     expect((await app.repos.users.byPhone(DemoSeed.staffPhone))!.role.name, 'staff');
-    final EmiPlan plan = (await app.repos.plans.all()).single;
-    expect(plan.mandate!.isActive, isTrue);
+    final List<EmiPlan> plans = await app.repos.plans.all();
+    expect(plans, hasLength(2));
+    expect(plans.firstWhere((EmiPlan p) => p.status == EmiPlanStatus.active).mandate!.isActive, isTrue);
+    expect(plans.where((EmiPlan p) => p.status == EmiPlanStatus.applied), hasLength(1));
   });
 }

@@ -14,7 +14,7 @@ class Invoice {
   static String text(Order o, StoreSettings s, AppLocalizations tr, String lang) {
     final StringBuffer b = StringBuffer()
       ..writeln(s.name.of(lang).toUpperCase())
-      ..writeln('${s.addressLine.of(lang)}, ${s.city}, ${s.state} ${s.pincode}');
+      ..writeln('${s.addressLine.of(lang)}, ${s.cityOf(lang)}, ${s.stateOf(lang)} ${s.pincode}');
     if (s.hasPhone) b.writeln(s.phone);
     if (s.gstin.isNotEmpty) b.writeln('GSTIN: ${s.gstin}');
     b

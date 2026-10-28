@@ -212,8 +212,10 @@ class StoreSettings extends Equatable {
     required this.addressLine,
     required this.landmark,
     required this.city,
+    this.cityHi = '',
     this.district = 'Neem Ka Thana',
     this.state = 'Rajasthan',
+    this.stateHi = '',
     required this.pincode,
     this.mapsUrl = '',
     this.latitude,
@@ -254,8 +256,12 @@ class StoreSettings extends Equatable {
   final LocalizedText addressLine;
   final LocalizedText landmark;
   final String city;
+
+  /// The town and state in Hindi, for the Hindi screens. Empty falls back to English.
+  final String cityHi;
   final String district;
   final String state;
+  final String stateHi;
   final String pincode;
   final String mapsUrl;
   final double? latitude;
@@ -299,6 +305,9 @@ class StoreSettings extends Equatable {
   final int coinsEarnPct;
   final int maxCoinsPctOfOrder;
 
+  String cityOf(String lang) => lang == 'hi' && cityHi.trim().isNotEmpty ? cityHi : city;
+  String stateOf(String lang) => lang == 'hi' && stateHi.trim().isNotEmpty ? stateHi : state;
+
   bool get hasPhone => phone.trim().isNotEmpty;
   bool get hasWhatsapp => whatsapp.trim().isNotEmpty;
 
@@ -340,6 +349,7 @@ class StoreSettings extends Equatable {
     LocalizedText? addressLine,
     LocalizedText? landmark,
     String? city,
+    String? cityHi,
     String? pincode,
     String? mapsUrl,
     double? latitude,
@@ -381,8 +391,10 @@ class StoreSettings extends Equatable {
         addressLine: addressLine ?? this.addressLine,
         landmark: landmark ?? this.landmark,
         city: city ?? this.city,
+        cityHi: cityHi ?? this.cityHi,
         district: district,
         state: state,
+        stateHi: stateHi,
         pincode: pincode ?? this.pincode,
         mapsUrl: mapsUrl ?? this.mapsUrl,
         latitude: clearLocation ? null : (latitude ?? this.latitude),
@@ -426,8 +438,10 @@ class StoreSettings extends Equatable {
         'addressLine': addressLine.toJson(),
         'landmark': landmark.toJson(),
         'city': city,
+        'cityHi': cityHi,
         'district': district,
         'state': state,
+        'stateHi': stateHi,
         'pincode': pincode,
         'mapsUrl': mapsUrl,
         'latitude': latitude,
@@ -471,8 +485,10 @@ class StoreSettings extends Equatable {
       addressLine: LocalizedText.fromJson(j['addressLine']),
       landmark: LocalizedText.fromJson(j['landmark']),
       city: j.str('city', fallback.city),
+      cityHi: j.str('cityHi', fallback.cityHi),
       district: j.str('district', fallback.district),
       state: j.str('state', fallback.state),
+      stateHi: j.str('stateHi', fallback.stateHi),
       pincode: j.str('pincode', fallback.pincode),
       mapsUrl: j.str('mapsUrl'),
       latitude: (j['latitude'] as num?)?.toDouble(),
@@ -513,8 +529,8 @@ class StoreSettings extends Equatable {
 
   @override
   List<Object?> get props => <Object?>[
-        name, tagline, phone, whatsapp, addressLine, landmark, city, district,
-        state, pincode, mapsUrl, latitude, longitude, hours, upiId, gstin,
+        name, tagline, phone, whatsapp, addressLine, landmark, city, cityHi,
+        district, state, stateHi, pincode, mapsUrl, latitude, longitude, hours, upiId, gstin,
         localPincodes, localDeliveryFee, courierFee, freeDeliveryAbove,
         reserveToken, reserveHours, codLimit, emiSchemes, emiRatesConfirmed,
         monthlyProfitTarget, baselineMonthlyProfit, cardFeePct, upiFeePct,

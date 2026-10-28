@@ -2125,6 +2125,10 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get profitBasisNote =>
+      'Profit after GST and fees, before rent, salaries and power.';
+
+  @override
   String get todaySales => 'Sales today';
 
   @override

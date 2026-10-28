@@ -31,7 +31,7 @@ class Section extends StatelessWidget {
     required this.child,
     this.action,
     this.onAction,
-    this.padding = const EdgeInsets.fromLTRB(16, 20, 16, 0),
+    this.padding = const EdgeInsets.only(top: 20),
   });
 
   final String title;

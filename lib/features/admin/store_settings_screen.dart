@@ -86,6 +86,8 @@ class _StoreSettingsScreenState extends State<StoreSettingsScreen> {
                     children: <Widget>[
                       Expanded(child: _text('city', context.tr.cityTown, _s.city)),
                       const SizedBox(width: 12),
+                      Expanded(child: _text('cityHi', '${context.tr.cityTown} (हिन्दी)', _s.cityHi)),
+                      const SizedBox(width: 12),
                       Expanded(child: _text('pin', context.tr.pincode, _s.pincode, kb: TextInputType.number, maxLen: 6)),
                     ],
                   ),
@@ -312,6 +314,7 @@ class _StoreSettingsScreenState extends State<StoreSettingsScreen> {
       addressLine: LocalizedText(_t('addrEn'), _t('addrHi')),
       landmark: LocalizedText(_t('lmEn'), _t('lmHi')),
       city: _t('city'),
+      cityHi: _t('cityHi'),
       pincode: _t('pin'),
       mapsUrl: _t('maps'),
       latitude: double.tryParse(_t('lat')),

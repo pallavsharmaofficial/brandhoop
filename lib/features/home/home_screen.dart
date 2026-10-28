@@ -68,19 +68,19 @@ class HomeScreen extends StatelessWidget {
       ),
       body: MaxWidth(
         child: ListView(
-          padding: const EdgeInsets.only(bottom: 24),
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
           children: <Widget>[
             if (AppEnv.demo)
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 4, 16, 0),
+                padding: const EdgeInsets.only(top: 4),
                 child: InfoBanner(text: context.tr.demoBanner, icon: Icons.science_outlined, color: BrandColors.saffron),
               ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+              padding: const EdgeInsets.only(top: 12),
               child: _Hero(store: store),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
+              padding: const EdgeInsets.only(top: 14),
               child: _SearchBox(),
             ),
             if (offers.isNotEmpty) Padding(padding: const EdgeInsets.only(top: 16), child: _OfferCarousel(offers: offers, lang: lang)),
@@ -158,7 +158,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 20, 16, 0),
+              padding: const EdgeInsets.only(top: 20),
               child: _VisitCard(store: store),
             ),
           ],

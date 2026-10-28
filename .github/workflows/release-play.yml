@@ -1,0 +1,46 @@
+name: Release to Google Play
+
+# Everything that builds, checks, signs and uploads lives in launchkit's
+# reusable workflow, so a fix to the pipeline reaches every app at once. This
+# file only says which app and which track.
+#
+# Run it from the Actions tab, choosing the track, or push a v* tag to send an
+# internal build. The first upload of a brand new app has to be made in the
+# Play Console by hand; the API will not publish to an app that has never had a
+# release. After that this does every update.
+on:
+  workflow_dispatch:
+    inputs:
+      track:
+        description: Play track to publish to
+        type: choice
+        default: internal
+        options: [internal, alpha, beta, production]
+      status:
+        description: Release status
+        type: choice
+        default: completed
+        options: [completed, draft, inProgress]
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    # Pin @main to a tag or a commit once the pipeline is stable, so a change
+    # to launchkit cannot alter a release you are in the middle of.
+    uses: pallavsharmaofficial/launchkit/.github/workflows/release-play.yml@main
+    with:
+      package-name: in.pallavsharma.brandhoop
+      track: ${{ github.event.inputs.track || 'internal' }}
+      status: ${{ github.event.inputs.status || 'completed' }}
+    # Passed one by one rather than with `secrets: inherit`, which does not
+    # reach across every kind of account and hides what the called workflow
+    # can read.
+    secrets:
+      ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+      ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+      ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+      PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}

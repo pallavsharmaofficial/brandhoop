@@ -2117,6 +2117,10 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
+  String get profitBasisNote =>
+      'जीएसटी और शुल्क के बाद का मुनाफ़ा, किराया, वेतन और बिजली से पहले।';
+
+  @override
   String get todaySales => 'आज की बिक्री';
 
   @override

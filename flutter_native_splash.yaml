@@ -1,0 +1,13 @@
+# Settings for `dart run flutter_native_splash:create`. The two backgrounds are
+# the same ones make_icon.py and web/manifest.json use.
+flutter_native_splash:
+  color: "#F2F3F9"
+  color_dark: "#070A1A"
+  image: assets/branding/splash-light.png
+  image_dark: assets/branding/splash-dark.png
+  android_12:
+    image: assets/branding/splash-light.png
+    icon_background_color: "#F2F3F9"
+    image_dark: assets/branding/splash-dark.png
+    icon_background_color_dark: "#070A1A"
+  web: false

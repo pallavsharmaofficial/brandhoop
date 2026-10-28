@@ -1094,6 +1094,7 @@
       }
     }
   },
+  "profitBasisNote": "Profit after GST and fees, before rent, salaries and power.",
   "todaySales": "Sales today",
   "ordersToday": "Orders today",
   "needsAttention": "Needs your attention",
