@@ -1,0 +1,54 @@
+name: Deploy site and demo
+
+# Publishes site/ (home, privacy, terms) at the root of GitHub Pages and the
+# web build of the app, in demo mode, under /app/.
+# One-time setup: repository Settings, Pages, Source: GitHub Actions.
+on:
+  push:
+    branches: [main]
+    paths: ['site/**', 'lib/**', 'web/**', 'assets/**', 'pubspec.yaml', '.github/workflows/pages.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.8
+          cache: true
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
+      - run: python3 tools/store/check_store.py || echo "store check pending (see docs/LAUNCH.md)"
+      - name: Build the demo web app
+        run: flutter build web --release --base-href "/brandhoop/app/" --no-web-resources-cdn
+      - name: Assemble the site
+        run: |
+          mkdir -p _site/app
+          cp -r site/* _site/
+          cp -r build/web/* _site/app/
+          touch _site/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
