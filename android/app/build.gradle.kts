@@ -13,7 +13,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "`in`.pallavsharma.brandhoop"
+    namespace = "in.pallavsharma.brandhoop"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
