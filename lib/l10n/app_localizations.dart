@@ -5407,6 +5407,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Repair starting prices'**
   String get repairPricesHeader;
+
+  /// No description provided for @liveOrderCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Send order on WhatsApp'**
+  String get liveOrderCta;
+
+  /// No description provided for @liveOrderIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello {shop}, I would like to reserve these items from your app:'**
+  String liveOrderIntro(String shop);
+
+  /// No description provided for @liveOrderTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Total: {amount}'**
+  String liveOrderTotal(String amount);
+
+  /// No description provided for @liveOrderOutro.
+  ///
+  /// In en, this message translates to:
+  /// **'Please confirm availability and today’s offers. I will visit the shop.'**
+  String get liveOrderOutro;
+
+  /// No description provided for @liveCartHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Your order goes to the shop on WhatsApp. The shop confirms stock, price and offers, and you pay at the shop or the way the shop tells you.'**
+  String get liveCartHint;
+
+  /// No description provided for @liveShareTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Send this to the shop'**
+  String get liveShareTitle;
+
+  /// No description provided for @liveShareBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The shop’s WhatsApp number is not set in the app yet. Share this message with the shop, or visit the store.'**
+  String get liveShareBody;
+
+  /// No description provided for @liveCatalogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Our catalogue is being updated'**
+  String get liveCatalogTitle;
+
+  /// No description provided for @liveCatalogBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Visit the shop or message us on WhatsApp for today’s phones, prices and Diwali offers.'**
+  String get liveCatalogBody;
+
+  /// No description provided for @liveRepairMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello {shop}, I want a repair quote for {device}. Issue: {issue}.'**
+  String liveRepairMsg(String shop, String device, String issue);
+
+  /// No description provided for @liveVisitMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello {shop}, I will visit the shop on {when}.'**
+  String liveVisitMsg(String shop, String when);
+
+  /// No description provided for @liveExchangeMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello {shop}, I want to exchange my {device}. The app estimate is {range}. Please confirm after seeing the phone.'**
+  String liveExchangeMsg(String shop, String device, String range);
+
+  /// No description provided for @liveWhyPayBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Cash, UPI, cards and Bajaj Finserv EMI at the shop.'**
+  String get liveWhyPayBody;
+
+  /// No description provided for @liveEmiTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'EMI at Brandhoop'**
+  String get liveEmiTitle;
+
+  /// No description provided for @liveEmiBody.
+  ///
+  /// In en, this message translates to:
+  /// **'We offer EMI with Bajaj Finserv. Approval, the rate and the final instalments are decided by the lender. Ask at the shop for today’s schemes and rates.'**
+  String get liveEmiBody;
 }
 
 class _AppLocalizationsDelegate

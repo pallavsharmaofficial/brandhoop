@@ -1,4 +1,5 @@
 import '../core/emi.dart';
+import '../app/env.dart';
 import '../domain/product.dart';
 import '../domain/store_settings.dart';
 
@@ -19,6 +20,9 @@ class EmiHint {
 
   /// The lowest monthly figure over the longest tenure, preferring zero interest.
   static EmiHint? forProduct(StoreSettings s, Product p, int price) {
+    // The live storefront shows no per-phone EMI figure until the shop has
+    // confirmed its real rates with the lender; the calculator still works.
+    if (AppEnv.live && !s.emiRatesConfirmed) return null;
     final List<EmiScheme> schemes = schemesFor(s, p, price);
     if (schemes.isEmpty) return null;
     EmiHint? best;

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../app/env.dart';
+import '../../data/live_shop.dart';
 import '../../app/routes.dart';
 import '../../app/theme.dart';
 import '../../core/money.dart';
@@ -18,6 +20,7 @@ import '../../state/cart_cubit.dart';
 import '../../state/data_cubits.dart';
 import '../../state/session_cubit.dart';
 import '../../util/launch.dart';
+import '../../util/shop_message.dart';
 import '../../widgets/common.dart';
 import '../../widgets/product_art.dart';
 import '../../widgets/product_card.dart';
@@ -79,15 +82,16 @@ class _ProductScreenState extends State<ProductScreen> {
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[
-          IconButton(
-            tooltip: context.tr.wishlist,
-            icon: Icon(wished ? Icons.favorite : Icons.favorite_border, color: wished ? BrandColors.red : null),
-            onPressed: () async {
-              final user = await ensureSignedIn(context);
-              if (user == null || !context.mounted) return;
-              await context.read<AppServices>().profile.toggleWishlist(user, p.id);
-            },
-          ),
+          if (!AppEnv.live)
+            IconButton(
+              tooltip: context.tr.wishlist,
+              icon: Icon(wished ? Icons.favorite : Icons.favorite_border, color: wished ? BrandColors.red : null),
+              onPressed: () async {
+                final user = await ensureSignedIn(context);
+                if (user == null || !context.mounted) return;
+                await context.read<AppServices>().profile.toggleWishlist(user, p.id);
+              },
+            ),
           IconButton(
             tooltip: context.tr.share,
             icon: const Icon(Icons.share_outlined),
@@ -198,7 +202,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   ),
                 ),
               ),
-            if (p.isPhone && store.reserveEnabled && v.price > store.reserveToken)
+            if (p.isPhone && store.reserveEnabled && v.price > store.reserveToken && (!AppEnv.live || LiveShop.reserve))
               Padding(
                 padding: const EdgeInsets.only(top: 12),
                 child: Card(
@@ -227,6 +231,17 @@ class _ProductScreenState extends State<ProductScreen> {
                   ),
                 ),
               ),
+            if (AppEnv.live && !LiveShop.delivery)
+              Padding(
+                padding: const EdgeInsets.only(top: 12),
+                child: Card(
+                  child: ListTile(
+                    leading: const Icon(Icons.storefront_outlined),
+                    title: Text(context.tr.pickupAnytime),
+                  ),
+                ),
+              )
+            else
             Section(
               title: context.tr.deliveryTitle,
               child: Card(
@@ -329,7 +344,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     child: Column(
                       children: <Widget>[
                         for (final MapEntry<String, String> e in p.specs.entries) KeyValue(context.tr.specLabel(e.key), e.value),
-                        KeyValue(context.tr.warranty, context.tr.warrantyMonths(p.warrantyMonths)),
+                        if (p.warrantyMonths > 0) KeyValue(context.tr.warranty, context.tr.warrantyMonths(p.warrantyMonths)),
                       ],
                     ),
                   ),
@@ -379,7 +394,7 @@ class _ProductScreenState extends State<ProductScreen> {
     }
     if (!context.mounted) return;
     if (buyNow) {
-      unawaited(router.push(reserve ? '${Routes.checkout}?mode=reserve' : Routes.checkout));
+      unawaited(router.push(AppEnv.live ? Routes.cart : (reserve ? '${Routes.checkout}?mode=reserve' : Routes.checkout)));
     } else {
       toast(context, context.tr.addedToCart);
     }
@@ -388,6 +403,7 @@ class _ProductScreenState extends State<ProductScreen> {
   Future<void> _enquire(BuildContext context, Product p, ProductVariant v, StoreSettings store) async {
     final String lang = context.lang;
     final String msg = context.tr.enquiryText(p.name.of(lang), v.label, formatRupees(v.price));
+    if (AppEnv.live) return sendToShop(context, msg);
     final SessionState session = context.read<SessionCubit>().state;
     final AppServices services = context.read<AppServices>();
     final String ok = context.tr.weWillCallYou;

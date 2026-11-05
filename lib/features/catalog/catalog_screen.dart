@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../app/env.dart';
 import '../../app/routes.dart';
 import '../../core/money.dart';
 import '../../domain/product.dart';
@@ -38,6 +39,18 @@ class _CatalogScreenState extends State<CatalogScreen> {
     final StoreSettings store = context.watch<StoreCubit>().state;
     final List<Product> shown = applyQuery(all, q);
     final int cartCount = context.watch<CartCubit>().count;
+    if (AppEnv.live && !all.any((Product p) => p.active)) {
+      return Scaffold(
+        appBar: AppBar(title: Text(context.tr.navShop), actions: const <Widget>[LanguageButton(), SizedBox(width: 12)]),
+        body: EmptyState(
+          icon: Icons.storefront_outlined,
+          title: context.tr.liveCatalogTitle,
+          message: context.tr.liveCatalogBody,
+          actionLabel: context.tr.visitStore,
+          onAction: () => context.push(Routes.store),
+        ),
+      );
+    }
 
     final List<ProductCategory> cats = ProductCategory.values
         .where((ProductCategory c) => q.group == null || c.group == q.group)

@@ -6,7 +6,7 @@ phones and accessories from anywhere, and can walk into the shop any time.
 Shop staff, managers and the owner use the **same app**; what they see depends
 on their role. Hindi and English throughout.
 
-Goal behind the app: lift the shop from about ₹30–40k to ₹5 lakh profit a month.
+Goal behind the app: grow the shop's monthly profit to ₹5 lakh.
 `docs/GROWTH_PLAN.md` shows the arithmetic and says plainly what is assumed.
 
 ## Status

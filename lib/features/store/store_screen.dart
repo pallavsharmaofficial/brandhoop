@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+
+import '../../app/env.dart';
+import '../../data/live_shop.dart';
+import '../../util/shop_message.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../app/theme.dart';
@@ -79,6 +83,7 @@ class StoreScreen extends StatelessWidget {
                 ),
               ),
             ),
+            if (!AppEnv.live || LiveShop.hoursKnown)
             Section(
               title: context.tr.openingHours,
               child: Card(
@@ -110,7 +115,7 @@ class StoreScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Section(title: context.tr.planYourVisit, child: _VisitPlanner(store: store)),
+            if (!AppEnv.live || LiveShop.hoursKnown) Section(title: context.tr.planYourVisit, child: _VisitPlanner(store: store)),
             Section(
               title: context.tr.inTheShop,
               child: Card(
@@ -121,9 +126,9 @@ class StoreScreen extends StatelessWidget {
                     children: <Widget>[
                       _line(Icons.phone_android, context.tr.shopLine1),
                       _line(Icons.account_balance_wallet_outlined, context.tr.shopLine2),
-                      _line(Icons.swap_horiz, context.tr.shopLine3),
-                      _line(Icons.build_outlined, context.tr.shopLine4),
-                      _line(Icons.sim_card_outlined, context.tr.shopLine5),
+                      if (!AppEnv.live || LiveShop.exchange) _line(Icons.swap_horiz, context.tr.shopLine3),
+                      if (!AppEnv.live || LiveShop.repair) _line(Icons.build_outlined, context.tr.shopLine4),
+                      if (!AppEnv.live) _line(Icons.sim_card_outlined, context.tr.shopLine5),
                     ],
                   ),
                 ),
@@ -229,6 +234,11 @@ class _VisitPlannerState extends State<_VisitPlanner> {
   }
 
   Future<void> _book(BuildContext context, DateTime day, ({int from, int to}) slot) async {
+    if (AppEnv.live) {
+      final String lang = context.lang;
+      final String when = '${Dates.date(day, lang)} ${Dates.minutes(slot.from, lang)} - ${Dates.minutes(slot.to, lang)}';
+      return sendToShop(context, context.tr.liveVisitMsg(widget.store.name.of(lang), when));
+    }
     final AppServices services = context.read<AppServices>();
     final SessionState session = context.read<SessionCubit>().state;
     final String lang = context.lang;

@@ -31,7 +31,9 @@ class AccountScreen extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
           children: <Widget>[
-            if (u == null)
+            if (AppEnv.live)
+              const SizedBox.shrink()
+            else if (u == null)
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(20),
@@ -166,8 +168,10 @@ class AccountScreen extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     _tile(context, Icons.storefront_outlined, context.tr.visitStore, () => context.push(Routes.store)),
-                    const Divider(height: 1),
-                    _tile(context, Icons.help_outline, context.tr.helpAndFaq, () => context.push(Routes.help)),
+                    if (!AppEnv.live) ...<Widget>[
+                      const Divider(height: 1),
+                      _tile(context, Icons.help_outline, context.tr.helpAndFaq, () => context.push(Routes.help)),
+                    ],
                     if (u != null) ...<Widget>[
                       const Divider(height: 1),
                       _tile(context, Icons.logout, context.tr.signOut, () async {

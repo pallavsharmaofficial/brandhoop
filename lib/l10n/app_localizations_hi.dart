@@ -3098,4 +3098,64 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get repairPricesHeader => 'रिपेयर की शुरुआती कीमतें';
+
+  @override
+  String get liveOrderCta => 'व्हाट्सऐप पर ऑर्डर भेजें';
+
+  @override
+  String liveOrderIntro(String shop) {
+    return 'नमस्ते $shop, मैं आपके ऐप से ये सामान रिज़र्व करना चाहता/चाहती हूँ:';
+  }
+
+  @override
+  String liveOrderTotal(String amount) {
+    return 'कुल: $amount';
+  }
+
+  @override
+  String get liveOrderOutro =>
+      'कृपया उपलब्धता और आज के ऑफ़र बताएँ। मैं दुकान पर आऊँगा/आऊँगी।';
+
+  @override
+  String get liveCartHint =>
+      'आपका ऑर्डर व्हाट्सऐप पर दुकान को जाता है। स्टॉक, कीमत और ऑफ़र दुकान पक्का करती है, और भुगतान दुकान पर या दुकान के बताए तरीके से होता है।';
+
+  @override
+  String get liveShareTitle => 'यह दुकान को भेजें';
+
+  @override
+  String get liveShareBody =>
+      'दुकान का व्हाट्सऐप नंबर अभी ऐप में नहीं डाला गया है। यह संदेश दुकान को भेजें, या दुकान पर आएँ।';
+
+  @override
+  String get liveCatalogTitle => 'हमारा कैटलॉग अपडेट हो रहा है';
+
+  @override
+  String get liveCatalogBody =>
+      'आज के फ़ोन, कीमतें और दिवाली ऑफ़र के लिए दुकान पर आएँ या हमें व्हाट्सऐप करें।';
+
+  @override
+  String liveRepairMsg(String shop, String device, String issue) {
+    return 'नमस्ते $shop, मुझे $device की रिपेयर का खर्च जानना है। समस्या: $issue।';
+  }
+
+  @override
+  String liveVisitMsg(String shop, String when) {
+    return 'नमस्ते $shop, मैं $when को दुकान पर आऊँगा/आऊँगी।';
+  }
+
+  @override
+  String liveExchangeMsg(String shop, String device, String range) {
+    return 'नमस्ते $shop, मैं अपना $device एक्सचेंज करना चाहता/चाहती हूँ। ऐप का अनुमान $range है। फ़ोन देखकर कृपया पक्का करें।';
+  }
+
+  @override
+  String get liveWhyPayBody => 'दुकान पर नकद, UPI, कार्ड और बजाज फिनसर्व EMI।';
+
+  @override
+  String get liveEmiTitle => 'ब्रांडहूप में EMI';
+
+  @override
+  String get liveEmiBody =>
+      'हम बजाज फिनसर्व के साथ EMI देते हैं। मंज़ूरी, ब्याज दर और अंतिम किश्तें फाइनेंस कंपनी तय करती है। आज की स्कीम और दरें दुकान पर पूछें।';
 }

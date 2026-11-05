@@ -5,12 +5,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/routes.dart';
+import '../../app/env.dart';
 import '../../app/theme.dart';
 import '../../core/dates.dart';
 import '../../core/money.dart';
 import '../../domain/repair.dart';
 import '../../domain/store_settings.dart';
 import '../../l10n/l10n.dart';
+import '../../util/shop_message.dart';
 import '../../services/app_services.dart';
 import '../../state/data_cubits.dart';
 import '../../util/launch.dart';
@@ -132,6 +134,12 @@ class _RepairScreenState extends State<RepairScreen> {
     if (_brand.text.trim().isEmpty || _model.text.trim().isEmpty) {
       toast(context, context.tr.enterBrandModel);
       return;
+    }
+    if (AppEnv.live) {
+      final String shop = context.read<StoreCubit>().state.name.of(context.lang);
+      final String device = '${_brand.text.trim()} ${_model.text.trim()}';
+      final String issue = '${context.tr.repairIssue(_issue)} ${_note.text.trim()}'.trim();
+      return sendToShop(context, context.tr.liveRepairMsg(shop, device, issue));
     }
     final user = await ensureSignedIn(context);
     if (user == null || !context.mounted) return;

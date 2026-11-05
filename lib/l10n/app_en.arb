@@ -1568,5 +1568,70 @@
   "coinsEarnPct": "Coins earned % (accessories)",
   "referralBonus": "Referral bonus (coins)",
   "maxCoinsPct": "Max coins use %",
-  "repairPricesHeader": "Repair starting prices"
+  "repairPricesHeader": "Repair starting prices",
+  "liveOrderCta": "Send order on WhatsApp",
+  "liveOrderIntro": "Hello {shop}, I would like to reserve these items from your app:",
+  "@liveOrderIntro": {
+    "placeholders": {
+      "shop": {
+        "type": "String"
+      }
+    }
+  },
+  "liveOrderTotal": "Total: {amount}",
+  "@liveOrderTotal": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "liveOrderOutro": "Please confirm availability and today’s offers. I will visit the shop.",
+  "liveCartHint": "Your order goes to the shop on WhatsApp. The shop confirms stock, price and offers, and you pay at the shop or the way the shop tells you.",
+  "liveShareTitle": "Send this to the shop",
+  "liveShareBody": "The shop’s WhatsApp number is not set in the app yet. Share this message with the shop, or visit the store.",
+  "liveCatalogTitle": "Our catalogue is being updated",
+  "liveCatalogBody": "Visit the shop or message us on WhatsApp for today’s phones, prices and Diwali offers.",
+  "liveRepairMsg": "Hello {shop}, I want a repair quote for {device}. Issue: {issue}.",
+  "@liveRepairMsg": {
+    "placeholders": {
+      "shop": {
+        "type": "String"
+      },
+      "device": {
+        "type": "String"
+      },
+      "issue": {
+        "type": "String"
+      }
+    }
+  },
+  "liveVisitMsg": "Hello {shop}, I will visit the shop on {when}.",
+  "@liveVisitMsg": {
+    "placeholders": {
+      "shop": {
+        "type": "String"
+      },
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "liveExchangeMsg": "Hello {shop}, I want to exchange my {device}. The app estimate is {range}. Please confirm after seeing the phone.",
+  "@liveExchangeMsg": {
+    "placeholders": {
+      "shop": {
+        "type": "String"
+      },
+      "device": {
+        "type": "String"
+      },
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "liveWhyPayBody": "Cash, UPI, cards and Bajaj Finserv EMI at the shop.",
+  "liveEmiTitle": "EMI at Brandhoop",
+  "liveEmiBody": "We offer EMI with Bajaj Finserv. Approval, the rate and the final instalments are decided by the lender. Ask at the shop for today’s schemes and rates."
 }

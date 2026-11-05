@@ -3108,4 +3108,65 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get repairPricesHeader => 'Repair starting prices';
+
+  @override
+  String get liveOrderCta => 'Send order on WhatsApp';
+
+  @override
+  String liveOrderIntro(String shop) {
+    return 'Hello $shop, I would like to reserve these items from your app:';
+  }
+
+  @override
+  String liveOrderTotal(String amount) {
+    return 'Total: $amount';
+  }
+
+  @override
+  String get liveOrderOutro =>
+      'Please confirm availability and today’s offers. I will visit the shop.';
+
+  @override
+  String get liveCartHint =>
+      'Your order goes to the shop on WhatsApp. The shop confirms stock, price and offers, and you pay at the shop or the way the shop tells you.';
+
+  @override
+  String get liveShareTitle => 'Send this to the shop';
+
+  @override
+  String get liveShareBody =>
+      'The shop’s WhatsApp number is not set in the app yet. Share this message with the shop, or visit the store.';
+
+  @override
+  String get liveCatalogTitle => 'Our catalogue is being updated';
+
+  @override
+  String get liveCatalogBody =>
+      'Visit the shop or message us on WhatsApp for today’s phones, prices and Diwali offers.';
+
+  @override
+  String liveRepairMsg(String shop, String device, String issue) {
+    return 'Hello $shop, I want a repair quote for $device. Issue: $issue.';
+  }
+
+  @override
+  String liveVisitMsg(String shop, String when) {
+    return 'Hello $shop, I will visit the shop on $when.';
+  }
+
+  @override
+  String liveExchangeMsg(String shop, String device, String range) {
+    return 'Hello $shop, I want to exchange my $device. The app estimate is $range. Please confirm after seeing the phone.';
+  }
+
+  @override
+  String get liveWhyPayBody =>
+      'Cash, UPI, cards and Bajaj Finserv EMI at the shop.';
+
+  @override
+  String get liveEmiTitle => 'EMI at Brandhoop';
+
+  @override
+  String get liveEmiBody =>
+      'We offer EMI with Bajaj Finserv. Approval, the rate and the final instalments are decided by the lender. Ask at the shop for today’s schemes and rates.';
 }

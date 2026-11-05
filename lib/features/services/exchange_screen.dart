@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import '../../app/env.dart';
+import '../../util/shop_message.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -149,6 +152,14 @@ class _ExchangeScreenState extends State<ExchangeScreen> {
   }
 
   Future<void> _send(BuildContext context, ExchangeEstimate e) async {
+    if (AppEnv.live) {
+      final String shop = context.read<StoreCubit>().state.name.of(context.lang);
+      final String device = '${_brand.text.trim()} ${_model.text.trim()}'.trim();
+      return sendToShop(
+        context,
+        context.tr.liveExchangeMsg(shop, device.isEmpty ? '-' : device, '${formatRupees(e.low)} - ${formatRupees(e.high)}'),
+      );
+    }
     final AppServices services = context.read<AppServices>();
     final SessionState session = context.read<SessionCubit>().state;
     final store = context.read<StoreCubit>().state;

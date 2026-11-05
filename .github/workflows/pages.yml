@@ -1,12 +1,17 @@
-name: Deploy site and demo
+name: Deploy site, web app and APK
 
-# Publishes site/ (home, privacy, terms) at the root of GitHub Pages and the
-# web build of the app, in demo mode, under /app/.
+# Publishes, on GitHub Pages:
+#   /                      the site (site/): home, privacy, terms, QR poster
+#   /app/                  the live storefront, in the browser
+#   /download/brandhoop.apk  the Android app
+#   /live/shop.json        the shop's catalogue and offers (assets/live/shop.json)
+# Editing assets/live/shop.json and committing it republishes in a few minutes;
+# the apps read that file every time they open, so nobody reinstalls anything.
 # One-time setup: repository Settings, Pages, Source: GitHub Actions.
 on:
   push:
     branches: [main]
-    paths: ['site/**', 'lib/**', 'web/**', 'assets/**', 'pubspec.yaml', '.github/workflows/pages.yml']
+    paths-ignore: ['docs/**', '**/*.md', 'store/**']
   workflow_dispatch:
 
 permissions:
@@ -19,7 +24,22 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: The shop file must be valid JSON
+        run: python3 -m json.tool assets/live/shop.json > /dev/null
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.8
+          cache: true
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
+
+  web:
+    needs: check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -28,27 +48,82 @@ jobs:
           flutter-version: 3.47.8
           cache: true
       - run: flutter pub get
-      - run: flutter analyze
-      - run: flutter test
-      - run: python3 tools/store/check_store.py || echo "store check pending (see docs/LAUNCH.md)"
-      - name: Build the demo web app
-        run: flutter build web --release --base-href "/brandhoop/app/" --no-web-resources-cdn
-      - name: Assemble the site
-        run: |
-          mkdir -p _site/app
-          cp -r site/* _site/
-          cp -r build/web/* _site/app/
-          touch _site/.nojekyll
-      - uses: actions/upload-pages-artifact@v3
+      - name: Build the live storefront for the browser
+        run: flutter build web --release --no-web-resources-cdn --base-href "/brandhoop/app/" --dart-define=BRANDHOOP_DEMO=false
+      - uses: actions/upload-artifact@v4
         with:
-          path: _site
+          name: web
+          path: build/web
+          if-no-files-found: error
+
+  apk:
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # The shop file is read at run time, so it is left out of the key: a price
+      # change must not rebuild the app.
+      - name: Is this exact app already built?
+        id: built
+        uses: actions/cache@v4
+        with:
+          path: out/brandhoop.apk
+          key: apk-${{ hashFiles('lib/**', 'android/**', 'pubspec.yaml', 'pubspec.lock', 'assets/branding/**', 'web/**') }}
+      # Signed with a debug key that is kept between builds, so a new APK
+      # installs over the old one. Play Store releases use their own key
+      # (docs/PLAY_SETUP.md).
+      - name: Restore the signing key
+        if: steps.built.outputs.cache-hit != 'true'
+        uses: actions/cache@v4
+        with:
+          path: ~/.android/debug.keystore
+          key: debug-keystore-v1
+      - if: steps.built.outputs.cache-hit != 'true'
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - if: steps.built.outputs.cache-hit != 'true'
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.8
+          cache: true
+      - if: steps.built.outputs.cache-hit != 'true'
+        run: flutter pub get
+      - name: Build the Android app
+        if: steps.built.outputs.cache-hit != 'true'
+        run: |
+          flutter build apk --release --dart-define=BRANDHOOP_DEMO=false
+          mkdir -p out
+          cp build/app/outputs/flutter-apk/app-release.apk out/brandhoop.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apk
+          path: out/brandhoop.apk
+          if-no-files-found: error
 
   deploy:
-    needs: build
+    needs: [web, apk]
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: parts
+      - name: Assemble the site
+        run: |
+          mkdir -p _site/app _site/live _site/download
+          cp -r site/* _site/
+          cp -r parts/web/* _site/app/
+          cp assets/live/shop.json _site/live/shop.json
+          cp parts/apk/brandhoop.apk _site/download/brandhoop.apk
+          touch _site/.nojekyll
+          ls -la _site _site/download
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4

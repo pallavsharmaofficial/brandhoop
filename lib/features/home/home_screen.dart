@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/env.dart';
+import '../../data/live_shop.dart';
 import '../../app/routes.dart';
 import '../../app/theme.dart';
 import '../../domain/offer.dart';
@@ -101,7 +102,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            if (emiPhones.isNotEmpty)
+            if (emiPhones.isNotEmpty && (!AppEnv.live || store.emiRatesConfirmed))
               Section(
                 title: context.tr.zeroEmiPhones,
                 action: context.tr.viewAll,
@@ -121,10 +122,14 @@ class HomeScreen extends StatelessWidget {
               title: context.tr.ourServices,
               child: Row(
                 children: <Widget>[
-                  Expanded(child: _ServiceTile(Icons.build_outlined, context.tr.serviceRepair, () => context.push(Routes.repair))),
-                  const SizedBox(width: 10),
-                  Expanded(child: _ServiceTile(Icons.swap_horiz, context.tr.serviceExchange, () => context.push(Routes.exchange))),
-                  const SizedBox(width: 10),
+                  if (!AppEnv.live || LiveShop.repair) ...<Widget>[
+                    Expanded(child: _ServiceTile(Icons.build_outlined, context.tr.serviceRepair, () => context.push(Routes.repair))),
+                    const SizedBox(width: 10),
+                  ],
+                  if (!AppEnv.live || LiveShop.exchange) ...<Widget>[
+                    Expanded(child: _ServiceTile(Icons.swap_horiz, context.tr.serviceExchange, () => context.push(Routes.exchange))),
+                    const SizedBox(width: 10),
+                  ],
                   Expanded(child: _ServiceTile(Icons.calculate_outlined, context.tr.serviceEmiCalc, () => context.push(Routes.calculator))),
                 ],
               ),
@@ -150,10 +155,10 @@ class HomeScreen extends StatelessWidget {
               title: context.tr.whyBrandhoop,
               child: Column(
                 children: <Widget>[
-                  _Why(Icons.verified_outlined, context.tr.whyGenuineTitle, context.tr.whyGenuineBody),
+                  if (!AppEnv.live) _Why(Icons.verified_outlined, context.tr.whyGenuineTitle, context.tr.whyGenuineBody),
                   _Why(Icons.storefront_outlined, context.tr.whyLocalTitle, context.tr.whyLocalBody),
-                  _Why(Icons.account_balance_wallet_outlined, context.tr.whyPayTitle, context.tr.whyPayBody),
-                  _Why(Icons.support_agent_outlined, context.tr.whySupportTitle, context.tr.whySupportBody),
+                  _Why(Icons.account_balance_wallet_outlined, context.tr.whyPayTitle, AppEnv.live ? context.tr.liveWhyPayBody : context.tr.whyPayBody),
+                  if (!AppEnv.live) _Why(Icons.support_agent_outlined, context.tr.whySupportTitle, context.tr.whySupportBody),
                 ],
               ),
             ),

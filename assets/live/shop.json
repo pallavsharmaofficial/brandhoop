@@ -1,0 +1,22 @@
+{
+  "settings": {
+    "phone": "",
+    "whatsapp": ""
+  },
+  "offers": [
+    {
+      "id": "diwali",
+      "kind": "banner",
+      "title": {
+        "en": "Happy Diwali from Brandhoop",
+        "hi": "ब्रांडहूप की ओर से दिवाली की शुभकामनाएँ"
+      },
+      "subtitle": {
+        "en": "Festival offers and gifts on mobile phones. Visit the shop or message us.",
+        "hi": "मोबाइल फ़ोन पर त्योहार के ऑफ़र और उपहार। दुकान पर आएँ या हमें मैसेज करें।"
+      },
+      "colorSeed": 1
+    }
+  ],
+  "products": []
+}

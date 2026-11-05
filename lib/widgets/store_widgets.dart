@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../app/env.dart';
+import '../data/live_shop.dart';
 
 import '../app/theme.dart';
 import '../core/dates.dart';
@@ -15,6 +17,8 @@ class StoreStatusBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // The live storefront shows no "Open now" until the shop has given its hours.
+    if (AppEnv.live && !LiveShop.hoursKnown) return const SizedBox.shrink();
     final DateTime now = DateTime.now();
     final bool open = settings.hours.isOpenAt(now);
     final ({DateTime at, bool opening})? next = settings.hours.nextChange(now);
@@ -119,10 +123,11 @@ class TrustBadges extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<(IconData, String)> items = <(IconData, String)>[
-      (Icons.verified_outlined, context.tr.trustGenuine),
-      (Icons.receipt_long_outlined, context.tr.trustGstBill),
+      // The storefront says only that this is a shop you can walk into.
+      if (!AppEnv.live) (Icons.verified_outlined, context.tr.trustGenuine),
+      if (!AppEnv.live) (Icons.receipt_long_outlined, context.tr.trustGstBill),
       (Icons.storefront_outlined, context.tr.trustLocal),
-      (Icons.build_circle_outlined, context.tr.trustService),
+      if (!AppEnv.live) (Icons.build_circle_outlined, context.tr.trustService),
     ];
     return Wrap(
       spacing: 8,

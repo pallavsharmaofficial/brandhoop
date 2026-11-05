@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../app/env.dart';
 import '../../app/routes.dart';
 import '../../core/money.dart';
 import '../../domain/cart.dart';
@@ -11,6 +12,7 @@ import '../../l10n/l10n.dart';
 import '../../services/pricing.dart';
 import '../../state/cart_cubit.dart';
 import '../../state/data_cubits.dart';
+import '../../util/shop_message.dart';
 import '../../widgets/common.dart';
 import '../../widgets/product_art.dart';
 
@@ -57,8 +59,12 @@ class CartScreen extends StatelessWidget {
                         ),
                       ),
                       FilledButton(
-                        onPressed: q.isValid ? () => context.push(Routes.checkout) : null,
-                        child: Text(context.tr.proceedToCheckout),
+                        onPressed: !q.isValid
+                            ? null
+                            : AppEnv.live
+                                ? () => sendToShop(context, _orderMessage(context, cart, catalogue, q))
+                                : () => context.push(Routes.checkout),
+                        child: Text(AppEnv.live ? context.tr.liveOrderCta : context.tr.proceedToCheckout),
                       ),
                     ],
                   ),
@@ -148,7 +154,10 @@ class CartScreen extends StatelessWidget {
                           const Divider(height: 18),
                           KeyValue(context.tr.subtotal, formatRupees(q.subtotal), bold: true),
                           const SizedBox(height: 4),
-                          Text(context.tr.deliveryCalculatedAtCheckout, style: Theme.of(context).textTheme.bodySmall),
+                          Text(
+                            AppEnv.live ? context.tr.liveCartHint : context.tr.deliveryCalculatedAtCheckout,
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
                         ],
                       ),
                     ),
@@ -158,6 +167,24 @@ class CartScreen extends StatelessWidget {
             ),
     );
   }
+}
+
+/// The WhatsApp text for an order: what, how many, the total, and a request
+/// for the shop to confirm stock and the day's offers.
+String _orderMessage(BuildContext context, List<CartLine> cart, Map<String, Product> catalogue, Quote q) {
+  final String lang = context.lang;
+  final String shop = context.read<StoreCubit>().state.name.of(lang);
+  final StringBuffer b = StringBuffer(context.tr.liveOrderIntro(shop))..writeln();
+  for (final CartLine line in cart) {
+    final Product? p = catalogue[line.productId];
+    final ProductVariant? v = p?.variant(line.variantId);
+    if (p == null || v == null) continue;
+    b.writeln('\u2022 ${p.name.of(lang)} (${v.label}) \u00d7 ${line.qty} \u2014 ${formatRupees(v.price * line.qty)}');
+  }
+  b
+    ..writeln(context.tr.liveOrderTotal(formatRupees(q.subtotal)))
+    ..write(context.tr.liveOrderOutro);
+  return b.toString();
 }
 
 class _Gone extends StatelessWidget {

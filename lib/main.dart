@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'app/app.dart';
 import 'app/env.dart';
 import 'data/demo_seed.dart';
+import 'data/live_shop.dart';
 import 'data/repositories.dart';
 import 'services/app_services.dart';
 import 'services/auth_service.dart';
@@ -19,7 +20,12 @@ Future<void> main() async {
   await initializeDateFormatting('en_IN');
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   final Repositories repos = Repositories.local(prefs);
-  if (AppEnv.demo) await DemoSeed.populate(repos, DateTime.now());
+  if (AppEnv.demo) {
+    await DemoSeed.populate(repos, DateTime.now());
+  } else {
+    // The public storefront: whatever the shop has published, never sample data.
+    await LiveShop.apply(repos, await LiveShop.load(prefs));
+  }
 
   final AppServices services = AppServices.create(
     repos: repos,
@@ -27,7 +33,7 @@ Future<void> main() async {
     gateway: MockPaymentGateway(),
   );
   // Let go of stock held by orders nobody paid for or came to collect.
-  unawaited(services.orders.expireStale());
+  if (AppEnv.demo) unawaited(services.orders.expireStale());
   if (AppEnv.demo) unawaited(services.emi.runAutopay());
 
   runApp(BrandhoopApp(

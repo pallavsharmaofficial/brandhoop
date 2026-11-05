@@ -233,10 +233,11 @@ class _RoadHero extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 12),
-          Text(
-            context.tr.baselineLine(formatCompactRupees(store.baselineMonthlyProfit, hindi: hi), multiple.toStringAsFixed(multiple >= 10 ? 0 : 1)),
-            style: const TextStyle(color: Colors.white60, fontSize: 12),
-          ),
+          if (store.baselineMonthlyProfit > 0)
+            Text(
+              context.tr.baselineLine(formatCompactRupees(store.baselineMonthlyProfit, hindi: hi), multiple.toStringAsFixed(multiple >= 10 ? 0 : 1)),
+              style: const TextStyle(color: Colors.white60, fontSize: 12),
+            ),
           const SizedBox(height: 2),
           Text(context.tr.profitBasisNote, style: const TextStyle(color: Colors.white38, fontSize: 11)),
         ],

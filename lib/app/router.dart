@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 
 import '../core/permissions.dart';
+import 'env.dart';
 import '../features/account/account_screen.dart';
 import '../features/account/profile_screens.dart';
 import '../features/admin/admin_orders_screen.dart';
@@ -27,8 +28,8 @@ import '../features/catalog/catalog_query.dart';
 import '../features/catalog/catalog_screen.dart';
 import '../features/catalog/product_screen.dart';
 import '../features/checkout/checkout_screen.dart';
-import '../features/emi/emi_calculator_screen.dart';
 import '../features/emi/emi_screen.dart';
+import '../features/emi/live_emi.dart';
 import '../features/emi/plan_screen.dart';
 import '../features/home/home_screen.dart';
 import '../features/orders/order_screens.dart';
@@ -87,12 +88,33 @@ const Map<String, Permission> _adminGate = <String, Permission>{
   '/admin/product': Permission.adjustStock,
 };
 
+/// Paths that exist only where there are accounts and orders on a server of
+/// their own. The live storefront has neither, so they lead back to the shop.
+const List<String> _notInStorefront = <String>[
+  Routes.login,
+  Routes.orders,
+  '/order/',
+  '/plan/',
+  Routes.profile,
+  Routes.addresses,
+  Routes.wishlist,
+  '/admin',
+];
+
 String? redirectFor({
   required String location,
   required SessionState session,
   required AppPrefs prefs,
+  bool storefront = false,
 }) {
   if (!prefs.onboarded) return location == Routes.language ? null : Routes.language;
+  if (storefront) {
+    if (location == Routes.language) return Routes.home;
+    // Checkout is a cart that is sent on WhatsApp.
+    if (location == Routes.checkout) return Routes.cart;
+    if (_notInStorefront.any(location.startsWith)) return Routes.home;
+    return null;
+  }
   if (location == Routes.language || location == '/') return session.inAdmin ? Routes.adminDashboard : Routes.home;
 
   final bool adminPath = location.startsWith('/admin');
@@ -125,6 +147,7 @@ GoRouter buildRouter({required SessionCubit session, required SettingsCubit sett
       location: state.uri.path,
       session: session.state,
       prefs: settings.state,
+      storefront: AppEnv.live,
     ),
     routes: <RouteBase>[
       GoRoute(path: '/', redirect: (_, _) => Routes.home),
@@ -146,7 +169,7 @@ GoRouter buildRouter({required SessionCubit session, required SettingsCubit sett
               ),
             ),
           ]),
-          StatefulShellBranch(routes: <RouteBase>[GoRoute(path: Routes.emi, builder: (_, _) => const EmiScreen())]),
+          StatefulShellBranch(routes: <RouteBase>[GoRoute(path: Routes.emi, builder: (_, _) => AppEnv.live ? const LiveEmiScreen() : const EmiScreen())]),
           StatefulShellBranch(routes: <RouteBase>[GoRoute(path: Routes.orders, builder: (_, _) => const OrdersScreen())]),
           StatefulShellBranch(routes: <RouteBase>[GoRoute(path: Routes.account, builder: (_, _) => const AccountScreen())]),
         ],
@@ -165,7 +188,7 @@ GoRouter buildRouter({required SessionCubit session, required SettingsCubit sett
       GoRoute(path: '/plan/:id', builder: (_, GoRouterState s) => PlanScreen(planId: s.pathParameters['id']!)),
       GoRoute(
         path: Routes.calculator,
-        builder: (_, GoRouterState s) => EmiCalculatorScreen(initialPrice: int.tryParse(s.uri.queryParameters['price'] ?? '')),
+        builder: (_, GoRouterState s) => LiveEmiScreen(price: int.tryParse(s.uri.queryParameters['price'] ?? '')),
       ),
       GoRoute(path: Routes.store, builder: (_, _) => const StoreScreen()),
       GoRoute(path: Routes.exchange, builder: (_, _) => const ExchangeScreen()),

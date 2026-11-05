@@ -8,7 +8,7 @@ margin after GST on margin, payment fees and no-cost EMI subvention, **before**
 rent, salaries and electricity, as the dashboard shows it.
 
 ## Where the shop is
-About ₹30–40k a month (the owner's figure). The dashboard uses ₹35k as the baseline.
+The owner's current monthly profit goes in Store settings (Admin, More, Store settings) so the dashboard can show progress against it. It is deliberately not written in this repository.
 
 ## One way to reach ₹5 lakh (illustrative end state)
 
@@ -37,7 +37,7 @@ can settle in advance. Test it stage by stage.
 
 | Stage | Months | Aim (profit/month) | What has to be true to move on |
 |---|---|---:|---|
-| 1. Switch on | 1–2 | ₹35–60k | App live with real stock, prices, photos. Every walk-in customer is shown the QR and installed. Phones about 60 a month. |
+| 1. Switch on | 1–2 | up to ₹60k | App live with real stock, prices, photos. Every walk-in customer is shown the QR and installed. Phones about 60 a month. |
 | 2. EMI and trust | 3–5 | ₹60k–1.5L | Bajaj dealer agreement live. Half of phone buyers ask about EMI. Reviews and shop photos on Google. Phones about 100–130. |
 | 3. Reach | 6–9 | ₹1.5–3L | Buyers from surrounding villages. Reserve-and-visit converts. Repairs and exchange are steady. Phones 150–180. |
 | 4. Scale | 10–12 | ₹3–5L | Repeat and referral buyers are 40%. Accessories attach 70%. Phones near 220. |
