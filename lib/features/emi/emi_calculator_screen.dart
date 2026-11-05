@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../app/env.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -138,6 +139,10 @@ class _EmiCalculatorScreenState extends State<EmiCalculatorScreen> {
               ),
               const SizedBox(height: 12),
               InfoBanner(text: context.tr.emiIndicative),
+              if (AppEnv.live) ...<Widget>[
+                const SizedBox(height: 8),
+                InfoBanner(text: context.tr.liveEmiShopOnly, icon: Icons.face_retouching_natural_outlined, color: BrandColors.saffron),
+              ],
               if (!store.emiRatesConfirmed) ...<Widget>[
                 const SizedBox(height: 8),
                 InfoBanner(text: context.tr.emiRatesUnconfirmed, icon: Icons.warning_amber_outlined, color: const Color(0xFFEF6C00)),

@@ -3128,7 +3128,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get liveCartHint =>
-      'Your order goes to the shop on WhatsApp. The shop confirms stock, price and offers, and you pay at the shop or the way the shop tells you.';
+      'Your order goes to the shop on WhatsApp. The shop confirms stock, price and offers. Pay online by UPI or card as the shop tells you, or pay at the shop. Bajaj Finserv EMI is only at the shop (face scan needed).';
 
   @override
   String get liveShareTitle => 'Send this to the shop';
@@ -3161,12 +3161,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get liveWhyPayBody =>
-      'Cash, UPI, cards and Bajaj Finserv EMI at the shop.';
+      'UPI and cards online, cash at the shop. Bajaj Finserv EMI only at the shop (face scan needed).';
 
   @override
   String get liveEmiTitle => 'EMI at Brandhoop';
 
   @override
   String get liveEmiBody =>
-      'We offer EMI with Bajaj Finserv. Approval, the rate and the final instalments are decided by the lender. Ask at the shop for today’s schemes and rates.';
+      'We offer EMI with Bajaj Finserv. It is available only at the shop, because it needs a face scan. Approval, the rate and the final instalments are decided by the lender. Ask at the shop for today’s schemes and rates.';
+
+  @override
+  String get liveEmiShopOnly =>
+      'Bajaj Finserv EMI is available only at the shop, because it needs a face scan. Approval and the rate are decided by the lender.';
 }

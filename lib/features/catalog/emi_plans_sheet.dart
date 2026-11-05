@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../app/theme.dart';
+import '../../app/env.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/routes.dart';
@@ -37,6 +39,10 @@ class EmiPlansSheet extends StatelessWidget {
             Text('${product.name.of(lang)} · ${formatRupees(price)}', style: Theme.of(context).textTheme.bodyMedium),
             const SizedBox(height: 12),
             InfoBanner(text: context.tr.emiIndicative, icon: Icons.info_outline),
+            if (AppEnv.live) ...<Widget>[
+              const SizedBox(height: 8),
+              InfoBanner(text: context.tr.liveEmiShopOnly, icon: Icons.face_retouching_natural_outlined, color: BrandColors.saffron),
+            ],
             if (!settings.emiRatesConfirmed) ...<Widget>[
               const SizedBox(height: 8),
               InfoBanner(text: context.tr.emiRatesUnconfirmed, icon: Icons.warning_amber_outlined, color: const Color(0xFFEF6C00)),

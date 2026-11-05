@@ -75,8 +75,8 @@ body{{width:1080px;height:1920px;font-family:"Inter","FreeSans","Noto Sans Devan
 <div class="card">{svg}
   <div class="scan">Scan to see phones &amp; offers<small>फ़ोन और ऑफ़र देखने के लिए स्कैन करें</small></div>
   <div class="url">{args.url.replace('https://','')}</div></div>
-<div class="emi">Bajaj Finserv EMI · UPI · Cards · Cash
-  <small>बजाज फिनसर्व EMI · UPI · कार्ड · नकद</small></div>
+<div class="emi">UPI · Cards · Cash · Bajaj Finserv EMI at the shop
+  <small>बजाज फिनसर्व EMI सिर्फ़ दुकान पर (फ़ेस स्कैन ज़रूरी)</small></div>
 <div class="foot"><b>Abhay Colony, Neem Ka Thana, Rajasthan 332713</b><br>
 Across the road from Study Point Library<br>स्टडी पॉइंट लाइब्रेरी के सामने{phone}</div>
 </body></html>'''

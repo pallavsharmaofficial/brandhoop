@@ -1587,7 +1587,7 @@
     }
   },
   "liveOrderOutro": "Please confirm availability and today’s offers. I will visit the shop.",
-  "liveCartHint": "Your order goes to the shop on WhatsApp. The shop confirms stock, price and offers, and you pay at the shop or the way the shop tells you.",
+  "liveCartHint": "Your order goes to the shop on WhatsApp. The shop confirms stock, price and offers. Pay online by UPI or card as the shop tells you, or pay at the shop. Bajaj Finserv EMI is only at the shop (face scan needed).",
   "liveShareTitle": "Send this to the shop",
   "liveShareBody": "The shop’s WhatsApp number is not set in the app yet. Share this message with the shop, or visit the store.",
   "liveCatalogTitle": "Our catalogue is being updated",
@@ -1631,7 +1631,8 @@
       }
     }
   },
-  "liveWhyPayBody": "Cash, UPI, cards and Bajaj Finserv EMI at the shop.",
+  "liveWhyPayBody": "UPI and cards online, cash at the shop. Bajaj Finserv EMI only at the shop (face scan needed).",
   "liveEmiTitle": "EMI at Brandhoop",
-  "liveEmiBody": "We offer EMI with Bajaj Finserv. Approval, the rate and the final instalments are decided by the lender. Ask at the shop for today’s schemes and rates."
+  "liveEmiBody": "We offer EMI with Bajaj Finserv. It is available only at the shop, because it needs a face scan. Approval, the rate and the final instalments are decided by the lender. Ask at the shop for today’s schemes and rates.",
+  "liveEmiShopOnly": "Bajaj Finserv EMI is available only at the shop, because it needs a face scan. Approval and the rate are decided by the lender."
 }

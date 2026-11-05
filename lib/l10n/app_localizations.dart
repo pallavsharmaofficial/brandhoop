@@ -5435,7 +5435,7 @@ abstract class AppLocalizations {
   /// No description provided for @liveCartHint.
   ///
   /// In en, this message translates to:
-  /// **'Your order goes to the shop on WhatsApp. The shop confirms stock, price and offers, and you pay at the shop or the way the shop tells you.'**
+  /// **'Your order goes to the shop on WhatsApp. The shop confirms stock, price and offers. Pay online by UPI or card as the shop tells you, or pay at the shop. Bajaj Finserv EMI is only at the shop (face scan needed).'**
   String get liveCartHint;
 
   /// No description provided for @liveShareTitle.
@@ -5483,7 +5483,7 @@ abstract class AppLocalizations {
   /// No description provided for @liveWhyPayBody.
   ///
   /// In en, this message translates to:
-  /// **'Cash, UPI, cards and Bajaj Finserv EMI at the shop.'**
+  /// **'UPI and cards online, cash at the shop. Bajaj Finserv EMI only at the shop (face scan needed).'**
   String get liveWhyPayBody;
 
   /// No description provided for @liveEmiTitle.
@@ -5495,8 +5495,14 @@ abstract class AppLocalizations {
   /// No description provided for @liveEmiBody.
   ///
   /// In en, this message translates to:
-  /// **'We offer EMI with Bajaj Finserv. Approval, the rate and the final instalments are decided by the lender. Ask at the shop for today’s schemes and rates.'**
+  /// **'We offer EMI with Bajaj Finserv. It is available only at the shop, because it needs a face scan. Approval, the rate and the final instalments are decided by the lender. Ask at the shop for today’s schemes and rates.'**
   String get liveEmiBody;
+
+  /// No description provided for @liveEmiShopOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Bajaj Finserv EMI is available only at the shop, because it needs a face scan. Approval and the rate are decided by the lender.'**
+  String get liveEmiShopOnly;
 }
 
 class _AppLocalizationsDelegate
