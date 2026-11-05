@@ -41,14 +41,20 @@ class LiveShop {
   static bool hoursKnown = false;
 
   static const String bundledAsset = 'assets/live/shop.json';
+  /// The file as committed to the repository. The admin panel writes here, and
+  /// GitHub serves it within a few minutes, with no site rebuild in between.
+  static const String repoUrl = 'https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/assets/live/shop.json';
+
+  /// The copy published with the site, used if the first address cannot be reached.
   static const String publishedUrl = 'https://pallavsharmaofficial.github.io/brandhoop/live/shop.json';
   static const String _cacheKey = 'bh.live.shop';
 
-  /// Where the published copy lives. On the web it sits next to the app, so the
-  /// address is worked out from where the page itself was loaded.
-  static Uri get _remote => kIsWeb
-      ? Uri.base.resolve('../live/shop.json')
-      : Uri.parse(publishedUrl);
+  /// Where to look, in order. On the web the published copy sits next to the
+  /// app, so its address is worked out from where the page itself was loaded.
+  static List<Uri> get _remotes => <Uri>[
+        Uri.parse(repoUrl),
+        kIsWeb ? Uri.base.resolve('../live/shop.json') : Uri.parse(publishedUrl),
+      ];
 
   /// The freshest usable copy of the file: published, else cached, else bundled.
   static Future<Map<String, dynamic>> load(
@@ -59,21 +65,24 @@ class LiveShop {
   }) async {
     final http.Client c = client ?? http.Client();
     try {
-      final Uri base = remote ?? _remote;
-      final Uri url = base.replace(queryParameters: <String, String>{
-        ...base.queryParameters,
-        't': '${DateTime.now().millisecondsSinceEpoch ~/ 60000}',
-      });
-      final http.Response r = await c.get(url).timeout(const Duration(seconds: 5));
-      if (r.statusCode == 200) {
-        final Map<String, dynamic>? parsed = _parse(utf8.decode(r.bodyBytes));
-        if (parsed != null) {
-          await prefs.setString(_cacheKey, jsonEncode(parsed));
-          return parsed;
+      for (final Uri base in remote == null ? _remotes : <Uri>[remote]) {
+        try {
+          final Uri url = base.replace(queryParameters: <String, String>{
+            ...base.queryParameters,
+            't': '${DateTime.now().millisecondsSinceEpoch ~/ 60000}',
+          });
+          final http.Response r = await c.get(url).timeout(const Duration(seconds: 5));
+          if (r.statusCode == 200) {
+            final Map<String, dynamic>? parsed = _parse(utf8.decode(r.bodyBytes));
+            if (parsed != null) {
+              await prefs.setString(_cacheKey, jsonEncode(parsed));
+              return parsed;
+            }
+          }
+        } catch (e) {
+          debugPrint('Live shop file not fetched from $base: $e');
         }
       }
-    } catch (e) {
-      debugPrint('Live shop file not fetched: $e');
     } finally {
       if (client == null) c.close();
     }

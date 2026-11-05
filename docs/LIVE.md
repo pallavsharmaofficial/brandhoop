@@ -32,6 +32,10 @@ private repositories on a free account), and Settings, Pages, Source must be
 
 ## Changing prices, products and offers (no rebuild of the app)
 
+The shop owner does this from his phone with the **admin panel** (`docs/ADMIN.md`,
+`.../brandhoop/admin/`). The rest of this section is the file format, for
+anyone editing the file by hand.
+
 Everything customers see about the shop comes from one file:
 **`assets/live/shop.json`**. Edit it on GitHub (open the file, tap the pencil,
 change, Commit). The site republishes in about four minutes, and every app

@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>ब्रांडहूप · दुकान पैनल</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<style>
+  :root { --brand:#283593; --deep:#1A237E; --accent:#FF8F00; --ink:#1d1d1f; --paper:#fff; --soft:#f4f4f6; --line:#d9d9e0; --ok:#2E7D32; --warn:#EF6C00; --bad:#C62828; }
+  @media (prefers-color-scheme: dark) { :root { --ink:#ececf0; --paper:#141418; --soft:#1f1f26; --line:#34343e; --brand:#9FA8DA; } }
+  * { box-sizing:border-box; }
+  body { margin:0; font:17px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari",sans-serif; color:var(--ink); background:var(--paper); padding-bottom:110px; }
+  header { background:linear-gradient(160deg,var(--deep),#311B92); color:#fff; padding:18px 16px; display:flex; align-items:center; gap:10px; }
+  header h1 { font-size:20px; margin:0; flex:1; line-height:1.2; }
+  header small { display:block; font-weight:400; opacity:.85; font-size:13px; }
+  main { max-width:720px; margin:0 auto; padding:0 14px; }
+  section { margin:22px 0; }
+  h2 { font-size:19px; margin:0 0 8px; color:var(--brand); }
+  h2 small { font-weight:400; color:#6b6b73; font-size:13px; }
+  .card { background:var(--soft); border-radius:14px; padding:14px; }
+  label { display:block; font-weight:600; margin:12px 0 4px; font-size:15px; }
+  label small { font-weight:400; color:#6b6b73; }
+  input, select, textarea { width:100%; font:inherit; padding:11px 12px; border:1.5px solid var(--line); border-radius:10px; background:var(--paper); color:var(--ink); }
+  input[type=checkbox] { width:22px; height:22px; margin:0; accent-color:var(--brand); }
+  textarea { min-height:90px; font-family:ui-monospace,monospace; font-size:13px; }
+  .row { display:flex; gap:10px; } .row > * { flex:1; min-width:0; }
+  .chk { display:flex; align-items:flex-start; gap:10px; margin:12px 0; font-weight:500; }
+  .chk small { display:block; color:#6b6b73; font-weight:400; }
+  button { font:inherit; font-weight:700; border:0; border-radius:10px; padding:11px 16px; cursor:pointer; background:var(--brand); color:#fff; }
+  button.alt { background:var(--paper); color:var(--brand); border:1.5px solid var(--brand); }
+  button.bad { background:var(--bad); }
+  button.ghost { background:transparent; color:var(--brand); padding:6px 8px; }
+  button:disabled { opacity:.45; cursor:default; }
+  .item { display:flex; gap:12px; align-items:center; background:var(--soft); border-radius:12px; padding:10px; margin:8px 0; }
+  .thumb { width:56px; height:56px; border-radius:10px; background:var(--line) center/cover; flex:none; display:flex; align-items:center; justify-content:center; font-size:24px; }
+  .item .t { flex:1; min-width:0; } .item .t b { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .item .t span { font-size:14px; color:#6b6b73; }
+  .pill { display:inline-block; padding:1px 8px; border-radius:99px; font-size:12px; font-weight:700; color:#fff; }
+  .p-ok { background:var(--ok); } .p-low { background:var(--warn); } .p-out { background:var(--bad); }
+  .bar { position:fixed; left:0; right:0; bottom:0; background:var(--paper); border-top:1px solid var(--line); padding:10px 14px calc(10px + env(safe-area-inset-bottom)); z-index:5; }
+  .bar .in { max-width:720px; margin:0 auto; display:flex; gap:10px; align-items:center; }
+  .bar button.main { flex:1; background:var(--accent); color:#000; font-size:18px; padding:14px; }
+  #msg { max-width:720px; margin:0 auto 8px; font-size:14px; }
+  .msg-ok { color:var(--ok); } .msg-bad { color:var(--bad); } .msg-info { color:#6b6b73; }
+  dialog { border:0; border-radius:16px; padding:0; width:min(680px,100vw - 16px); max-height:92vh; background:var(--paper); color:var(--ink); }
+  dialog::backdrop { background:rgba(0,0,0,.5); }
+  .dh { padding:14px 16px; font-weight:800; font-size:18px; border-bottom:1px solid var(--line); display:flex; align-items:center; }
+  .dh span { flex:1; } .db { padding:4px 16px 12px; max-height:68vh; overflow:auto; } .df { padding:12px 16px; border-top:1px solid var(--line); display:flex; gap:10px; justify-content:flex-end; }
+  .vrow { border:1.5px solid var(--line); border-radius:12px; padding:8px 10px 12px; margin:10px 0; }
+  .imgs { display:flex; gap:8px; flex-wrap:wrap; margin:6px 0; }
+  .imgs .thumb { position:relative; width:78px; height:78px; } .imgs .thumb button { position:absolute; top:-6px; right:-6px; padding:0; width:24px; height:24px; border-radius:99px; background:var(--bad); font-size:14px; }
+  #lock { max-width:420px; margin:40px auto; padding:0 16px; }
+  .note { font-size:14px; color:#6b6b73; }
+  .hide { display:none !important; }
+  code { background:var(--soft); padding:1px 5px; border-radius:5px; font-size:14px; }
+  .problems { background:#FFEBEE; color:#B71C1C; border-radius:10px; padding:10px 14px; margin:8px 0; font-size:14px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ब्रांडहूप · दुकान पैनल<small>Brandhoop shop panel</small></h1>
+  <button class="alt hide" id="lockBtn" style="padding:7px 12px">🔒 बंद</button>
+</header>
+
+<!-- ============ Lock / first-time setup ============ -->
+<div id="lock">
+  <div id="setup" class="hide">
+    <h2>पहली बार सेटअप <small>First-time setup</small></h2>
+    <p class="note">यह एक बार करना है। टोकन आपको ऐप बनाने वाले (Pallav) से मिलेगा। इसे इस फ़ोन में PIN के ताले में रखा जाएगा।</p>
+    <label>टोकन <small>(github_pat_… से शुरू होता है)</small></label>
+    <input id="tok" type="password" autocomplete="off" placeholder="github_pat_...">
+    <label>अपना PIN बनाएँ <small>(कम से कम 4 अंक, याद रखें)</small></label>
+    <input id="pin1" type="password" inputmode="numeric" autocomplete="off">
+    <label>PIN दोबारा</label>
+    <input id="pin2" type="password" inputmode="numeric" autocomplete="off">
+    <p><button id="setupBtn">सेव करें और खोलें</button></p>
+  </div>
+  <div id="unlock" class="hide">
+    <h2>PIN डालें <small>Enter PIN</small></h2>
+    <input id="pin" type="password" inputmode="numeric" autocomplete="off" autofocus>
+    <p><button id="unlockBtn">खोलें</button> <button class="ghost" id="forgetBtn">टोकन हटाएँ</button></p>
+  </div>
+  <p id="lockMsg" class="msg-bad"></p>
+</div>
+
+<!-- ============ Panel ============ -->
+<main id="panel" class="hide">
+
+  <section>
+    <h2>सामान <small>Products</small></h2>
+    <div class="row" style="margin-bottom:8px">
+      <input id="q" placeholder="खोजें…" style="flex:2">
+      <button id="addProduct" style="flex:1">+ नया सामान</button>
+    </div>
+    <div id="products"></div>
+  </section>
+
+  <section>
+    <h2>दिवाली / ऑफ़र <small>Offers shown on the home screen</small></h2>
+    <div id="offers"></div>
+    <button class="alt" id="addOffer">+ नया ऑफ़र</button>
+  </section>
+
+  <section>
+    <h2>दुकान की जानकारी <small>Shop details</small></h2>
+    <div class="card">
+      <div class="row">
+        <div><label>WhatsApp नंबर <small>(10 अंक)</small></label><input id="wa" inputmode="numeric" maxlength="10"></div>
+        <div><label>फ़ोन नंबर <small>(10 अंक)</small></label><input id="ph" inputmode="numeric" maxlength="10"></div>
+      </div>
+      <div class="chk"><input type="checkbox" id="showHours"><div>दुकान का समय दिखाएँ <small>बंद रखने पर ऐप में “खुला है / बंद है” नहीं दिखेगा</small></div></div>
+      <div id="hoursBox">
+        <div class="row">
+          <div><label>खुलने का समय</label><input type="time" id="hOpen" value="10:00"></div>
+          <div><label>बंद होने का समय</label><input type="time" id="hClose" value="21:00"></div>
+        </div>
+        <label>साप्ताहिक छुट्टी</label>
+        <select id="hOff"><option value="0">कोई नहीं</option><option value="1">सोमवार</option><option value="2">मंगलवार</option><option value="3">बुधवार</option><option value="4">गुरुवार</option><option value="5">शुक्रवार</option><option value="6">शनिवार</option><option value="7">रविवार</option></select>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>सुविधाएँ <small>Only switch on what you really do</small></h2>
+    <div class="card">
+      <div class="chk"><input type="checkbox" id="fDelivery"><div>होम डिलीवरी <small>प्रोडक्ट पेज पर “उसी दिन डिलीवरी” दिखेगा</small></div></div>
+      <div class="chk"><input type="checkbox" id="fReserve"><div>फ़ोन रिज़र्व करना <small>“₹1,000 में 72 घंटे रोकें” दिखेगा — तभी चालू करें जब दुकान सच में रोकती हो</small></div></div>
+      <div class="chk"><input type="checkbox" id="fRepair"><div>रिपेयर <small>होम पेज पर रिपेयर बटन दिखेगा</small></div></div>
+      <div class="chk"><input type="checkbox" id="fExchange"><div>पुराना फ़ोन एक्सचेंज <small>होम पेज पर एक्सचेंज बटन दिखेगा</small></div></div>
+      <p class="note">EMI की दरें तब तक “दुकान पर पूछें” ही दिखेंगी जब तक असली बजाज फिनसर्व दरें ऐप में नहीं डाली जातीं।</p>
+    </div>
+  </section>
+
+  <section>
+    <details>
+      <summary style="font-weight:700;cursor:pointer">उन्नत: पूरी फ़ाइल (JSON) <span class="note">Advanced</span></summary>
+      <p class="note">बैकअप के लिए कॉपी करें। बदलकर “लागू करें” दबाएँ। गलत फ़ाइल प्रकाशित नहीं होगी।</p>
+      <textarea id="raw" spellcheck="false"></textarea>
+      <p><button class="alt" id="rawApply">लागू करें</button></p>
+    </details>
+  </section>
+
+  <p class="note">ऐप देखें: <a id="appLink" href="../app/" target="_blank">खोलें</a> · बदलाव प्रकाशित करने के 1–5 मिनट बाद ऐप में दिखते हैं।</p>
+</main>
+
+<div class="bar hide" id="bar">
+  <div id="msg"></div>
+  <div class="in">
+    <button class="main" id="publish" disabled>प्रकाशित करें</button>
+  </div>
+</div>
+
+<!-- ============ Product dialog ============ -->
+<dialog id="pd">
+  <div class="dh"><span id="pdTitle">सामान</span><button class="ghost" data-close="pd">✕</button></div>
+  <div class="db">
+    <label>नाम <small>(जैसे: Redmi Note 14 5G)</small></label><input id="pName">
+    <label>हिंदी नाम <small>(ज़रूरी नहीं)</small></label><input id="pNameHi">
+    <div class="row">
+      <div><label>ब्रांड</label><input id="pBrand" placeholder="Redmi, Vivo, boAt…"></div>
+      <div><label>किस्म</label><select id="pCat"></select></div>
+    </div>
+    <label>मॉडल / रंग-रूप <small>(हर रूप की अपनी कीमत और स्टॉक)</small></label>
+    <div id="pVars"></div>
+    <button class="alt" id="addVar">+ और रूप जोड़ें (जैसे 8GB+256GB)</button>
+    <div class="row">
+      <div><label>वारंटी <small>(महीने, खाली = न दिखाएँ)</small></label><input id="pWar" inputmode="numeric"></div>
+      <div></div>
+    </div>
+    <div class="chk"><input type="checkbox" id="pEmi"><div>EMI पर उपलब्ध <small>ऐप में “EMI उपलब्ध” का निशान लगेगा</small></div></div>
+    <div class="chk"><input type="checkbox" id="pFeat"><div>होम पेज पर दिखाएँ</div></div>
+    <label>फ़ोटो <small>(कैमरे या गैलरी से)</small></label>
+    <div class="imgs" id="pImgs"></div>
+    <input type="file" id="pFile" accept="image/*" multiple>
+    <label>खूबियाँ <small>(हर लाइन में एक, ज़रूरी नहीं)</small></label>
+    <textarea id="pHi" style="font-family:inherit;font-size:15px;min-height:70px" placeholder="5000 mAh बैटरी&#10;50 MP कैमरा"></textarea>
+    <div class="chk"><input type="checkbox" id="pActive" checked><div>ऐप में दिखाएँ <small>बंद करने पर सामान छिप जाएगा (हटता नहीं)</small></div></div>
+  </div>
+  <div class="df">
+    <button class="bad" id="pDel">हटाएँ</button>
+    <button class="alt" data-close="pd">रद्द</button>
+    <button id="pOk">ठीक है</button>
+  </div>
+</dialog>
+
+<!-- ============ Offer dialog ============ -->
+<dialog id="od">
+  <div class="dh"><span>ऑफ़र</span><button class="ghost" data-close="od">✕</button></div>
+  <div class="db">
+    <label>शीर्षक <small>(जैसे: Diwali Dhamaka)</small></label><input id="oT">
+    <label>हिंदी शीर्षक</label><input id="oTHi">
+    <label>विवरण <small>(जैसे: Free gift with every phone)</small></label><input id="oS">
+    <label>हिंदी विवरण</label><input id="oSHi">
+    <div class="row">
+      <div><label>आख़िरी तारीख़</label><input type="date" id="oEnd"></div>
+      <div><label>रंग</label><select id="oColor"><option value="0">रंग 1</option><option value="1">रंग 2</option><option value="2">रंग 3</option><option value="3">रंग 4</option></select></div>
+    </div>
+    <div class="chk"><input type="checkbox" id="oActive" checked><div>चालू</div></div>
+  </div>
+  <div class="df">
+    <button class="bad" id="oDel">हटाएँ</button>
+    <button class="alt" data-close="od">रद्द</button>
+    <button id="oOk">ठीक है</button>
+  </div>
+</dialog>
+
+<script>
+'use strict';
+const OWNER = 'pallavsharmaofficial', REPO = 'brandhoop', BRANCH = 'main';
+const FILE = 'assets/live/shop.json', IMG_DIR = 'site/products';
+const RAW = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
+const API = `https://api.github.com/repos/${OWNER}/${REPO}/contents/`;
+const STORE_KEY = 'brandhoopAdminToken';
+const CATS = {
+  smartphone: 'स्मार्टफ़ोन', featurePhone: 'कीपैड फ़ोन', tablet: 'टैबलेट', earphones: 'ईयरफ़ोन / ईयरबड्स',
+  charger: 'चार्जर', cable: 'केबल', caseCover: 'कवर / केस', screenGuard: 'स्क्रीन गार्ड', powerBank: 'पावर बैंक',
+  smartwatch: 'स्मार्टवॉच', speaker: 'स्पीकर', memory: 'मेमोरी कार्ड', protection: 'प्रोटेक्शन प्लान',
+};
+
+const $ = (id) => document.getElementById(id);
+let token = null, shop = {}, baseSha = null, baseText = '', dirty = false;
+const pending = new Map(); // file name -> { b64, dataUrl }
+
+/* ---------- small helpers ---------- */
+function say(text, kind = 'info') { const m = $('msg'); m.textContent = text; m.className = 'msg-' + kind; }
+function markDirty(on = true) { dirty = on; $('publish').disabled = !on; if (on) say('बदलाव अभी प्रकाशित नहीं हुए — नीचे “प्रकाशित करें” दबाएँ।', 'info'); }
+function slug(s) { return (s || 'item').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || 'item'; }
+function rid() { return Math.random().toString(36).slice(2, 6); }
+const rupees = (n) => '₹' + Number(n).toLocaleString('en-IN');
+function utf8ToB64(s) { const b = new TextEncoder().encode(s); let t = ''; b.forEach((c) => t += String.fromCharCode(c)); return btoa(t); }
+function b64ToUtf8(b) { const t = atob(b.replace(/\s/g, '')); return new TextDecoder().decode(Uint8Array.from(t, (c) => c.charCodeAt(0))); }
+const b64 = (u8) => { let t = ''; u8.forEach((c) => t += String.fromCharCode(c)); return btoa(t); };
+const unb64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+function el(tag, props = {}, ...kids) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(props)) {
+    if (k === 'class') e.className = v; else if (k === 'style') e.style.cssText = v;
+    else if (k.startsWith('on')) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v);
+  }
+  for (const k of kids.flat()) if (k != null) e.append(k.nodeType ? k : document.createTextNode(k));
+  return e;
+}
+
+/* ---------- token lock (PIN-encrypted, kept only on this phone) ---------- */
+async function deriveKey(pin, salt) {
+  const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pin), 'PBKDF2', false, ['deriveKey']);
+  return crypto.subtle.deriveKey({ name: 'PBKDF2', salt, iterations: 200000, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, false, ['encrypt', 'decrypt']);
+}
+async function sealToken(tok, pin) {
+  const salt = crypto.getRandomValues(new Uint8Array(16)), iv = crypto.getRandomValues(new Uint8Array(12));
+  const ct = new Uint8Array(await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, await deriveKey(pin, salt), new TextEncoder().encode(tok)));
+  localStorage.setItem(STORE_KEY, JSON.stringify({ s: b64(salt), i: b64(iv), c: b64(ct) }));
+}
+async function openToken(pin) {
+  const o = JSON.parse(localStorage.getItem(STORE_KEY));
+  const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: unb64(o.i) }, await deriveKey(pin, unb64(o.s)), unb64(o.c));
+  return new TextDecoder().decode(pt);
+}
+function showLock() {
+  $('panel').classList.add('hide'); $('bar').classList.add('hide'); $('lockBtn').classList.add('hide'); $('lock').classList.remove('hide');
+  const has = !!localStorage.getItem(STORE_KEY);
+  $('setup').classList.toggle('hide', has); $('unlock').classList.toggle('hide', !has); $('lockMsg').textContent = '';
+}
+$('setupBtn').onclick = async () => {
+  const t = $('tok').value.trim(), p1 = $('pin1').value, p2 = $('pin2').value;
+  if (!/^(github_pat_|ghp_)/.test(t)) return $('lockMsg').textContent = 'टोकन सही नहीं लगता। github_pat_ से शुरू होना चाहिए।';
+  if (p1.length < 4) return $('lockMsg').textContent = 'PIN कम से कम 4 अंक का रखें।';
+  if (p1 !== p2) return $('lockMsg').textContent = 'दोनों PIN एक जैसे नहीं हैं।';
+  await sealToken(t, p1); token = t; $('tok').value = $('pin1').value = $('pin2').value = ''; await enter();
+};
+$('unlockBtn').onclick = async () => {
+  try { token = await openToken($('pin').value); $('pin').value = ''; await enter(); }
+  catch (e) { $('lockMsg').textContent = 'PIN गलत है।'; }
+};
+$('pin').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('unlockBtn').click(); });
+$('forgetBtn').onclick = () => { if (confirm('इस फ़ोन से टोकन हटाएँ? दोबारा सेटअप करना होगा।')) { localStorage.removeItem(STORE_KEY); showLock(); } };
+$('lockBtn').onclick = () => { if (dirty && !confirm('बदलाव प्रकाशित नहीं हुए। फिर भी बंद करें?')) return; token = null; shop = {}; showLock(); };
+
+/* ---------- GitHub ---------- */
+async function gh(method, path, body) {
+  const r = await fetch(API + path, {
+    method, body: body ? JSON.stringify(body) : undefined,
+    headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', ...(body ? { 'Content-Type': 'application/json' } : {}) },
+  });
+  let j = null; try { j = await r.json(); } catch (e) { /* empty body */ }
+  if (!r.ok) { const err = new Error((j && j.message) || r.statusText); err.status = r.status; throw err; }
+  return j;
+}
+function explain(e) {
+  if (e.status === 401) return 'टोकन सही नहीं है या ख़त्म हो गया। “टोकन हटाएँ” दबाकर नया टोकन डालें।';
+  if (e.status === 403 || e.status === 404) return 'इस टोकन को ब्रांडहूप में लिखने की अनुमति नहीं है (Contents: Read and write चाहिए)। Pallav से नया टोकन लें।';
+  if (e.status === 409 || e.status === 422) return 'फ़ाइल बीच में बदल गई। पेज रीफ़्रेश करके दोबारा कोशिश करें।';
+  return 'नेटवर्क में दिक्कत: ' + e.message;
+}
+async function fetchShop() {
+  const j = await gh('GET', FILE + '?ref=' + BRANCH + '&_=' + Date.now());
+  return { sha: j.sha, text: b64ToUtf8(j.content) };
+}
+async function enter() {
+  say('लोड हो रहा है…');
+  try {
+    const f = await fetchShop(); baseSha = f.sha; baseText = f.text; shop = JSON.parse(f.text);
+  } catch (e) {
+    $('lock').classList.remove('hide'); $('lockMsg').textContent = explain(e); return;
+  }
+  $('lock').classList.add('hide'); $('panel').classList.remove('hide'); $('bar').classList.remove('hide'); $('lockBtn').classList.remove('hide');
+  shop.settings ||= {}; shop.offers ||= []; shop.products ||= []; shop.features ||= {};
+  renderAll(); markDirty(false); say('तैयार। सामान जोड़ें या बदलें, फिर “प्रकाशित करें” दबाएँ।');
+}
+
+/* ---------- render ---------- */
+function renderAll() { renderProducts(); renderOffers(); renderShop(); renderRaw(); }
+function renderRaw() { $('raw').value = JSON.stringify(shop, null, 2); }
+function imgOf(p) { const u = (p.imageUrls || [])[0]; if (!u) return null; const n = u.split('/').pop(); return pending.has(n) ? pending.get(n).dataUrl : u; }
+function stockOf(p) { return (p.variants || []).reduce((s, v) => s + (+v.stock || 0), 0); }
+
+function renderProducts() {
+  const q = $('q').value.trim().toLowerCase(), box = $('products'); box.replaceChildren();
+  const list = shop.products.filter((p) => !q || `${p.name && p.name.en} ${p.brand}`.toLowerCase().includes(q));
+  if (!list.length) box.append(el('p', { class: 'note' }, shop.products.length ? 'कुछ नहीं मिला।' : 'अभी कोई सामान नहीं है। “+ नया सामान” दबाएँ।'));
+  for (const p of list) {
+    const lead = (p.variants || []).slice().sort((a, b) => a.price - b.price)[0] || {};
+    const st = stockOf(p), cls = st <= 0 ? 'p-out' : st <= 3 ? 'p-low' : 'p-ok';
+    const th = el('div', { class: 'thumb' }, imgOf(p) ? null : '📱'); const u = imgOf(p); if (u) th.style.backgroundImage = `url("${u}")`;
+    box.append(el('div', { class: 'item' }, th,
+      el('div', { class: 't' }, el('b', {}, (p.name && p.name.en) || '(नाम नहीं)'),
+        el('span', {}, `${p.brand || ''} · ${CATS[p.category] || p.category} · ${lead.price ? rupees(lead.price) : '—'} `),
+        el('span', { class: 'pill ' + cls }, st <= 0 ? 'स्टॉक खत्म' : `स्टॉक ${st}`), p.active === false ? el('span', { class: 'pill p-low', style: 'margin-left:4px' }, 'छिपा') : null),
+      el('button', { class: 'alt', onclick: () => editProduct(p) }, 'बदलें')));
+  }
+}
+function renderOffers() {
+  const box = $('offers'); box.replaceChildren();
+  if (!shop.offers.length) box.append(el('p', { class: 'note' }, 'कोई ऑफ़र नहीं।'));
+  for (const o of shop.offers) {
+    box.append(el('div', { class: 'item' }, el('div', { class: 'thumb' }, '🎁'),
+      el('div', { class: 't' }, el('b', {}, (o.title && o.title.en) || '(शीर्षक नहीं)'), el('span', {}, ((o.subtitle && o.subtitle.en) || '') + (o.endsAt ? ' · तक ' + o.endsAt.slice(0, 10) : ''))),
+      el('button', { class: 'alt', onclick: () => editOffer(o) }, 'बदलें')));
+  }
+}
+const digits = (s) => String(s || '').replace(/\D/g, '').slice(-10);
+function renderShop() {
+  const s = shop.settings, f = shop.features;
+  $('wa').value = s.whatsapp || ''; $('ph').value = s.phone || '';
+  const h = s.hours; $('showHours').checked = !!h; $('hoursBox').classList.toggle('hide', !h);
+  if (h) {
+    const first = Object.values(h).find((d) => d && !d.closed) || { open: 600, close: 1260 };
+    const t = (m) => String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
+    $('hOpen').value = t(first.open); $('hClose').value = t(first.close);
+    $('hOff').value = String((Object.entries(h).find(([, d]) => d && d.closed) || [0])[0]);
+  }
+  $('fDelivery').checked = !!f.delivery; $('fReserve').checked = !!f.reserve; $('fRepair').checked = !!f.repair; $('fExchange').checked = !!f.exchange;
+}
+function readShop() {
+  const s = shop.settings; s.whatsapp = digits($('wa').value); s.phone = digits($('ph').value);
+  if ($('showHours').checked) {
+    const m = (v) => { const [a, b] = v.split(':').map(Number); return a * 60 + b; };
+    const off = $('hOff').value, h = {};
+    for (let d = 1; d <= 7; d++) h[d] = String(d) === off ? { open: 600, close: 1260, closed: true } : { open: m($('hOpen').value), close: m($('hClose').value), closed: false };
+    s.hours = h;
+  } else delete s.hours;
+  shop.features = { ...shop.features, delivery: $('fDelivery').checked, reserve: $('fReserve').checked, repair: $('fRepair').checked, exchange: $('fExchange').checked };
+}
+for (const id of ['wa', 'ph', 'showHours', 'hOpen', 'hClose', 'hOff', 'fDelivery', 'fReserve', 'fRepair', 'fExchange'])
+  $(id).addEventListener('change', () => { if (id === 'showHours') $('hoursBox').classList.toggle('hide', !$('showHours').checked); readShop(); renderRaw(); markDirty(); });
+$('q').addEventListener('input', renderProducts);
+
+/* ---------- product editor ---------- */
+let editing = null, editingIsNew = false, vars = [], imgs = [];
+for (const [k, v] of Object.entries(CATS)) $('pCat').append(el('option', { value: k }, v));
+function varRow(v) {
+  const r = el('div', { class: 'vrow' },
+    el('div', { class: 'row' }, el('div', {}, el('label', {}, 'रूप / साइज़'), el('input', { 'data-k': 'label', placeholder: '8GB + 128GB' })), el('div', {}, el('label', {}, 'रंग'), el('input', { 'data-k': 'color', placeholder: 'Black' }))),
+    el('div', { class: 'row' },
+      el('div', {}, el('label', {}, 'बिक्री कीमत ₹'), el('input', { 'data-k': 'price', inputmode: 'numeric' })),
+      el('div', {}, el('label', {}, 'MRP ₹'), el('input', { 'data-k': 'mrp', inputmode: 'numeric' })),
+      el('div', {}, el('label', {}, 'स्टॉक'), el('input', { 'data-k': 'stock', inputmode: 'numeric' }))),
+    el('button', { class: 'ghost', style: 'color:var(--bad)', onclick: () => { if (document.querySelectorAll('.vrow').length > 1) r.remove(); } }, 'यह रूप हटाएँ'));
+  r.dataset.id = v.id || 'v' + rid();
+  for (const k of ['label', 'color', 'price', 'mrp', 'stock']) r.querySelector(`[data-k=${k}]`).value = v[k] ?? '';
+  return r;
+}
+function readVars() {
+  return [...document.querySelectorAll('.vrow')].map((r) => {
+    const g = (k) => r.querySelector(`[data-k=${k}]`).value.trim(), price = Math.round(+g('price')), mrp = Math.round(+g('mrp') || price);
+    return { id: r.dataset.id, label: g('label'), color: g('color'), price, mrp: mrp < price ? price : mrp, stock: Math.max(0, Math.round(+g('stock') || 0)) };
+  });
+}
+function renderImgs() {
+  const box = $('pImgs'); box.replaceChildren();
+  imgs.forEach((u, i) => {
+    const n = u.split('/').pop(), src = pending.has(n) ? pending.get(n).dataUrl : u;
+    const t = el('div', { class: 'thumb' }, el('button', { onclick: () => { imgs.splice(i, 1); renderImgs(); } }, '×')); t.style.backgroundImage = `url("${src}")`; box.append(t);
+  });
+}
+function editProduct(p) {
+  editingIsNew = !p; editing = p || { id: '', name: { en: '', hi: '' }, brand: '', category: 'smartphone', variants: [{ label: '', price: '', mrp: '', stock: 1 }], active: true };
+  $('pdTitle').textContent = p ? 'सामान बदलें' : 'नया सामान'; $('pDel').classList.toggle('hide', !p);
+  $('pName').value = editing.name.en || ''; $('pNameHi').value = editing.name.hi || ''; $('pBrand').value = editing.brand || ''; $('pCat').value = editing.category || 'smartphone';
+  $('pVars').replaceChildren(...(editing.variants.length ? editing.variants : [{}]).map(varRow));
+  $('pWar').value = editing.warrantyMonths || ''; $('pEmi').checked = !!editing.emiEligible; $('pFeat').checked = !!editing.featured; $('pActive').checked = editing.active !== false;
+  $('pHi').value = (editing.highlights || []).map((h) => h.en).join('\n'); imgs = [...(editing.imageUrls || [])]; renderImgs(); $('pFile').value = '';
+  $('pd').showModal();
+}
+$('addProduct').onclick = () => editProduct(null);
+$('addVar').onclick = () => $('pVars').append(varRow({ stock: 1 }));
+$('pFile').onchange = async (e) => {
+  for (const f of e.target.files) {
+    try {
+      const bmp = await createImageBitmap(f), k = Math.min(1, 900 / Math.max(bmp.width, bmp.height));
+      const c = document.createElement('canvas'); c.width = Math.round(bmp.width * k); c.height = Math.round(bmp.height * k);
+      const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(bmp, 0, 0, c.width, c.height);
+      const dataUrl = c.toDataURL('image/jpeg', 0.82), name = `${slug($('pBrand').value + '-' + $('pName').value)}-${Date.now().toString(36)}${rid()}.jpg`;
+      pending.set(name, { b64: dataUrl.split(',')[1], dataUrl }); imgs.push(RAW + IMG_DIR + '/' + name);
+    } catch (err) { alert('यह फ़ोटो नहीं खुली: ' + f.name); }
+  }
+  e.target.value = ''; renderImgs();
+};
+$('pOk').onclick = () => {
+  const name = $('pName').value.trim(), brand = $('pBrand').value.trim(), vs = readVars(), bad = [];
+  if (!name) bad.push('नाम लिखें'); if (!brand) bad.push('ब्रांड लिखें');
+  vs.forEach((v, i) => { if (!v.label) v.label = vs.length > 1 ? 'रूप ' + (i + 1) : 'Standard'; if (!(v.price > 0)) bad.push(`रूप ${i + 1}: कीमत डालें`); });
+  if (bad.length) return alert(bad.join('\n'));
+  const p = editing, war = Math.round(+$('pWar').value);
+  p.name = { en: name, hi: $('pNameHi').value.trim() }; p.brand = brand; p.category = $('pCat').value; p.variants = vs;
+  p.emiEligible = $('pEmi').checked; p.featured = $('pFeat').checked; p.active = $('pActive').checked; p.imageUrls = imgs.slice();
+  war > 0 ? p.warrantyMonths = war : delete p.warrantyMonths;
+  p.highlights = $('pHi').value.split('\n').map((s) => s.trim()).filter(Boolean).map((s) => ({ en: s, hi: '' }));
+  if (editingIsNew) { p.id = slug(brand + '-' + name) + '-' + rid(); shop.products.unshift(p); }
+  $('pd').close(); renderProducts(); renderRaw(); markDirty();
+};
+$('pDel').onclick = () => { if (confirm('यह सामान हमेशा के लिए हटाएँ? (छिपाना हो तो “ऐप में दिखाएँ” बंद करें)')) { shop.products = shop.products.filter((x) => x !== editing); $('pd').close(); renderProducts(); renderRaw(); markDirty(); } };
+
+/* ---------- offer editor ---------- */
+let editingO = null, oNew = false;
+function editOffer(o) {
+  oNew = !o; editingO = o || { id: '', kind: 'banner', title: { en: '', hi: '' }, subtitle: { en: '', hi: '' }, colorSeed: 1 };
+  $('oT').value = editingO.title.en || ''; $('oTHi').value = editingO.title.hi || ''; $('oS').value = (editingO.subtitle || {}).en || ''; $('oSHi').value = (editingO.subtitle || {}).hi || '';
+  $('oEnd').value = editingO.endsAt ? editingO.endsAt.slice(0, 10) : ''; $('oColor').value = String(editingO.colorSeed || 0); $('oActive').checked = editingO.active !== false;
+  $('oDel').classList.toggle('hide', !o); $('od').showModal();
+}
+$('addOffer').onclick = () => editOffer(null);
+$('oOk').onclick = () => {
+  const t = $('oT').value.trim(); if (!t) return alert('शीर्षक लिखें');
+  const o = editingO; o.kind = 'banner'; o.title = { en: t, hi: $('oTHi').value.trim() }; o.subtitle = { en: $('oS').value.trim(), hi: $('oSHi').value.trim() };
+  $('oEnd').value ? o.endsAt = $('oEnd').value + 'T23:59:00' : delete o.endsAt; o.colorSeed = +$('oColor').value; o.active = $('oActive').checked;
+  if (oNew) { o.id = 'offer-' + Date.now().toString(36); shop.offers.unshift(o); }
+  $('od').close(); renderOffers(); renderRaw(); markDirty();
+};
+$('oDel').onclick = () => { if (confirm('यह ऑफ़र हटाएँ?')) { shop.offers = shop.offers.filter((x) => x !== editingO); $('od').close(); renderOffers(); renderRaw(); markDirty(); } };
+document.querySelectorAll('[data-close]').forEach((b) => b.onclick = () => $(b.dataset.close).close());
+
+/* ---------- advanced JSON ---------- */
+$('rawApply').onclick = () => {
+  try { const j = JSON.parse($('raw').value); if (typeof j !== 'object' || Array.isArray(j)) throw new Error('object chahiye'); shop = j; shop.settings ||= {}; shop.offers ||= []; shop.products ||= []; shop.features ||= {}; renderAll(); markDirty(); say('फ़ाइल लागू हो गई। प्रकाशित करना बाकी है।'); }
+  catch (e) { alert('फ़ाइल सही नहीं है: ' + e.message); }
+};
+
+/* ---------- validate + publish ---------- */
+function problems() {
+  const out = [], s = shop.settings;
+  if (s.whatsapp && !/^[6-9]\d{9}$/.test(s.whatsapp)) out.push('WhatsApp नंबर 10 अंक का होना चाहिए');
+  if (s.phone && !/^[6-9]\d{9}$/.test(s.phone)) out.push('फ़ोन नंबर 10 अंक का होना चाहिए');
+  shop.products.forEach((p) => { const n = (p.name && p.name.en) || '?'; if (!p.variants || !p.variants.length) out.push(n + ': कोई रूप नहीं'); (p.variants || []).forEach((v) => { if (!(v.price > 0)) out.push(n + ': कीमत नहीं'); }); });
+  return out;
+}
+$('publish').onclick = async () => {
+  readShop(); const bad = problems(); if (bad.length) return say('पहले ठीक करें: ' + bad.join(' · '), 'bad');
+  const btn = $('publish'); btn.disabled = true;
+  try {
+    say('जाँच रहे हैं…');
+    const latest = await fetchShop();
+    if (latest.sha !== baseSha && !confirm('इस बीच फ़ाइल किसी और ने बदली है। फिर भी आपका नया रूप लिखें?')) { btn.disabled = false; return say('रद्द किया।'); }
+    // Photos first, so the file never points at a picture that is not there yet.
+    const used = new Set(shop.products.flatMap((p) => p.imageUrls || []).map((u) => u.split('/').pop())); let n = 0;
+    for (const [name, img] of pending) {
+      if (!used.has(name)) { pending.delete(name); continue; }
+      say(`फ़ोटो भेज रहे हैं… ${++n}/${[...pending.keys()].filter((k) => used.has(k)).length}`);
+      await gh('PUT', IMG_DIR + '/' + name, { message: 'Shop photo (admin panel)', content: img.b64, branch: BRANCH });
+      pending.delete(name);
+    }
+    say('प्रकाशित हो रहा है…');
+    const text = JSON.stringify(shop, null, 2) + '\n';
+    const res = await gh('PUT', FILE, { message: 'Shop update (admin panel)', content: utf8ToB64(text), sha: latest.sha, branch: BRANCH });
+    baseSha = res.content.sha; baseText = text; markDirty(false); renderRaw();
+    say('✓ प्रकाशित हो गया। ऐप में 1–5 मिनट में दिखेगा (ऐप दोबारा खोलें)।', 'ok');
+  } catch (e) { btn.disabled = false; say('प्रकाशित नहीं हुआ: ' + explain(e), 'bad'); }
+};
+window.addEventListener('beforeunload', (e) => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+
+showLock();
+</script>
+</body>
+</html>
