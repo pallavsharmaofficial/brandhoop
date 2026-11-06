@@ -1634,5 +1634,74 @@
   "liveWhyPayBody": "UPI and cards online, cash at the shop. Bajaj Finserv EMI only at the shop (face scan needed).",
   "liveEmiTitle": "EMI at Brandhoop",
   "liveEmiBody": "We offer EMI with Bajaj Finserv. It is available only at the shop, because it needs a face scan. Approval, the rate and the final instalments are decided by the lender. Ask at the shop for today’s schemes and rates.",
-  "liveEmiShopOnly": "Bajaj Finserv EMI is available only at the shop, because it needs a face scan. Approval and the rate are decided by the lender."
+  "liveEmiShopOnly": "Bajaj Finserv EMI is available only at the shop, because it needs a face scan. Approval and the rate are decided by the lender.",
+  "liveRefPrice": "Reference price",
+  "liveCallForBest": "Call for best price",
+  "liveBargainBtn": "Call to bargain",
+  "liveWhatsappAsk": "Ask offer on WhatsApp",
+  "liveBargainMsg": "Hello {shop}, I am interested in {product} (reference price {price}). Please tell me today’s best price and the gifts and offers.",
+  "@liveBargainMsg": {
+    "placeholders": {
+      "shop": {
+        "type": "String"
+      },
+      "product": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "liveBargainMsgNoPrice": "Hello {shop}, I am interested in {product}. Please tell me today’s best price and the gifts and offers.",
+  "@liveBargainMsgNoPrice": {
+    "placeholders": {
+      "shop": {
+        "type": "String"
+      },
+      "product": {
+        "type": "String"
+      }
+    }
+  },
+  "liveGenericAsk": "Hello {shop}, please tell me today’s best prices, gifts and offers on mobile phones.",
+  "@liveGenericAsk": {
+    "placeholders": {
+      "shop": {
+        "type": "String"
+      }
+    }
+  },
+  "liveAskAvailability": "Ask the shop for availability",
+  "liveGiftTitle": "Gift and offers",
+  "liveGiftWorth": "Gift worth {amount}",
+  "@liveGiftWorth": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "liveYouSave": "You save {amount}",
+  "@liveYouSave": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "liveTotalBenefit": "Total benefit {amount}",
+  "@liveTotalBenefit": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "liveRefNote": "The reference price is from online listings and can differ. Prices change often: call or WhatsApp now for today’s best price, gifts and EMI help at the shop.",
+  "livePriceOnCall": "Price on call",
+  "liveWorryTitle": "Worried prices will go up?",
+  "liveWorryBody": "Phone prices change often. Call or message us today for the best price, gifts and easy EMI at the shop, and buy without waiting.",
+  "liveWorryCta": "Get today’s best price",
+  "liveGalleryTitle": "Festival gifts and offers"
 }

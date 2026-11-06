@@ -24,6 +24,7 @@ class Offer extends Equatable {
     required this.endsAt,
     this.active = true,
     this.colorSeed = 0,
+    this.imageUrl = '',
   });
 
   final String id;
@@ -48,6 +49,9 @@ class Offer extends Equatable {
   final DateTime endsAt;
   final bool active;
   final int colorSeed;
+
+  /// A photo behind the banner text (optional).
+  final String imageUrl;
 
   bool isLive(DateTime now) =>
       active && !now.isBefore(startsAt) && now.isBefore(endsAt);
@@ -82,6 +86,7 @@ class Offer extends Equatable {
         endsAt: endsAt ?? this.endsAt,
         active: active ?? this.active,
         colorSeed: colorSeed,
+        imageUrl: imageUrl,
       );
 
   Json toJson() => <String, dynamic>{
@@ -99,6 +104,7 @@ class Offer extends Equatable {
         'endsAt': isoOrNull(endsAt),
         'active': active,
         'colorSeed': colorSeed,
+        'imageUrl': imageUrl,
       };
 
   factory Offer.fromJson(Json j) => Offer(
@@ -123,11 +129,12 @@ class Offer extends Equatable {
         endsAt: j.time('endsAt') ?? DateTime(2100),
         active: j.flag('active', true),
         colorSeed: j.integer('colorSeed'),
+        imageUrl: j.str('imageUrl'),
       );
 
   @override
   List<Object?> get props => <Object?>[
         id, kind, title, subtitle, code, discountKind, value, minOrder,
-        maxDiscount, groups, startsAt, endsAt, active, colorSeed,
+        maxDiscount, groups, startsAt, endsAt, active, colorSeed, imageUrl,
       ];
 }

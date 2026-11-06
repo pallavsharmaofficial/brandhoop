@@ -42,7 +42,13 @@ class ProductCard extends StatelessWidget {
                         top: 8,
                         child: _Tag('${product.discountPct}% ${context.tr.off}', const Color(0xFF2E7D32)),
                       ),
-                    if (!product.inStock)
+                    if (product.callForBest)
+                      Positioned(
+                        left: 8,
+                        top: 8,
+                        child: _Tag(context.tr.liveCallForBest, const Color(0xFFEF6C00)),
+                      ),
+                    if (!product.callForBest && !product.inStock)
                       Positioned.fill(
                         child: ColoredBox(
                           color: Colors.black38,
@@ -71,7 +77,27 @@ class ProductCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 6),
-                    PriceBlock(price: product.minPrice, mrp: product.minMrp),
+                    if (product.callForBest) ...<Widget>[
+                      Text(
+                        product.refPriceLabel.isEmpty ? context.tr.liveRefPrice : product.refPriceLabel.of(lang),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: t.textTheme.labelSmall?.copyWith(color: t.colorScheme.onSurfaceVariant),
+                      ),
+                      Text(
+                        product.minPrice > 0 ? formatRupees(product.minPrice) : context.tr.livePriceOnCall,
+                        style: t.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w900),
+                      ),
+                    ] else
+                      PriceBlock(price: product.minPrice, mrp: product.minMrp),
+                    if (!product.gift.isEmpty) ...<Widget>[
+                      const SizedBox(height: 4),
+                      Row(children: <Widget>[
+                        const Icon(Icons.card_giftcard, size: 14, color: Color(0xFF2E7D32)),
+                        const SizedBox(width: 4),
+                        Expanded(child: Text(product.gift.of(lang), maxLines: 1, overflow: TextOverflow.ellipsis, style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: Color(0xFF2E7D32)))),
+                      ]),
+                    ],
                     if (emi != null) ...<Widget>[
                       const SizedBox(height: 4),
                       Text(

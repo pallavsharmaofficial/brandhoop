@@ -27,6 +27,7 @@ import '../../widgets/product_card.dart';
 import '../../widgets/store_widgets.dart';
 import '../auth/auth_gate.dart';
 import 'emi_plans_sheet.dart';
+import 'live_widgets.dart';
 
 class ProductScreen extends StatefulWidget {
   const ProductScreen({super.key, required this.productId});
@@ -108,7 +109,9 @@ class _ProductScreenState extends State<ProductScreen> {
           const SizedBox(width: 4),
         ],
       ),
-      bottomNavigationBar: _BottomBar(
+      bottomNavigationBar: p.callForBest
+          ? LiveBargainBar(product: p, variant: v)
+          : _BottomBar(
         product: p,
         variant: v,
         addonIds: _addons,
@@ -141,9 +144,13 @@ class _ProductScreenState extends State<ProductScreen> {
                       child: StatusPill(context.tr.sampleListing, color: BrandColors.saffron, icon: Icons.science_outlined),
                     ),
                   const SizedBox(height: 12),
-                  PriceBlock(price: v.price, mrp: v.mrp, large: true),
-                  const SizedBox(height: 2),
-                  Text(context.tr.inclGst, style: Theme.of(context).textTheme.bodySmall),
+                  if (p.callForBest)
+                    LiveReferencePrice(product: p, variant: v)
+                  else ...<Widget>[
+                    PriceBlock(price: v.price, mrp: v.mrp, large: true),
+                    const SizedBox(height: 2),
+                    Text(context.tr.inclGst, style: Theme.of(context).textTheme.bodySmall),
+                  ],
                   if (p.variants.length > 1) ...<Widget>[
                     const SizedBox(height: 14),
                     Text(context.tr.chooseVariant, style: const TextStyle(fontWeight: FontWeight.w800)),
@@ -156,13 +163,17 @@ class _ProductScreenState extends State<ProductScreen> {
                           ChoiceChip(
                             label: Text(<String>[x.label, if (x.color.isNotEmpty) x.color].join(' · ')),
                             selected: x.id == v.id,
-                            onSelected: x.inStock ? (_) => setState(() => _variantId = x.id) : null,
+                            onSelected: x.inStock || p.callForBest ? (_) => setState(() => _variantId = x.id) : null,
                           ),
                       ],
                     ),
                   ],
                   const SizedBox(height: 10),
-                  _StockLine(variant: v),
+                  if (p.callForBest)
+                    Text(context.tr.liveAskAvailability, style: const TextStyle(fontWeight: FontWeight.w700))
+                  else
+                    _StockLine(variant: v),
+                  if (AppEnv.live) LiveBenefitCard(product: p, variant: v),
                 ],
               ),
             ),

@@ -104,6 +104,12 @@
   </section>
 
   <section>
+    <h2>फ़ोटो गैलरी <small>Festival gifts and offers photos on the home screen</small></h2>
+    <div id="gallery"></div>
+    <button class="alt" id="addPhoto">+ नई फ़ोटो</button>
+  </section>
+
+  <section>
     <h2>दुकान की जानकारी <small>Shop details</small></h2>
     <div class="card">
       <div class="row">
@@ -174,6 +180,16 @@
     <label>फ़ोटो <small>(कैमरे या गैलरी से)</small></label>
     <div class="imgs" id="pImgs"></div>
     <input type="file" id="pFile" accept="image/*" multiple>
+    <div class="chk"><input type="checkbox" id="pCall" checked><div>कीमत कॉल पर (मोलभाव) <small>सिर्फ़ संदर्भ कीमत दिखेगी और “मोलभाव के लिए कॉल करें” बटन। कार्ट/स्टॉक नहीं दिखेगा।</small></div></div>
+    <div class="row">
+      <div><label>कीमत का नाम <small>(जैसे Launch price)</small></label><input id="pRef" placeholder="Launch price (Dec 2025)"></div>
+      <div><label>हिंदी में</label><input id="pRefHi" placeholder="लॉन्च कीमत (दिसंबर 2025)"></div>
+    </div>
+    <div class="row">
+      <div><label>गिफ़्ट <small>(जैसे: Free earbuds)</small></label><input id="pGift"></div>
+      <div><label>गिफ़्ट हिंदी में</label><input id="pGiftHi"></div>
+    </div>
+    <label>गिफ़्ट की कीमत ₹ <small>(खाली = न दिखाएँ)</small></label><input id="pGiftVal" inputmode="numeric">
     <label>खूबियाँ <small>(हर लाइन में एक, ज़रूरी नहीं)</small></label>
     <textarea id="pHi" style="font-family:inherit;font-size:15px;min-height:70px" placeholder="5000 mAh बैटरी&#10;50 MP कैमरा"></textarea>
     <div class="chk"><input type="checkbox" id="pActive" checked><div>ऐप में दिखाएँ <small>बंद करने पर सामान छिप जाएगा (हटता नहीं)</small></div></div>
@@ -197,6 +213,9 @@
       <div><label>आख़िरी तारीख़</label><input type="date" id="oEnd"></div>
       <div><label>रंग</label><select id="oColor"><option value="0">रंग 1</option><option value="1">रंग 2</option><option value="2">रंग 3</option><option value="3">रंग 4</option></select></div>
     </div>
+    <label>फ़ोटो <small>(बैनर के पीछे, ज़रूरी नहीं)</small></label>
+    <div class="imgs" id="oImgBox"></div>
+    <input type="file" id="oFile" accept="image/*">
     <div class="chk"><input type="checkbox" id="oActive" checked><div>चालू</div></div>
   </div>
   <div class="df">
@@ -206,10 +225,25 @@
   </div>
 </dialog>
 
+<dialog id="gd">
+  <div class="dh"><span>गैलरी फ़ोटो</span><button class="ghost" data-close="gd">✕</button></div>
+  <div class="db">
+    <div class="imgs" id="gImgBox"></div>
+    <input type="file" id="gFile" accept="image/*">
+    <label>नीचे लिखा नाम <small>(जैसे: Diwali gift sets with phones)</small></label><input id="gCap">
+    <label>हिंदी में</label><input id="gCapHi">
+  </div>
+  <div class="df">
+    <button class="bad" id="gDel">हटाएँ</button>
+    <button class="alt" data-close="gd">रद्द</button>
+    <button id="gOk">ठीक है</button>
+  </div>
+</dialog>
+
 <script>
 'use strict';
 const OWNER = 'pallavsharmaofficial', REPO = 'brandhoop', BRANCH = 'main';
-const FILE = 'assets/live/shop.json', IMG_DIR = 'site/products';
+const FILE = 'assets/live/shop.json', IMG_DIR = 'site/products', GAL_DIR = 'site/gallery';
 const RAW = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
 const API = `https://api.github.com/repos/${OWNER}/${REPO}/contents/`;
 const STORE_KEY = 'brandhoopAdminToken';
@@ -306,12 +340,12 @@ async function enter() {
     $('lock').classList.remove('hide'); $('lockMsg').textContent = explain(e); return;
   }
   $('lock').classList.add('hide'); $('panel').classList.remove('hide'); $('bar').classList.remove('hide'); $('lockBtn').classList.remove('hide');
-  shop.settings ||= {}; shop.offers ||= []; shop.products ||= []; shop.features ||= {};
+  shop.settings ||= {}; shop.offers ||= []; shop.products ||= []; shop.features ||= {}; shop.gallery ||= [];
   renderAll(); markDirty(false); say('तैयार। सामान जोड़ें या बदलें, फिर “प्रकाशित करें” दबाएँ।');
 }
 
 /* ---------- render ---------- */
-function renderAll() { renderProducts(); renderOffers(); renderShop(); renderRaw(); }
+function renderAll() { renderProducts(); renderOffers(); renderGallery(); renderShop(); renderRaw(); }
 function renderRaw() { $('raw').value = JSON.stringify(shop, null, 2); }
 function imgOf(p) { const u = (p.imageUrls || [])[0]; if (!u) return null; const n = u.split('/').pop(); return pending.has(n) ? pending.get(n).dataUrl : u; }
 function stockOf(p) { return (p.variants || []).reduce((s, v) => s + (+v.stock || 0), 0); }
@@ -326,7 +360,7 @@ function renderProducts() {
     const th = el('div', { class: 'thumb' }, imgOf(p) ? null : '📱'); const u = imgOf(p); if (u) th.style.backgroundImage = `url("${u}")`;
     box.append(el('div', { class: 'item' }, th,
       el('div', { class: 't' }, el('b', {}, (p.name && p.name.en) || '(नाम नहीं)'),
-        el('span', {}, `${p.brand || ''} · ${CATS[p.category] || p.category} · ${lead.price ? rupees(lead.price) : '—'} `),
+        el('span', {}, `${p.brand || ''} · ${CATS[p.category] || p.category} · ${lead.price ? rupees(lead.price) : 'कीमत कॉल पर'} `), p.callForBest ? el('span', { class: 'pill p-low', style: 'margin-right:4px' }, 'कॉल') : null,
         el('span', { class: 'pill ' + cls }, st <= 0 ? 'स्टॉक खत्म' : `स्टॉक ${st}`), p.active === false ? el('span', { class: 'pill p-low', style: 'margin-left:4px' }, 'छिपा') : null),
       el('button', { class: 'alt', onclick: () => editProduct(p) }, 'बदलें')));
   }
@@ -340,6 +374,30 @@ function renderOffers() {
       el('button', { class: 'alt', onclick: () => editOffer(o) }, 'बदलें')));
   }
 }
+function renderGallery() {
+  const box = $('gallery'); box.replaceChildren();
+  if (!(shop.gallery || []).length) box.append(el('p', { class: 'note' }, 'कोई फ़ोटो नहीं।'));
+  for (const g of shop.gallery || []) {
+    const th = el('div', { class: 'thumb' }); th.style.backgroundImage = `url("${previewSrc(g.url)}")`;
+    box.append(el('div', { class: 'item' }, th, el('div', { class: 't' }, el('b', {}, (g.caption && g.caption.en) || '(बिना नाम)')), el('button', { class: 'alt', onclick: () => editPhoto(g) }, 'बदलें')));
+  }
+}
+let editingG = null, gNew = false, gUrl = '';
+function renderGImg() { const b = $('gImgBox'); b.replaceChildren(); if (gUrl) b.append(thumbWith(gUrl, () => { gUrl = ''; renderGImg(); })); }
+function editPhoto(g) {
+  gNew = !g; editingG = g || { url: '', caption: { en: '', hi: '' } }; gUrl = editingG.url || '';
+  $('gCap').value = (editingG.caption || {}).en || ''; $('gCapHi').value = (editingG.caption || {}).hi || ''; renderGImg(); $('gFile').value = '';
+  $('gDel').classList.toggle('hide', !g); $('gd').showModal();
+}
+$('addPhoto').onclick = () => editPhoto(null);
+$('gFile').onchange = async (e) => { const f = e.target.files[0]; if (!f) return; try { gUrl = await addPhoto(f, 'gallery-' + ($('gCap').value || 'photo'), GAL_DIR); renderGImg(); } catch (err) { alert('यह फ़ोटो नहीं खुली'); } e.target.value = ''; };
+$('gOk').onclick = () => {
+  if (!gUrl) return alert('फ़ोटो चुनें');
+  const g = editingG; g.url = gUrl; g.caption = { en: $('gCap').value.trim(), hi: $('gCapHi').value.trim() };
+  shop.gallery ||= []; if (gNew) shop.gallery.unshift(g);
+  $('gd').close(); renderGallery(); renderRaw(); markDirty();
+};
+$('gDel').onclick = () => { if (confirm('यह फ़ोटो हटाएँ?')) { shop.gallery = shop.gallery.filter((x) => x !== editingG); $('gd').close(); renderGallery(); renderRaw(); markDirty(); } };
 const digits = (s) => String(s || '').replace(/\D/g, '').slice(-10);
 function renderShop() {
   const s = shop.settings, f = shop.features;
@@ -401,30 +459,39 @@ function editProduct(p) {
   $('pName').value = editing.name.en || ''; $('pNameHi').value = editing.name.hi || ''; $('pBrand').value = editing.brand || ''; $('pCat').value = editing.category || 'smartphone';
   $('pVars').replaceChildren(...(editing.variants.length ? editing.variants : [{}]).map(varRow));
   $('pWar').value = editing.warrantyMonths || ''; $('pEmi').checked = !!editing.emiEligible; $('pFeat').checked = !!editing.featured; $('pActive').checked = editing.active !== false;
+  $('pCall').checked = editingIsNew ? true : !!editing.callForBest; const rl = editing.refPriceLabel || {}; $('pRef').value = rl.en || ''; $('pRefHi').value = rl.hi || '';
+  const gf = editing.gift || {}; $('pGift').value = gf.en || ''; $('pGiftHi').value = gf.hi || ''; $('pGiftVal').value = editing.giftValue || '';
   $('pHi').value = (editing.highlights || []).map((h) => h.en).join('\n'); imgs = [...(editing.imageUrls || [])]; renderImgs(); $('pFile').value = '';
   $('pd').showModal();
 }
 $('addProduct').onclick = () => editProduct(null);
 $('addVar').onclick = () => $('pVars').append(varRow({ stock: 1 }));
+async function addPhoto(file, base, dir) {
+  const bmp = await createImageBitmap(file), k = Math.min(1, 1000 / Math.max(bmp.width, bmp.height));
+  const c = document.createElement('canvas'); c.width = Math.round(bmp.width * k); c.height = Math.round(bmp.height * k);
+  const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(bmp, 0, 0, c.width, c.height);
+  const dataUrl = c.toDataURL('image/jpeg', 0.82), name = `${slug(base)}-${Date.now().toString(36)}${rid()}.jpg`;
+  pending.set(name, { b64: dataUrl.split(',')[1], dataUrl, dir });
+  return RAW + dir + '/' + name;
+}
 $('pFile').onchange = async (e) => {
   for (const f of e.target.files) {
-    try {
-      const bmp = await createImageBitmap(f), k = Math.min(1, 900 / Math.max(bmp.width, bmp.height));
-      const c = document.createElement('canvas'); c.width = Math.round(bmp.width * k); c.height = Math.round(bmp.height * k);
-      const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(bmp, 0, 0, c.width, c.height);
-      const dataUrl = c.toDataURL('image/jpeg', 0.82), name = `${slug($('pBrand').value + '-' + $('pName').value)}-${Date.now().toString(36)}${rid()}.jpg`;
-      pending.set(name, { b64: dataUrl.split(',')[1], dataUrl }); imgs.push(RAW + IMG_DIR + '/' + name);
-    } catch (err) { alert('यह फ़ोटो नहीं खुली: ' + f.name); }
+    try { imgs.push(await addPhoto(f, $('pBrand').value + '-' + $('pName').value, IMG_DIR)); }
+    catch (err) { alert('यह फ़ोटो नहीं खुली: ' + f.name); }
   }
   e.target.value = ''; renderImgs();
 };
 $('pOk').onclick = () => {
   const name = $('pName').value.trim(), brand = $('pBrand').value.trim(), vs = readVars(), bad = [];
   if (!name) bad.push('नाम लिखें'); if (!brand) bad.push('ब्रांड लिखें');
-  vs.forEach((v, i) => { if (!v.label) v.label = vs.length > 1 ? 'रूप ' + (i + 1) : 'Standard'; if (!(v.price > 0)) bad.push(`रूप ${i + 1}: कीमत डालें`); });
+  const call = $('pCall').checked;
+  vs.forEach((v, i) => { if (!v.label) v.label = vs.length > 1 ? 'रूप ' + (i + 1) : 'Standard'; if (!call && !(v.price > 0)) bad.push(`रूप ${i + 1}: कीमत डालें`); });
   if (bad.length) return alert(bad.join('\n'));
   const p = editing, war = Math.round(+$('pWar').value);
   p.name = { en: name, hi: $('pNameHi').value.trim() }; p.brand = brand; p.category = $('pCat').value; p.variants = vs;
+  p.callForBest = call;
+  const rE = $('pRef').value.trim(), rH = $('pRefHi').value.trim(); rE || rH ? p.refPriceLabel = { en: rE, hi: rH } : delete p.refPriceLabel;
+  const gE = $('pGift').value.trim(), gH = $('pGiftHi').value.trim(), gV = Math.round(+$('pGiftVal').value); gE || gH ? p.gift = { en: gE, hi: gH } : delete p.gift; gE || gH ? (gV > 0 ? p.giftValue = gV : delete p.giftValue) : delete p.giftValue;
   p.emiEligible = $('pEmi').checked; p.featured = $('pFeat').checked; p.active = $('pActive').checked; p.imageUrls = imgs.slice();
   war > 0 ? p.warrantyMonths = war : delete p.warrantyMonths;
   p.highlights = $('pHi').value.split('\n').map((s) => s.trim()).filter(Boolean).map((s) => ({ en: s, hi: '' }));
@@ -434,18 +501,23 @@ $('pOk').onclick = () => {
 $('pDel').onclick = () => { if (confirm('यह सामान हमेशा के लिए हटाएँ? (छिपाना हो तो “ऐप में दिखाएँ” बंद करें)')) { shop.products = shop.products.filter((x) => x !== editing); $('pd').close(); renderProducts(); renderRaw(); markDirty(); } };
 
 /* ---------- offer editor ---------- */
-let editingO = null, oNew = false;
+let editingO = null, oNew = false, oImg = '';
+function previewSrc(u) { const n = (u || '').split('/').pop(); return pending.has(n) ? pending.get(n).dataUrl : u; }
+function thumbWith(u, onRemove) { const t = el('div', { class: 'thumb' }, el('button', { onclick: onRemove }, '×')); t.style.backgroundImage = `url("${previewSrc(u)}")`; return t; }
+function renderOImg() { const b = $('oImgBox'); b.replaceChildren(); if (oImg) b.append(thumbWith(oImg, () => { oImg = ''; renderOImg(); })); }
+$('oFile').onchange = async (e) => { const f = e.target.files[0]; if (!f) return; try { oImg = await addPhoto(f, 'offer-' + ($('oT').value || 'banner'), GAL_DIR); renderOImg(); } catch (err) { alert('यह फ़ोटो नहीं खुली'); } e.target.value = ''; };
 function editOffer(o) {
   oNew = !o; editingO = o || { id: '', kind: 'banner', title: { en: '', hi: '' }, subtitle: { en: '', hi: '' }, colorSeed: 1 };
   $('oT').value = editingO.title.en || ''; $('oTHi').value = editingO.title.hi || ''; $('oS').value = (editingO.subtitle || {}).en || ''; $('oSHi').value = (editingO.subtitle || {}).hi || '';
   $('oEnd').value = editingO.endsAt ? editingO.endsAt.slice(0, 10) : ''; $('oColor').value = String(editingO.colorSeed || 0); $('oActive').checked = editingO.active !== false;
+  oImg = editingO.imageUrl || ''; renderOImg(); $('oFile').value = '';
   $('oDel').classList.toggle('hide', !o); $('od').showModal();
 }
 $('addOffer').onclick = () => editOffer(null);
 $('oOk').onclick = () => {
   const t = $('oT').value.trim(); if (!t) return alert('शीर्षक लिखें');
   const o = editingO; o.kind = 'banner'; o.title = { en: t, hi: $('oTHi').value.trim() }; o.subtitle = { en: $('oS').value.trim(), hi: $('oSHi').value.trim() };
-  $('oEnd').value ? o.endsAt = $('oEnd').value + 'T23:59:00' : delete o.endsAt; o.colorSeed = +$('oColor').value; o.active = $('oActive').checked;
+  $('oEnd').value ? o.endsAt = $('oEnd').value + 'T23:59:00' : delete o.endsAt; o.colorSeed = +$('oColor').value; o.active = $('oActive').checked; oImg ? o.imageUrl = oImg : delete o.imageUrl;
   if (oNew) { o.id = 'offer-' + Date.now().toString(36); shop.offers.unshift(o); }
   $('od').close(); renderOffers(); renderRaw(); markDirty();
 };
@@ -454,7 +526,7 @@ document.querySelectorAll('[data-close]').forEach((b) => b.onclick = () => $(b.d
 
 /* ---------- advanced JSON ---------- */
 $('rawApply').onclick = () => {
-  try { const j = JSON.parse($('raw').value); if (typeof j !== 'object' || Array.isArray(j)) throw new Error('object chahiye'); shop = j; shop.settings ||= {}; shop.offers ||= []; shop.products ||= []; shop.features ||= {}; renderAll(); markDirty(); say('फ़ाइल लागू हो गई। प्रकाशित करना बाकी है।'); }
+  try { const j = JSON.parse($('raw').value); if (typeof j !== 'object' || Array.isArray(j)) throw new Error('object chahiye'); shop = j; shop.settings ||= {}; shop.offers ||= []; shop.products ||= []; shop.features ||= {}; shop.gallery ||= []; renderAll(); markDirty(); say('फ़ाइल लागू हो गई। प्रकाशित करना बाकी है।'); }
   catch (e) { alert('फ़ाइल सही नहीं है: ' + e.message); }
 };
 
@@ -463,7 +535,7 @@ function problems() {
   const out = [], s = shop.settings;
   if (s.whatsapp && !/^[6-9]\d{9}$/.test(s.whatsapp)) out.push('WhatsApp नंबर 10 अंक का होना चाहिए');
   if (s.phone && !/^[6-9]\d{9}$/.test(s.phone)) out.push('फ़ोन नंबर 10 अंक का होना चाहिए');
-  shop.products.forEach((p) => { const n = (p.name && p.name.en) || '?'; if (!p.variants || !p.variants.length) out.push(n + ': कोई रूप नहीं'); (p.variants || []).forEach((v) => { if (!(v.price > 0)) out.push(n + ': कीमत नहीं'); }); });
+  shop.products.forEach((p) => { const n = (p.name && p.name.en) || '?'; if (!p.variants || !p.variants.length) out.push(n + ': कोई रूप नहीं'); (p.variants || []).forEach((v) => { if (!p.callForBest && !(v.price > 0)) out.push(n + ': कीमत नहीं'); }); });
   return out;
 }
 $('publish').onclick = async () => {
@@ -474,11 +546,11 @@ $('publish').onclick = async () => {
     const latest = await fetchShop();
     if (latest.sha !== baseSha && !confirm('इस बीच फ़ाइल किसी और ने बदली है। फिर भी आपका नया रूप लिखें?')) { btn.disabled = false; return say('रद्द किया।'); }
     // Photos first, so the file never points at a picture that is not there yet.
-    const used = new Set(shop.products.flatMap((p) => p.imageUrls || []).map((u) => u.split('/').pop())); let n = 0;
+    const used = new Set([...shop.products.flatMap((p) => p.imageUrls || []), ...(shop.gallery || []).map((g) => g.url), ...shop.offers.map((o) => o.imageUrl)].filter(Boolean).map((u) => u.split('/').pop())); let n = 0;
     for (const [name, img] of pending) {
       if (!used.has(name)) { pending.delete(name); continue; }
       say(`फ़ोटो भेज रहे हैं… ${++n}/${[...pending.keys()].filter((k) => used.has(k)).length}`);
-      await gh('PUT', IMG_DIR + '/' + name, { message: 'Shop photo (admin panel)', content: img.b64, branch: BRANCH });
+      await gh('PUT', (img.dir || IMG_DIR) + '/' + name, { message: 'Shop photo (admin panel)', content: img.b64, branch: BRANCH });
       pending.delete(name);
     }
     say('प्रकाशित हो रहा है…');

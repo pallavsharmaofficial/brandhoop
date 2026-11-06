@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/env.dart';
 import '../../data/live_shop.dart';
+import 'live_home.dart';
 import '../../app/routes.dart';
 import '../../app/theme.dart';
 import '../../domain/offer.dart';
@@ -85,6 +86,10 @@ class HomeScreen extends StatelessWidget {
               child: _SearchBox(),
             ),
             if (offers.isNotEmpty) Padding(padding: const EdgeInsets.only(top: 16), child: _OfferCarousel(offers: offers, lang: lang)),
+            if (AppEnv.live) ...<Widget>[
+              const LiveGalleryStrip(),
+              const Padding(padding: EdgeInsets.only(top: 16), child: LiveWorryCard()),
+            ],
             Section(
               title: context.tr.shopByCategory,
               child: _CategoryRow(),
@@ -294,6 +299,14 @@ class _OfferCarousel extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
                     gradient: LinearGradient(colors: c, begin: Alignment.topLeft, end: Alignment.bottomRight),
+                    image: o.imageUrl.isEmpty
+                        ? null
+                        : DecorationImage(
+                            image: NetworkImage(o.imageUrl),
+                            fit: BoxFit.cover,
+                            colorFilter: const ColorFilter.mode(Colors.black54, BlendMode.darken),
+                            onError: (Object _, StackTrace? _) {},
+                          ),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -323,6 +336,14 @@ class _OfferCarousel extends StatelessWidget {
         ),
       );
 }
+
+/// Real photos (free licence, docs/CREDITS.md) for the categories that have one.
+const Map<ProductCategory, String> _categoryPhoto = <ProductCategory, String>{
+  ProductCategory.smartphone: 'assets/img/cat_phones.jpg',
+  ProductCategory.earphones: 'assets/img/cat_earbuds.jpg',
+  ProductCategory.charger: 'assets/img/cat_chargers.jpg',
+  ProductCategory.powerBank: 'assets/img/cat_chargers.jpg',
+};
 
 class _CategoryRow extends StatelessWidget {
   @override
@@ -359,7 +380,10 @@ class _CategoryRow extends StatelessWidget {
                       color: Theme.of(context).colorScheme.primaryContainer.withValues(alpha: 0.6),
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    child: Icon(categoryIcon(c), color: Theme.of(context).colorScheme.primary),
+                    clipBehavior: Clip.antiAlias,
+                    child: _categoryPhoto[c] == null
+                        ? Icon(categoryIcon(c), color: Theme.of(context).colorScheme.primary)
+                        : Image.asset(_categoryPhoto[c]!, fit: BoxFit.cover),
                   ),
                   const SizedBox(height: 6),
                   Text(

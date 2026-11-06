@@ -32,7 +32,9 @@ is lost, delete the token on the same GitHub page and make a new one.
 - **Products**: add or change name, brand, category, each variant's price, MRP
   and stock, EMI tick, photos from the camera or gallery. "ऐप में दिखाएँ" off
   hides a product without deleting it.
-- **Offers**: the Diwali card on the home screen. Title, line below, last date.
+- **Offers**: the Diwali cards on the home screen. Title, line below, last date, and an optional photo behind the text.
+- **Call-for-price products**: tick "कीमत कॉल पर" and the app shows only a reference price (name it, for example "Launch price") with a "Call to bargain" button. Untick it and fill the price and MRP to sell at a fixed price; the app then shows how much the customer saves. Add a gift and its worth and the app shows the total benefit.
+- **Photo gallery**: festival and gift photos shown in a strip on the home screen.
 - **Shop details**: WhatsApp and phone numbers (customers' orders go to the
   WhatsApp number), opening hours and weekly off day.
 - **Features**: delivery, phone reservation, repair, exchange. Each is a

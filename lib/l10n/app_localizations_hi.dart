@@ -3163,4 +3163,72 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get liveEmiShopOnly =>
       'बजाज फिनसर्व EMI सिर्फ़ दुकान पर मिलती है, क्योंकि इसमें फ़ेस स्कैन ज़रूरी है। मंज़ूरी और दर फाइनेंस कंपनी तय करती है।';
+
+  @override
+  String get liveRefPrice => 'संदर्भ कीमत';
+
+  @override
+  String get liveCallForBest => 'सबसे अच्छी कीमत के लिए कॉल करें';
+
+  @override
+  String get liveBargainBtn => 'मोलभाव के लिए कॉल करें';
+
+  @override
+  String get liveWhatsappAsk => 'व्हाट्सऐप पर ऑफ़र पूछें';
+
+  @override
+  String liveBargainMsg(String shop, String product, String price) {
+    return 'नमस्ते $shop, मुझे $product चाहिए (संदर्भ कीमत $price)। कृपया आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र बताएँ।';
+  }
+
+  @override
+  String liveBargainMsgNoPrice(String shop, String product) {
+    return 'नमस्ते $shop, मुझे $product चाहिए। कृपया आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र बताएँ।';
+  }
+
+  @override
+  String liveGenericAsk(String shop) {
+    return 'नमस्ते $shop, कृपया मोबाइल फ़ोन पर आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र बताएँ।';
+  }
+
+  @override
+  String get liveAskAvailability => 'उपलब्धता दुकान से पूछें';
+
+  @override
+  String get liveGiftTitle => 'गिफ़्ट और ऑफ़र';
+
+  @override
+  String liveGiftWorth(String amount) {
+    return 'उपहार की कीमत $amount';
+  }
+
+  @override
+  String liveYouSave(String amount) {
+    return 'आपकी बचत $amount';
+  }
+
+  @override
+  String liveTotalBenefit(String amount) {
+    return 'कुल फ़ायदा $amount';
+  }
+
+  @override
+  String get liveRefNote =>
+      'संदर्भ कीमत ऑनलाइन लिस्टिंग से है और अलग हो सकती है। कीमतें बदलती रहती हैं: आज की सबसे अच्छी कीमत, गिफ़्ट और दुकान पर EMI मदद के लिए अभी कॉल या व्हाट्सऐप करें।';
+
+  @override
+  String get livePriceOnCall => 'कीमत कॉल पर';
+
+  @override
+  String get liveWorryTitle => 'कीमतें बढ़ने की चिंता?';
+
+  @override
+  String get liveWorryBody =>
+      'फ़ोन की कीमतें बदलती रहती हैं। सबसे अच्छी कीमत, गिफ़्ट और दुकान पर आसान EMI के लिए आज ही कॉल या मैसेज करें, और बिना इंतज़ार किए खरीदें।';
+
+  @override
+  String get liveWorryCta => 'आज की सबसे अच्छी कीमत जानें';
+
+  @override
+  String get liveGalleryTitle => 'त्योहार के उपहार और ऑफ़र';
 }

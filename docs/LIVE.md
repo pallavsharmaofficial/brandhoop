@@ -100,6 +100,21 @@ product, not the shop.
   day left out is shown as closed.
 - `warrantyMonths` shows a warranty line only when it is set.
 
+### Call-for-price products, gifts, gallery
+
+- A product with `"callForBest": true` shows a **reference price** (named by
+  `refPriceLabel`, for example "Launch price (Dec 2025)") and a "Call to
+  bargain" / "Ask offer on WhatsApp" bar. It is never added to a cart and never
+  shown "in stock". A variant price of 0 shows "Price on call".
+- Without `callForBest`, `price` is the shop's price and `mrp` the printed
+  price; the app shows "You save" and a normal Add to cart / Buy now.
+- `gift` (`{"en","hi"}`) and `giftValue` (rupees) show the gift and, with a
+  saving, the total benefit.
+- `gallery` is a list of `{"url", "caption": {"en","hi"}}` shown as a photo
+  strip on the home screen; an offer's `imageUrl` puts a photo behind its text.
+  Photo URLs are `https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/...`.
+  The admin panel uploads them for you.
+
 ### Things the app shows only when this file turns them on
 
 The storefront promises nothing that the shop has not said. Each of these is

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:brandhoop/app/router.dart';
 import 'package:brandhoop/app/routes.dart';
@@ -86,6 +87,46 @@ void main() {
     expect(LiveShop.exchange, isFalse);
     expect(LiveShop.hoursKnown, isTrue);
     expect((await r.settings.get()).hours.isOpenAt(DateTime(2026, 11, 8, 12)), isTrue);
+  });
+
+  test('quoted-on-a-call products, gifts, gallery and banner photos load', () async {
+    final Repositories r = await _repos();
+    await LiveShop.apply(r, <String, dynamic>{
+      'gallery': <Object>[
+        <String, dynamic>{'url': 'https://example.test/a.jpg', 'caption': <String, String>{'en': 'A'}},
+        <String, dynamic>{'url': 'not a url'},
+      ],
+      'offers': <Object>[
+        <String, dynamic>{'id': 'o', 'title': 'T', 'imageUrl': 'https://example.test/o.jpg'},
+      ],
+      'products': <Object>[
+        <String, dynamic>{
+          'id': 'p', 'name': <String, String>{'en': 'Phone'}, 'brand': 'B', 'callForBest': true,
+          'refPriceLabel': <String, String>{'en': 'Launch price'},
+          'gift': <String, String>{'en': 'Earbuds'}, 'giftValue': 999,
+          'variants': <Object>[<String, dynamic>{'id': 'v', 'label': 'x', 'price': 0, 'mrp': 0, 'stock': 1}],
+        },
+      ],
+    });
+    final Product p = (await r.catalog.all()).single;
+    expect(p.callForBest, isTrue);
+    expect(p.refPriceLabel.en, 'Launch price');
+    expect(p.gift.en, 'Earbuds');
+    expect(p.giftValue, 999);
+    expect(LiveShop.gallery.map((GalleryItem g) => g.url), <String>['https://example.test/a.jpg']);
+    expect((await r.offers.all()).single.imageUrl, 'https://example.test/o.jpg');
+  });
+
+  test('the shop file shipped with the app is valid and complete', () async {
+    final Repositories r = await _repos();
+    final String text = File('assets/live/shop.json').readAsStringSync();
+    final int skipped = await LiveShop.apply(r, jsonDecode(text) as Map<String, dynamic>);
+    expect(skipped, 0);
+    final List<Product> products = await r.catalog.all();
+    expect(products.length, greaterThanOrEqualTo(8));
+    expect(products.every((Product p) => p.callForBest), isTrue, reason: 'no invented stock or sale prices');
+    expect(products.every((Product p) => p.gift.isEmpty), isTrue, reason: 'the shop sets gifts, not the developer');
+    expect((await r.settings.get()).whatsapp, '8619767291');
   });
 
   group('load', () {

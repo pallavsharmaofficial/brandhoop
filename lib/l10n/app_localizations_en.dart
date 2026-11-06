@@ -3173,4 +3173,72 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get liveEmiShopOnly =>
       'Bajaj Finserv EMI is available only at the shop, because it needs a face scan. Approval and the rate are decided by the lender.';
+
+  @override
+  String get liveRefPrice => 'Reference price';
+
+  @override
+  String get liveCallForBest => 'Call for best price';
+
+  @override
+  String get liveBargainBtn => 'Call to bargain';
+
+  @override
+  String get liveWhatsappAsk => 'Ask offer on WhatsApp';
+
+  @override
+  String liveBargainMsg(String shop, String product, String price) {
+    return 'Hello $shop, I am interested in $product (reference price $price). Please tell me today’s best price and the gifts and offers.';
+  }
+
+  @override
+  String liveBargainMsgNoPrice(String shop, String product) {
+    return 'Hello $shop, I am interested in $product. Please tell me today’s best price and the gifts and offers.';
+  }
+
+  @override
+  String liveGenericAsk(String shop) {
+    return 'Hello $shop, please tell me today’s best prices, gifts and offers on mobile phones.';
+  }
+
+  @override
+  String get liveAskAvailability => 'Ask the shop for availability';
+
+  @override
+  String get liveGiftTitle => 'Gift and offers';
+
+  @override
+  String liveGiftWorth(String amount) {
+    return 'Gift worth $amount';
+  }
+
+  @override
+  String liveYouSave(String amount) {
+    return 'You save $amount';
+  }
+
+  @override
+  String liveTotalBenefit(String amount) {
+    return 'Total benefit $amount';
+  }
+
+  @override
+  String get liveRefNote =>
+      'The reference price is from online listings and can differ. Prices change often: call or WhatsApp now for today’s best price, gifts and EMI help at the shop.';
+
+  @override
+  String get livePriceOnCall => 'Price on call';
+
+  @override
+  String get liveWorryTitle => 'Worried prices will go up?';
+
+  @override
+  String get liveWorryBody =>
+      'Phone prices change often. Call or message us today for the best price, gifts and easy EMI at the shop, and buy without waiting.';
+
+  @override
+  String get liveWorryCta => 'Get today’s best price';
+
+  @override
+  String get liveGalleryTitle => 'Festival gifts and offers';
 }

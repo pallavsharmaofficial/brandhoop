@@ -15,7 +15,13 @@
   @media (prefers-color-scheme: dark) { :root { --ink: #ececf0; --paper: #141418; --soft: #1f1f26; --brand: #9FA8DA; } }
   * { box-sizing: border-box; }
   body { margin: 0; font: 18px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Devanagari", sans-serif; color: var(--ink); background: var(--paper); }
-  .hero { background: linear-gradient(160deg, var(--deep), #311B92); color: #fff; text-align: center; padding: 40px 20px 36px; }
+  .hero { background: linear-gradient(180deg, rgba(20,12,70,.78), rgba(20,12,70,.55) 45%, rgba(20,12,70,.9)), url(gallery/diya-night.jpg) center 70% / cover, #1A237E; color: #fff; text-align: center; padding: 56px 20px 48px; }
+  .gal { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+  .gal figure { margin: 0; border-radius: 14px; overflow: hidden; background: var(--soft); }
+  .gal img { display: block; width: 100%; height: 190px; object-fit: cover; }
+  .gal figcaption { font-size: 14px; padding: 8px 10px; }
+  .worry { background: #FFF3E0; color: #3b2600; border-radius: 14px; padding: 16px 20px; }
+  @media (prefers-color-scheme: dark) { .worry { background: #3b2a10; color: #ffe9c7; } }
   .hero .diwali { color: #FFE082; font-weight: 700; font-size: 20px; }
   .hero h1 { font-size: clamp(32px, 8vw, 50px); margin: 8px 0 4px; line-height: 1.1; }
   .hero p { margin: 6px auto 0; max-width: 520px; opacity: .95; }
@@ -50,6 +56,17 @@
   <p class="note">iPhone: open the shop app above, then Share, Add to Home Screen.<br>
   Android APK: allow “install unknown apps” for your browser when asked.</p>
 
+  <h2>Worried prices will go up? · कीमतें बढ़ने की चिंता?</h2>
+  <div class="worry">Phone prices change often. <strong>Call us to bargain</strong> and get today’s best price, gifts and offers, and buy without waiting.<br>
+  <span class="hi">फ़ोन की कीमतें बदलती रहती हैं। <strong>मोलभाव के लिए कॉल करें</strong> और आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र पाएँ।</span></div>
+
+  <h2>Festival gifts and offers · त्योहार के उपहार और ऑफ़र</h2>
+  <div class="gal">
+    <figure><img src="gallery/diwali-gifts.jpg" alt="Diwali gift sets with phones" loading="lazy"><figcaption>Diwali gift sets with phones<br><span class="hi">फ़ोन के साथ दिवाली गिफ़्ट सेट</span></figcaption></figure>
+    <figure><img src="gallery/oppo-dhanteras.jpg" alt="Happy Dhanteras from OPPO" loading="lazy"><figcaption>Happy Dhanteras from OPPO<br><span class="hi">OPPO की ओर से धनतेरस की शुभकामनाएँ</span></figcaption></figure>
+    <figure><img src="gallery/diwali-diyas.jpg" alt="Diwali diyas and flowers" loading="lazy"><figcaption>Happy Diwali<br><span class="hi">शुभ दीपावली</span></figcaption></figure>
+  </div>
+
   <h2>Visit the shop · दुकान पर आएँ</h2>
   <div class="card">
     <strong>Brandhoop Mobile Point</strong><br>
@@ -69,7 +86,7 @@
   </div>
 
   <footer>
-    <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> ·
+    <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="credits.html">Photo credits</a> ·
     <a href="https://github.com/pallavsharmaofficial/brandhoop/issues">Report a problem</a>
   </footer>
 </div>

@@ -8,9 +8,18 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../config/shop_config.dart';
 import '../domain/offer.dart';
+import '../domain/localized_text.dart';
 import '../domain/product.dart';
 import '../domain/store_settings.dart';
 import 'repositories.dart';
+
+/// One photo in the shop's gallery strip (festival gifts, offers).
+class GalleryItem {
+  const GalleryItem(this.url, this.caption);
+
+  final String url;
+  final LocalizedText caption;
+}
 
 /// What the live storefront shows, read from one JSON file the shop owns.
 ///
@@ -39,6 +48,9 @@ class LiveShop {
 
   /// True only when the file gives opening hours, so "Open now" is never a guess.
   static bool hoursKnown = false;
+
+  /// The gallery strip on the home screen, from the file's `gallery` list.
+  static List<GalleryItem> gallery = const <GalleryItem>[];
 
   static const String bundledAsset = 'assets/live/shop.json';
   /// The file as committed to the repository. The admin panel writes here, and
@@ -122,6 +134,14 @@ class LiveShop {
     exchange = on('exchange');
     delivery = on('delivery');
     reserve = on('reserve');
+
+    final Object? rawGallery = shop['gallery'];
+    gallery = <GalleryItem>[
+      if (rawGallery is List)
+        for (final Object? g in rawGallery)
+          if (g is Map && '${g['url']}'.startsWith('http'))
+            GalleryItem('${g['url']}', LocalizedText.fromJson(g['caption'])),
+    ];
 
     final StoreSettings defaults = ShopConfig.defaults();
     final Object? raw = shop['settings'];

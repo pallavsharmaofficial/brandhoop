@@ -5503,6 +5503,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Bajaj Finserv EMI is available only at the shop, because it needs a face scan. Approval and the rate are decided by the lender.'**
   String get liveEmiShopOnly;
+
+  /// No description provided for @liveRefPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Reference price'**
+  String get liveRefPrice;
+
+  /// No description provided for @liveCallForBest.
+  ///
+  /// In en, this message translates to:
+  /// **'Call for best price'**
+  String get liveCallForBest;
+
+  /// No description provided for @liveBargainBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'Call to bargain'**
+  String get liveBargainBtn;
+
+  /// No description provided for @liveWhatsappAsk.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask offer on WhatsApp'**
+  String get liveWhatsappAsk;
+
+  /// No description provided for @liveBargainMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello {shop}, I am interested in {product} (reference price {price}). Please tell me today’s best price and the gifts and offers.'**
+  String liveBargainMsg(String shop, String product, String price);
+
+  /// No description provided for @liveBargainMsgNoPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello {shop}, I am interested in {product}. Please tell me today’s best price and the gifts and offers.'**
+  String liveBargainMsgNoPrice(String shop, String product);
+
+  /// No description provided for @liveGenericAsk.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello {shop}, please tell me today’s best prices, gifts and offers on mobile phones.'**
+  String liveGenericAsk(String shop);
+
+  /// No description provided for @liveAskAvailability.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask the shop for availability'**
+  String get liveAskAvailability;
+
+  /// No description provided for @liveGiftTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Gift and offers'**
+  String get liveGiftTitle;
+
+  /// No description provided for @liveGiftWorth.
+  ///
+  /// In en, this message translates to:
+  /// **'Gift worth {amount}'**
+  String liveGiftWorth(String amount);
+
+  /// No description provided for @liveYouSave.
+  ///
+  /// In en, this message translates to:
+  /// **'You save {amount}'**
+  String liveYouSave(String amount);
+
+  /// No description provided for @liveTotalBenefit.
+  ///
+  /// In en, this message translates to:
+  /// **'Total benefit {amount}'**
+  String liveTotalBenefit(String amount);
+
+  /// No description provided for @liveRefNote.
+  ///
+  /// In en, this message translates to:
+  /// **'The reference price is from online listings and can differ. Prices change often: call or WhatsApp now for today’s best price, gifts and EMI help at the shop.'**
+  String get liveRefNote;
+
+  /// No description provided for @livePriceOnCall.
+  ///
+  /// In en, this message translates to:
+  /// **'Price on call'**
+  String get livePriceOnCall;
+
+  /// No description provided for @liveWorryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Worried prices will go up?'**
+  String get liveWorryTitle;
+
+  /// No description provided for @liveWorryBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone prices change often. Call or message us today for the best price, gifts and easy EMI at the shop, and buy without waiting.'**
+  String get liveWorryBody;
+
+  /// No description provided for @liveWorryCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Get today’s best price'**
+  String get liveWorryCta;
+
+  /// No description provided for @liveGalleryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Festival gifts and offers'**
+  String get liveGalleryTitle;
 }
 
 class _AppLocalizationsDelegate

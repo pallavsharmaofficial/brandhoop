@@ -68,7 +68,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: out/brandhoop.apk
-          key: apk-${{ hashFiles('lib/**', 'android/**', 'pubspec.yaml', 'pubspec.lock', 'assets/branding/**', 'web/**') }}
+          key: apk-${{ hashFiles('lib/**', 'android/**', 'pubspec.yaml', 'pubspec.lock', 'assets/branding/**', 'assets/img/**', 'web/**') }}
       # Signed with a debug key that is kept between builds, so a new APK
       # installs over the old one. Play Store releases use their own key
       # (docs/PLAY_SETUP.md).

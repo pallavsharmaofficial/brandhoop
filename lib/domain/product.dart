@@ -111,6 +111,10 @@ class Product extends Equatable {
     this.featured = false,
     this.active = true,
     this.tags = const <String>[],
+    this.callForBest = false,
+    this.refPriceLabel = LocalizedText.empty,
+    this.gift = LocalizedText.empty,
+    this.giftValue = 0,
     required this.createdAt,
   });
 
@@ -135,6 +139,18 @@ class Product extends Equatable {
   final bool featured;
   final bool active;
   final List<String> tags;
+
+  /// The shop quotes the price on a call: the app shows a reference price (for
+  /// example the launch price) and invites the customer to bargain and ask for
+  /// the day's offer. Such a product is never added to a cart or shown "in stock".
+  final bool callForBest;
+
+  /// What the reference price is, e.g. "Launch price, Dec 2025".
+  final LocalizedText refPriceLabel;
+
+  /// The gift that goes with this product, and what the shop says it is worth.
+  final LocalizedText gift;
+  final int giftValue;
   final DateTime createdAt;
 
   ProductVariant? variant(String id) {
@@ -178,6 +194,10 @@ class Product extends Equatable {
     bool? featured,
     bool? active,
     List<String>? tags,
+    bool? callForBest,
+    LocalizedText? refPriceLabel,
+    LocalizedText? gift,
+    int? giftValue,
   }) =>
       Product(
         id: id,
@@ -196,6 +216,10 @@ class Product extends Equatable {
         featured: featured ?? this.featured,
         active: active ?? this.active,
         tags: tags ?? this.tags,
+        callForBest: callForBest ?? this.callForBest,
+        refPriceLabel: refPriceLabel ?? this.refPriceLabel,
+        gift: gift ?? this.gift,
+        giftValue: giftValue ?? this.giftValue,
         createdAt: createdAt,
       );
 
@@ -216,6 +240,10 @@ class Product extends Equatable {
         'featured': featured,
         'active': active,
         'tags': tags,
+        'callForBest': callForBest,
+        'refPriceLabel': refPriceLabel.toJson(),
+        'gift': gift.toJson(),
+        'giftValue': giftValue,
         'createdAt': isoOrNull(createdAt),
       };
 
@@ -242,6 +270,10 @@ class Product extends Equatable {
       featured: j.flag('featured'),
       active: j.flag('active', true),
       tags: j.strings('tags'),
+      callForBest: j.flag('callForBest'),
+      refPriceLabel: LocalizedText.fromJson(j['refPriceLabel']),
+      gift: LocalizedText.fromJson(j['gift']),
+      giftValue: j.integer('giftValue'),
       createdAt: j.time('createdAt') ?? DateTime.now(),
     );
   }
@@ -250,6 +282,6 @@ class Product extends Equatable {
   List<Object?> get props => <Object?>[
         id, name, brand, category, description, highlights, specs, imageUrls,
         variants, warrantyMonths, gstRatePct, emiEligible, noCostEmi, featured,
-        active, tags, createdAt,
+        active, tags, callForBest, refPriceLabel, gift, giftValue, createdAt,
       ];
 }
