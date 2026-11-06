@@ -30,13 +30,39 @@ class CustomerShell extends StatelessWidget {
       NavigationDestination(icon: const Icon(Icons.person_outline), selectedIcon: const Icon(Icons.person), label: context.tr.navAccount),
     ];
     final int selected = branches.indexOf(shell.currentIndex).clamp(0, branches.length - 1);
+    void go(int i) => shell.goBranch(branches[i], initialLocation: branches[i] == shell.currentIndex);
+    final List<NavigationDestination> dests = <NavigationDestination>[for (final int b in branches) all[b]];
+
+    // Laptop and tablet screens get a side rail, phones the bottom bar.
+    if (MediaQuery.sizeOf(context).width >= 900) {
+      final bool extended = MediaQuery.sizeOf(context).width >= 1180;
+      return Scaffold(
+        body: Row(
+          children: <Widget>[
+            NavigationRail(
+              extended: extended,
+              minExtendedWidth: 190,
+              selectedIndex: selected,
+              onDestinationSelected: go,
+              labelType: extended ? NavigationRailLabelType.none : NavigationRailLabelType.all,
+              leading: Padding(
+                padding: const EdgeInsets.only(top: 16, bottom: 8),
+                child: Text(context.tr.appName, style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 18)),
+              ),
+              destinations: <NavigationRailDestination>[
+                for (final NavigationDestination d in dests)
+                  NavigationRailDestination(icon: d.icon, selectedIcon: d.selectedIcon, label: Text(d.label)),
+              ],
+            ),
+            const VerticalDivider(width: 1),
+            Expanded(child: shell),
+          ],
+        ),
+      );
+    }
     return Scaffold(
       body: shell,
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: selected,
-        onDestinationSelected: (int i) => shell.goBranch(branches[i], initialLocation: branches[i] == shell.currentIndex),
-        destinations: <NavigationDestination>[for (final int b in branches) all[b]],
-      ),
+      bottomNavigationBar: NavigationBar(selectedIndex: selected, onDestinationSelected: go, destinations: dests),
     );
   }
 }

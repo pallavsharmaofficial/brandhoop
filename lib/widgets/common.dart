@@ -9,10 +9,14 @@ import '../state/settings_cubit.dart';
 
 /// Centres page content in a readable column on tablets and the web.
 class MaxWidth extends StatelessWidget {
-  const MaxWidth({super.key, required this.child, this.width = 760});
+  const MaxWidth({super.key, required this.child, this.width = 760, this.wideWidth});
 
   final Widget child;
   final double width;
+
+  /// A wider limit used on laptop-sized screens (1000 px and up) by the pages
+  /// that are worth spreading out: home, shop and product.
+  final double? wideWidth;
 
   // heightFactor 1 makes the box exactly as tall as its child. Without it an
   // Align fills any bounded height, which in a bottom bar swallows the page.
@@ -20,7 +24,12 @@ class MaxWidth extends StatelessWidget {
   Widget build(BuildContext context) => Align(
         alignment: Alignment.topCenter,
         heightFactor: 1,
-        child: ConstrainedBox(constraints: BoxConstraints(maxWidth: width), child: child),
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: wideWidth != null && MediaQuery.sizeOf(context).width >= 1000 ? wideWidth! : width,
+          ),
+          child: child,
+        ),
       );
 }
 

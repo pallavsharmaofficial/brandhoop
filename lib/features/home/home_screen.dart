@@ -69,6 +69,7 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: MaxWidth(
+        wideWidth: 1180,
         child: ListView(
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
           children: <Widget>[
@@ -145,7 +146,7 @@ class HomeScreen extends StatelessWidget {
                 action: context.tr.viewAll,
                 onAction: () => context.go(Routes.shopWith(group: ProductGroup.accessories.name)),
                 child: GridView.count(
-                  crossAxisCount: MediaQuery.sizeOf(context).width > 560 ? 3 : 2,
+                  crossAxisCount: MediaQuery.sizeOf(context).width >= 1000 ? 5 : (MediaQuery.sizeOf(context).width > 560 ? 3 : 2),
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   mainAxisSpacing: 12,
@@ -235,7 +236,11 @@ class _Hero extends StatelessWidget {
           const SizedBox(height: 6),
           AddressLines(store, onDark: true),
           const SizedBox(height: 14),
-          Row(
+          Align(
+            alignment: Alignment.centerLeft,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 420),
+              child: Row(
             children: <Widget>[
               Expanded(
                 child: FilledButton.icon(
@@ -246,6 +251,8 @@ class _Hero extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+            ),
           ),
           const SizedBox(height: 10),
           ContactButtons(settings: store, onDark: true, compact: true),
@@ -284,7 +291,8 @@ class _OfferCarousel extends StatelessWidget {
   Widget build(BuildContext context) => SizedBox(
         height: 124,
         child: PageView.builder(
-          controller: PageController(viewportFraction: 0.9),
+          controller: PageController(viewportFraction: MediaQuery.sizeOf(context).width >= 900 ? 0.4 : 0.9),
+          padEnds: MediaQuery.sizeOf(context).width < 900,
           itemCount: offers.length,
           itemBuilder: (BuildContext _, int i) {
             final Offer o = offers[i];

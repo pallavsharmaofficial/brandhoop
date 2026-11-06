@@ -95,7 +95,7 @@ class _Art extends StatelessWidget {
           child: product.isPhone && product.category == ProductCategory.smartphone
               ? CustomPaint(
                   size: Size(side * 0.36, side * 0.62),
-                  painter: _PhonePainter(pal[0]),
+                  painter: _PhonePainter(pal[0], product.brand),
                 )
               : Icon(
                   categoryIcon(product.category),
@@ -108,49 +108,74 @@ class _Art extends StatelessWidget {
   }
 }
 
+/// A modern phone drawn in the brand's colour, used when the shop has no photo
+/// of the product yet. It carries the brand name so it never passes for a
+/// picture of one particular model.
 class _PhonePainter extends CustomPainter {
-  const _PhonePainter(this.color);
+  const _PhonePainter(this.color, this.label);
   final Color color;
+  final String label;
 
   @override
   void paint(Canvas canvas, Size s) {
-    final RRect body = RRect.fromRectAndRadius(
-      Offset.zero & s,
-      Radius.circular(s.width * 0.16),
-    );
+    final double r = s.width * 0.15;
+    final RRect body = RRect.fromRectAndRadius(Offset.zero & s, Radius.circular(r));
     canvas.drawRRect(
-      body.shift(Offset(0, s.height * 0.02)),
+      body.shift(Offset(0, s.height * 0.025)),
       Paint()
-        ..color = Colors.black.withValues(alpha: 0.12)
-        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 6),
-    );
-    canvas.drawRRect(body, Paint()..color = color);
-    canvas.drawRRect(
-      RRect.fromRectAndRadius(
-        Rect.fromLTWH(s.width * 0.07, s.height * 0.035, s.width * 0.86, s.height * 0.93),
-        Radius.circular(s.width * 0.11),
-      ),
-      Paint()..color = Colors.white.withValues(alpha: 0.92),
+        ..color = Colors.black.withValues(alpha: 0.18)
+        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 9),
     );
     canvas.drawRRect(
-      RRect.fromRectAndRadius(
-        Rect.fromLTWH(s.width * 0.12, s.height * 0.07, s.width * 0.76, s.height * 0.86),
-        Radius.circular(s.width * 0.08),
-      ),
+      body,
+      Paint()
+        ..shader = const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: <Color>[Color(0xFF3A3A44), Color(0xFF111116)],
+        ).createShader(Offset.zero & s),
+    );
+    // Side button.
+    canvas.drawRRect(
+      RRect.fromRectAndRadius(Rect.fromLTWH(s.width - 1.5, s.height * 0.28, 3, s.height * 0.12), const Radius.circular(2)),
+      Paint()..color = const Color(0xFF55555F),
+    );
+    final Rect screen = Rect.fromLTWH(s.width * 0.045, s.height * 0.028, s.width * 0.91, s.height * 0.944);
+    final RRect screenR = RRect.fromRectAndRadius(screen, Radius.circular(r * 0.78));
+    canvas.drawRRect(
+      screenR,
       Paint()
         ..shader = LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: <Color>[color.withValues(alpha: 0.85), color.withValues(alpha: 0.35)],
-        ).createShader(Offset.zero & s),
+          colors: <Color>[color, Color.lerp(color, Colors.black, 0.45)!],
+        ).createShader(screen),
     );
-    canvas.drawCircle(
-      Offset(s.width / 2, s.height * 0.065),
-      s.width * 0.03,
-      Paint()..color = color,
-    );
+    // A soft diagonal glare.
+    canvas.save();
+    canvas.clipRRect(screenR);
+    final Path glare = Path()
+      ..moveTo(screen.left, screen.top + screen.height * 0.55)
+      ..lineTo(screen.left, screen.top + screen.height * 0.25)
+      ..lineTo(screen.right, screen.top)
+      ..lineTo(screen.right, screen.top + screen.height * 0.3)
+      ..close();
+    canvas.drawPath(glare, Paint()..color = Colors.white.withValues(alpha: 0.10));
+    canvas.restore();
+    // Camera hole and status line.
+    canvas.drawCircle(Offset(s.width / 2, screen.top + s.height * 0.032), s.width * 0.028, Paint()..color = const Color(0xFF0A0A0E));
+    final TextPainter tp = TextPainter(
+      text: TextSpan(
+        text: label.toUpperCase(),
+        style: TextStyle(color: Colors.white.withValues(alpha: 0.92), fontSize: s.width * 0.15, fontWeight: FontWeight.w900, letterSpacing: s.width * 0.01),
+      ),
+      textDirection: TextDirection.ltr,
+      maxLines: 1,
+      ellipsis: '…',
+    )..layout(maxWidth: screen.width * 0.9);
+    tp.paint(canvas, Offset((s.width - tp.width) / 2, screen.top + screen.height * 0.5 - tp.height / 2));
   }
 
   @override
-  bool shouldRepaint(_PhonePainter old) => old.color != color;
+  bool shouldRepaint(_PhonePainter old) => old.color != color || old.label != label;
 }

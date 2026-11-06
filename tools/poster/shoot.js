@@ -1,15 +1,17 @@
-// node tools/poster/shoot.js : html -> png, using whatever Playwright is installed.
+// node tools/poster/shoot.js : html -> png (and A4 pdf), using whatever Playwright is installed.
 const { chromium } = require('playwright');
 const path = require('path');
 const dir = path.resolve(__dirname, '../../site/qr');
 (async () => {
   const b = await chromium.launch({ args: ['--no-sandbox'] });
-  for (const [name, w, h] of [['diwali-poster', 1080, 1920], ['brandhoop-qr', 1200, 1200]]) {
-    const p = await b.newPage({ viewport: { width: w, height: h } });
+  const jobs = [['diwali-poster', 1080, 1920, 1], ['diwali-poster-a4', 1240, 1754, 2], ['brandhoop-qr', 1200, 1200, 1]];
+  for (const [name, w, h, dsf] of jobs) {
+    const ctx = await b.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: dsf });
+    const p = await ctx.newPage();
     await p.goto('file://' + path.join(dir, name + '.html'));
-    await p.waitForTimeout(500);
+    await p.waitForTimeout(700);
     await p.screenshot({ path: path.join(dir, name + '.png') });
-    await p.close();
+    await ctx.close();
   }
   await b.close();
 })();

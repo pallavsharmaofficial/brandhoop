@@ -70,6 +70,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
         ],
       ),
       body: MaxWidth(
+        wideWidth: 1180,
         child: Column(
           children: <Widget>[
             Padding(

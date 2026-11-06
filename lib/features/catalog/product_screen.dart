@@ -122,9 +122,7 @@ class _ProductScreenState extends State<ProductScreen> {
         onAsk: () => _enquire(context, p, v, store),
         total: v.price + addonsTotal,
       ),
-      body: MaxWidth(
-        child: ListView(
-          padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+      body: _ProductLayout(
           children: <Widget>[
             AspectRatio(
               aspectRatio: 1.5,
@@ -376,7 +374,6 @@ class _ProductScreenState extends State<ProductScreen> {
                 ),
               ),
           ],
-        ),
       ),
     );
   }
@@ -523,6 +520,37 @@ class _BottomBar extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+
+/// Phones: one column. Laptops: the photo on the left, everything else on the
+/// right, so the price and the buttons sit beside the picture.
+class _ProductLayout extends StatelessWidget {
+  const _ProductLayout({required this.children});
+
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context) {
+    const EdgeInsets pad = EdgeInsets.fromLTRB(16, 8, 16, 24);
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints c) {
+        if (c.maxWidth < 900) {
+          return MaxWidth(child: ListView(padding: const EdgeInsets.fromLTRB(16, 0, 16, 24), children: children));
+        }
+        return MaxWidth(
+          wideWidth: 1180,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Expanded(flex: 5, child: ListView(padding: pad, children: <Widget>[children.first])),
+              Expanded(flex: 6, child: ListView(padding: pad, children: children.sublist(1))),
+            ],
+          ),
+        );
+      },
     );
   }
 }
