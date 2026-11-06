@@ -136,6 +136,11 @@ class _ProductScreenState extends State<ProductScreen> {
                   Text(p.brand.toUpperCase(), style: Theme.of(context).textTheme.labelMedium?.copyWith(letterSpacing: 1, color: Theme.of(context).colorScheme.onSurfaceVariant)),
                   const SizedBox(height: 2),
                   Text(p.name.of(lang), style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w900, height: 1.2)),
+                  if (p.tags.contains('illustration'))
+                    Padding(
+                      padding: const EdgeInsets.only(top: 6),
+                      child: StatusPill(context.tr.liveIllustration, color: BrandColors.indigo, icon: Icons.photo_outlined),
+                    ),
                   if (p.tags.contains('sample'))
                     Padding(
                       padding: const EdgeInsets.only(top: 6),
@@ -167,9 +172,10 @@ class _ProductScreenState extends State<ProductScreen> {
                     ),
                   ],
                   const SizedBox(height: 10),
-                  if (p.callForBest)
-                    Text(context.tr.liveAskAvailability, style: const TextStyle(fontWeight: FontWeight.w700))
-                  else
+                  if (p.callForBest) ...<Widget>[
+                    Text(context.tr.liveAskAvailability, style: const TextStyle(fontWeight: FontWeight.w700)),
+                    if (p.tags.contains('fit')) Text(context.tr.liveAskModel, style: Theme.of(context).textTheme.bodySmall),
+                  ] else
                     _StockLine(variant: v),
                   if (AppEnv.live) LiveBenefitCard(product: p, variant: v),
                 ],

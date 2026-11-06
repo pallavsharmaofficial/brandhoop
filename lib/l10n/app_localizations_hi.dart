@@ -3231,4 +3231,13 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get liveGalleryTitle => 'त्योहार के उपहार और ऑफ़र';
+
+  @override
+  String get catHolder => 'स्टैंड और ट्राइपॉड';
+
+  @override
+  String get liveIllustration => 'चित्र केवल उदाहरण के लिए';
+
+  @override
+  String get liveAskModel => 'सही फ़िट के लिए अपना फ़ोन मॉडल बताएँ।';
 }

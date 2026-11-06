@@ -36,6 +36,8 @@ extension Labels on AppLocalizations {
         return catSmartwatch;
       case ProductCategory.speaker:
         return catSpeaker;
+      case ProductCategory.holder:
+        return catHolder;
       case ProductCategory.memory:
         return catMemory;
       case ProductCategory.protection:

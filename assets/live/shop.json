@@ -35,6 +35,272 @@
   ],
   "products": [
     {
+      "id": "redmi-a4-5g",
+      "name": {
+        "en": "Redmi A4 5G",
+        "hi": ""
+      },
+      "brand": "Redmi",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Base model",
+          "color": "",
+          "price": 8499,
+          "mrp": 8499,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 9999,
+          "mrp": 9999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Nov 2024)",
+        "hi": "लॉन्च कीमत (नवंबर 2024)"
+      },
+      "description": {
+        "en": "Launched in India in Nov 2024 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      }
+    },
+    {
+      "id": "poco-c75-5g",
+      "name": {
+        "en": "POCO C75 5G",
+        "hi": ""
+      },
+      "brand": "POCO",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Base model",
+          "color": "",
+          "price": 7999,
+          "mrp": 7999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Dec 2024)",
+        "hi": "लॉन्च कीमत (दिसंबर 2024)"
+      },
+      "description": {
+        "en": "Launched in India in Dec 2024 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      }
+    },
+    {
+      "id": "redmi-14c-5g",
+      "name": {
+        "en": "Redmi 14C 5G",
+        "hi": ""
+      },
+      "brand": "Redmi",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "4 GB + 64 GB",
+          "color": "",
+          "price": 9999,
+          "mrp": 9999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "4 GB + 128 GB",
+          "color": "",
+          "price": 10999,
+          "mrp": 10999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 11999,
+          "mrp": 11999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Jan 2025)",
+        "hi": "लॉन्च कीमत (जनवरी 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Jan 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      }
+    },
+    {
+      "id": "tecno-spark-30c-5g",
+      "name": {
+        "en": "Tecno Spark 30C 5G",
+        "hi": ""
+      },
+      "brand": "Tecno",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "4 GB + 64 GB",
+          "color": "",
+          "price": 9999,
+          "mrp": 9999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "4 GB + 128 GB",
+          "color": "",
+          "price": 10499,
+          "mrp": 10499,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 12999,
+          "mrp": 12999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Oct 2024)",
+        "hi": "लॉन्च कीमत (अक्टूबर 2024)"
+      },
+      "description": {
+        "en": "Launched in India in Oct 2024 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "MediaTek Dimensity 6300",
+          "hi": "MediaTek Dimensity 6300"
+        },
+        {
+          "en": "48 MP camera",
+          "hi": "48 MP कैमरा"
+        }
+      ]
+    },
+    {
+      "id": "infinix-hot-60i-5g",
+      "name": {
+        "en": "Infinix Hot 60i 5G",
+        "hi": ""
+      },
+      "brand": "Infinix",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "4 GB + 128 GB",
+          "color": "",
+          "price": 9299,
+          "mrp": 9299,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Aug 2025)",
+        "hi": "लॉन्च कीमत (अगस्त 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Aug 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "6,000 mAh battery",
+          "hi": "6,000 mAh बैटरी"
+        },
+        {
+          "en": "120 Hz display",
+          "hi": "120 Hz डिस्प्ले"
+        },
+        {
+          "en": "MediaTek Dimensity 6400",
+          "hi": "MediaTek Dimensity 6400"
+        }
+      ]
+    },
+    {
+      "id": "samsung-galaxy-a06",
+      "name": {
+        "en": "Samsung Galaxy A06",
+        "hi": ""
+      },
+      "brand": "Samsung",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें।"
+      }
+    },
+    {
+      "id": "motorola-g06-power",
+      "name": {
+        "en": "Motorola g06 Power",
+        "hi": ""
+      },
+      "brand": "Motorola",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें।"
+      }
+    },
+    {
       "id": "oppo-a6x-5g",
       "name": {
         "en": "OPPO A6x 5G",
@@ -43,30 +309,8 @@
       "brand": "OPPO",
       "category": "smartphone",
       "callForBest": true,
-      "refPriceLabel": {
-        "en": "Launch price (Dec 2025)",
-        "hi": "लॉन्च कीमत (दिसंबर 2025)"
-      },
-      "description": {
-        "en": "Launched in India in Dec 2025 at the launch prices shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
-        "hi": "भारत में दिसंबर 2025 में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
-      },
-      "highlights": [
-        {
-          "en": "6,500 mAh battery",
-          "hi": "6,500 mAh बैटरी"
-        },
-        {
-          "en": "120 Hz display",
-          "hi": "120 Hz डिस्प्ले"
-        },
-        {
-          "en": "MediaTek Dimensity 6300",
-          "hi": "MediaTek Dimensity 6300"
-        }
-      ],
-      "emiEligible": true,
       "featured": true,
+      "emiEligible": true,
       "variants": [
         {
           "id": "v1",
@@ -93,8 +337,86 @@
           "stock": 1
         }
       ],
+      "refPriceLabel": {
+        "en": "Launch price (Dec 2025)",
+        "hi": "लॉन्च कीमत (दिसंबर 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Dec 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "6,500 mAh battery",
+          "hi": "6,500 mAh बैटरी"
+        },
+        {
+          "en": "120 Hz display",
+          "hi": "120 Hz डिस्प्ले"
+        },
+        {
+          "en": "MediaTek Dimensity 6300",
+          "hi": "MediaTek Dimensity 6300"
+        }
+      ],
       "imageUrls": [
         "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/oppo-a6x-5g.jpg"
+      ]
+    },
+    {
+      "id": "vivo-t4x-5g",
+      "name": {
+        "en": "vivo T4x 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 13999,
+          "mrp": 13999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 14999,
+          "mrp": 14999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 16999,
+          "mrp": 16999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Mar 2025)",
+        "hi": "लॉन्च कीमत (मार्च 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Mar 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "6,500 mAh battery",
+          "hi": "6,500 mAh बैटरी"
+        },
+        {
+          "en": "MediaTek Dimensity 7300",
+          "hi": "MediaTek Dimensity 7300"
+        }
       ]
     },
     {
@@ -106,30 +428,8 @@
       "brand": "Redmi",
       "category": "smartphone",
       "callForBest": true,
-      "refPriceLabel": {
-        "en": "Launch price (Aug 2025)",
-        "hi": "लॉन्च कीमत (अगस्त 2025)"
-      },
-      "description": {
-        "en": "Launched in India in Aug 2025 at the launch prices shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
-        "hi": "भारत में अगस्त 2025 में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
-      },
-      "highlights": [
-        {
-          "en": "7,000 mAh battery",
-          "hi": "7,000 mAh बैटरी"
-        },
-        {
-          "en": "144 Hz display",
-          "hi": "144 Hz डिस्प्ले"
-        },
-        {
-          "en": "Snapdragon 6s Gen 3",
-          "hi": "Snapdragon 6s Gen 3"
-        }
-      ],
-      "emiEligible": true,
       "featured": true,
+      "emiEligible": true,
       "variants": [
         {
           "id": "v1",
@@ -155,97 +455,41 @@
           "mrp": 16999,
           "stock": 1
         }
-      ]
-    },
-    {
-      "id": "samsung-galaxy-m36-5g",
-      "name": {
-        "en": "Samsung Galaxy M36 5G",
-        "hi": ""
-      },
-      "brand": "Samsung",
-      "category": "smartphone",
-      "callForBest": true,
+      ],
       "refPriceLabel": {
-        "en": "Launch price (Jun 2025)",
-        "hi": "लॉन्च कीमत (जून 2025)"
+        "en": "Launch price (Aug 2025)",
+        "hi": "लॉन्च कीमत (अगस्त 2025)"
       },
       "description": {
-        "en": "Launched in India in Jun 2025 at the launch prices shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
-        "hi": "भारत में जून 2025 में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+        "en": "Launched in India in Aug 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
       },
       "highlights": [
         {
-          "en": "120 Hz sAMOLED display",
-          "hi": "120 Hz sAMOLED डिस्प्ले"
+          "en": "7,000 mAh battery",
+          "hi": "7,000 mAh बैटरी"
         },
         {
-          "en": "50 MP triple camera",
-          "hi": "50 MP ट्रिपल कैमरा"
+          "en": "144 Hz display",
+          "hi": "144 Hz डिस्प्ले"
         },
         {
-          "en": "5,000 mAh battery",
-          "hi": "5,000 mAh बैटरी"
-        }
-      ],
-      "emiEligible": true,
-      "featured": true,
-      "variants": [
-        {
-          "id": "v1",
-          "label": "6 GB + 128 GB",
-          "color": "",
-          "price": 16499,
-          "mrp": 16499,
-          "stock": 1
-        },
-        {
-          "id": "v2",
-          "label": "8 GB + 128 GB",
-          "color": "",
-          "price": 17999,
-          "mrp": 17999,
-          "stock": 1
-        },
-        {
-          "id": "v3",
-          "label": "8 GB + 256 GB",
-          "color": "",
-          "price": 20999,
-          "mrp": 20999,
-          "stock": 1
+          "en": "Snapdragon 6s Gen 3",
+          "hi": "Snapdragon 6s Gen 3"
         }
       ]
     },
     {
-      "id": "vivo-t4x-5g",
+      "id": "poco-m7-plus-5g",
       "name": {
-        "en": "vivo T4x 5G",
+        "en": "POCO M7 Plus 5G",
         "hi": ""
       },
-      "brand": "vivo",
+      "brand": "POCO",
       "category": "smartphone",
       "callForBest": true,
-      "refPriceLabel": {
-        "en": "Launch price (Mar 2025)",
-        "hi": "लॉन्च कीमत (मार्च 2025)"
-      },
-      "description": {
-        "en": "Launched in India in Mar 2025 at the launch prices shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
-        "hi": "भारत में मार्च 2025 में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
-      },
-      "highlights": [
-        {
-          "en": "6,500 mAh battery",
-          "hi": "6,500 mAh बैटरी"
-        },
-        {
-          "en": "MediaTek Dimensity 7300",
-          "hi": "MediaTek Dimensity 7300"
-        }
-      ],
-      "emiEligible": true,
       "featured": false,
+      "emiEligible": true,
       "variants": [
         {
           "id": "v1",
@@ -254,22 +498,20 @@
           "price": 13999,
           "mrp": 13999,
           "stock": 1
-        },
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Aug 2025)",
+        "hi": "लॉन्च कीमत (अगस्त 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Aug 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
         {
-          "id": "v2",
-          "label": "8 GB + 128 GB",
-          "color": "",
-          "price": 14999,
-          "mrp": 14999,
-          "stock": 1
-        },
-        {
-          "id": "v3",
-          "label": "8 GB + 256 GB",
-          "color": "",
-          "price": 16999,
-          "mrp": 16999,
-          "stock": 1
+          "en": "Snapdragon 6s Gen 3",
+          "hi": "Snapdragon 6s Gen 3"
         }
       ]
     },
@@ -282,22 +524,8 @@
       "brand": "iQOO",
       "category": "smartphone",
       "callForBest": true,
-      "refPriceLabel": {
-        "en": "Launch price (Apr 2025)",
-        "hi": "लॉन्च कीमत (अप्रैल 2025)"
-      },
-      "description": {
-        "en": "Launched in India in Apr 2025 at the launch prices shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
-        "hi": "भारत में अप्रैल 2025 में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
-      },
-      "highlights": [
-        {
-          "en": "MediaTek Dimensity 7300",
-          "hi": "MediaTek Dimensity 7300"
-        }
-      ],
-      "emiEligible": true,
       "featured": false,
+      "emiEligible": true,
       "variants": [
         {
           "id": "v1",
@@ -323,41 +551,19 @@
           "mrp": 16499,
           "stock": 1
         }
-      ]
-    },
-    {
-      "id": "poco-m7-plus-5g",
-      "name": {
-        "en": "POCO M7 Plus 5G",
-        "hi": ""
-      },
-      "brand": "POCO",
-      "category": "smartphone",
-      "callForBest": true,
+      ],
       "refPriceLabel": {
-        "en": "Launch price (Aug 2025)",
-        "hi": "लॉन्च कीमत (अगस्त 2025)"
+        "en": "Launch price (Apr 2025)",
+        "hi": "लॉन्च कीमत (अप्रैल 2025)"
       },
       "description": {
-        "en": "Launched in India in Aug 2025 at the launch prices shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
-        "hi": "भारत में अगस्त 2025 में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+        "en": "Launched in India in Apr 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
       },
       "highlights": [
         {
-          "en": "Snapdragon 6s Gen 3",
-          "hi": "Snapdragon 6s Gen 3"
-        }
-      ],
-      "emiEligible": true,
-      "featured": false,
-      "variants": [
-        {
-          "id": "v1",
-          "label": "6 GB + 128 GB",
-          "color": "",
-          "price": 13999,
-          "mrp": 13999,
-          "stock": 1
+          "en": "MediaTek Dimensity 7300",
+          "hi": "MediaTek Dimensity 7300"
         }
       ]
     },
@@ -370,30 +576,8 @@
       "brand": "OPPO",
       "category": "smartphone",
       "callForBest": true,
-      "refPriceLabel": {
-        "en": "Launch price (Jun 2025)",
-        "hi": "लॉन्च कीमत (जून 2025)"
-      },
-      "description": {
-        "en": "Launched in India in Jun 2025 at the launch prices shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
-        "hi": "भारत में जून 2025 में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
-      },
-      "highlights": [
-        {
-          "en": "6,000 mAh battery",
-          "hi": "6,000 mAh बैटरी"
-        },
-        {
-          "en": "50 MP camera",
-          "hi": "50 MP कैमरा"
-        },
-        {
-          "en": "120 Hz display",
-          "hi": "120 Hz डिस्प्ले"
-        }
-      ],
-      "emiEligible": true,
       "featured": false,
+      "emiEligible": true,
       "variants": [
         {
           "id": "v1",
@@ -419,24 +603,41 @@
           "mrp": 14999,
           "stock": 1
         }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Jun 2025)",
+        "hi": "लॉन्च कीमत (जून 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Jun 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "6,000 mAh battery",
+          "hi": "6,000 mAh बैटरी"
+        },
+        {
+          "en": "50 MP camera",
+          "hi": "50 MP कैमरा"
+        },
+        {
+          "en": "120 Hz display",
+          "hi": "120 Hz डिस्प्ले"
+        }
       ]
     },
     {
-      "id": "oppo-enco-buds-pro-2",
+      "id": "samsung-galaxy-m16-5g",
       "name": {
-        "en": "OPPO Enco Buds Pro 2",
+        "en": "Samsung Galaxy M16 5G",
         "hi": ""
       },
-      "brand": "OPPO",
-      "category": "earphones",
+      "brand": "Samsung",
+      "category": "smartphone",
       "callForBest": true,
-      "description": {
-        "en": "Ask the shop for today’s price, gifts and offers.",
-        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें।"
-      },
-      "imageUrls": [
-        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/oppo-enco-buds-pro-2.jpg"
-      ],
+      "featured": false,
+      "emiEligible": true,
       "variants": [
         {
           "id": "v1",
@@ -446,7 +647,3096 @@
           "mrp": 0,
           "stock": 1
         }
+      ],
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें।"
+      }
+    },
+    {
+      "id": "realme-p3x-5g",
+      "name": {
+        "en": "realme P3x 5G",
+        "hi": ""
+      },
+      "brand": "realme",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 13999,
+          "mrp": 13999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 14999,
+          "mrp": 14999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Feb 2025)",
+        "hi": "लॉन्च कीमत (फ़रवरी 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Feb 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      }
+    },
+    {
+      "id": "poco-m7-pro-5g",
+      "name": {
+        "en": "POCO M7 Pro 5G",
+        "hi": ""
+      },
+      "brand": "POCO",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 14999,
+          "mrp": 14999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Dec 2024)",
+        "hi": "लॉन्च कीमत (दिसंबर 2024)"
+      },
+      "description": {
+        "en": "Launched in India in Dec 2024 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "MediaTek Dimensity 7025 Ultra",
+          "hi": "MediaTek Dimensity 7025 Ultra"
+        },
+        {
+          "en": "AMOLED display",
+          "hi": "AMOLED डिस्प्ले"
+        }
       ]
+    },
+    {
+      "id": "realme-narzo-80x-5g",
+      "name": {
+        "en": "realme Narzo 80x 5G",
+        "hi": ""
+      },
+      "brand": "realme",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 13999,
+          "mrp": 13999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 14999,
+          "mrp": 14999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Apr 2025)",
+        "hi": "लॉन्च कीमत (अप्रैल 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Apr 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "MediaTek Dimensity 6400",
+          "hi": "MediaTek Dimensity 6400"
+        }
+      ]
+    },
+    {
+      "id": "samsung-galaxy-m36-5g",
+      "name": {
+        "en": "Samsung Galaxy M36 5G",
+        "hi": ""
+      },
+      "brand": "Samsung",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": true,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 16499,
+          "mrp": 16499,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 17999,
+          "mrp": 17999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 20999,
+          "mrp": 20999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Jun 2025)",
+        "hi": "लॉन्च कीमत (जून 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Jun 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "120 Hz sAMOLED display",
+          "hi": "120 Hz sAMOLED डिस्प्ले"
+        },
+        {
+          "en": "50 MP triple camera",
+          "hi": "50 MP ट्रिपल कैमरा"
+        },
+        {
+          "en": "5,000 mAh battery",
+          "hi": "5,000 mAh बैटरी"
+        }
+      ]
+    },
+    {
+      "id": "oppo-k13-5g",
+      "name": {
+        "en": "OPPO K13 5G",
+        "hi": ""
+      },
+      "brand": "OPPO",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 17999,
+          "mrp": 17999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 19999,
+          "mrp": 19999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Apr 2025)",
+        "hi": "लॉन्च कीमत (अप्रैल 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Apr 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "7,000 mAh battery",
+          "hi": "7,000 mAh बैटरी"
+        },
+        {
+          "en": "Snapdragon 6 Gen 4",
+          "hi": "Snapdragon 6 Gen 4"
+        }
+      ]
+    },
+    {
+      "id": "redmi-note-14-5g",
+      "name": {
+        "en": "Redmi Note 14 5G",
+        "hi": ""
+      },
+      "brand": "Redmi",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 18999,
+          "mrp": 18999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 19999,
+          "mrp": 19999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 21999,
+          "mrp": 21999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Dec 2024)",
+        "hi": "लॉन्च कीमत (दिसंबर 2024)"
+      },
+      "description": {
+        "en": "Launched in India in Dec 2024 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      }
+    },
+    {
+      "id": "realme-p4-5g",
+      "name": {
+        "en": "realme P4 5G",
+        "hi": ""
+      },
+      "brand": "realme",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 18499,
+          "mrp": 18499,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 19499,
+          "mrp": 19499,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 21499,
+          "mrp": 21499,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Aug 2025)",
+        "hi": "लॉन्च कीमत (अगस्त 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Aug 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "7,000 mAh battery",
+          "hi": "7,000 mAh बैटरी"
+        },
+        {
+          "en": "144 Hz AMOLED display",
+          "hi": "144 Hz AMOLED डिस्प्ले"
+        }
+      ]
+    },
+    {
+      "id": "iqoo-z10-5g",
+      "name": {
+        "en": "iQOO Z10 5G",
+        "hi": ""
+      },
+      "brand": "iQOO",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 21999,
+          "mrp": 21999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 23999,
+          "mrp": 23999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "12 GB + 256 GB",
+          "color": "",
+          "price": 25999,
+          "mrp": 25999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Apr 2025)",
+        "hi": "लॉन्च कीमत (अप्रैल 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Apr 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "Snapdragon 7s Gen 3",
+          "hi": "Snapdragon 7s Gen 3"
+        },
+        {
+          "en": "7,300 mAh battery",
+          "hi": "7,300 mAh बैटरी"
+        },
+        {
+          "en": "90W fast charging",
+          "hi": "90W फ़ास्ट चार्जिंग"
+        }
+      ]
+    },
+    {
+      "id": "vivo-t4-5g",
+      "name": {
+        "en": "vivo T4 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Base model",
+          "color": "",
+          "price": 21999,
+          "mrp": 21999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Apr 2025)",
+        "hi": "लॉन्च कीमत (अप्रैल 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Apr 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "Snapdragon 7s Gen 3",
+          "hi": "Snapdragon 7s Gen 3"
+        },
+        {
+          "en": "7,300 mAh battery",
+          "hi": "7,300 mAh बैटरी"
+        },
+        {
+          "en": "90W fast charging",
+          "hi": "90W फ़ास्ट चार्जिंग"
+        }
+      ]
+    },
+    {
+      "id": "redmi-note-15-5g",
+      "name": {
+        "en": "Redmi Note 15 5G",
+        "hi": ""
+      },
+      "brand": "Redmi",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 22999,
+          "mrp": 22999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 24999,
+          "mrp": 24999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Jan 2026)",
+        "hi": "लॉन्च कीमत (जनवरी 2026)"
+      },
+      "description": {
+        "en": "Launched in India in Jan 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      }
+    },
+    {
+      "id": "motorola-edge-60-fusion",
+      "name": {
+        "en": "Motorola Edge 60 Fusion",
+        "hi": ""
+      },
+      "brand": "Motorola",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 22999,
+          "mrp": 22999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "12 GB + 256 GB",
+          "color": "",
+          "price": 24999,
+          "mrp": 24999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Apr 2025)",
+        "hi": "लॉन्च कीमत (अप्रैल 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Apr 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      }
+    },
+    {
+      "id": "nothing-phone-3a",
+      "name": {
+        "en": "Nothing Phone (3a)",
+        "hi": ""
+      },
+      "brand": "Nothing",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Base model",
+          "color": "",
+          "price": 24999,
+          "mrp": 24999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Mar 2025)",
+        "hi": "लॉन्च कीमत (मार्च 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Mar 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      }
+    },
+    {
+      "id": "oneplus-nord-ce5",
+      "name": {
+        "en": "OnePlus Nord CE5",
+        "hi": ""
+      },
+      "brand": "OnePlus",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": true,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 24999,
+          "mrp": 24999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 26999,
+          "mrp": 26999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "12 GB + 256 GB",
+          "color": "",
+          "price": 28999,
+          "mrp": 28999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Jul 2025)",
+        "hi": "लॉन्च कीमत (जुलाई 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Jul 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "AMOLED display",
+          "hi": "AMOLED डिस्प्ले"
+        },
+        {
+          "en": "50 MP camera",
+          "hi": "50 MP कैमरा"
+        },
+        {
+          "en": "Up to 7,100 mAh battery",
+          "hi": "7,100 mAh तक की बैटरी"
+        }
+      ]
+    },
+    {
+      "id": "redmi-note-14-pro-5g",
+      "name": {
+        "en": "Redmi Note 14 Pro 5G",
+        "hi": ""
+      },
+      "brand": "Redmi",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 24999,
+          "mrp": 24999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 26999,
+          "mrp": 26999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Dec 2024)",
+        "hi": "लॉन्च कीमत (दिसंबर 2024)"
+      },
+      "description": {
+        "en": "Launched in India in Dec 2024 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      }
+    },
+    {
+      "id": "realme-p4-power-5g",
+      "name": {
+        "en": "realme P4 Power 5G",
+        "hi": ""
+      },
+      "brand": "realme",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": true,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 25999,
+          "mrp": 25999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 27999,
+          "mrp": 27999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "12 GB + 256 GB",
+          "color": "",
+          "price": 30999,
+          "mrp": 30999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Feb 2026)",
+        "hi": "लॉन्च कीमत (फ़रवरी 2026)"
+      },
+      "description": {
+        "en": "Launched in India in Feb 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "10,001 mAh battery",
+          "hi": "10,001 mAh बैटरी"
+        },
+        {
+          "en": "144 Hz display",
+          "hi": "144 Hz डिस्प्ले"
+        }
+      ]
+    },
+    {
+      "id": "iqoo-neo-10r-5g",
+      "name": {
+        "en": "iQOO Neo 10R 5G",
+        "hi": ""
+      },
+      "brand": "iQOO",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Base model",
+          "color": "",
+          "price": 26999,
+          "mrp": 26999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Mar 2025)",
+        "hi": "लॉन्च कीमत (मार्च 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Mar 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      }
+    },
+    {
+      "id": "samsung-galaxy-m56-5g",
+      "name": {
+        "en": "Samsung Galaxy M56 5G",
+        "hi": ""
+      },
+      "brand": "Samsung",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 27999,
+          "mrp": 27999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Apr 2025)",
+        "hi": "लॉन्च कीमत (अप्रैल 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Apr 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "Exynos 1480 processor",
+          "hi": "Exynos 1480 प्रोसेसर"
+        }
+      ]
+    },
+    {
+      "id": "poco-x7-pro-5g",
+      "name": {
+        "en": "POCO X7 Pro 5G",
+        "hi": ""
+      },
+      "brand": "POCO",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 27999,
+          "mrp": 27999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "12 GB + 256 GB",
+          "color": "",
+          "price": 29999,
+          "mrp": 29999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Jan 2025)",
+        "hi": "लॉन्च कीमत (जनवरी 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Jan 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "MediaTek Dimensity 8400 Ultra",
+          "hi": "MediaTek Dimensity 8400 Ultra"
+        },
+        {
+          "en": "6,500 mAh battery",
+          "hi": "6,500 mAh बैटरी"
+        }
+      ]
+    },
+    {
+      "id": "redmi-note-15-pro-5g",
+      "name": {
+        "en": "Redmi Note 15 Pro 5G",
+        "hi": ""
+      },
+      "brand": "Redmi",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": true,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 29999,
+          "mrp": 29999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 31999,
+          "mrp": 31999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Jan 2026)",
+        "hi": "लॉन्च कीमत (जनवरी 2026)"
+      },
+      "description": {
+        "en": "Launched in India in Jan 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "200 MP camera",
+          "hi": "200 MP कैमरा"
+        }
+      ]
+    },
+    {
+      "id": "oneplus-nord-5",
+      "name": {
+        "en": "OnePlus Nord 5",
+        "hi": ""
+      },
+      "brand": "OnePlus",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Base model",
+          "color": "",
+          "price": 31999,
+          "mrp": 31999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Jul 2025)",
+        "hi": "लॉन्च कीमत (जुलाई 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Jul 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "Snapdragon 8s Gen 3",
+          "hi": "Snapdragon 8s Gen 3"
+        }
+      ]
+    },
+    {
+      "id": "samsung-galaxy-a36-5g",
+      "name": {
+        "en": "Samsung Galaxy A36 5G",
+        "hi": ""
+      },
+      "brand": "Samsung",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 32999,
+          "mrp": 32999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "12 GB + 256 GB",
+          "color": "",
+          "price": 35999,
+          "mrp": 35999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Mar 2025)",
+        "hi": "लॉन्च कीमत (मार्च 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Mar 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "IP67 water and dust resistance",
+          "hi": "IP67 पानी और धूल से सुरक्षा"
+        },
+        {
+          "en": "6 years of OS updates",
+          "hi": "6 साल के OS अपडेट"
+        }
+      ]
+    },
+    {
+      "id": "oppo-reno-13-5g",
+      "name": {
+        "en": "OPPO Reno 13 5G",
+        "hi": ""
+      },
+      "brand": "OPPO",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 37999,
+          "mrp": 37999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 39999,
+          "mrp": 39999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "12 GB + 512 GB",
+          "color": "",
+          "price": 43999,
+          "mrp": 43999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Jan 2025)",
+        "hi": "लॉन्च कीमत (जनवरी 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Jan 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      }
+    },
+    {
+      "id": "samsung-galaxy-a56-5g",
+      "name": {
+        "en": "Samsung Galaxy A56 5G",
+        "hi": ""
+      },
+      "brand": "Samsung",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": true,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 41999,
+          "mrp": 41999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 44999,
+          "mrp": 44999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "12 GB + 256 GB",
+          "color": "",
+          "price": 47999,
+          "mrp": 47999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Mar 2025)",
+        "hi": "लॉन्च कीमत (मार्च 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Mar 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "IP67 water and dust resistance",
+          "hi": "IP67 पानी और धूल से सुरक्षा"
+        },
+        {
+          "en": "6 years of OS updates",
+          "hi": "6 साल के OS अपडेट"
+        }
+      ]
+    },
+    {
+      "id": "oneplus-13r",
+      "name": {
+        "en": "OnePlus 13R",
+        "hi": ""
+      },
+      "brand": "OnePlus",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "12 GB + 256 GB",
+          "color": "",
+          "price": 42999,
+          "mrp": 42999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "16 GB + 512 GB",
+          "color": "",
+          "price": 49999,
+          "mrp": 49999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Jan 2025)",
+        "hi": "लॉन्च कीमत (जनवरी 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Jan 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      }
+    },
+    {
+      "id": "google-pixel-9a",
+      "name": {
+        "en": "Google Pixel 9a",
+        "hi": ""
+      },
+      "brand": "Google",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 49999,
+          "mrp": 49999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Mar 2025)",
+        "hi": "लॉन्च कीमत (मार्च 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Mar 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/google-pixel-9a.jpg"
+      ],
+      "tags": [
+        "commons-photo"
+      ]
+    },
+    {
+      "id": "samsung-galaxy-a26-5g",
+      "name": {
+        "en": "Samsung Galaxy A26 5G",
+        "hi": ""
+      },
+      "brand": "Samsung",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें।"
+      }
+    },
+    {
+      "id": "motorola-g96-5g",
+      "name": {
+        "en": "Motorola g96 5G",
+        "hi": ""
+      },
+      "brand": "Motorola",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें।"
+      }
+    },
+    {
+      "id": "poco-f7",
+      "name": {
+        "en": "POCO F7",
+        "hi": ""
+      },
+      "brand": "POCO",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें।"
+      }
+    },
+    {
+      "id": "vivo-v50-5g",
+      "name": {
+        "en": "vivo V50 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें।"
+      }
+    },
+    {
+      "id": "samsung-galaxy-s25-fe",
+      "name": {
+        "en": "Samsung Galaxy S25 FE",
+        "hi": ""
+      },
+      "brand": "Samsung",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 59999,
+          "mrp": 59999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 65999,
+          "mrp": 65999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "8 GB + 512 GB",
+          "color": "",
+          "price": 77999,
+          "mrp": 77999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Sep 2025)",
+        "hi": "लॉन्च कीमत (सितंबर 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Sep 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "Exynos 2400 processor",
+          "hi": "Exynos 2400 प्रोसेसर"
+        },
+        {
+          "en": "50 MP camera",
+          "hi": "50 MP कैमरा"
+        }
+      ]
+    },
+    {
+      "id": "samsung-galaxy-s25",
+      "name": {
+        "en": "Samsung Galaxy S25",
+        "hi": ""
+      },
+      "brand": "Samsung",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें।"
+      }
+    },
+    {
+      "id": "oneplus-13",
+      "name": {
+        "en": "OnePlus 13",
+        "hi": ""
+      },
+      "brand": "OnePlus",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें।"
+      }
+    },
+    {
+      "id": "iphone-16",
+      "name": {
+        "en": "Apple iPhone 16",
+        "hi": ""
+      },
+      "brand": "Apple",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "128 GB",
+          "color": "",
+          "price": 79900,
+          "mrp": 79900,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Sep 2024)",
+        "hi": "लॉन्च कीमत (सितंबर 2024)"
+      },
+      "description": {
+        "en": "Launched in India in Sep 2024 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/iphone-16.jpg"
+      ],
+      "tags": [
+        "commons-photo"
+      ]
+    },
+    {
+      "id": "iphone-16e",
+      "name": {
+        "en": "Apple iPhone 16e",
+        "hi": ""
+      },
+      "brand": "Apple",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें।"
+      },
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/iphone-16e.jpg"
+      ],
+      "tags": [
+        "commons-photo"
+      ]
+    },
+    {
+      "id": "iphone-17",
+      "name": {
+        "en": "Apple iPhone 17",
+        "hi": ""
+      },
+      "brand": "Apple",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": true,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "256 GB",
+          "color": "",
+          "price": 82900,
+          "mrp": 82900,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "512 GB",
+          "color": "",
+          "price": 102900,
+          "mrp": 102900,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Sep 2025)",
+        "hi": "लॉन्च कीमत (सितंबर 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Sep 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "Lavender, Sage, Mist Blue, White and Black",
+          "hi": "लैवेंडर, सेज, मिस्ट ब्लू, सफ़ेद और काला"
+        }
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/iphone-17.jpg"
+      ],
+      "tags": [
+        "commons-photo"
+      ]
+    },
+    {
+      "id": "iphone-17-pro",
+      "name": {
+        "en": "Apple iPhone 17 Pro",
+        "hi": ""
+      },
+      "brand": "Apple",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "256 GB",
+          "color": "",
+          "price": 134900,
+          "mrp": 134900,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Sep 2025)",
+        "hi": "लॉन्च कीमत (सितंबर 2025)"
+      },
+      "description": {
+        "en": "Launched in India in Sep 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/iphone-17-pro.jpg"
+      ],
+      "tags": [
+        "commons-photo"
+      ]
+    },
+    {
+      "id": "nokia-105-classic",
+      "name": {
+        "en": "Nokia 105 Classic",
+        "hi": ""
+      },
+      "brand": "Nokia",
+      "category": "featurePhone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": false,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Single SIM",
+          "color": "",
+          "price": 999,
+          "mrp": 999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price",
+        "hi": "लॉन्च कीमत"
+      },
+      "description": {
+        "en": "Launched in India at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      }
+    },
+    {
+      "id": "nokia-110-4g",
+      "name": {
+        "en": "Nokia 110 4G",
+        "hi": ""
+      },
+      "brand": "Nokia",
+      "category": "featurePhone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": false,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 2799,
+          "mrp": 2799,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Jul 2021)",
+        "hi": "लॉन्च कीमत (जुलाई 2021)"
+      },
+      "description": {
+        "en": "Launched in India in Jul 2021 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      }
+    },
+    {
+      "id": "acc-earphones-wired",
+      "name": {
+        "en": "Wired Earphones with Mic (3.5 mm)",
+        "hi": "माइक वाले तार वाले ईयरफ़ोन (3.5 mm)"
+      },
+      "brand": "Accessories",
+      "category": "earphones",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-wired.jpg"
+      ]
+    },
+    {
+      "id": "acc-earphones-typec",
+      "name": {
+        "en": "Wired Earphones (Type-C)",
+        "hi": "टाइप-C वाले तार वाले ईयरफ़ोन"
+      },
+      "brand": "Accessories",
+      "category": "earphones",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-wired.jpg"
+      ]
+    },
+    {
+      "id": "acc-neckband",
+      "name": {
+        "en": "Bluetooth Neckband Earphones",
+        "hi": "ब्लूटूथ नेकबैंड ईयरफ़ोन"
+      },
+      "brand": "Accessories",
+      "category": "earphones",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "acc-tws-earbuds",
+      "name": {
+        "en": "True Wireless Earbuds (TWS)",
+        "hi": "ट्रू वायरलेस ईयरबड्स"
+      },
+      "brand": "Accessories",
+      "category": "earphones",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-tws.jpg"
+      ]
+    },
+    {
+      "id": "acc-gaming-earbuds",
+      "name": {
+        "en": "Gaming Earbuds (low latency)",
+        "hi": "गेमिंग ईयरबड्स (कम लेटेंसी)"
+      },
+      "brand": "Accessories",
+      "category": "earphones",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-tws.jpg"
+      ]
+    },
+    {
+      "id": "acc-headphones-bluetooth",
+      "name": {
+        "en": "Bluetooth Over-ear Headphones",
+        "hi": "ब्लूटूथ ओवर-ईयर हेडफ़ोन"
+      },
+      "brand": "Accessories",
+      "category": "earphones",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-hp_bt.jpg"
+      ]
+    },
+    {
+      "id": "acc-headphones-wired",
+      "name": {
+        "en": "Wired Headphones with Mic",
+        "hi": "माइक वाले तार वाले हेडफ़ोन"
+      },
+      "brand": "Accessories",
+      "category": "earphones",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-hp_wired.jpg"
+      ]
+    },
+    {
+      "id": "acc-charger-12w",
+      "name": {
+        "en": "12W Charger (USB-A)",
+        "hi": "12W चार्जर (USB-A)"
+      },
+      "brand": "Accessories",
+      "category": "charger",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-wall.jpg"
+      ]
+    },
+    {
+      "id": "acc-charger-20w",
+      "name": {
+        "en": "20W Fast Charger (Type-C)",
+        "hi": "20W फ़ास्ट चार्जर (टाइप-C)"
+      },
+      "brand": "Accessories",
+      "category": "charger",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-wall.jpg"
+      ]
+    },
+    {
+      "id": "acc-charger-33w",
+      "name": {
+        "en": "33W Fast Charger",
+        "hi": "33W फ़ास्ट चार्जर"
+      },
+      "brand": "Accessories",
+      "category": "charger",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-wall.jpg"
+      ]
+    },
+    {
+      "id": "acc-charger-65w",
+      "name": {
+        "en": "65W GaN Fast Charger (phone and laptop)",
+        "hi": "65W GaN फ़ास्ट चार्जर (फ़ोन और लैपटॉप)"
+      },
+      "brand": "Accessories",
+      "category": "charger",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-wall.jpg"
+      ]
+    },
+    {
+      "id": "acc-charger-combo",
+      "name": {
+        "en": "Fast Charger with Cable (combo)",
+        "hi": "केबल के साथ फ़ास्ट चार्जर (कॉम्बो)"
+      },
+      "brand": "Accessories",
+      "category": "charger",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-wall.jpg"
+      ]
+    },
+    {
+      "id": "acc-charger-car",
+      "name": {
+        "en": "Car Charger (dual port)",
+        "hi": "कार चार्जर (डुअल पोर्ट)"
+      },
+      "brand": "Accessories",
+      "category": "charger",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "acc-charger-wireless",
+      "name": {
+        "en": "Wireless Charger (15W)",
+        "hi": "वायरलेस चार्जर (15W)"
+      },
+      "brand": "Accessories",
+      "category": "charger",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-wireless.jpg"
+      ]
+    },
+    {
+      "id": "acc-cable-typec-typec",
+      "name": {
+        "en": "Type-C to Type-C Cable",
+        "hi": "टाइप-C से टाइप-C केबल"
+      },
+      "brand": "Accessories",
+      "category": "cable",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-cable.jpg"
+      ]
+    },
+    {
+      "id": "acc-cable-usb-typec",
+      "name": {
+        "en": "USB to Type-C Cable",
+        "hi": "USB से टाइप-C केबल"
+      },
+      "brand": "Accessories",
+      "category": "cable",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-cable.jpg"
+      ]
+    },
+    {
+      "id": "acc-cable-micro-usb",
+      "name": {
+        "en": "USB to Micro-USB Cable",
+        "hi": "USB से माइक्रो-USB केबल"
+      },
+      "brand": "Accessories",
+      "category": "cable",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-cable.jpg"
+      ]
+    },
+    {
+      "id": "acc-cable-lightning",
+      "name": {
+        "en": "USB to Lightning Cable (iPhone)",
+        "hi": "USB से लाइटनिंग केबल (iPhone)"
+      },
+      "brand": "Accessories",
+      "category": "cable",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-cable.jpg"
+      ]
+    },
+    {
+      "id": "acc-cable-typec-lightning",
+      "name": {
+        "en": "Type-C to Lightning Cable (iPhone)",
+        "hi": "टाइप-C से लाइटनिंग केबल (iPhone)"
+      },
+      "brand": "Accessories",
+      "category": "cable",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-cable.jpg"
+      ]
+    },
+    {
+      "id": "acc-cable-3in1",
+      "name": {
+        "en": "3-in-1 Charging Cable",
+        "hi": "3-इन-1 चार्जिंग केबल"
+      },
+      "brand": "Accessories",
+      "category": "cable",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-cable.jpg"
+      ]
+    },
+    {
+      "id": "acc-otg-adapter",
+      "name": {
+        "en": "OTG Adapter (Type-C / Micro-USB)",
+        "hi": "OTG एडाप्टर (टाइप-C / माइक्रो-USB)"
+      },
+      "brand": "Accessories",
+      "category": "cable",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "acc-aux-cable",
+      "name": {
+        "en": "AUX Cable (3.5 mm)",
+        "hi": "AUX केबल (3.5 mm)"
+      },
+      "brand": "Accessories",
+      "category": "cable",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "acc-powerbank-5000",
+      "name": {
+        "en": "Pocket Power Bank 5000 mAh",
+        "hi": "पॉकेट पावर बैंक 5000 mAh"
+      },
+      "brand": "Accessories",
+      "category": "powerBank",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-powerbank.jpg"
+      ]
+    },
+    {
+      "id": "acc-powerbank-10000",
+      "name": {
+        "en": "Power Bank 10000 mAh",
+        "hi": "पावर बैंक 10000 mAh"
+      },
+      "brand": "Accessories",
+      "category": "powerBank",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-powerbank.jpg"
+      ]
+    },
+    {
+      "id": "acc-powerbank-20000",
+      "name": {
+        "en": "Power Bank 20000 mAh",
+        "hi": "पावर बैंक 20000 mAh"
+      },
+      "brand": "Accessories",
+      "category": "powerBank",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-powerbank.jpg"
+      ]
+    },
+    {
+      "id": "acc-powerbank-20000-fast",
+      "name": {
+        "en": "Power Bank 20000 mAh Fast Charging (22.5W)",
+        "hi": "पावर बैंक 20000 mAh फ़ास्ट चार्जिंग (22.5W)"
+      },
+      "brand": "Accessories",
+      "category": "powerBank",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-powerbank.jpg"
+      ]
+    },
+    {
+      "id": "acc-case-silicone",
+      "name": {
+        "en": "Silicone Back Cover",
+        "hi": "सिलिकॉन बैक कवर"
+      },
+      "brand": "Accessories",
+      "category": "caseCover",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "fit"
+      ]
+    },
+    {
+      "id": "acc-case-transparent",
+      "name": {
+        "en": "Transparent Back Cover",
+        "hi": "ट्रांसपेरेंट बैक कवर"
+      },
+      "brand": "Accessories",
+      "category": "caseCover",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "fit",
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-case_clear.jpg"
+      ]
+    },
+    {
+      "id": "acc-case-hard",
+      "name": {
+        "en": "Hard Case with Camera Protection",
+        "hi": "कैमरा सुरक्षा वाला हार्ड केस"
+      },
+      "brand": "Accessories",
+      "category": "caseCover",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "fit"
+      ]
+    },
+    {
+      "id": "acc-case-flip",
+      "name": {
+        "en": "Flip Cover",
+        "hi": "फ़्लिप कवर"
+      },
+      "brand": "Accessories",
+      "category": "caseCover",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "fit"
+      ]
+    },
+    {
+      "id": "acc-glass-tempered",
+      "name": {
+        "en": "Tempered Glass Screen Guard",
+        "hi": "टेम्पर्ड ग्लास स्क्रीन गार्ड"
+      },
+      "brand": "Accessories",
+      "category": "screenGuard",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "fit",
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-glass.jpg"
+      ]
+    },
+    {
+      "id": "acc-glass-fullcover",
+      "name": {
+        "en": "Full-coverage 9D Tempered Glass",
+        "hi": "फुल-कवरेज 9D टेम्पर्ड ग्लास"
+      },
+      "brand": "Accessories",
+      "category": "screenGuard",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "fit",
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-glass.jpg"
+      ]
+    },
+    {
+      "id": "acc-glass-privacy",
+      "name": {
+        "en": "Privacy Tempered Glass",
+        "hi": "प्राइवेसी टेम्पर्ड ग्लास"
+      },
+      "brand": "Accessories",
+      "category": "screenGuard",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "fit",
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-glass.jpg"
+      ]
+    },
+    {
+      "id": "acc-glass-matte",
+      "name": {
+        "en": "Matte Gaming Tempered Glass",
+        "hi": "मैट गेमिंग टेम्पर्ड ग्लास"
+      },
+      "brand": "Accessories",
+      "category": "screenGuard",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "fit",
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-glass.jpg"
+      ]
+    },
+    {
+      "id": "acc-camera-protector",
+      "name": {
+        "en": "Camera Lens Protector",
+        "hi": "कैमरा लेंस प्रोटेक्टर"
+      },
+      "brand": "Accessories",
+      "category": "screenGuard",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "fit"
+      ]
+    },
+    {
+      "id": "acc-hydrogel-film",
+      "name": {
+        "en": "Hydrogel Screen Film",
+        "hi": "हाइड्रोजेल स्क्रीन फ़िल्म"
+      },
+      "brand": "Accessories",
+      "category": "screenGuard",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "fit"
+      ]
+    },
+    {
+      "id": "acc-smartwatch",
+      "name": {
+        "en": "Smartwatch (Bluetooth calling)",
+        "hi": "स्मार्टवॉच (ब्लूटूथ कॉलिंग)"
+      },
+      "brand": "Accessories",
+      "category": "smartwatch",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-smartwatch.jpg"
+      ]
+    },
+    {
+      "id": "acc-fitness-band",
+      "name": {
+        "en": "Fitness Band",
+        "hi": "फ़िटनेस बैंड"
+      },
+      "brand": "Accessories",
+      "category": "smartwatch",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-band.jpg"
+      ]
+    },
+    {
+      "id": "acc-speaker-bluetooth",
+      "name": {
+        "en": "Portable Bluetooth Speaker",
+        "hi": "पोर्टेबल ब्लूटूथ स्पीकर"
+      },
+      "brand": "Accessories",
+      "category": "speaker",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-speaker.jpg"
+      ]
+    },
+    {
+      "id": "acc-soundbar",
+      "name": {
+        "en": "Bluetooth Soundbar",
+        "hi": "ब्लूटूथ साउंडबार"
+      },
+      "brand": "Accessories",
+      "category": "speaker",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-speaker.jpg"
+      ]
+    },
+    {
+      "id": "acc-microsd-64",
+      "name": {
+        "en": "microSD Card 64 GB",
+        "hi": "माइक्रोSD कार्ड 64 GB"
+      },
+      "brand": "Accessories",
+      "category": "memory",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-memory.jpg"
+      ]
+    },
+    {
+      "id": "acc-microsd-128",
+      "name": {
+        "en": "microSD Card 128 GB",
+        "hi": "माइक्रोSD कार्ड 128 GB"
+      },
+      "brand": "Accessories",
+      "category": "memory",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-memory.jpg"
+      ]
+    },
+    {
+      "id": "acc-microsd-256",
+      "name": {
+        "en": "microSD Card 256 GB",
+        "hi": "माइक्रोSD कार्ड 256 GB"
+      },
+      "brand": "Accessories",
+      "category": "memory",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-memory.jpg"
+      ]
+    },
+    {
+      "id": "acc-pendrive-32",
+      "name": {
+        "en": "Pen Drive 32 GB",
+        "hi": "पेन ड्राइव 32 GB"
+      },
+      "brand": "Accessories",
+      "category": "memory",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-pendrive.jpg"
+      ]
+    },
+    {
+      "id": "acc-pendrive-64",
+      "name": {
+        "en": "Pen Drive 64 GB",
+        "hi": "पेन ड्राइव 64 GB"
+      },
+      "brand": "Accessories",
+      "category": "memory",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-pendrive.jpg"
+      ]
+    },
+    {
+      "id": "acc-pendrive-typec",
+      "name": {
+        "en": "Dual Pen Drive (Type-C + USB)",
+        "hi": "डुअल पेन ड्राइव (टाइप-C + USB)"
+      },
+      "brand": "Accessories",
+      "category": "memory",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-pendrive.jpg"
+      ]
+    },
+    {
+      "id": "acc-card-reader",
+      "name": {
+        "en": "Memory Card Reader",
+        "hi": "मेमोरी कार्ड रीडर"
+      },
+      "brand": "Accessories",
+      "category": "memory",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "acc-stand-desk",
+      "name": {
+        "en": "Mobile Stand (desk)",
+        "hi": "मोबाइल स्टैंड (डेस्क)"
+      },
+      "brand": "Accessories",
+      "category": "holder",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-stand.jpg"
+      ]
+    },
+    {
+      "id": "acc-holder-car",
+      "name": {
+        "en": "Car Mobile Holder",
+        "hi": "कार मोबाइल होल्डर"
+      },
+      "brand": "Accessories",
+      "category": "holder",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-carholder.jpg"
+      ]
+    },
+    {
+      "id": "acc-tripod-tall",
+      "name": {
+        "en": "Mobile Tripod (tall)",
+        "hi": "मोबाइल ट्राइपॉड (लंबा)"
+      },
+      "brand": "Accessories",
+      "category": "holder",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-tripod_tall.jpg"
+      ]
+    },
+    {
+      "id": "acc-tripod-flexible",
+      "name": {
+        "en": "Flexible Mobile Tripod",
+        "hi": "फ़्लेक्सिबल मोबाइल ट्राइपॉड"
+      },
+      "brand": "Accessories",
+      "category": "holder",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": [
+        "illustration"
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/acc-tripod_flex.jpg"
+      ]
+    },
+    {
+      "id": "acc-selfie-stick",
+      "name": {
+        "en": "Selfie Stick",
+        "hi": "सेल्फ़ी स्टिक"
+      },
+      "brand": "Accessories",
+      "category": "holder",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "acc-ring-light",
+      "name": {
+        "en": "Ring Light with Phone Holder",
+        "hi": "फ़ोन होल्डर वाली रिंग लाइट"
+      },
+      "brand": "Accessories",
+      "category": "holder",
+      "callForBest": true,
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers. Available for most phones.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें। ज़्यादातर फ़ोन के लिए उपलब्ध।"
+      },
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "tags": []
     }
   ],
   "gallery": [

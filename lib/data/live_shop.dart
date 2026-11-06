@@ -201,8 +201,6 @@ class LiveShop {
     for (final T old in await repo.all()) {
       if (!keep.contains(idOf(old))) await repo.delete(idOf(old));
     }
-    for (final T item in items) {
-      await repo.save(item);
-    }
+    await repo.saveAll(items);
   }
 }

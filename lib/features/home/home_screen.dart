@@ -349,8 +349,15 @@ class _OfferCarousel extends StatelessWidget {
 const Map<ProductCategory, String> _categoryPhoto = <ProductCategory, String>{
   ProductCategory.smartphone: 'assets/img/cat_phones.jpg',
   ProductCategory.earphones: 'assets/img/cat_earbuds.jpg',
-  ProductCategory.charger: 'assets/img/cat_chargers.jpg',
+  ProductCategory.charger: 'assets/img/cat_wall.jpg',
   ProductCategory.powerBank: 'assets/img/cat_chargers.jpg',
+  ProductCategory.cable: 'assets/img/cat_cable.jpg',
+  ProductCategory.caseCover: 'assets/img/cat_case.jpg',
+  ProductCategory.screenGuard: 'assets/img/cat_glass.jpg',
+  ProductCategory.smartwatch: 'assets/img/cat_watch.jpg',
+  ProductCategory.speaker: 'assets/img/cat_speaker.jpg',
+  ProductCategory.memory: 'assets/img/cat_memory.jpg',
+  ProductCategory.holder: 'assets/img/cat_stand.jpg',
 };
 
 class _CategoryRow extends StatelessWidget {
@@ -365,6 +372,10 @@ class _CategoryRow extends StatelessWidget {
       ProductCategory.screenGuard,
       ProductCategory.powerBank,
       ProductCategory.smartwatch,
+      ProductCategory.cable,
+      ProductCategory.speaker,
+      ProductCategory.memory,
+      ProductCategory.holder,
     ];
     return SizedBox(
       height: 92,

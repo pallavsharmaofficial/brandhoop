@@ -3241,4 +3241,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get liveGalleryTitle => 'Festival gifts and offers';
+
+  @override
+  String get catHolder => 'Stands and tripods';
+
+  @override
+  String get liveIllustration => 'Photo for illustration';
+
+  @override
+  String get liveAskModel => 'Tell us your phone model for the right fit.';
 }

@@ -5611,6 +5611,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Festival gifts and offers'**
   String get liveGalleryTitle;
+
+  /// No description provided for @catHolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Stands and tripods'**
+  String get catHolder;
+
+  /// No description provided for @liveIllustration.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo for illustration'**
+  String get liveIllustration;
+
+  /// No description provided for @liveAskModel.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell us your phone model for the right fit.'**
+  String get liveAskModel;
 }
 
 class _AppLocalizationsDelegate

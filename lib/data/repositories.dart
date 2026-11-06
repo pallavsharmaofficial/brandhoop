@@ -23,6 +23,15 @@ abstract class Repo<T> {
   Future<List<T>> all();
   Stream<List<T>> watchAll();
   Future<void> save(T item);
+
+  /// Saves many at once. The default saves one by one; the offline
+  /// implementation writes them in a single go.
+  Future<void> saveAll(Iterable<T> items) async {
+    for (final T item in items) {
+      await save(item);
+    }
+  }
+
   Future<void> delete(String id);
 }
 
@@ -89,6 +98,8 @@ class _LocalRepo<T> implements Repo<T> {
   Stream<List<T>> watchAll() => col.watch();
   @override
   Future<void> save(T item) => col.put(item);
+  @override
+  Future<void> saveAll(Iterable<T> items) => col.putAll(items);
   @override
   Future<void> delete(String id) => col.remove(id);
 }

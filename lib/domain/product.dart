@@ -19,6 +19,7 @@ enum ProductCategory {
   smartwatch(ProductGroup.accessories),
   speaker(ProductGroup.accessories),
   memory(ProductGroup.accessories),
+  holder(ProductGroup.accessories),
   protection(ProductGroup.protection);
 
   const ProductCategory(this.group);

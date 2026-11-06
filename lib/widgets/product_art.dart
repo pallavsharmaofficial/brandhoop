@@ -39,6 +39,8 @@ IconData categoryIcon(ProductCategory c) {
       return Icons.speaker;
     case ProductCategory.memory:
       return Icons.sd_card;
+    case ProductCategory.holder:
+      return Icons.stay_current_portrait;
     case ProductCategory.protection:
       return Icons.verified_user_outlined;
   }

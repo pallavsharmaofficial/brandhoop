@@ -123,7 +123,9 @@ void main() {
     final int skipped = await LiveShop.apply(r, jsonDecode(text) as Map<String, dynamic>);
     expect(skipped, 0);
     final List<Product> products = await r.catalog.all();
-    expect(products.length, greaterThanOrEqualTo(8));
+    expect(products.length, greaterThanOrEqualTo(100));
+    expect(products.where((Product p) => p.category == ProductCategory.smartphone).length, greaterThanOrEqualTo(48));
+    expect(products.where((Product p) => p.category == ProductCategory.holder).isNotEmpty, isTrue);
     expect(products.every((Product p) => p.callForBest), isTrue, reason: 'no invented stock or sale prices');
     expect(products.every((Product p) => p.gift.isEmpty), isTrue, reason: 'the shop sets gifts, not the developer');
     expect((await r.settings.get()).whatsapp, '8619767291');
