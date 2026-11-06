@@ -1589,6 +1589,12 @@
           "en": "6 years of OS updates",
           "hi": "6 साल के OS अपडेट"
         }
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/samsung-galaxy-a36-5g.jpg"
+      ],
+      "tags": [
+        "commons-photo"
       ]
     },
     {
@@ -1691,6 +1697,12 @@
           "en": "6 years of OS updates",
           "hi": "6 साल के OS अपडेट"
         }
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/samsung-galaxy-a56-5g.jpg"
+      ],
+      "tags": [
+        "commons-photo"
       ]
     },
     {
@@ -1791,7 +1803,13 @@
       "description": {
         "en": "Ask the shop for today’s price, gifts and offers.",
         "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें।"
-      }
+      },
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/samsung-galaxy-a26-5g.jpg"
+      ],
+      "tags": [
+        "commons-photo"
+      ]
     },
     {
       "id": "motorola-g96-5g",
@@ -1977,7 +1995,13 @@
       "description": {
         "en": "Ask the shop for today’s price, gifts and offers.",
         "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें।"
-      }
+      },
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/oneplus-13.jpg"
+      ],
+      "tags": [
+        "commons-photo"
+      ]
     },
     {
       "id": "iphone-16",

@@ -16,8 +16,10 @@ ACCEPT = {
     'iphone-16': (0, 0, 1, 1),
     'iphone-16e': (0.05, 0, 0.85, 1),
     'google-pixel-9a': (0, 0.10, 0.86, 1),
-    'samsung-galaxy-a36-5g': (0, 0, 1, 1),
-    'samsung-galaxy-a56-5g': (0, 0, 1, 1),
+    'samsung-galaxy-a36-5g': (0, 0, 1, 0.88),
+    'samsung-galaxy-a56-5g': (0, 0, 1, 0.80),
+    'samsung-galaxy-a26-5g': (0, 0, 1, 1),
+    'oneplus-13': (0, 0, 0.92, 0.98),
 }
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
