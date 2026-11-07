@@ -33,7 +33,7 @@ Galaxy A26, A36, A56 and OnePlus 13. Pictures that showed another country's pric
 tags, a phone settings screen, or a model that did not match were rejected.
 
 ## Catalogue prices (docs/CATALOG.md)
-The 52 phones carry **launch prices reported by Indian press and price-list
+The 69 phones carry **launch prices reported by Indian press and price-list
 sites** (including 91mobiles, Smartprix, Digit, Business Standard, India TV,
 Beebom, GSMArena, FoneArena, TelecomTalk, Gizbot, Business Today, ETV Bharat,
 Free Press Journal, Croma Unboxed and Times of India), searched on 6 Nov 2026

@@ -1,6 +1,6 @@
 # The starting catalogue
 
-`assets/live/shop.json` ships with **105 items**: 52 phones (50 smartphones and
+`assets/live/shop.json` ships with **122 items**: 69 phones (67 smartphones and
 2 keypad phones) and 53 accessory types. It is a starting point the owner
 edits in the admin panel (`docs/ADMIN.md`): change names, add real prices, gifts
 and photos, hide what the shop does not stock, add what is missing.
@@ -37,3 +37,13 @@ the products.
    price (untick "call for price" in the panel), and add gifts.
 2. Hide or delete what the shop does not stock.
 3. Add real photos of what is on the counter.
+
+## Models added from the owner's list (Nov 2026)
+
+vivo Y11, Y21, Y31t, Y51 Pro, S2, S2 FE, V70 FE and V80; OPPO A6, K14x, K14,
+F35, F35 Pro, Reno 16c and Reno 16 (A6x was already there); Nothing Phone (4a)
+and (4b). The list said "V8", which is read as the V80, the only matching
+model. Prices are launch prices from Indian press reports. Where the press
+reported a later rise (memory-chip costs), the app says "raised since, call for
+today's price" next to the launch price, so an old figure never looks current.
+Those models are listed in `RAISED` in `tools/catalog/phones.py`.

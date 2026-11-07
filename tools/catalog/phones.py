@@ -1,4 +1,4 @@
-"""The starting phone list: 50 popular models in India plus two keypad phones.
+"""The starting phone list: popular models in India plus two keypad phones.
 
 Prices are LAUNCH prices in rupees reported by Indian news and price-list sites
 (see docs/CREDITS.md). Where outlets disagreed, or nothing reliable was found,
@@ -91,8 +91,45 @@ PHONES = [
  ('iphone-17', 'Apple iPhone 17', 'Apple', 'Sep 2025', [('256 GB', 82900), ('512 GB', 102900)],
      hl(('Lavender, Sage, Mist Blue, White and Black', 'लैवेंडर, सेज, मिस्ट ब्लू, सफ़ेद और काला')), 'iPhone 17', ['iphone 17']),
  ('iphone-17-pro', 'Apple iPhone 17 Pro', 'Apple', 'Sep 2025', [('256 GB', 134900)], [], 'iPhone 17 Pro', ['17 pro']),
+ # ---- added on the shop owner's list (Nov 2026)
+ ('vivo-y11-5g', 'vivo Y11 5G', 'vivo', 'Mar 2026', [('4 GB + 64 GB', 14999), ('4 GB + 128 GB', 16999)],
+     hl(('6,500 mAh battery', '6,500 mAh बैटरी'), ('120 Hz display', '120 Hz डिस्प्ले'), ('MediaTek Dimensity 6300', 'MediaTek Dimensity 6300')), 'vivo Y11 5G', ['y11']),
+ ('vivo-y21-5g', 'vivo Y21 5G', 'vivo', 'Mar 2026', [('4 GB + 128 GB', 18999), ('6 GB + 128 GB', 20999), ('8 GB + 128 GB', 22999)],
+     hl(('6,500 mAh battery', '6,500 mAh बैटरी'), ('120 Hz display', '120 Hz डिस्प्ले')), 'vivo Y21 5G', ['y21']),
+ ('vivo-y31t-5g', 'vivo Y31t 5G', 'vivo', '', [('4 GB + 128 GB', 25999), ('6 GB + 128 GB', 29999), ('6 GB + 256 GB', 34999)],
+     hl(('7,200 mAh battery', '7,200 mAh बैटरी'), ('Snapdragon 4 Gen 2', 'Snapdragon 4 Gen 2'), ('IP68 and IP69 protection', 'IP68 और IP69 सुरक्षा')), 'vivo Y31t', ['y31t']),
+ ('vivo-y51-pro-5g', 'vivo Y51 Pro 5G', 'vivo', 'Mar 2026', [('8 GB + 128 GB', 24999), ('8 GB + 256 GB', 27999)],
+     hl(('7,200 mAh battery', '7,200 mAh बैटरी'), ('120 Hz display', '120 Hz डिस्प्ले'), ('MediaTek Dimensity 7360', 'MediaTek Dimensity 7360')), 'vivo Y51 Pro', ['y51 pro']),
+ ('vivo-s2-fe-5g', 'vivo S2 FE 5G', 'vivo', 'Oct 2026', [('6 GB + 128 GB', 38999), ('8 GB + 128 GB', 42999)],
+     hl(('10,000 mAh battery', '10,000 mAh बैटरी'), ('6.83-inch 120 Hz AMOLED', '6.83-इंच 120 Hz AMOLED'), ('MediaTek Dimensity 7300e', 'MediaTek Dimensity 7300e')), 'vivo S2 FE', ['s2 fe']),
+ ('vivo-s2-5g', 'vivo S2 5G', 'vivo', 'Aug 2026', [('8 GB + 128 GB', 39999)],
+     hl(('7,050 mAh battery', '7,050 mAh बैटरी'), ('3,000-nit curved display', '3,000-nit कर्व्ड डिस्प्ले')), 'vivo S2', ['vivo s2']),
+ ('vivo-v70-fe-5g', 'vivo V70 FE 5G', 'vivo', 'Apr 2026', [('8 GB + 128 GB', 37999)],
+     hl(('200 MP main camera', '200 MP मुख्य कैमरा'), ('7,000 mAh battery', '7,000 mAh बैटरी'), ('90W fast charging', '90W फ़ास्ट चार्जिंग')), 'vivo V70 FE', ['v70 fe']),
+ ('vivo-v80-5g', 'vivo V80 5G', 'vivo', 'Oct 2026', [('8 GB + 128 GB', 62999), ('8 GB + 256 GB', 69999), ('8 GB + 512 GB', 79999)], [], 'vivo V80', ['v80']),
+ ('oppo-a6-5g', 'OPPO A6 5G', 'OPPO', 'Jan 2026', [('4 GB + 128 GB', 17999), ('6 GB + 128 GB', 19999), ('6 GB + 256 GB', 21999)],
+     hl(('7,000 mAh battery', '7,000 mAh बैटरी'), ('45W fast charging', '45W फ़ास्ट चार्जिंग'), ('50 MP camera', '50 MP कैमरा')), 'OPPO A6 5G', ['oppo a6 5g']),
+ ('oppo-k14x-5g', 'OPPO K14x 5G', 'OPPO', 'Feb 2026', [('4 GB + 128 GB', 14999), ('6 GB + 128 GB', 16999)],
+     hl(('6,500 mAh battery', '6,500 mAh बैटरी'), ('120 Hz display', '120 Hz डिस्प्ले'), ('MediaTek Dimensity 6300', 'MediaTek Dimensity 6300')), 'OPPO K14x', ['k14x']),
+ ('oppo-k14-5g', 'OPPO K14 5G', 'OPPO', 'Mar 2026', [('6 GB + 128 GB', 17999), ('8 GB + 256 GB', 21999)],
+     hl(('7,000 mAh battery', '7,000 mAh बैटरी'), ('45W fast charging', '45W फ़ास्ट चार्जिंग')), 'OPPO K14 5G', ['oppo k14 5g']),
+ ('oppo-f35-5g', 'OPPO F35 5G', 'OPPO', 'Oct 2026', [('6 GB + 128 GB', 38999), ('8 GB + 128 GB', 42999)],
+     hl(('8,000 mAh battery', '8,000 mAh बैटरी'), ('50 MP front camera', '50 MP फ्रंट कैमरा')), 'OPPO F35', ['f35']),
+ ('oppo-f35-pro-5g', 'OPPO F35 Pro 5G', 'OPPO', 'Oct 2026', [('6 GB + 128 GB', 45999), ('8 GB + 128 GB', 49999), ('8 GB + 256 GB', 54999)],
+     hl(('8,000 mAh battery', '8,000 mAh बैटरी'), ('50 MP front camera', '50 MP फ्रंट कैमरा')), 'OPPO F35 Pro', ['f35 pro']),
+ ('oppo-reno-16c-5g', 'OPPO Reno 16c 5G', 'OPPO', 'Jul 2026', [('8 GB + 128 GB', 46999)],
+     hl(('7,000 mAh battery', '7,000 mAh बैटरी'), ('80W fast charging', '80W फ़ास्ट चार्जिंग'), ('Memory card slot', 'मेमोरी कार्ड स्लॉट')), 'OPPO Reno 16c', ['reno 16c', 'reno16c']),
+ ('oppo-reno-16-5g', 'OPPO Reno 16 5G', 'OPPO', 'Jul 2026', [('8 GB + 256 GB', 61999), ('12 GB + 256 GB', 67999)], [], 'OPPO Reno 16', ['reno 16', 'reno16']),
+ ('nothing-phone-4a', 'Nothing Phone (4a)', 'Nothing', 'Mar 2026', [('8 GB + 128 GB', 31999), ('8 GB + 256 GB', 34999), ('12 GB + 256 GB', 37999)],
+     hl(('Glyph Bar', 'ग्लिफ़ बार'), ('Periscope camera', 'पेरिस्कोप कैमरा')), 'Nothing Phone (4a)', ['phone (4a)', 'phone 4a']),
+ ('nothing-phone-4b', 'Nothing Phone (4b)', 'Nothing', 'Jul 2026', [('8 GB + 128 GB', 34999), ('8 GB + 256 GB', 38999)],
+     hl(('6,000 mAh battery', '6,000 mAh बैटरी'), ('6.77-inch 120 Hz AMOLED', '6.77-इंच 120 Hz AMOLED'), ('Snapdragon 6 Gen 4', 'Snapdragon 6 Gen 4')), 'Nothing Phone (4b)', ['phone (4b)', 'phone 4b']),
  # ---- keypad phones
  ('nokia-105-classic', 'Nokia 105 Classic', 'Nokia', '', [('Single SIM', 999)], [], 'Nokia 105', ['nokia 105']),
  ('nokia-110-4g', 'Nokia 110 4G', 'Nokia', 'Jul 2021', [('Standard', 2799)], [], 'Nokia 110 4G', ['110']),
 ]
+# Models whose price was reported raised after launch (memory-chip costs). The app
+# says so next to the launch price instead of letting an old price look current.
+RAISED = {'vivo-y11-5g', 'vivo-y21-5g', 'vivo-y51-pro-5g', 'vivo-v70-fe-5g', 'oppo-a6x-5g', 'oppo-a6-5g',
+          'oppo-k14x-5g', 'oppo-k14-5g', 'oppo-reno-16c-5g', 'oppo-reno-16-5g', 'nothing-phone-4a', 'nothing-phone-4b'}
 KEYPAD = {'nokia-105-classic', 'nokia-110-4g'}

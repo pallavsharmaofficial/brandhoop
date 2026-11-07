@@ -37,6 +37,9 @@ for pid, name, brand, launch, variants, highlights, _q, _must in phones.PHONES:
         mon, _, yr = launch.partition(' ')
         en = f'Launch price ({launch})' if launch else 'Launch price'
         hi = f'लॉन्च कीमत ({phones.M.get(mon, mon)} {yr})' if launch else 'लॉन्च कीमत'
+        if pid in phones.RAISED:
+            en += ' – raised since, call for today’s price'
+            hi += ' – तब से बढ़ी है, आज की कीमत के लिए कॉल करें'
         p['refPriceLabel'] = {'en': en, 'hi': hi}
         when_en = f' in {launch}' if launch else ''
         p['description'] = {

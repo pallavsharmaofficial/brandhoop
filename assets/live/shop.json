@@ -338,8 +338,8 @@
         }
       ],
       "refPriceLabel": {
-        "en": "Launch price (Dec 2025)",
-        "hi": "लॉन्च कीमत (दिसंबर 2025)"
+        "en": "Launch price (Dec 2025) – raised since, call for today’s price",
+        "hi": "लॉन्च कीमत (दिसंबर 2025) – तब से बढ़ी है, आज की कीमत के लिए कॉल करें"
       },
       "description": {
         "en": "Launched in India in Dec 2025 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
@@ -2155,6 +2155,868 @@
       ],
       "tags": [
         "commons-photo"
+      ]
+    },
+    {
+      "id": "vivo-y11-5g",
+      "name": {
+        "en": "vivo Y11 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "4 GB + 64 GB",
+          "color": "",
+          "price": 14999,
+          "mrp": 14999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "4 GB + 128 GB",
+          "color": "",
+          "price": 16999,
+          "mrp": 16999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Mar 2026) – raised since, call for today’s price",
+        "hi": "लॉन्च कीमत (मार्च 2026) – तब से बढ़ी है, आज की कीमत के लिए कॉल करें"
+      },
+      "description": {
+        "en": "Launched in India in Mar 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "6,500 mAh battery",
+          "hi": "6,500 mAh बैटरी"
+        },
+        {
+          "en": "120 Hz display",
+          "hi": "120 Hz डिस्प्ले"
+        },
+        {
+          "en": "MediaTek Dimensity 6300",
+          "hi": "MediaTek Dimensity 6300"
+        }
+      ]
+    },
+    {
+      "id": "vivo-y21-5g",
+      "name": {
+        "en": "vivo Y21 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "4 GB + 128 GB",
+          "color": "",
+          "price": 18999,
+          "mrp": 18999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 20999,
+          "mrp": 20999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 22999,
+          "mrp": 22999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Mar 2026) – raised since, call for today’s price",
+        "hi": "लॉन्च कीमत (मार्च 2026) – तब से बढ़ी है, आज की कीमत के लिए कॉल करें"
+      },
+      "description": {
+        "en": "Launched in India in Mar 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "6,500 mAh battery",
+          "hi": "6,500 mAh बैटरी"
+        },
+        {
+          "en": "120 Hz display",
+          "hi": "120 Hz डिस्प्ले"
+        }
+      ]
+    },
+    {
+      "id": "vivo-y31t-5g",
+      "name": {
+        "en": "vivo Y31t 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "4 GB + 128 GB",
+          "color": "",
+          "price": 25999,
+          "mrp": 25999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 29999,
+          "mrp": 29999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "6 GB + 256 GB",
+          "color": "",
+          "price": 34999,
+          "mrp": 34999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price",
+        "hi": "लॉन्च कीमत"
+      },
+      "description": {
+        "en": "Launched in India at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "7,200 mAh battery",
+          "hi": "7,200 mAh बैटरी"
+        },
+        {
+          "en": "Snapdragon 4 Gen 2",
+          "hi": "Snapdragon 4 Gen 2"
+        },
+        {
+          "en": "IP68 and IP69 protection",
+          "hi": "IP68 और IP69 सुरक्षा"
+        }
+      ]
+    },
+    {
+      "id": "vivo-y51-pro-5g",
+      "name": {
+        "en": "vivo Y51 Pro 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 24999,
+          "mrp": 24999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 27999,
+          "mrp": 27999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Mar 2026) – raised since, call for today’s price",
+        "hi": "लॉन्च कीमत (मार्च 2026) – तब से बढ़ी है, आज की कीमत के लिए कॉल करें"
+      },
+      "description": {
+        "en": "Launched in India in Mar 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "7,200 mAh battery",
+          "hi": "7,200 mAh बैटरी"
+        },
+        {
+          "en": "120 Hz display",
+          "hi": "120 Hz डिस्प्ले"
+        },
+        {
+          "en": "MediaTek Dimensity 7360",
+          "hi": "MediaTek Dimensity 7360"
+        }
+      ]
+    },
+    {
+      "id": "vivo-s2-fe-5g",
+      "name": {
+        "en": "vivo S2 FE 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 38999,
+          "mrp": 38999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 42999,
+          "mrp": 42999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Oct 2026)",
+        "hi": "लॉन्च कीमत (अक्टूबर 2026)"
+      },
+      "description": {
+        "en": "Launched in India in Oct 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "10,000 mAh battery",
+          "hi": "10,000 mAh बैटरी"
+        },
+        {
+          "en": "6.83-inch 120 Hz AMOLED",
+          "hi": "6.83-इंच 120 Hz AMOLED"
+        },
+        {
+          "en": "MediaTek Dimensity 7300e",
+          "hi": "MediaTek Dimensity 7300e"
+        }
+      ]
+    },
+    {
+      "id": "vivo-s2-5g",
+      "name": {
+        "en": "vivo S2 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 39999,
+          "mrp": 39999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Aug 2026)",
+        "hi": "लॉन्च कीमत (अगस्त 2026)"
+      },
+      "description": {
+        "en": "Launched in India in Aug 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "7,050 mAh battery",
+          "hi": "7,050 mAh बैटरी"
+        },
+        {
+          "en": "3,000-nit curved display",
+          "hi": "3,000-nit कर्व्ड डिस्प्ले"
+        }
+      ]
+    },
+    {
+      "id": "vivo-v70-fe-5g",
+      "name": {
+        "en": "vivo V70 FE 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 37999,
+          "mrp": 37999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Apr 2026) – raised since, call for today’s price",
+        "hi": "लॉन्च कीमत (अप्रैल 2026) – तब से बढ़ी है, आज की कीमत के लिए कॉल करें"
+      },
+      "description": {
+        "en": "Launched in India in Apr 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "200 MP main camera",
+          "hi": "200 MP मुख्य कैमरा"
+        },
+        {
+          "en": "7,000 mAh battery",
+          "hi": "7,000 mAh बैटरी"
+        },
+        {
+          "en": "90W fast charging",
+          "hi": "90W फ़ास्ट चार्जिंग"
+        }
+      ]
+    },
+    {
+      "id": "vivo-v80-5g",
+      "name": {
+        "en": "vivo V80 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 62999,
+          "mrp": 62999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 69999,
+          "mrp": 69999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "8 GB + 512 GB",
+          "color": "",
+          "price": 79999,
+          "mrp": 79999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Oct 2026)",
+        "hi": "लॉन्च कीमत (अक्टूबर 2026)"
+      },
+      "description": {
+        "en": "Launched in India in Oct 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      }
+    },
+    {
+      "id": "oppo-a6-5g",
+      "name": {
+        "en": "OPPO A6 5G",
+        "hi": ""
+      },
+      "brand": "OPPO",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "4 GB + 128 GB",
+          "color": "",
+          "price": 17999,
+          "mrp": 17999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 19999,
+          "mrp": 19999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "6 GB + 256 GB",
+          "color": "",
+          "price": 21999,
+          "mrp": 21999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Jan 2026) – raised since, call for today’s price",
+        "hi": "लॉन्च कीमत (जनवरी 2026) – तब से बढ़ी है, आज की कीमत के लिए कॉल करें"
+      },
+      "description": {
+        "en": "Launched in India in Jan 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "7,000 mAh battery",
+          "hi": "7,000 mAh बैटरी"
+        },
+        {
+          "en": "45W fast charging",
+          "hi": "45W फ़ास्ट चार्जिंग"
+        },
+        {
+          "en": "50 MP camera",
+          "hi": "50 MP कैमरा"
+        }
+      ]
+    },
+    {
+      "id": "oppo-k14x-5g",
+      "name": {
+        "en": "OPPO K14x 5G",
+        "hi": ""
+      },
+      "brand": "OPPO",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "4 GB + 128 GB",
+          "color": "",
+          "price": 14999,
+          "mrp": 14999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 16999,
+          "mrp": 16999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Feb 2026) – raised since, call for today’s price",
+        "hi": "लॉन्च कीमत (फ़रवरी 2026) – तब से बढ़ी है, आज की कीमत के लिए कॉल करें"
+      },
+      "description": {
+        "en": "Launched in India in Feb 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "6,500 mAh battery",
+          "hi": "6,500 mAh बैटरी"
+        },
+        {
+          "en": "120 Hz display",
+          "hi": "120 Hz डिस्प्ले"
+        },
+        {
+          "en": "MediaTek Dimensity 6300",
+          "hi": "MediaTek Dimensity 6300"
+        }
+      ]
+    },
+    {
+      "id": "oppo-k14-5g",
+      "name": {
+        "en": "OPPO K14 5G",
+        "hi": ""
+      },
+      "brand": "OPPO",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 17999,
+          "mrp": 17999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 21999,
+          "mrp": 21999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Mar 2026) – raised since, call for today’s price",
+        "hi": "लॉन्च कीमत (मार्च 2026) – तब से बढ़ी है, आज की कीमत के लिए कॉल करें"
+      },
+      "description": {
+        "en": "Launched in India in Mar 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "7,000 mAh battery",
+          "hi": "7,000 mAh बैटरी"
+        },
+        {
+          "en": "45W fast charging",
+          "hi": "45W फ़ास्ट चार्जिंग"
+        }
+      ]
+    },
+    {
+      "id": "oppo-f35-5g",
+      "name": {
+        "en": "OPPO F35 5G",
+        "hi": ""
+      },
+      "brand": "OPPO",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 38999,
+          "mrp": 38999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 42999,
+          "mrp": 42999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Oct 2026)",
+        "hi": "लॉन्च कीमत (अक्टूबर 2026)"
+      },
+      "description": {
+        "en": "Launched in India in Oct 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "8,000 mAh battery",
+          "hi": "8,000 mAh बैटरी"
+        },
+        {
+          "en": "50 MP front camera",
+          "hi": "50 MP फ्रंट कैमरा"
+        }
+      ]
+    },
+    {
+      "id": "oppo-f35-pro-5g",
+      "name": {
+        "en": "OPPO F35 Pro 5G",
+        "hi": ""
+      },
+      "brand": "OPPO",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 45999,
+          "mrp": 45999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 49999,
+          "mrp": 49999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 54999,
+          "mrp": 54999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Oct 2026)",
+        "hi": "लॉन्च कीमत (अक्टूबर 2026)"
+      },
+      "description": {
+        "en": "Launched in India in Oct 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "8,000 mAh battery",
+          "hi": "8,000 mAh बैटरी"
+        },
+        {
+          "en": "50 MP front camera",
+          "hi": "50 MP फ्रंट कैमरा"
+        }
+      ]
+    },
+    {
+      "id": "oppo-reno-16c-5g",
+      "name": {
+        "en": "OPPO Reno 16c 5G",
+        "hi": ""
+      },
+      "brand": "OPPO",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 46999,
+          "mrp": 46999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Jul 2026) – raised since, call for today’s price",
+        "hi": "लॉन्च कीमत (जुलाई 2026) – तब से बढ़ी है, आज की कीमत के लिए कॉल करें"
+      },
+      "description": {
+        "en": "Launched in India in Jul 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "7,000 mAh battery",
+          "hi": "7,000 mAh बैटरी"
+        },
+        {
+          "en": "80W fast charging",
+          "hi": "80W फ़ास्ट चार्जिंग"
+        },
+        {
+          "en": "Memory card slot",
+          "hi": "मेमोरी कार्ड स्लॉट"
+        }
+      ]
+    },
+    {
+      "id": "oppo-reno-16-5g",
+      "name": {
+        "en": "OPPO Reno 16 5G",
+        "hi": ""
+      },
+      "brand": "OPPO",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 61999,
+          "mrp": 61999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "12 GB + 256 GB",
+          "color": "",
+          "price": 67999,
+          "mrp": 67999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Jul 2026) – raised since, call for today’s price",
+        "hi": "लॉन्च कीमत (जुलाई 2026) – तब से बढ़ी है, आज की कीमत के लिए कॉल करें"
+      },
+      "description": {
+        "en": "Launched in India in Jul 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      }
+    },
+    {
+      "id": "nothing-phone-4a",
+      "name": {
+        "en": "Nothing Phone (4a)",
+        "hi": ""
+      },
+      "brand": "Nothing",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 31999,
+          "mrp": 31999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 34999,
+          "mrp": 34999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "12 GB + 256 GB",
+          "color": "",
+          "price": 37999,
+          "mrp": 37999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Mar 2026) – raised since, call for today’s price",
+        "hi": "लॉन्च कीमत (मार्च 2026) – तब से बढ़ी है, आज की कीमत के लिए कॉल करें"
+      },
+      "description": {
+        "en": "Launched in India in Mar 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "Glyph Bar",
+          "hi": "ग्लिफ़ बार"
+        },
+        {
+          "en": "Periscope camera",
+          "hi": "पेरिस्कोप कैमरा"
+        }
+      ],
+      "imageUrls": [
+        "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/nothing-phone-4a.jpg"
+      ],
+      "tags": [
+        "commons-photo"
+      ]
+    },
+    {
+      "id": "nothing-phone-4b",
+      "name": {
+        "en": "Nothing Phone (4b)",
+        "hi": ""
+      },
+      "brand": "Nothing",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 34999,
+          "mrp": 34999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 38999,
+          "mrp": 38999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Jul 2026) – raised since, call for today’s price",
+        "hi": "लॉन्च कीमत (जुलाई 2026) – तब से बढ़ी है, आज की कीमत के लिए कॉल करें"
+      },
+      "description": {
+        "en": "Launched in India in Jul 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "6,000 mAh battery",
+          "hi": "6,000 mAh बैटरी"
+        },
+        {
+          "en": "6.77-inch 120 Hz AMOLED",
+          "hi": "6.77-इंच 120 Hz AMOLED"
+        },
+        {
+          "en": "Snapdragon 6 Gen 4",
+          "hi": "Snapdragon 6 Gen 4"
+        }
       ]
     },
     {
