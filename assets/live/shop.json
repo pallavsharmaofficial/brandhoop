@@ -5,18 +5,17 @@
   },
   "offers": [
     {
-      "id": "diwali",
+      "id": "welcome",
       "kind": "banner",
       "title": {
-        "en": "Happy Diwali from Brandhoop",
-        "hi": "ब्रांडहूप की ओर से दिवाली की शुभकामनाएँ"
+        "en": "New phones and accessories, one shop",
+        "hi": "नए फ़ोन और एक्सेसरी, एक ही दुकान"
       },
       "subtitle": {
-        "en": "Diwali offers and gifts on mobile phones. Visit the shop or message us.",
-        "hi": "मोबाइल फ़ोन पर दिवाली के ऑफ़र और उपहार। दुकान पर आएँ या हमें मैसेज करें।"
+        "en": "See what you like, then ask for today’s best price, gifts and offers.",
+        "hi": "पसंद चुनें, फिर आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र पूछें।"
       },
-      "colorSeed": 1,
-      "imageUrl": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/gallery/diwali-diyas.jpg"
+      "colorSeed": 0
     },
     {
       "id": "bargain",
@@ -4629,15 +4628,8 @@
     {
       "url": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/gallery/diwali-gifts.jpg",
       "caption": {
-        "en": "Diwali gift sets with phones",
-        "hi": "फ़ोन के साथ दिवाली गिफ़्ट सेट"
-      }
-    },
-    {
-      "url": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/gallery/oppo-dhanteras.jpg",
-      "caption": {
-        "en": "Happy Dhanteras from OPPO",
-        "hi": "OPPO की ओर से धनतेरस की शुभकामनाएँ"
+        "en": "Phones with gift sets (our Diwali sale)",
+        "hi": "फ़ोन के साथ गिफ़्ट सेट (हमारी दिवाली सेल)"
       }
     }
   ]

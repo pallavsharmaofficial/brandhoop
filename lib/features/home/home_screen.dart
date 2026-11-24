@@ -18,6 +18,8 @@ import '../../widgets/brand_mark.dart';
 import '../../widgets/common.dart';
 import '../../widgets/product_art.dart';
 import '../../widgets/product_card.dart';
+import '../../util/launch.dart';
+import '../../util/shop_message.dart';
 import '../../widgets/store_widgets.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -42,6 +44,19 @@ class HomeScreen extends StatelessWidget {
         .where((Product p) => p.category.group == ProductGroup.accessories && p.featured && p.inStock)
         .take(6)
         .toList();
+
+    final Map<String, int> brandCount = <String, int>{};
+    for (final Product p in products.where((Product p) => p.category == ProductCategory.smartphone && p.brand.trim().isNotEmpty)) {
+      brandCount[p.brand] = (brandCount[p.brand] ?? 0) + 1;
+    }
+    final List<String> brands = brandCount.keys.toList()
+      ..sort((String a, String b) => brandCount[b]!.compareTo(brandCount[a]!) != 0 ? brandCount[b]!.compareTo(brandCount[a]!) : a.compareTo(b));
+    final List<Product> popular = products.where((Product p) => p.category == ProductCategory.smartphone).toList()
+      ..sort((Product a, Product b) {
+        final int f = (b.featured ? 1 : 0).compareTo(a.featured ? 1 : 0);
+        if (f != 0) return f;
+        return (b.imageUrls.isEmpty ? 0 : 1).compareTo(a.imageUrls.isEmpty ? 0 : 1);
+      });
 
     return Scaffold(
       appBar: AppBar(
@@ -79,14 +94,36 @@ class HomeScreen extends StatelessWidget {
                 child: InfoBanner(text: context.tr.demoBanner, icon: Icons.science_outlined, color: BrandColors.saffron),
               ),
             Padding(
-              padding: const EdgeInsets.only(top: 12),
-              child: _Hero(store: store),
+              padding: const EdgeInsets.only(top: 8),
+              child: _SearchBox(),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 14),
-              child: _SearchBox(),
+              child: AppEnv.live ? _LiveHero(store: store) : _Hero(store: store),
             ),
-            if (offers.isNotEmpty) Padding(padding: const EdgeInsets.only(top: 16), child: _OfferCarousel(offers: offers, lang: lang)),
+            if (AppEnv.live) Padding(padding: const EdgeInsets.only(top: 16), child: _QuickActions(store: store)),
+            if (offers.isNotEmpty) Padding(padding: const EdgeInsets.only(top: 18), child: _OfferCarousel(offers: offers, lang: lang)),
+            if (brands.length > 1)
+              Section(
+                title: context.tr.shopByBrand,
+                child: _BrandRow(brands: brands.take(14).toList()),
+              ),
+            if (AppEnv.live && popular.isNotEmpty)
+              Section(
+                title: context.tr.popularPhones,
+                action: context.tr.viewAll,
+                onAction: () => context.go(Routes.shopWith(category: ProductCategory.smartphone.name)),
+                child: SizedBox(
+                  height: 300,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    clipBehavior: Clip.none,
+                    itemCount: popular.length.clamp(0, 12),
+                    separatorBuilder: (BuildContext _, int _) => const SizedBox(width: 12),
+                    itemBuilder: (BuildContext _, int i) => ProductCard(product: popular[i], settings: store, width: 176),
+                  ),
+                ),
+              ),
             if (AppEnv.live) ...<Widget>[
               const LiveGalleryStrip(),
               const Padding(padding: EdgeInsets.only(top: 16), child: LiveWorryCard()),
@@ -159,14 +196,36 @@ class HomeScreen extends StatelessWidget {
               ),
             Section(
               title: context.tr.whyBrandhoop,
-              child: Column(
-                children: <Widget>[
-                  if (!AppEnv.live) _Why(Icons.verified_outlined, context.tr.whyGenuineTitle, context.tr.whyGenuineBody),
-                  _Why(Icons.storefront_outlined, context.tr.whyLocalTitle, context.tr.whyLocalBody),
-                  _Why(Icons.account_balance_wallet_outlined, context.tr.whyPayTitle, AppEnv.live ? context.tr.liveWhyPayBody : context.tr.whyPayBody),
-                  if (!AppEnv.live) _Why(Icons.support_agent_outlined, context.tr.whySupportTitle, context.tr.whySupportBody),
-                ],
-              ),
+              child: AppEnv.live
+                  ? LayoutBuilder(builder: (BuildContext context, BoxConstraints box) {
+                      final List<Widget> tiles = <Widget>[
+                        _TrustTile(Icons.storefront_outlined, context.tr.homeTrustLocal, context.tr.homeTrustLocalSub),
+                        _TrustTile(Icons.call_outlined, context.tr.homeTrustBargain, context.tr.homeTrustBargainSub),
+                        _TrustTile(Icons.card_giftcard, context.tr.homeTrustGifts, context.tr.homeTrustGiftsSub),
+                        _TrustTile(Icons.account_balance_wallet_outlined, context.tr.homeTrustEmi, context.tr.homeTrustEmiSub),
+                      ];
+                      if (box.maxWidth >= 720) {
+                        return Row(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                          for (int k = 0; k < tiles.length; k++) ...<Widget>[
+                            if (k > 0) const SizedBox(width: 10),
+                            Expanded(child: tiles[k]),
+                          ],
+                        ]);
+                      }
+                      return Column(children: <Widget>[
+                        Row(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[Expanded(child: tiles[0]), const SizedBox(width: 10), Expanded(child: tiles[1])]),
+                        const SizedBox(height: 10),
+                        Row(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[Expanded(child: tiles[2]), const SizedBox(width: 10), Expanded(child: tiles[3])]),
+                      ]);
+                    })
+                  : Column(
+                      children: <Widget>[
+                        _Why(Icons.verified_outlined, context.tr.whyGenuineTitle, context.tr.whyGenuineBody),
+                        _Why(Icons.storefront_outlined, context.tr.whyLocalTitle, context.tr.whyLocalBody),
+                        _Why(Icons.account_balance_wallet_outlined, context.tr.whyPayTitle, context.tr.whyPayBody),
+                        _Why(Icons.support_agent_outlined, context.tr.whySupportTitle, context.tr.whySupportBody),
+                      ],
+                    ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 20),
@@ -271,6 +330,10 @@ class _SearchBox extends StatelessWidget {
         decoration: InputDecoration(
           prefixIcon: const Icon(Icons.search),
           hintText: context.tr.searchHint,
+          contentPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 15),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(30), borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant)),
+          enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(30), borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant)),
+          focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(30), borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 1.6)),
         ),
       );
 }
@@ -282,65 +345,294 @@ const List<List<Color>> _offerColors = <List<Color>>[
   <Color>[Color(0xFF6A1B9A), Color(0xFFBA68C8)],
 ];
 
-class _OfferCarousel extends StatelessWidget {
+class _OfferCarousel extends StatefulWidget {
   const _OfferCarousel({required this.offers, required this.lang});
   final List<Offer> offers;
   final String lang;
 
   @override
-  Widget build(BuildContext context) => SizedBox(
-        height: 124,
-        child: PageView.builder(
-          controller: PageController(viewportFraction: MediaQuery.sizeOf(context).width >= 900 ? 0.4 : 0.9),
-          padEnds: MediaQuery.sizeOf(context).width < 900,
-          itemCount: offers.length,
-          itemBuilder: (BuildContext _, int i) {
-            final Offer o = offers[i];
-            final List<Color> c = _offerColors[o.colorSeed.abs() % _offerColors.length];
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 6),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(18),
-                onTap: () => context.go(o.id == 'o_exchange' ? Routes.exchange : Routes.shop),
-                child: Ink(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(18),
-                    gradient: LinearGradient(colors: c, begin: Alignment.topLeft, end: Alignment.bottomRight),
-                    image: o.imageUrl.isEmpty
-                        ? null
-                        : DecorationImage(
-                            image: NetworkImage(o.imageUrl),
-                            fit: BoxFit.cover,
-                            colorFilter: const ColorFilter.mode(Colors.black54, BlendMode.darken),
-                            onError: (Object _, StackTrace? _) {},
-                          ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        o.title.of(lang),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(color: Colors.white, fontSize: 17, fontWeight: FontWeight.w900, height: 1.2),
-                      ),
-                      if (!o.subtitle.isEmpty) ...<Widget>[
-                        const SizedBox(height: 6),
+  State<_OfferCarousel> createState() => _OfferCarouselState();
+}
+
+class _OfferCarouselState extends State<_OfferCarousel> {
+  PageController? _controller;
+  int _page = 0;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final double fraction = MediaQuery.sizeOf(context).width >= 900 ? 0.4 : 0.9;
+    if (_controller == null || _controller!.viewportFraction != fraction) {
+      _controller?.dispose();
+      _controller = PageController(viewportFraction: fraction, initialPage: _page);
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller?.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Offer> offers = widget.offers;
+    final String lang = widget.lang;
+    return Column(
+      children: <Widget>[
+        SizedBox(
+          height: 140,
+          child: PageView.builder(
+            controller: _controller,
+            padEnds: MediaQuery.sizeOf(context).width < 900,
+            onPageChanged: (int i) => setState(() => _page = i),
+            itemCount: offers.length,
+            itemBuilder: (BuildContext _, int i) {
+              final Offer o = offers[i];
+              final List<Color> c = _offerColors[o.colorSeed.abs() % _offerColors.length];
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 6),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(22),
+                  onTap: () => context.go(o.id == 'o_exchange' ? Routes.exchange : Routes.shop),
+                  child: Ink(
+                    padding: const EdgeInsets.all(18),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(22),
+                      gradient: LinearGradient(colors: c, begin: Alignment.topLeft, end: Alignment.bottomRight),
+                      image: o.imageUrl.isEmpty
+                          ? null
+                          : DecorationImage(
+                              image: NetworkImage(o.imageUrl),
+                              fit: BoxFit.cover,
+                              colorFilter: const ColorFilter.mode(Colors.black54, BlendMode.darken),
+                              onError: (Object _, StackTrace? _) {},
+                            ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
                         Text(
-                          o.subtitle.of(lang),
+                          o.title.of(lang),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(color: Colors.white70, fontSize: 13),
+                          style: const TextStyle(color: Colors.white, fontSize: 19, fontWeight: FontWeight.w900, height: 1.2),
                         ),
+                        if (!o.subtitle.isEmpty) ...<Widget>[
+                          const SizedBox(height: 6),
+                          Text(
+                            o.subtitle.of(lang),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(color: Colors.white70, fontSize: 13, height: 1.3),
+                          ),
+                        ],
                       ],
-                    ],
+                    ),
                   ),
                 ),
+              );
+            },
+          ),
+        ),
+        if (offers.length > 1)
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                for (int i = 0; i < offers.length; i++)
+                  AnimatedContainer(
+                    duration: const Duration(milliseconds: 200),
+                    margin: const EdgeInsets.symmetric(horizontal: 3),
+                    width: i == _page ? 20 : 6,
+                    height: 6,
+                    decoration: BoxDecoration(
+                      color: i == _page ? BrandColors.indigo : Theme.of(context).colorScheme.outlineVariant,
+                      borderRadius: BorderRadius.circular(3),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+class _LiveHero extends StatelessWidget {
+  const _LiveHero({required this.store});
+  final StoreSettings store;
+
+  @override
+  Widget build(BuildContext context) {
+    final String lang = context.lang;
+    final String shop = store.name.of(lang);
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(26),
+      child: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: <Color>[BrandColors.indigoDeep, BrandColors.indigo, Color(0xFF3F51B5)],
+          ),
+        ),
+        child: Stack(
+          children: <Widget>[
+            Positioned(right: -30, top: -40, child: Container(width: 170, height: 170, decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white.withValues(alpha: 0.07)))),
+            Positioned(right: 14, bottom: 10, child: Icon(Icons.smartphone, size: 130, color: Colors.white.withValues(alpha: 0.10))),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(shop, style: const TextStyle(color: BrandColors.saffronSoft, fontWeight: FontWeight.w800, letterSpacing: 0.3)),
+                  const SizedBox(height: 8),
+                  Text(
+                    context.tr.heroLiveTitle,
+                    style: const TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w900, height: 1.12),
+                  ),
+                  const SizedBox(height: 8),
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 440),
+                    child: Text(context.tr.heroLiveSub, style: const TextStyle(color: Colors.white70, height: 1.4)),
+                  ),
+                  const SizedBox(height: 16),
+                  Wrap(
+                    spacing: 10,
+                    runSpacing: 10,
+                    children: <Widget>[
+                      FilledButton.icon(
+                        onPressed: () => context.go(Routes.shopWith(category: ProductCategory.smartphone.name)),
+                        style: FilledButton.styleFrom(backgroundColor: BrandColors.saffron, foregroundColor: Colors.black87),
+                        icon: const Icon(Icons.smartphone),
+                        label: Text(context.tr.heroBrowse),
+                      ),
+                      OutlinedButton.icon(
+                        onPressed: () => sendToShop(context, context.tr.liveGenericAsk(shop)),
+                        style: OutlinedButton.styleFrom(foregroundColor: Colors.white, side: const BorderSide(color: Colors.white54)),
+                        icon: const Icon(Icons.chat_outlined),
+                        label: Text(context.tr.heroAsk),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 14),
+                  StoreStatusBadge(store, onDark: true),
+                  const SizedBox(height: 4),
+                  AddressLines(store, onDark: true),
+                ],
               ),
-            );
-          },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _QuickActions extends StatelessWidget {
+  const _QuickActions({required this.store});
+  final StoreSettings store;
+
+  @override
+  Widget build(BuildContext context) {
+    final String shop = store.name.of(context.lang);
+    final List<Widget> items = <Widget>[
+      _QuickAction(Icons.chat_outlined, context.tr.whatsapp, () => sendToShop(context, context.tr.liveGenericAsk(shop))),
+      if (store.phone.trim().isNotEmpty) _QuickAction(Icons.call_outlined, context.tr.call, () => Launch.call(store.phone)),
+      _QuickAction(Icons.directions_outlined, context.tr.directions, () => Launch.maps(store.mapsLink)),
+      _QuickAction(Icons.storefront_outlined, context.tr.visitStore, () => context.push(Routes.store)),
+    ];
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: ConstrainedBox(constraints: const BoxConstraints(maxWidth: 480), child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: items)),
+    );
+  }
+}
+
+class _QuickAction extends StatelessWidget {
+  const _QuickAction(this.icon, this.label, this.onTap);
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme cs = Theme.of(context).colorScheme;
+    return InkWell(
+      borderRadius: BorderRadius.circular(18),
+      onTap: onTap,
+      child: SizedBox(
+        width: 78,
+        child: Column(
+          children: <Widget>[
+            Container(
+              width: 54,
+              height: 54,
+              decoration: BoxDecoration(shape: BoxShape.circle, color: cs.primaryContainer.withValues(alpha: 0.7)),
+              child: Icon(icon, color: cs.primary),
+            ),
+            const SizedBox(height: 6),
+            Text(label, maxLines: 2, textAlign: TextAlign.center, overflow: TextOverflow.ellipsis, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700, height: 1.15)),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _BrandRow extends StatelessWidget {
+  const _BrandRow({required this.brands});
+  final List<String> brands;
+
+  @override
+  Widget build(BuildContext context) => SizedBox(
+        height: 46,
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemCount: brands.length,
+          separatorBuilder: (BuildContext _, int _) => const SizedBox(width: 8),
+          itemBuilder: (BuildContext _, int i) => ActionChip(
+            avatar: CircleAvatar(
+              radius: 12,
+              backgroundColor: BrandColors.indigo,
+              child: Text(brands[i].characters.first.toUpperCase(), style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w800)),
+            ),
+            label: Text(brands[i]),
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
+            shape: const StadiumBorder(),
+            onPressed: () => context.go(Routes.shopWith(category: ProductCategory.smartphone.name, brand: brands[i])),
+          ),
+        ),
+      );
+}
+
+class _TrustTile extends StatelessWidget {
+  const _TrustTile(this.icon, this.title, this.sub);
+  final IconData icon;
+  final String title;
+  final String sub;
+
+  @override
+  Widget build(BuildContext context) => Card(
+        child: Padding(
+          padding: const EdgeInsets.all(14),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(color: BrandColors.saffronSoft.withValues(alpha: 0.6), borderRadius: BorderRadius.circular(12)),
+                child: Icon(icon, color: BrandColors.saffron, size: 22),
+              ),
+              const SizedBox(height: 10),
+              Text(title, style: const TextStyle(fontWeight: FontWeight.w800, height: 1.2)),
+              const SizedBox(height: 3),
+              Text(sub, style: Theme.of(context).textTheme.bodySmall?.copyWith(height: 1.35)),
+            ],
+          ),
         ),
       );
 }
@@ -378,7 +670,7 @@ class _CategoryRow extends StatelessWidget {
       ProductCategory.holder,
     ];
     return SizedBox(
-      height: 92,
+      height: 100,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: cats.length,
@@ -393,11 +685,12 @@ class _CategoryRow extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Container(
-                    width: 56,
-                    height: 56,
+                    width: 62,
+                    height: 62,
                     decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.primaryContainer.withValues(alpha: 0.6),
-                      borderRadius: BorderRadius.circular(16),
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Theme.of(context).colorScheme.outlineVariant, width: 1.5),
                     ),
                     clipBehavior: Clip.antiAlias,
                     child: _categoryPhoto[c] == null

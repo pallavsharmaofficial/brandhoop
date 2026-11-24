@@ -23,7 +23,7 @@ ThemeData buildTheme(Brightness brightness) {
   );
   final Color bg = dark ? const Color(0xFF121317) : BrandColors.paper;
   final RoundedRectangleBorder shape12 =
-      RoundedRectangleBorder(borderRadius: BorderRadius.circular(12));
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(14));
   return ThemeData(
     useMaterial3: true,
     colorScheme: scheme,
@@ -47,8 +47,8 @@ ThemeData buildTheme(Brightness brightness) {
       color: dark ? const Color(0xFF1E2026) : Colors.white,
       surfaceTintColor: Colors.transparent,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: scheme.outlineVariant.withValues(alpha: 0.6)),
+        borderRadius: BorderRadius.circular(20),
+        side: BorderSide(color: scheme.outlineVariant.withValues(alpha: 0.5)),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -89,7 +89,7 @@ ThemeData buildTheme(Brightness brightness) {
       ),
     ),
     chipTheme: ChipThemeData(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       side: BorderSide(color: scheme.outlineVariant),
       labelStyle: const TextStyle(fontWeight: FontWeight.w600),
     ),

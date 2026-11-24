@@ -76,6 +76,13 @@ class ProductCard extends StatelessWidget {
                         style: t.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700, height: 1.25),
                       ),
                     ),
+                    if (product.highlights.isNotEmpty)
+                      Text(
+                        product.highlights.first.of(lang),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: t.textTheme.labelSmall?.copyWith(color: t.colorScheme.onSurfaceVariant),
+                      ),
                     const SizedBox(height: 6),
                     if (product.callForBest) ...<Widget>[
                       Text(

@@ -3240,7 +3240,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get liveWorryCta => 'Get today’s best price';
 
   @override
-  String get liveGalleryTitle => 'Festival gifts and offers';
+  String get liveGalleryTitle => 'From our shop';
 
   @override
   String get catHolder => 'Stands and tripods';
@@ -3250,4 +3250,47 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get liveAskModel => 'Tell us your phone model for the right fit.';
+
+  @override
+  String get shopByBrand => 'Shop by brand';
+
+  @override
+  String get popularPhones => 'Popular phones';
+
+  @override
+  String get heroLiveTitle => 'Find your next phone';
+
+  @override
+  String get heroLiveSub =>
+      'See phones and accessories, then ask for today’s best price, gifts and offers.';
+
+  @override
+  String get heroBrowse => 'Browse phones';
+
+  @override
+  String get heroAsk => 'Ask on WhatsApp';
+
+  @override
+  String get homeTrustLocal => 'Real shop, real address';
+
+  @override
+  String get homeTrustLocalSub => 'Abhay Colony, Neem Ka Thana';
+
+  @override
+  String get homeTrustBargain => 'Call to bargain';
+
+  @override
+  String get homeTrustBargainSub => 'Ask for today’s best price';
+
+  @override
+  String get homeTrustGifts => 'Gifts and offers';
+
+  @override
+  String get homeTrustGiftsSub => 'Ask what comes with your phone';
+
+  @override
+  String get homeTrustEmi => 'Bajaj EMI';
+
+  @override
+  String get homeTrustEmiSub => 'At the shop only (face scan needed)';
 }

@@ -1,0 +1,16 @@
+T = [
+('shopByBrand', 'Shop by brand', 'ब्रांड से खरीदें'),
+('popularPhones', 'Popular phones', 'लोकप्रिय फ़ोन'),
+('heroLiveTitle', 'Find your next phone', 'अपना अगला फ़ोन चुनें'),
+('heroLiveSub', 'See phones and accessories, then ask for today’s best price, gifts and offers.', 'फ़ोन और एक्सेसरी देखें, फिर आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र पूछें।'),
+('heroBrowse', 'Browse phones', 'फ़ोन देखें'),
+('heroAsk', 'Ask on WhatsApp', 'WhatsApp पर पूछें'),
+('homeTrustLocal', 'Real shop, real address', 'असली दुकान, असली पता'),
+('homeTrustLocalSub', 'Abhay Colony, Neem Ka Thana', 'अभय कॉलोनी, नीम का थाना'),
+('homeTrustBargain', 'Call to bargain', 'मोलभाव के लिए कॉल करें'),
+('homeTrustBargainSub', 'Ask for today’s best price', 'आज की सबसे अच्छी कीमत पूछें'),
+('homeTrustGifts', 'Gifts and offers', 'गिफ़्ट और ऑफ़र'),
+('homeTrustGiftsSub', 'Ask what comes with your phone', 'पूछें कि फ़ोन के साथ क्या मिलेगा'),
+('homeTrustEmi', 'Bajaj EMI', 'बजाज EMI'),
+('homeTrustEmiSub', 'At the shop only (face scan needed)', 'सिर्फ़ दुकान पर (फेस स्कैन ज़रूरी)'),
+]

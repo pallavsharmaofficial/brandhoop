@@ -5609,7 +5609,7 @@ abstract class AppLocalizations {
   /// No description provided for @liveGalleryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Festival gifts and offers'**
+  /// **'From our shop'**
   String get liveGalleryTitle;
 
   /// No description provided for @catHolder.
@@ -5629,6 +5629,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tell us your phone model for the right fit.'**
   String get liveAskModel;
+
+  /// No description provided for @shopByBrand.
+  ///
+  /// In en, this message translates to:
+  /// **'Shop by brand'**
+  String get shopByBrand;
+
+  /// No description provided for @popularPhones.
+  ///
+  /// In en, this message translates to:
+  /// **'Popular phones'**
+  String get popularPhones;
+
+  /// No description provided for @heroLiveTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Find your next phone'**
+  String get heroLiveTitle;
+
+  /// No description provided for @heroLiveSub.
+  ///
+  /// In en, this message translates to:
+  /// **'See phones and accessories, then ask for today’s best price, gifts and offers.'**
+  String get heroLiveSub;
+
+  /// No description provided for @heroBrowse.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse phones'**
+  String get heroBrowse;
+
+  /// No description provided for @heroAsk.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask on WhatsApp'**
+  String get heroAsk;
+
+  /// No description provided for @homeTrustLocal.
+  ///
+  /// In en, this message translates to:
+  /// **'Real shop, real address'**
+  String get homeTrustLocal;
+
+  /// No description provided for @homeTrustLocalSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Abhay Colony, Neem Ka Thana'**
+  String get homeTrustLocalSub;
+
+  /// No description provided for @homeTrustBargain.
+  ///
+  /// In en, this message translates to:
+  /// **'Call to bargain'**
+  String get homeTrustBargain;
+
+  /// No description provided for @homeTrustBargainSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask for today’s best price'**
+  String get homeTrustBargainSub;
+
+  /// No description provided for @homeTrustGifts.
+  ///
+  /// In en, this message translates to:
+  /// **'Gifts and offers'**
+  String get homeTrustGifts;
+
+  /// No description provided for @homeTrustGiftsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask what comes with your phone'**
+  String get homeTrustGiftsSub;
+
+  /// No description provided for @homeTrustEmi.
+  ///
+  /// In en, this message translates to:
+  /// **'Bajaj EMI'**
+  String get homeTrustEmi;
+
+  /// No description provided for @homeTrustEmiSub.
+  ///
+  /// In en, this message translates to:
+  /// **'At the shop only (face scan needed)'**
+  String get homeTrustEmiSub;
 }
 
 class _AppLocalizationsDelegate

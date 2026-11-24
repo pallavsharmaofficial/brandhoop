@@ -1,0 +1,15 @@
+T = [
+('payChoiceUpi', 'UPI (GPay, PhonePe, Paytm)', 'यूपीआई (GPay, PhonePe, Paytm)'),
+('payChoiceUpiHint', 'Instant. Pay from any UPI app.', 'तुरंत। किसी भी यूपीआई ऐप से भुगतान करें।'),
+('payChoiceCard', 'Credit or debit card', 'क्रेडिट या डेबिट कार्ड'),
+('payChoiceCardHint', 'Visa, Mastercard, RuPay.', 'वीज़ा, मास्टरकार्ड, रुपे।'),
+('payChoiceNetbankingHint', 'Pay from your bank account.', 'अपने बैंक खाते से भुगतान करें।'),
+('payChoiceCod', 'Cash on delivery', 'डिलीवरी पर नकद'),
+('payChoiceCodHint', 'Pay in cash when it reaches your door. Available in town.', 'दरवाज़े पर पहुंचने पर नकद दें। शहर में उपलब्ध।'),
+('payChoiceCashStore', 'Pay cash at the store', 'दुकान पर नकद दें'),
+('payChoiceCashStoreHint', 'We keep it ready. Pay when you collect.', 'हम तैयार रखेंगे। लेते समय भुगतान करें।'),
+('payChoiceReserve', 'Reserve now, pay at the store', 'अभी रिज़र्व करें, दुकान पर पूरा दें'),
+('payChoiceReserveHint', 'Pay {token} now to hold the phone for you. Pay the rest when you visit.', 'फोन आपके लिए रोकने को अभी {token} दें। बाकी दुकान पर आकर दें।'),
+('payChoiceBajajHint', 'Down payment now, easy monthly instalments. Quick approval in the store.', 'अभी डाउन पेमेंट, आसान मासिक किस्तें। दुकान पर जल्दी मंज़ूरी।'),
+('payChoiceCardEmiHint', 'Convert the bill into EMIs on your credit or debit card.', 'बिल को अपने क्रेडिट या डेबिट कार्ड पर ईएमआई में बदलें।'),
+]

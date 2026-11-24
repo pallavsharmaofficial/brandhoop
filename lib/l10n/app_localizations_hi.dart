@@ -3230,7 +3230,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get liveWorryCta => 'आज की सबसे अच्छी कीमत जानें';
 
   @override
-  String get liveGalleryTitle => 'त्योहार के उपहार और ऑफ़र';
+  String get liveGalleryTitle => 'हमारी दुकान से';
 
   @override
   String get catHolder => 'स्टैंड और ट्राइपॉड';
@@ -3240,4 +3240,47 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get liveAskModel => 'सही फ़िट के लिए अपना फ़ोन मॉडल बताएँ।';
+
+  @override
+  String get shopByBrand => 'ब्रांड से खरीदें';
+
+  @override
+  String get popularPhones => 'लोकप्रिय फ़ोन';
+
+  @override
+  String get heroLiveTitle => 'अपना अगला फ़ोन चुनें';
+
+  @override
+  String get heroLiveSub =>
+      'फ़ोन और एक्सेसरी देखें, फिर आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र पूछें।';
+
+  @override
+  String get heroBrowse => 'फ़ोन देखें';
+
+  @override
+  String get heroAsk => 'WhatsApp पर पूछें';
+
+  @override
+  String get homeTrustLocal => 'असली दुकान, असली पता';
+
+  @override
+  String get homeTrustLocalSub => 'अभय कॉलोनी, नीम का थाना';
+
+  @override
+  String get homeTrustBargain => 'मोलभाव के लिए कॉल करें';
+
+  @override
+  String get homeTrustBargainSub => 'आज की सबसे अच्छी कीमत पूछें';
+
+  @override
+  String get homeTrustGifts => 'गिफ़्ट और ऑफ़र';
+
+  @override
+  String get homeTrustGiftsSub => 'पूछें कि फ़ोन के साथ क्या मिलेगा';
+
+  @override
+  String get homeTrustEmi => 'बजाज EMI';
+
+  @override
+  String get homeTrustEmiSub => 'सिर्फ़ दुकान पर (फेस स्कैन ज़रूरी)';
 }
