@@ -47,3 +47,12 @@ model. Prices are launch prices from Indian press reports. Where the press
 reported a later rise (memory-chip costs), the app says "raised since, call for
 today's price" next to the launch price, so an old figure never looks current.
 Those models are listed in `RAISED` in `tools/catalog/phones.py`.
+
+## Printable shop kit (Nov 2026)
+
+`site/shop-kit/` has A4 PDFs the owner prints: price strips for every phone and
+accessory (price left blank to write by hand, with a WhatsApp QR that names the
+model), counter signs (combo offer, price-lock draft, services, pre-owned,
+payments and EMI, app QR), a shop plan and a Hindi checklist. Rebuild with
+`python3 tools/shopkit/make_kit.py && node tools/shopkit/shoot.js`. The strips
+come from the same lists as the app, so re-run after the catalogue changes.
