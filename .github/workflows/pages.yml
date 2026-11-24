@@ -125,5 +125,9 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+      # The artifact can take a few seconds to show up in GitHub's API; deploying
+      # at once sometimes fails with "No artifacts named github-pages".
+      - name: Let the artifact register
+        run: sleep 20
       - id: deployment
         uses: actions/deploy-pages@v4
