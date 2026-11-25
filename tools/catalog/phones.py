@@ -124,6 +124,17 @@ PHONES = [
      hl(('Glyph Bar', 'ग्लिफ़ बार'), ('Periscope camera', 'पेरिस्कोप कैमरा')), 'Nothing Phone (4a)', ['phone (4a)', 'phone 4a']),
  ('nothing-phone-4b', 'Nothing Phone (4b)', 'Nothing', 'Jul 2026', [('8 GB + 128 GB', 34999), ('8 GB + 256 GB', 38999)],
      hl(('6,000 mAh battery', '6,000 mAh बैटरी'), ('6.77-inch 120 Hz AMOLED', '6.77-इंच 120 Hz AMOLED'), ('Snapdragon 6 Gen 4', 'Snapdragon 6 Gen 4')), 'Nothing Phone (4b)', ['phone (4b)', 'phone 4b']),
+ # ---- seen on the shop's own shelves (Nov 2026 photos)
+ ('vivo-t5x-5g', 'vivo T5x 5G', 'vivo', 'Mar 2026', [('6 GB + 128 GB', 18999), ('8 GB + 128 GB', 20999), ('8 GB + 256 GB', 22999)],
+     hl(('7,200 mAh battery', '7,200 mAh बैटरी'), ('120 Hz display', '120 Hz डिस्प्ले'), ('MediaTek Dimensity 7400 Turbo', 'MediaTek Dimensity 7400 Turbo')), 'vivo T5x', ['t5x']),
+ ('vivo-t5-lite-5g', 'vivo T5 Lite 5G', 'vivo', 'Jul 2026', [('4 GB + 128 GB', 19999), ('6 GB + 128 GB', 21999), ('6 GB + 256 GB', 24999)],
+     hl(('6,500 mAh battery', '6,500 mAh बैटरी'), ('44W fast charging', '44W फ़ास्ट चार्जिंग'), ('MediaTek Dimensity 6300', 'MediaTek Dimensity 6300')), 'vivo T5 Lite', ['t5 lite']),
+ ('oppo-f33-pro-5g', 'OPPO F33 Pro 5G', 'OPPO', 'Apr 2026', [('8 GB + 128 GB', 37999), ('8 GB + 256 GB', 40999)],
+     hl(('7,000 mAh battery', '7,000 mAh बैटरी')), 'OPPO F33 Pro', ['f33 pro']),
+ ('realme-c83-5g', 'realme C83 5G', 'realme', 'Mar 2026', [('4 GB + 64 GB', 13499), ('4 GB + 128 GB', 14499), ('6 GB + 128 GB', 17499)],
+     hl(('7,000 mAh battery', '7,000 mAh बैटरी'), ('144 Hz display', '144 Hz डिस्प्ले')), 'realme C83', ['c83']),
+ ('samsung-galaxy-f70e-5g', 'Samsung Galaxy F70e 5G', 'Samsung', '', [('Standard', None)],
+     hl(('6,000 mAh battery', '6,000 mAh बैटरी'), ('50 MP camera', '50 MP कैमरा')), 'Galaxy F70e', ['f70e']),
  # ---- keypad phones
  ('nokia-105-classic', 'Nokia 105 Classic', 'Nokia', '', [('Single SIM', 999)], [], 'Nokia 105', ['nokia 105']),
  ('nokia-110-4g', 'Nokia 110 4G', 'Nokia', 'Jul 2021', [('Standard', 2799)], [], 'Nokia 110 4G', ['110']),
@@ -131,5 +142,5 @@ PHONES = [
 # Models whose price was reported raised after launch (memory-chip costs). The app
 # says so next to the launch price instead of letting an old price look current.
 RAISED = {'vivo-y11-5g', 'vivo-y21-5g', 'vivo-y51-pro-5g', 'vivo-v70-fe-5g', 'oppo-a6x-5g', 'oppo-a6-5g',
-          'oppo-k14x-5g', 'oppo-k14-5g', 'oppo-reno-16c-5g', 'oppo-reno-16-5g', 'nothing-phone-4a', 'nothing-phone-4b'}
+          'oppo-k14x-5g', 'oppo-k14-5g', 'oppo-reno-16c-5g', 'oppo-reno-16-5g', 'nothing-phone-4a', 'nothing-phone-4b', 'vivo-t5x-5g', 'oppo-f33-pro-5g'}
 KEYPAD = {'nokia-105-classic', 'nokia-110-4g'}

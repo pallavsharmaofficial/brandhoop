@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/env.dart';
-import '../../data/live_shop.dart';
 import 'live_home.dart';
 import '../../app/routes.dart';
 import '../../app/theme.dart';
@@ -165,11 +164,18 @@ class HomeScreen extends StatelessWidget {
               title: context.tr.ourServices,
               child: Row(
                 children: <Widget>[
-                  if (!AppEnv.live || LiveShop.repair) ...<Widget>[
+                  if (AppEnv.live) ...<Widget>[
+                    // What the shop does is on its own signboard: repair, skin cutting, exchange.
+                    // Each tile opens a WhatsApp chat about that service.
+                    Expanded(child: _ServiceTile(Icons.build_outlined, context.tr.serviceRepair, () => sendToShop(context, context.tr.liveServiceAsk(store.name.of(lang), context.tr.serviceRepair)))),
+                    const SizedBox(width: 10),
+                    Expanded(child: _ServiceTile(Icons.content_cut, context.tr.serviceSkin, () => sendToShop(context, context.tr.liveServiceAsk(store.name.of(lang), context.tr.serviceSkin)))),
+                    const SizedBox(width: 10),
+                    Expanded(child: _ServiceTile(Icons.swap_horiz, context.tr.serviceExchange, () => sendToShop(context, context.tr.liveServiceAsk(store.name.of(lang), context.tr.serviceExchange)))),
+                    const SizedBox(width: 10),
+                  ] else ...<Widget>[
                     Expanded(child: _ServiceTile(Icons.build_outlined, context.tr.serviceRepair, () => context.push(Routes.repair))),
                     const SizedBox(width: 10),
-                  ],
-                  if (!AppEnv.live || LiveShop.exchange) ...<Widget>[
                     Expanded(child: _ServiceTile(Icons.swap_horiz, context.tr.serviceExchange, () => context.push(Routes.exchange))),
                     const SizedBox(width: 10),
                   ],

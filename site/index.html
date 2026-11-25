@@ -79,6 +79,17 @@
   .card .row { margin-top:auto; padding-top:10px; display:flex; gap:8px; }
   .card .row a { flex:1; }
   @media (max-width:560px) { .grid { grid-template-columns:repeat(2,1fr); gap:10px; } .card .row { flex-direction:column; } .card .b { padding:10px; } .name { font-size:15px; } }
+  .photos { display:grid; grid-template-columns:1.25fr 1fr; gap:14px; }
+  .photos figure { margin:0; border-radius:20px; overflow:hidden; background:var(--card); border:1px solid var(--line); }
+  .photos { align-items:start; }
+  .photos img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; }
+  .photos figure:nth-child(2) img { aspect-ratio:auto; }
+  .photos figcaption { padding:10px 14px; font-weight:700; font-size:15px; }
+  @media (max-width:720px) { .photos { grid-template-columns:1fr; } }
+  .svc { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; }
+  .svc .tile { display:flex; gap:14px; align-items:flex-start; padding:16px; }
+  .svc .ic { flex:none; margin:0; }
+  .note { font-size:14px; color:var(--muted); margin-top:12px; }
   .tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
   .tile { background:var(--card); border:1px solid var(--line); border-radius:20px; padding:18px; }
   .tile .ic { width:44px; height:44px; border-radius:14px; background:var(--soft-accent); display:grid; place-items:center; font-size:22px; margin-bottom:10px; }
@@ -99,7 +110,7 @@
 <header class="top"><div class="wrap">
   <a class="logo" href="./"><img src="favicon.png" alt="">Brandhoop</a>
   <nav>
-    <a class="l" href="#phones">Phones</a><a class="l" href="#brands">Brands</a><a class="l" href="#visit">Visit</a>
+    <a class="l" href="#phones">Phones</a><a class="l" href="#brands">Brands</a><a class="l" href="#services">Services</a><a class="l" href="#visit">Visit</a>
     <a class="btn primary sm" href="app/">Open app</a>
   </nav>
 </div></header>
@@ -154,12 +165,36 @@
   </section>
 
   <section>
+    <h2>Our shop <span class="hi">· हमारी दुकान</span></h2>
+    <p class="sub">Real photos of the shop, so you know where to find us.</p>
+    <div class="photos">
+      <figure><img src="gallery/shop-phone-wall.jpg" alt="Phone boxes on the shop's phone wall" loading="lazy"><figcaption>Our phone wall <span class="hi">· हमारी फ़ोन की दीवार</span></figcaption></figure>
+      <figure><img src="gallery/shop-front.jpg" alt="Brandhoop Mobile shopfront in Neem Ka Thana" loading="lazy"><figcaption>Look for the blue vivo board <span class="hi">· नीले vivo बोर्ड को देखें</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>What we do <span class="hi">· हमारी सेवाएँ</span></h2>
+    <p class="sub">Everything below is on our shop signboard. Ask in the shop or on WhatsApp for prices and terms.</p>
+    <div class="svc">
+      <div class="tile"><div class="ic">🛠️</div><div><b>Mobile repair</b><span>सभी मोबाइल की रिपेयरिंग</span></div></div>
+      <div class="tile"><div class="ic">✂️</div><div><b>Skin cutting</b><span>अपने फ़ोन के मॉडल की स्किन, दुकान पर कटवाएँ</span></div></div>
+      <div class="tile"><div class="ic">🛡️</div><div><b>Screen guard and glass</b><span>मोबाइल ग्लास, फ़िटिंग के साथ पूछें</span></div></div>
+      <div class="tile"><div class="ic">📱</div><div><b>Covers</b><span>मोबाइल कवर</span></div></div>
+      <div class="tile"><div class="ic">🔌</div><div><b>Chargers and data cables</b><span>चार्जर, डाटा केबल</span></div></div>
+      <div class="tile"><div class="ic">🔄</div><div><b>Exchange your old phone</b><span>पुराने मोबाइल दो, नए मोबाइल लो</span></div></div>
+      <div class="tile"><div class="ic">💳</div><div><b>Phone on EMI</b><span>सिर्फ़ 3 document पर: पैन कार्ड, आधार कार्ड, बैंक पासबुक</span></div></div>
+    </div>
+    <p class="note">EMI lenders on our sign: Bajaj Finserv, IDFC First Bank and HDFC Bank. Approval is decided by the lender. Bajaj Finserv EMI is available only at the shop because it needs a face scan. Zero down payment is offered to card customers; ask us for the terms.</p>
+  </section>
+
+  <section>
     <h2>Why Brandhoop <span class="hi">· ब्रांडहूप क्यों</span></h2>
     <div class="tiles">
       <div class="tile"><div class="ic">🏪</div><b>Real shop, real address</b><span>Abhay Colony, Neem Ka Thana, across the road from Study Point Library.</span></div>
       <div class="tile"><div class="ic">📞</div><b>Call to bargain</b><span>Ask for today’s best price on any phone.</span></div>
       <div class="tile"><div class="ic">🎁</div><b>Gifts and offers</b><span>Ask what comes with your phone.</span></div>
-      <div class="tile"><div class="ic">💳</div><b>Bajaj EMI</b><span>Available only at the shop, because it needs a face scan. Approval is decided by the lender.</span></div>
+      <div class="tile"><div class="ic">💳</div><b>Phone on EMI</b><span>With 3 documents. Bajaj Finserv EMI only at the shop (face scan). Approval is decided by the lender.</span></div>
     </div>
   </section>
 
@@ -184,8 +219,8 @@
       </div>
       <div class="box">
         <h3>Pay your way · अपने तरीके से भुगतान</h3>
-        UPI and cards online, cash at the shop.<br>Bajaj Finserv EMI is available only at the shop (face scan needed).<br>
-        <span class="hi">बजाज फिनसर्व EMI सिर्फ़ दुकान पर मिलती है (फ़ेस स्कैन ज़रूरी)।</span>
+        UPI and cards online, cash at the shop.<br>Phone on EMI with PAN card, Aadhaar card and bank passbook. Bajaj Finserv EMI is available only at the shop (face scan needed). The lender decides approval.<br>
+        <span class="hi">पैन कार्ड, आधार कार्ड और बैंक पासबुक पर EMI। बजाज फिनसर्व EMI सिर्फ़ दुकान पर मिलती है (फ़ेस स्कैन ज़रूरी)।</span>
       </div>
     </div>
   </section>

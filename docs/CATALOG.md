@@ -1,6 +1,6 @@
 # The starting catalogue
 
-`assets/live/shop.json` ships with **122 items**: 69 phones (67 smartphones and
+`assets/live/shop.json` ships with **127 items**: 74 phones (72 smartphones and
 2 keypad phones) and 53 accessory types. It is a starting point the owner
 edits in the admin panel (`docs/ADMIN.md`): change names, add real prices, gifts
 and photos, hide what the shop does not stock, add what is missing.

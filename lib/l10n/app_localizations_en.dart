@@ -3293,4 +3293,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeTrustEmiSub => 'At the shop only (face scan needed)';
+
+  @override
+  String get serviceSkin => 'Skin cutting';
+
+  @override
+  String liveServiceAsk(String shop, String service) {
+    return 'Hi $shop, I want to know about $service.';
+  }
 }

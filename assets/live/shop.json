@@ -3019,6 +3019,262 @@
       ]
     },
     {
+      "id": "vivo-t5x-5g",
+      "name": {
+        "en": "vivo T5x 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 18999,
+          "mrp": 18999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 20999,
+          "mrp": 20999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 22999,
+          "mrp": 22999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Mar 2026) – raised since, call for today’s price",
+        "hi": "लॉन्च कीमत (मार्च 2026) – तब से बढ़ी है, आज की कीमत के लिए कॉल करें"
+      },
+      "description": {
+        "en": "Launched in India in Mar 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "7,200 mAh battery",
+          "hi": "7,200 mAh बैटरी"
+        },
+        {
+          "en": "120 Hz display",
+          "hi": "120 Hz डिस्प्ले"
+        },
+        {
+          "en": "MediaTek Dimensity 7400 Turbo",
+          "hi": "MediaTek Dimensity 7400 Turbo"
+        }
+      ]
+    },
+    {
+      "id": "vivo-t5-lite-5g",
+      "name": {
+        "en": "vivo T5 Lite 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "4 GB + 128 GB",
+          "color": "",
+          "price": 19999,
+          "mrp": 19999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 21999,
+          "mrp": 21999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "6 GB + 256 GB",
+          "color": "",
+          "price": 24999,
+          "mrp": 24999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Jul 2026)",
+        "hi": "लॉन्च कीमत (जुलाई 2026)"
+      },
+      "description": {
+        "en": "Launched in India in Jul 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "6,500 mAh battery",
+          "hi": "6,500 mAh बैटरी"
+        },
+        {
+          "en": "44W fast charging",
+          "hi": "44W फ़ास्ट चार्जिंग"
+        },
+        {
+          "en": "MediaTek Dimensity 6300",
+          "hi": "MediaTek Dimensity 6300"
+        }
+      ]
+    },
+    {
+      "id": "oppo-f33-pro-5g",
+      "name": {
+        "en": "OPPO F33 Pro 5G",
+        "hi": ""
+      },
+      "brand": "OPPO",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 37999,
+          "mrp": 37999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 40999,
+          "mrp": 40999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Apr 2026) – raised since, call for today’s price",
+        "hi": "लॉन्च कीमत (अप्रैल 2026) – तब से बढ़ी है, आज की कीमत के लिए कॉल करें"
+      },
+      "description": {
+        "en": "Launched in India in Apr 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "7,000 mAh battery",
+          "hi": "7,000 mAh बैटरी"
+        }
+      ]
+    },
+    {
+      "id": "realme-c83-5g",
+      "name": {
+        "en": "realme C83 5G",
+        "hi": ""
+      },
+      "brand": "realme",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "4 GB + 64 GB",
+          "color": "",
+          "price": 13499,
+          "mrp": 13499,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "4 GB + 128 GB",
+          "color": "",
+          "price": 14499,
+          "mrp": 14499,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 17499,
+          "mrp": 17499,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Launch price (Mar 2026)",
+        "hi": "लॉन्च कीमत (मार्च 2026)"
+      },
+      "description": {
+        "en": "Launched in India in Mar 2026 at the launch price shown. Prices have changed since and differ from shop to shop. Call or WhatsApp for today’s best price, gifts and offers.",
+        "hi": "भारत में दिखाई गई लॉन्च कीमत पर आया। तब से कीमतें बदल चुकी हैं और दुकान के हिसाब से अलग होती हैं। आज की सबसे अच्छी कीमत, गिफ़्ट और ऑफ़र के लिए कॉल या व्हाट्सऐप करें।"
+      },
+      "highlights": [
+        {
+          "en": "7,000 mAh battery",
+          "hi": "7,000 mAh बैटरी"
+        },
+        {
+          "en": "144 Hz display",
+          "hi": "144 Hz डिस्प्ले"
+        }
+      ]
+    },
+    {
+      "id": "samsung-galaxy-f70e-5g",
+      "name": {
+        "en": "Samsung Galaxy F70e 5G",
+        "hi": ""
+      },
+      "brand": "Samsung",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": false,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "Standard",
+          "color": "",
+          "price": 0,
+          "mrp": 0,
+          "stock": 1
+        }
+      ],
+      "description": {
+        "en": "Ask the shop for today’s price, gifts and offers.",
+        "hi": "आज की कीमत, गिफ़्ट और ऑफ़र दुकान से पूछें।"
+      },
+      "highlights": [
+        {
+          "en": "6,000 mAh battery",
+          "hi": "6,000 mAh बैटरी"
+        },
+        {
+          "en": "50 MP camera",
+          "hi": "50 MP कैमरा"
+        }
+      ]
+    },
+    {
       "id": "nokia-105-classic",
       "name": {
         "en": "Nokia 105 Classic",
@@ -4625,6 +4881,20 @@
     }
   ],
   "gallery": [
+    {
+      "url": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/gallery/shop-phone-wall.jpg",
+      "caption": {
+        "en": "Our phone wall",
+        "hi": "हमारी फ़ोन की दीवार"
+      }
+    },
+    {
+      "url": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/gallery/shop-front.jpg",
+      "caption": {
+        "en": "Find us: Brandhoop Mobile, Neem Ka Thana",
+        "hi": "हमें ऐसे पहचानें: ब्रांडहूप मोबाइल, नीम का थाना"
+      }
+    },
     {
       "url": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/gallery/diwali-gifts.jpg",
       "caption": {

@@ -1720,5 +1720,17 @@
   "homeTrustGifts": "Gifts and offers",
   "homeTrustGiftsSub": "Ask what comes with your phone",
   "homeTrustEmi": "Bajaj EMI",
-  "homeTrustEmiSub": "At the shop only (face scan needed)"
+  "homeTrustEmiSub": "At the shop only (face scan needed)",
+  "serviceSkin": "Skin cutting",
+  "liveServiceAsk": "Hi {shop}, I want to know about {service}.",
+  "@liveServiceAsk": {
+    "placeholders": {
+      "shop": {
+        "type": "String"
+      },
+      "service": {
+        "type": "String"
+      }
+    }
+  }
 }

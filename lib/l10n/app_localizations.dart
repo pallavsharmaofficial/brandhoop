@@ -5713,6 +5713,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'At the shop only (face scan needed)'**
   String get homeTrustEmiSub;
+
+  /// No description provided for @serviceSkin.
+  ///
+  /// In en, this message translates to:
+  /// **'Skin cutting'**
+  String get serviceSkin;
+
+  /// No description provided for @liveServiceAsk.
+  ///
+  /// In en, this message translates to:
+  /// **'Hi {shop}, I want to know about {service}.'**
+  String liveServiceAsk(String shop, String service);
 }
 
 class _AppLocalizationsDelegate
