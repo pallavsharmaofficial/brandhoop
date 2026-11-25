@@ -163,7 +163,7 @@ td.w {{ height: 15mm; }}
 '''
 QR_APP = qr_svg(APP, 200)
 QR_WA = qr_svg(wa('Hi Brandhoop, I want today\'s best price and offers'), 200)
-FOOT = f'<div class="foot">{QR_WA}<div><b>WhatsApp / कॉल: +91 86197 67291</b><br>Brandhoop Mobile Point · अभय कॉलोनी, नीम का थाना<br>ऐप और सारे फ़ोन: pallavsharmaofficial.github.io/brandhoop</div></div>'
+FOOT = f'<div class="foot">{QR_WA}<div><b>WhatsApp / कॉल: +91 86197 67291</b><br>Brandhoop Mobile Point · गेट नं. 5, कमला मोदी मार्केट, नीम का थाना<br>ऐप और सारे फ़ोन: pallavsharmaofficial.github.io/brandhoop</div></div>'
 
 
 def sign(kicker, title, sub, body, draft=''):

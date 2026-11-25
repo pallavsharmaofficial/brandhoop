@@ -6,7 +6,7 @@ T = [
 ('heroBrowse', 'Browse phones', 'फ़ोन देखें'),
 ('heroAsk', 'Ask on WhatsApp', 'WhatsApp पर पूछें'),
 ('homeTrustLocal', 'Real shop, real address', 'असली दुकान, असली पता'),
-('homeTrustLocalSub', 'Abhay Colony, Neem Ka Thana', 'अभय कॉलोनी, नीम का थाना'),
+('homeTrustLocalSub', 'Gate No. 5, Kamla Modi Market, Neem Ka Thana', 'गेट नं. 5, कमला मोदी मार्केट, नीम का थाना'),
 ('homeTrustBargain', 'Call to bargain', 'मोलभाव के लिए कॉल करें'),
 ('homeTrustBargainSub', 'Ask for today’s best price', 'आज की सबसे अच्छी कीमत पूछें'),
 ('homeTrustGifts', 'Gifts and offers', 'गिफ़्ट और ऑफ़र'),

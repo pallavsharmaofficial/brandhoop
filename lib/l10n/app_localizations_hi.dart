@@ -3264,7 +3264,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get homeTrustLocal => 'असली दुकान, असली पता';
 
   @override
-  String get homeTrustLocalSub => 'अभय कॉलोनी, नीम का थाना';
+  String get homeTrustLocalSub => 'गेट नं. 5, कमला मोदी मार्केट, नीम का थाना';
 
   @override
   String get homeTrustBargain => 'मोलभाव के लिए कॉल करें';

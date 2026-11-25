@@ -61,7 +61,7 @@ pages['cta'] = f'''<div class="bg"></div><div style="position:absolute;inset:0;p
 <div style="font-size:38px;margin-top:20px;opacity:.95">WhatsApp पर भी बात करें</div>
 <img src="{QR}" style="width:430px;height:430px;background:#fff;border-radius:26px;padding:18px;margin-top:40px">
 <div style="font-size:36px;margin-top:14px;opacity:.95">ऐप खोलने के लिए स्कैन करें</div>
-<div style="font-size:36px;margin-top:34px;line-height:1.45;opacity:.95">Bajaj Finance EMI सिर्फ़ दुकान पर (फेस स्कैन ज़रूरी)<br>अभय कॉलोनी, नीम का थाना · स्टडी पॉइंट लाइब्रेरी के सामने</div></div>'''
+<div style="font-size:36px;margin-top:34px;line-height:1.45;opacity:.95">Bajaj Finance EMI सिर्फ़ दुकान पर (फेस स्कैन ज़रूरी)<br>गेट नं. 5, कमला मोदी मार्केट, नीम का थाना</div></div>'''
 
 for k, v in pages.items():
     (work / f'{k}.html').write_text(f'<!doctype html><meta charset="utf-8"><style>{CSS}</style><body>{v}</body>', encoding='utf-8')

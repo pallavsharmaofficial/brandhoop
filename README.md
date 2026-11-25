@@ -1,7 +1,6 @@
 # Brandhoop
 
-The app of **Brandhoop Mobile Point**, Abhay Colony, Neem Ka Thana, Rajasthan 332713
-(across the road from Study Point Library). Customers browse, reserve and buy
+The app of **Brandhoop Mobile Point**, Gate No. 5, Kamla Modi Market, Neem Ka Thana, Rajasthan 332713. Customers browse, reserve and buy
 phones and accessories from anywhere, and can walk into the shop any time.
 Shop staff, managers and the owner use the **same app**; what they see depends
 on their role. Hindi and English throughout.

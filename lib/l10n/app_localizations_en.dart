@@ -3274,7 +3274,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeTrustLocal => 'Real shop, real address';
 
   @override
-  String get homeTrustLocalSub => 'Abhay Colony, Neem Ka Thana';
+  String get homeTrustLocalSub =>
+      'Gate No. 5, Kamla Modi Market, Neem Ka Thana';
 
   @override
   String get homeTrustBargain => 'Call to bargain';

@@ -5675,7 +5675,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeTrustLocalSub.
   ///
   /// In en, this message translates to:
-  /// **'Abhay Colony, Neem Ka Thana'**
+  /// **'Gate No. 5, Kamla Modi Market, Neem Ka Thana'**
   String get homeTrustLocalSub;
 
   /// No description provided for @homeTrustBargain.

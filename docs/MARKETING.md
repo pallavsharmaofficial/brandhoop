@@ -13,7 +13,7 @@ low-cost steps for a town shop. Do the first three before anything paid.
 
 ## Be found
 - **Google Business Profile** for Brandhoop Mobile Point: real photos, hours, the
-  phone number, "across the road from Study Point Library", posts for offers.
+  phone number, the address "Gate No. 5, Kamla Modi Market", posts for offers.
   Ask each happy buyer for a review.
 - Link the Play listing and the website (`site/`) from the profile.
 - Put the shop name, address and QR on the board and the counter.

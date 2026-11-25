@@ -23,8 +23,7 @@ void main() {
     await AppUnderTest.pump(tester);
     expect(find.text('Brandhoop'), findsWidgets);
     expect(find.text('Brandhoop Mobile Point'), findsOneWidget);
-    expect(find.textContaining('Abhay Colony'), findsWidgets);
-    expect(find.textContaining('Across the road from Study Point Library'), findsWidgets);
+    expect(find.textContaining('Kamla Modi Market'), findsWidgets);
     // No phone number has been entered, so no Call button is shown.
     expect(find.text('Call'), findsNothing);
     expect(find.text('Directions'), findsWidgets);

@@ -5,9 +5,10 @@ import '../domain/store_settings.dart';
 
 /// The shop, as far as the app knows it before the owner opens Settings.
 ///
-/// Everything here comes from the Google Maps listing "Brandhoop Mobile Point"
-/// (Abhay Colony, Neem Ka Thana, Rajasthan 332713, across the road from Study
-/// Point Library). Anything the owner has not told us is left empty rather than
+/// The address is the one on the shop's own signboard: Gate No. 5, Kamla Modi
+/// Market, Neem Ka Thana, Rajasthan 332713. The rest of the board's address line
+/// (a landmark) is hidden behind a water jar in the photo, so it is not copied
+/// here until the owner confirms it. Anything the owner has not told us is left empty rather than
 /// invented: the phone and WhatsApp numbers, the UPI id, the GSTIN and the exact
 /// map pin. The app asks for them (Admin > Settings) and hides the buttons that
 /// need them until they exist.
@@ -24,11 +25,8 @@ class ShopConfig {
           'नीम का थाना की आपकी अपनी मोबाइल दुकान, अब आपकी जेब में',
         ),
         addressLine:
-            const LocalizedText('Abhay Colony', 'अभय कॉलोनी'),
-        landmark: const LocalizedText(
-          'Across the road from Study Point Library',
-          'स्टडी पॉइंट लाइब्रेरी के सामने, सड़क के उस पार',
-        ),
+            const LocalizedText('Gate No. 5, Kamla Modi Market', 'गेट नं. 5, कमला मोदी मार्केट'),
+        landmark: LocalizedText.empty,
         city: 'Neem Ka Thana',
         cityHi: 'नीम का थाना',
         stateHi: 'राजस्थान',

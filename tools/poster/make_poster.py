@@ -96,7 +96,7 @@ body{{width:1080px;height:1920px;font-family:{FONT};color:#fff;position:relative
   <div class="info">{phone_html}
     <div class="url">{SHOW_URL}</div>
     <div class="pill">UPI · Cards · Cash · Bajaj Finserv EMI at the shop<small>बजाज फिनसर्व EMI सिर्फ़ दुकान पर (फ़ेस स्कैन ज़रूरी)</small></div>
-    <div class="addr">Abhay Colony, Neem Ka Thana · opp. Study Point Library<br>अभय कॉलोनी, नीम का थाना · स्टडी पॉइंट लाइब्रेरी के सामने</div>
+    <div class="addr">Gate No. 5, Kamla Modi Market, Neem Ka Thana<br>गेट नं. 5, कमला मोदी मार्केट, नीम का थाना</div>
   </div></div>
 </body></html>'''
 (out / 'diwali-poster.html').write_text(status)
@@ -156,7 +156,7 @@ body{{width:1240px;height:1754px;font-family:{FONT};color:#1b1b1b;position:relat
     <div class="scan">स्कैन करके सभी फ़ोन और ऑफ़र देखें<small>Scan to see all phones and offers</small></div>
     {phone_html}
     <div class="url">{SHOW_URL}</div>
-    <div class="addr"><b>अभय कॉलोनी, नीम का थाना, राजस्थान 332713</b> · स्टडी पॉइंट लाइब्रेरी के सामने<br>Abhay Colony, Neem Ka Thana · across the road from Study Point Library</div>
+    <div class="addr"><b>गेट नं. 5, कमला मोदी मार्केट, नीम का थाना, राजस्थान 332713</b><br>Gate No. 5, Kamla Modi Market, Neem Ka Thana</div>
   </div>
 </div>
 </body></html>'''
@@ -177,7 +177,7 @@ svg{{width:1000px;height:1000px}}</style></head><body>{svg}</body></html>'''
 {args.url}
 
 📞 {args.phone or ''}
-📍 अभय कॉलोनी, स्टडी पॉइंट लाइब्रेरी के सामने, नीम का थाना
+📍 गेट नं. 5, कमला मोदी मार्केट, नीम का थाना
 
 —
 
