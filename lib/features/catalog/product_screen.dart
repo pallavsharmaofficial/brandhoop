@@ -146,6 +146,16 @@ class _ProductScreenState extends State<ProductScreen> {
                       padding: const EdgeInsets.only(top: 6),
                       child: StatusPill(context.tr.sampleListing, color: BrandColors.saffron, icon: Icons.science_outlined),
                     ),
+                  if (p.highlights.isNotEmpty) ...<Widget>[
+                    const SizedBox(height: 12),
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: <Widget>[
+                        for (final h in p.highlights.take(4)) _SpecChip(h.of(lang)),
+                      ],
+                    ),
+                  ],
                   const SizedBox(height: 12),
                   if (p.callForBest)
                     LiveReferencePrice(product: p, variant: v)
@@ -328,27 +338,10 @@ class _ProductScreenState extends State<ProductScreen> {
                   ),
                 ),
               ),
-            if (!p.description.isEmpty || p.highlights.isNotEmpty)
+            if (!p.description.isEmpty)
               Section(
                 title: context.tr.aboutProduct,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    if (!p.description.isEmpty) Text(p.description.of(lang), style: const TextStyle(height: 1.45)),
-                    for (final h in p.highlights)
-                      Padding(
-                        padding: const EdgeInsets.only(top: 6),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            const Icon(Icons.check_circle_outline, size: 18, color: BrandColors.green),
-                            const SizedBox(width: 8),
-                            Expanded(child: Text(h.of(lang))),
-                          ],
-                        ),
-                      ),
-                  ],
-                ),
+                child: Text(p.description.of(lang), style: const TextStyle(height: 1.45)),
               ),
             if (p.specs.isNotEmpty)
               Section(
@@ -557,6 +550,39 @@ class _ProductLayout extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+/// One key detail (battery, camera, display...) as a small icon chip.
+class _SpecChip extends StatelessWidget {
+  const _SpecChip(this.text);
+  final String text;
+
+  IconData get _icon {
+    final String t = text.toLowerCase();
+    if (t.contains('mah') || t.contains('battery') || t.contains('बैटरी')) return Icons.battery_charging_full;
+    if (t.contains('camera') || t.contains('कैमरा') || RegExp(r'\b\d+\s?mp\b').hasMatch(t)) return Icons.photo_camera_outlined;
+    if (t.contains('charging') || t.contains('चार्जिंग') || RegExp(r'\b\d+\s?w\b').hasMatch(t)) return Icons.bolt;
+    if (t.contains('hz') || t.contains('display') || t.contains('amoled') || t.contains('डिस्प्ले')) return Icons.smartphone;
+    if (t.contains('snapdragon') || t.contains('dimensity') || t.contains('exynos') || t.contains('processor') || t.contains('प्रोसेसर')) return Icons.memory;
+    return Icons.check_circle_outline;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme cs = Theme.of(context).colorScheme;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+      decoration: BoxDecoration(color: cs.primaryContainer.withValues(alpha: 0.55), borderRadius: BorderRadius.circular(20)),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Icon(_icon, size: 16, color: cs.primary),
+          const SizedBox(width: 6),
+          Flexible(child: Text(text, style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w700))),
+        ],
+      ),
     );
   }
 }
