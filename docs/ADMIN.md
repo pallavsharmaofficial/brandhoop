@@ -61,3 +61,11 @@ schemes are put in the file by a developer (`docs/LIVE.md`).
 
 ग्राहक का ऑर्डर आपके WhatsApp 86197 67291 पर आएगा। पैसा दुकान पर ही लें।
 ```
+
+## Design Studio and brand (admin panel)
+
+The panel has a **Design Studio** section. Pick a template (A4 poster, WhatsApp status, Instagram post, app offer banner, shop board 3:1, visiting card), type the headline, subline and offer line, choose a product photo or upload your own, and download the PNG. "ऐप में ऑफ़र बनाएँ" turns the design into a home-screen offer; "डिज़ाइन सेव करें" keeps the text in `shop.json` (`designs`).
+
+"Brand colours and tagline" saves a `brand` block (`primary`, `accent`, `tagline`) in `assets/live/shop.json`. The website reads it at runtime, so colours change after publishing. The Flutter app's colours are compiled in (`lib/app/theme.dart`), so changing them in the app needs a rebuild.
+
+All logo files, print files and social files are on the website at `/brand/`. They are regenerated with `python3 tools/brand/make_assets.py && (cd tools/brand && node shoot.js) && python3 tools/brand/make_brand_page.py`.

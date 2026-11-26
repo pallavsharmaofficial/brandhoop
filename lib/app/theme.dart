@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
-/// Brandhoop's colours: a deep indigo for trust, saffron for the Rajasthan
-/// warmth, and a warm off-white so prices and photos stand out.
+/// Brandhoop's colours, taken from the logo: a deep navy, a slate grey for the
+/// phone body, a burnt orange accent, and a clean off-white.
 class BrandColors {
   const BrandColors._();
 
-  static const Color indigo = Color(0xFF283593);
-  static const Color indigoDeep = Color(0xFF1A237E);
-  static const Color saffron = Color(0xFFFF8F00);
-  static const Color saffronSoft = Color(0xFFFFE0B2);
+  static const Color indigo = Color(0xFF1F2744);
+  static const Color indigoDeep = Color(0xFF141A33);
+  static const Color navy2 = Color(0xFF2B3558);
+  static const Color slate = Color(0xFF566170);
+  static const Color saffron = Color(0xFFD8662A);
+  static const Color saffronSoft = Color(0xFFFBE3D2);
   static const Color green = Color(0xFF2E7D32);
   static const Color red = Color(0xFFC62828);
-  static const Color paper = Color(0xFFF7F5F1);
+  static const Color paper = Color(0xFFF6F6F6);
 }
 
 ThemeData buildTheme(Brightness brightness) {

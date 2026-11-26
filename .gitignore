@@ -55,3 +55,6 @@ app.*.map.json
 /ios/Runner/GoogleService-Info.plist
 .env
 tools/shopkit/build/
+
+tools/brand/build/
+tools/shopkit/build/

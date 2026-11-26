@@ -6,12 +6,13 @@
 <meta name="robots" content="noindex, nofollow">
 <title>ब्रांडहूप · दुकान पैनल</title>
 <link rel="icon" type="image/png" href="../favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@500;700&display=swap">
 <style>
-  :root { --brand:#283593; --deep:#1A237E; --accent:#FF8F00; --ink:#1d1d1f; --paper:#fff; --soft:#f4f4f6; --line:#d9d9e0; --ok:#2E7D32; --warn:#EF6C00; --bad:#C62828; }
-  @media (prefers-color-scheme: dark) { :root { --ink:#ececf0; --paper:#141418; --soft:#1f1f26; --line:#34343e; --brand:#9FA8DA; } }
+  :root { --brand:#1F2744; --deep:#141A33; --accent:#D8662A; --ink:#14182B; --paper:#F6F6F6; --soft:#fff; --line:#DDE0E8; --ok:#2E7D32; --warn:#EF6C00; --bad:#C62828; }
+  @media (prefers-color-scheme: dark) { :root { --ink:#ECEEF6; --paper:#0F1322; --soft:#181D33; --line:#2A3050; --brand:#C9D0EE; } }
   * { box-sizing:border-box; }
-  body { margin:0; font:17px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari",sans-serif; color:var(--ink); background:var(--paper); padding-bottom:110px; }
-  header { background:linear-gradient(160deg,var(--deep),#311B92); color:#fff; padding:18px 16px; display:flex; align-items:center; gap:10px; }
+  body { margin:0; font:17px/1.5 Montserrat,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari",sans-serif; color:var(--ink); background:var(--paper); padding-bottom:110px; }
+  header { background:linear-gradient(160deg,var(--deep),#2B3558); color:#fff; padding:18px 16px; display:flex; align-items:center; gap:10px; }
   header h1 { font-size:20px; margin:0; flex:1; line-height:1.2; }
   header small { display:block; font-weight:400; opacity:.85; font-size:13px; }
   main { max-width:720px; margin:0 auto; padding:0 14px; }
@@ -40,7 +41,7 @@
   .p-ok { background:var(--ok); } .p-low { background:var(--warn); } .p-out { background:var(--bad); }
   .bar { position:fixed; left:0; right:0; bottom:0; background:var(--paper); border-top:1px solid var(--line); padding:10px 14px calc(10px + env(safe-area-inset-bottom)); z-index:5; }
   .bar .in { max-width:720px; margin:0 auto; display:flex; gap:10px; align-items:center; }
-  .bar button.main { flex:1; background:var(--accent); color:#000; font-size:18px; padding:14px; }
+  .bar button.main { flex:1; background:var(--accent); color:#fff; font-size:18px; padding:14px; }
   #msg { max-width:720px; margin:0 auto 8px; font-size:14px; }
   .msg-ok { color:var(--ok); } .msg-bad { color:var(--bad); } .msg-info { color:#6b6b73; }
   dialog { border:0; border-radius:16px; padding:0; width:min(680px,100vw - 16px); max-height:92vh; background:var(--paper); color:var(--ink); }
@@ -60,8 +61,8 @@
 <body>
 
 <header>
-  <h1>ब्रांडहूप · दुकान पैनल<small>Brandhoop shop panel</small></h1>
-  <a href="../shop-kit/" style="color:inherit;font-size:14px;margin-left:auto;margin-right:10px;text-decoration:underline">🖨️ प्रिंट किट</a>
+  <img src="../brand/logo/brandhoop-mark-white.svg" alt="" style="height:44px"><h1>ब्रांडहूप · दुकान पैनल<small>Brandhoop shop panel</small></h1>
+  <a href="../shop-kit/" style="color:inherit;font-size:14px;margin-left:auto;margin-right:10px;text-decoration:underline">🖨️ प्रिंट किट</a><a href="../brand/" style="color:inherit;font-size:14px;margin-right:10px;text-decoration:underline">🎨 ब्रांड किट</a>
   <button class="alt hide" id="lockBtn" style="padding:7px 12px">🔒 बंद</button>
 </header>
 
@@ -108,6 +109,50 @@
     <h2>फ़ोटो गैलरी <small>Festival gifts and offers photos on the home screen</small></h2>
     <div id="gallery"></div>
     <button class="alt" id="addPhoto">+ नई फ़ोटो</button>
+  </section>
+
+  <section id="studio">
+    <h2>डिज़ाइन स्टूडियो <small>Design Studio · posters, status, cards from your logo</small></h2>
+    <div class="card">
+      <label>क्या बनाना है <small>(what to make)</small></label>
+      <select id="dzKind">
+        <option value="poster">A4 पोस्टर (प्रिंट)</option>
+        <option value="status">WhatsApp स्टेटस / रील कवर</option>
+        <option value="post">Instagram पोस्ट (वर्गाकार)</option>
+        <option value="banner">ऐप का ऑफ़र बैनर</option>
+        <option value="board">दुकान का बोर्ड 3:1</option>
+        <option value="card">विज़िटिंग कार्ड (आगे)</option>
+      </select>
+      <label>मुख्य शीर्षक <small>headline</small></label><input id="dzHead" maxlength="60">
+      <label>उप-शीर्षक <small>subline</small></label><input id="dzSub" maxlength="90">
+      <div class="row">
+        <div><label>ऑफ़र / कीमत वाली पंक्ति <small>(खाली = न दिखाएँ)</small></label><input id="dzOffer" maxlength="40" placeholder="जैसे: ₹1,000 तक का गिफ़्ट"></div>
+        <div><label>रंग शैली</label><select id="dzTheme"><option value="navy">गहरा नीला</option><option value="orange">नारंगी</option><option value="light">हल्का</option></select></div>
+      </div>
+      <div class="row">
+        <div><label>फ़ोन पर सामान की फ़ोटो</label><select id="dzProd"></select></div>
+        <div><label>या अपनी फ़ोटो</label><input type="file" id="dzFile" accept="image/*"></div>
+      </div>
+      <div class="chk"><input type="checkbox" id="dzFoot" checked><div>नीचे फ़ोन नंबर और पता दिखाएँ</div></div>
+      <canvas id="dz" style="width:100%;max-height:70vh;object-fit:contain;border-radius:12px;background:var(--line);margin-top:8px"></canvas>
+      <div class="row" style="margin-top:10px;flex-wrap:wrap">
+        <button id="dzPng">⬇ PNG डाउनलोड</button>
+        <button class="alt" id="dzOfferBtn">ऐप में ऑफ़र बनाएँ</button>
+        <button class="alt" id="dzSave">डिज़ाइन सेव करें</button>
+      </div>
+      <p class="note">PNG सीधे WhatsApp, Instagram या प्रिंटर पर भेजें। “ऐप में ऑफ़र बनाएँ” इस डिज़ाइन को ऐप के होम पेज के ऑफ़र में लगा देता है (प्रकाशित करने पर)। इसमें QR नहीं है; QR वाले पोस्टर के लिए <a href="../brand/">ब्रांड किट</a> देखें।</p>
+      <div id="dzSaved"></div>
+    </div>
+    <div class="card" style="margin-top:10px">
+      <b>ब्रांड रंग और टैगलाइन <small class="note">वेबसाइट पर तुरंत दिखेंगे (प्रकाशित करने के बाद); ऐप के रंग कोड से बदलते हैं</small></b>
+      <div class="row">
+        <div><label>मुख्य रंग (नीला)</label><input type="color" id="bPrimary" value="#1F2744" style="padding:2px;height:44px"></div>
+        <div><label>एक्सेंट (नारंगी)</label><input type="color" id="bAccent" value="#D8662A" style="padding:2px;height:44px"></div>
+      </div>
+      <label>टैगलाइन हिंदी</label><input id="bTagHi" maxlength="60">
+      <label>Tagline English</label><input id="bTagEn" maxlength="60">
+      <p><button class="alt" id="bReset">लोगो वाले मूल रंग लगाएँ</button></p>
+    </div>
   </section>
 
   <section>
@@ -346,7 +391,7 @@ async function enter() {
 }
 
 /* ---------- render ---------- */
-function renderAll() { renderProducts(); renderOffers(); renderGallery(); renderShop(); renderRaw(); }
+function renderAll() { renderProducts(); renderOffers(); renderGallery(); renderShop(); renderStudio(); renderRaw(); }
 function renderRaw() { $('raw').value = JSON.stringify(shop, null, 2); }
 function imgOf(p) { const u = (p.imageUrls || [])[0]; if (!u) return null; const n = u.split('/').pop(); return pending.has(n) ? pending.get(n).dataUrl : u; }
 function stockOf(p) { return (p.variants || []).reduce((s, v) => s + (+v.stock || 0), 0); }
@@ -547,7 +592,7 @@ $('publish').onclick = async () => {
     const latest = await fetchShop();
     if (latest.sha !== baseSha && !confirm('इस बीच फ़ाइल किसी और ने बदली है। फिर भी आपका नया रूप लिखें?')) { btn.disabled = false; return say('रद्द किया।'); }
     // Photos first, so the file never points at a picture that is not there yet.
-    const used = new Set([...shop.products.flatMap((p) => p.imageUrls || []), ...(shop.gallery || []).map((g) => g.url), ...shop.offers.map((o) => o.imageUrl)].filter(Boolean).map((u) => u.split('/').pop())); let n = 0;
+    const used = new Set([...shop.products.flatMap((p) => p.imageUrls || []), ...(shop.gallery || []).map((g) => g.url), ...shop.offers.map((o) => o.imageUrl), ...(shop.designs || []).map((d) => d.photoUrl)].filter(Boolean).map((u) => u.split('/').pop())); let n = 0;
     for (const [name, img] of pending) {
       if (!used.has(name)) { pending.delete(name); continue; }
       say(`फ़ोटो भेज रहे हैं… ${++n}/${[...pending.keys()].filter((k) => used.has(k)).length}`);
@@ -562,6 +607,96 @@ $('publish').onclick = async () => {
   } catch (e) { btn.disabled = false; say('प्रकाशित नहीं हुआ: ' + explain(e), 'bad'); }
 };
 window.addEventListener('beforeunload', (e) => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+
+/* ---------- design studio ---------- */
+const LOGO_DIR = '../brand/logo/';
+const DZ = { poster: [1240, 1754], status: [1080, 1920], post: [1080, 1080], banner: [1600, 900], board: [2400, 800], card: [1050, 600] };
+const logoImgs = {};
+function loadLogo(n) { return logoImgs[n] ||= new Promise((ok) => { const i = new Image(); i.onload = () => ok(i); i.onerror = () => ok(null); i.src = LOGO_DIR + n + '.svg'; }); }
+let dzPhoto = null, dzPhotoUrl = '', dzTimer = 0;
+const brandOf = () => ({ primary: (shop.brand && shop.brand.primary) || '#1F2744', accent: (shop.brand && shop.brand.accent) || '#D8662A' });
+function shade(hex, k) { const n = parseInt(hex.slice(1), 16); const f = (v) => Math.max(0, Math.min(255, Math.round(v * k))); return '#' + [n >> 16, (n >> 8) & 255, n & 255].map((v) => f(v).toString(16).padStart(2, '0')).join(''); }
+function wrap(g, text, maxW) { const out = []; let line = ''; for (const w of String(text).split(/\s+/)) { const t = line ? line + ' ' + w : w; if (g.measureText(t).width > maxW && line) { out.push(line); line = w; } else line = t; } if (line) out.push(line); return out; }
+function rr(g, x, y, w, h, r) { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
+function cover(g, im, x, y, w, h) { const k = Math.min(w / im.width, h / im.height); const dw = im.width * k, dh = im.height * k; g.drawImage(im, x + (w - dw) / 2, y + (h - dh) / 2, dw, dh); }
+async function drawStudio() {
+  const kind = $('dzKind').value, [W, H] = DZ[kind], c = $('dz'), g = c.getContext('2d'), th = $('dzTheme').value, B = brandOf();
+  c.width = W; c.height = H;
+  try { await Promise.all([document.fonts.load('800 40px Montserrat'), document.fonts.load('700 40px "Noto Sans Devanagari"')]); } catch (e) {}
+  const dark = th !== 'light', bg = th === 'orange' ? [B.accent, shade(B.accent, 0.72)] : th === 'navy' ? [shade(B.primary, 1.18), shade(B.primary, 0.6)] : ['#FFFFFF', '#EEF0F6'];
+  const grd = g.createLinearGradient(0, 0, W * 0.4, H); grd.addColorStop(0, bg[0]); grd.addColorStop(1, bg[1]); g.fillStyle = grd; g.fillRect(0, 0, W, H);
+  g.globalAlpha = 0.07; g.fillStyle = dark ? '#fff' : B.primary; g.beginPath(); g.arc(W * 0.95, H * 0.1, Math.min(W, H) * 0.5, 0, 7); g.fill(); g.globalAlpha = 1;
+  const ink = dark ? '#FFFFFF' : B.primary, sub = dark ? 'rgba(255,255,255,.86)' : '#566170', FONT = '"Montserrat","Noto Sans Devanagari",system-ui,sans-serif';
+  const wide = W / H > 1.6, u = wide ? H / 100 : Math.min(W, H) / 100, M = (wide ? H : Math.min(W, H)) * 0.07;
+  const pic = dzPhoto, foot = $('dzFoot').checked && kind !== 'card' && kind !== 'banner', pad = foot ? (wide ? H * 0.3 : H * 0.11) : 0;
+  const head = $('dzHead').value.trim(), subl = $('dzSub').value.trim(), off = $('dzOffer').value.trim();
+  const logo = await loadLogo(wide || kind === 'card' ? (dark ? 'brandhoop-logo-horizontal-on-dark' : 'brandhoop-logo-horizontal') : (dark ? 'brandhoop-logo-on-dark' : 'brandhoop-logo'));
+  g.textBaseline = 'top';
+  const textBlock = (x, y, w, hs, ss) => {
+    g.fillStyle = ink; g.font = `800 ${hs}px ${FONT}`; let yy = y; for (const l of wrap(g, head, w).slice(0, 4)) { g.fillText(l, x, yy); yy += hs * 1.2; }
+    yy += hs * 0.25; g.fillStyle = sub; g.font = `600 ${ss}px ${FONT}`; for (const l of wrap(g, subl, w).slice(0, 3)) { g.fillText(l, x, yy); yy += ss * 1.4; }
+    if (off) { yy += ss * 0.5; g.font = `800 ${ss * 1.1}px ${FONT}`; const tw = g.measureText(off).width + ss * 1.6, hh = ss * 2.1; g.fillStyle = dark && th !== 'orange' ? B.accent : (th === 'orange' ? '#fff' : B.accent); rr(g, x, yy, Math.min(tw, w), hh, hh / 2); g.fill(); g.fillStyle = th === 'orange' ? B.accent : '#fff'; g.fillText(off, x + ss * 0.8, yy + hh * 0.2, w - ss * 1.6); yy += hh; }
+    return yy;
+  };
+  if (wide) {
+    const lh = H * 0.2; if (logo) { const lw = lh * logo.width / logo.height; g.drawImage(logo, M, M * 0.8, lw, lh); }
+    const tx = M, tw = W * (pic ? 0.5 : 0.8) - M; textBlock(tx, M * 0.8 + lh + H * 0.06, tw, H * (kind === 'card' ? 0.11 : 0.13), H * 0.05);
+    if (pic) { const px = W * 0.58, py = H * 0.1, pw = W * 0.38, ph = H * 0.8 - pad; g.fillStyle = 'rgba(255,255,255,.96)'; rr(g, px, py, pw, ph, H * 0.04); g.fill(); g.save(); rr(g, px, py, pw, ph, H * 0.04); g.clip(); cover(g, pic, px + pw * 0.06, py + ph * 0.06, pw * 0.88, ph * 0.88); g.restore(); }
+  } else {
+    const lh = H * (kind === 'status' ? 0.17 : 0.2) ; if (logo) { const lw = lh * logo.width / logo.height; g.drawImage(logo, (W - lw) / 2, M * 0.8, lw, lh); }
+    let y = M * 0.8 + lh + H * 0.03; const w = W - 2 * M, hs = W * (kind === 'poster' ? 0.075 : 0.085), ss = W * 0.036;
+    g.textAlign = 'center'; const save = g; // centered text
+    g.fillStyle = ink; g.font = `800 ${hs}px ${FONT}`; for (const l of wrap(g, head, w).slice(0, 3)) { g.fillText(l, W / 2, y); y += hs * 1.2; }
+    y += hs * 0.2; g.fillStyle = sub; g.font = `600 ${ss}px ${FONT}`; for (const l of wrap(g, subl, w).slice(0, 3)) { g.fillText(l, W / 2, y); y += ss * 1.4; }
+    if (off) { y += ss * 0.4; g.font = `800 ${ss * 1.15}px ${FONT}`; const tw = Math.min(w, g.measureText(off).width + ss * 2), hh = ss * 2.2; g.fillStyle = th === 'orange' ? '#fff' : B.accent; rr(g, (W - tw) / 2, y, tw, hh, hh / 2); g.fill(); g.fillStyle = th === 'orange' ? B.accent : '#fff'; g.fillText(off, W / 2, y + hh * 0.2, tw - ss); y += hh + ss * 0.5; }
+    g.textAlign = 'left';
+    if (pic) { const py = y + H * 0.01, ph = H - py - pad - M * 0.6, pw = w; g.fillStyle = 'rgba(255,255,255,.96)'; rr(g, M, py, pw, ph, W * 0.04); g.fill(); g.save(); rr(g, M, py, pw, ph, W * 0.04); g.clip(); cover(g, pic, M + pw * 0.05, py + ph * 0.05, pw * 0.9, ph * 0.9); g.restore(); }
+  }
+  if (foot) {
+    const fh = pad; if (wide) { /* taller strip for 3:1 */ } g.fillStyle = dark ? 'rgba(0,0,0,.28)' : B.primary; g.fillRect(0, H - fh, W, fh);
+    const ph = (shop.settings && shop.settings.phone) || '8619767291', fs = Math.max(fh * 0.28, 14); g.fillStyle = '#fff'; g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.font = `800 ${fs}px ${FONT}`; g.fillText('WhatsApp / कॉल: ' + ph.replace(/(\d{5})(\d{5})/, '$1 $2'), W / 2, H - fh * 0.66, W - 2 * M);
+    if (wide) { g.font = `600 ${fs * 0.8}px ${FONT}`; g.fillStyle = 'rgba(255,255,255,.88)'; g.fillText('गेट नं. 5, कमला मोदी मार्केट, नीम का थाना', W / 2, H - fh * 0.28, W - 2 * M); } else { g.font = `600 ${fs * 0.62}px ${FONT}`; g.fillStyle = 'rgba(255,255,255,.88)'; g.fillText('गेट नं. 5, कमला मोदी मार्केट, नीम का थाना', W / 2, H - fh * 0.3, W - 2 * M); }
+    g.textAlign = 'left'; g.textBaseline = 'top';
+  }
+  g.fillStyle = B.accent; g.fillRect(0, 0, W, Math.max(6, H * 0.008));
+}
+function studioQueue() { clearTimeout(dzTimer); dzTimer = setTimeout(drawStudio, 120); }
+function dzConfig() { return { kind: $('dzKind').value, head: $('dzHead').value, sub: $('dzSub').value, offer: $('dzOffer').value, theme: $('dzTheme').value, product: $('dzProd').value, photoUrl: dzPhotoUrl, foot: $('dzFoot').checked }; }
+async function setPhoto(url) {
+  dzPhoto = null; dzPhotoUrl = '';
+  if (url) { dzPhoto = await new Promise((ok) => { const i = new Image(); i.crossOrigin = 'anonymous'; i.onload = () => ok(i); i.onerror = () => ok(null); i.src = previewSrc(url); }); dzPhotoUrl = dzPhoto ? url : ''; }
+  studioQueue();
+}
+function renderStudio() {
+  const sel = $('dzProd'); const keep = sel.value; sel.replaceChildren(el('option', { value: '' }, '— कोई नहीं —'));
+  for (const p of shop.products) if ((p.imageUrls || []).length) sel.append(el('option', { value: p.id }, (p.name && p.name.en) || p.id));
+  sel.value = [...sel.options].some((o) => o.value === keep) ? keep : '';
+  const b = shop.brand || {}; $('bPrimary').value = b.primary || '#1F2744'; $('bAccent').value = b.accent || '#D8662A'; $('bTagHi').value = (b.tagline && b.tagline.hi) || ''; $('bTagEn').value = (b.tagline && b.tagline.en) || '';
+  const box = $('dzSaved'); box.replaceChildren();
+  for (const d of shop.designs || []) box.append(el('div', { class: 'item' }, el('div', { class: 'thumb' }, '🖼'), el('div', { class: 't' }, el('b', {}, d.head || '(बिना शीर्षक)'), el('span', {}, d.kind)),
+    el('button', { class: 'alt', onclick: () => loadDesign(d) }, 'खोलें'), el('button', { class: 'ghost', onclick: () => { shop.designs = shop.designs.filter((x) => x !== d); renderStudio(); renderRaw(); markDirty(); } }, '🗑')));
+  studioQueue();
+}
+async function loadDesign(d) {
+  $('dzKind').value = d.kind; $('dzHead').value = d.head || ''; $('dzSub').value = d.sub || ''; $('dzOffer').value = d.offer || ''; $('dzTheme').value = d.theme || 'navy'; $('dzFoot').checked = d.foot !== false;
+  $('dzProd').value = d.product || ''; await setPhoto(d.photoUrl || prodImg($('dzProd').value)); window.scrollTo({ top: $('studio').offsetTop, behavior: 'smooth' });
+}
+const prodImg = (id) => { const p = shop.products.find((x) => x.id === id); return p && (p.imageUrls || [])[0] || ''; };
+for (const id of ['dzKind', 'dzHead', 'dzSub', 'dzOffer', 'dzTheme', 'dzFoot']) $(id).addEventListener('input', studioQueue);
+$('dzProd').onchange = () => setPhoto(prodImg($('dzProd').value));
+$('dzFile').onchange = async (e) => { const f = e.target.files[0]; if (!f) return; try { const u = await addPhoto(f, 'design', GAL_DIR); $('dzProd').value = ''; await setPhoto(u); } catch (err) { alert('यह फ़ोटो नहीं खुली'); } e.target.value = ''; };
+$('dzPng').onclick = async () => { await drawStudio(); $('dz').toBlob((b) => { const a = el('a', { href: URL.createObjectURL(b), download: 'brandhoop-' + $('dzKind').value + '.png' }); a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); }, 'image/png'); };
+$('dzSave').onclick = () => { (shop.designs ||= []).unshift(dzConfig()); shop.designs = shop.designs.slice(0, 30); renderStudio(); renderRaw(); markDirty(); say('डिज़ाइन सेव हुआ। “प्रकाशित करें” दबाएँ।'); };
+$('dzOfferBtn').onclick = async () => {
+  await drawStudio(); const url = $('dz').toDataURL('image/jpeg', 0.86), name = `offer-${slug($('dzHead').value || 'design')}-${Date.now().toString(36)}${rid()}.jpg`;
+  pending.set(name, { b64: url.split(',')[1], dataUrl: url, dir: GAL_DIR });
+  shop.offers.unshift({ id: 'offer-' + Date.now().toString(36), kind: 'banner', title: { en: $('dzHead').value.trim() || 'Offer', hi: '' }, subtitle: { en: $('dzSub').value.trim(), hi: '' }, colorSeed: 0, active: true, imageUrl: RAW + GAL_DIR + '/' + name });
+  renderOffers(); renderRaw(); markDirty(); say('ऑफ़र बन गया (ऊपर “दिवाली / ऑफ़र” में देखें)। “प्रकाशित करें” दबाएँ।', 'ok');
+};
+function readBrand() { const b = { primary: $('bPrimary').value, accent: $('bAccent').value }; const hi = $('bTagHi').value.trim(), en = $('bTagEn').value.trim(); if (hi || en) b.tagline = { hi, en }; shop.brand = b; }
+for (const id of ['bPrimary', 'bAccent', 'bTagHi', 'bTagEn']) $(id).addEventListener('input', () => { readBrand(); renderRaw(); markDirty(); studioQueue(); });
+$('bReset').onclick = () => { $('bPrimary').value = '#1F2744'; $('bAccent').value = '#D8662A'; readBrand(); renderRaw(); markDirty(); studioQueue(); };
 
 showLock();
 </script>

@@ -44,9 +44,9 @@ need = ['2 खाली डिब्बे या क्रेट', '1 बड़
 rows = ''.join(f'<tr><td class="m">{m}</td><td class="w">{html.escape(w)}</td><td>{html.escape(t)}</td><td class="c"><span></span></td></tr>' for m, w, t in STEPS)
 css = f'''@page {{ size: A4; margin: 10mm 11mm; }} body {{ margin:0; font-family:{FONT}; color:#151515; }}
 h1 {{ font-size: 20pt; margin:0 0 1mm; }} .s {{ color:#555; font-size:10pt; margin-bottom:3mm; }}
-h2 {{ font-size: 12.5pt; margin: 3mm 0 1.5mm; color:#2b1d78; }} ul {{ margin:0 0 2mm; padding-left:5mm; font-size:10pt; }}
-table {{ width:100%; border-collapse:collapse; font-size:10pt; }} td,th {{ border:.3mm solid #b9b3d9; padding:1.6mm 2mm; vertical-align:top; }}
-th {{ background:#efeaff; text-align:left; }} td.m {{ width:11mm; text-align:center; font-weight:800; font-size:12pt; }} td.w {{ width:13mm; text-align:center; font-weight:700; color:#2b1d78; }}
+h2 {{ font-size: 12.5pt; margin: 3mm 0 1.5mm; color:#1F2744; }} ul {{ margin:0 0 2mm; padding-left:5mm; font-size:10pt; }}
+table {{ width:100%; border-collapse:collapse; font-size:10pt; }} td,th {{ border:.3mm solid #8B94A0; padding:1.6mm 2mm; vertical-align:top; }}
+th {{ background:#FBE3D2; text-align:left; }} td.m {{ width:11mm; text-align:center; font-weight:800; font-size:12pt; }} td.w {{ width:13mm; text-align:center; font-weight:700; color:#1F2744; }}
 td.c {{ width:9mm; }} td.c span {{ display:block; width:5mm; height:5mm; border:.4mm solid #151515; border-radius:1mm; margin:auto; }}
 tr {{ break-inside: avoid; }} .n {{ font-size:9.5pt; color:#444; margin-top:3mm; line-height:1.5; }}'''
 body = ('<h1>पहले 30 मिनट: मिनट-दर-मिनट</h1><div class="s">Brandhoop Mobile Point · A = मालिक (काउंटर और दरवाज़ा) · B = दूसरा व्यक्ति (शेल्फ़) · अकेले हों तो पहले A के सारे काम, फिर B के</div>'

@@ -7,15 +7,17 @@
 <meta name="description" content="Brandhoop Mobile Point, Gate No. 5, Kamla Modi Market, Neem Ka Thana. See phones and accessories, then call or WhatsApp us for today’s best price.">
 <link rel="canonical" href="https://pallavsharmaofficial.github.io/brandhoop/">
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@500;700&display=swap">
+<meta name="theme-color" content="#1F2744">
 <meta property="og:title" content="Brandhoop Mobile Point · Neem Ka Thana">
 <meta property="og:description" content="New phones and accessories in one shop. Ask for today’s best price.">
 <meta property="og:image" content="https://pallavsharmaofficial.github.io/brandhoop/og-image.png">
 <style>
-  :root { --brand:#283593; --deep:#1A237E; --accent:#FF8F00; --soft-accent:#FFE0B2; --ink:#1d1d1f; --muted:#5f5f69; --paper:#f7f5f1; --card:#fff; --line:#e3e1dc; --chip:#eef0fb; }
-  @media (prefers-color-scheme: dark) { :root { --brand:#9FA8DA; --ink:#ececf0; --muted:#a4a4af; --paper:#121317; --card:#1e2026; --line:#32343c; --chip:#242838; } }
+  :root { --brand:#1F2744; --deep:#141A33; --accent:#D8662A; --soft-accent:#FBE3D2; --ink:#14182B; --muted:#566170; --paper:#F6F6F6; --card:#fff; --line:#E1E4EA; --chip:#ECEEF6; }
+  @media (prefers-color-scheme: dark) { :root { --brand:#C9D0EE; --ink:#ECEEF6; --muted:#A4ABBD; --paper:#0F1322; --card:#181D33; --line:#2A3050; --chip:#222845; --accent:#F08A45; } }
   * { box-sizing:border-box; }
   html { scroll-behavior:smooth; }
-  body { margin:0; font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari",sans-serif; color:var(--ink); background:var(--paper); }
+  body { margin:0; font:17px/1.55 Montserrat,"Noto Sans Devanagari",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:var(--paper); }
   a { color:var(--brand); }
   .wrap { max-width:1120px; margin:0 auto; padding:0 20px; }
   .hi { color:var(--muted); font-size:.92em; }
@@ -23,7 +25,7 @@
   header.top { position:sticky; top:0; z-index:10; background:color-mix(in srgb,var(--paper) 88%,transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
   header.top .wrap { display:flex; align-items:center; gap:14px; height:62px; }
   .logo { display:flex; align-items:center; gap:10px; font-weight:800; color:var(--ink); text-decoration:none; font-size:19px; }
-  .logo img { width:34px; height:34px; border-radius:9px; }
+  .logo img { display:block; }
   nav { margin-left:auto; display:flex; align-items:center; gap:18px; }
   nav a.l { color:var(--ink); text-decoration:none; font-weight:600; font-size:15px; }
   .btn { display:inline-block; border-radius:14px; padding:12px 20px; font-weight:700; text-decoration:none; font-size:16px; text-align:center; line-height:1.25; }
@@ -33,7 +35,7 @@
   .sm { padding:9px 16px; font-size:14px; border-radius:12px; }
   @media (max-width:720px) { nav a.l { display:none; } }
   /* hero */
-  .hero { background:linear-gradient(135deg,#1A237E,#283593 55%,#3949ab); color:#fff; }
+  .hero { background:radial-gradient(120% 140% at 85% 0%,#2B3558,#1F2744 60%,#141A33); color:#fff; }
   .hero .wrap { display:grid; grid-template-columns:1.1fr .9fr; gap:34px; align-items:center; padding-top:46px; padding-bottom:50px; }
   .kicker { color:var(--soft-accent); font-weight:700; letter-spacing:.03em; }
   .hero h1 { font-size:clamp(34px,6vw,56px); line-height:1.08; margin:10px 0 8px; }
@@ -108,16 +110,16 @@
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="logo" href="./"><img src="favicon.png" alt="">Brandhoop</a>
+  <a class="logo" href="./" aria-label="Brandhoop Mobile Point"><picture><source media="(prefers-color-scheme: dark)" srcset="brand/logo/brandhoop-logo-horizontal-on-dark.svg"><img src="brand/logo/brandhoop-logo-horizontal.svg" alt="Brandhoop Mobile Point" style="height:42px;width:auto"></picture></a>
   <nav>
-    <a class="l" href="#phones">Phones</a><a class="l" href="#brands">Brands</a><a class="l" href="#services">Services</a><a class="l" href="#visit">Visit</a>
+    <a class="l" href="#phones">Phones</a><a class="l" href="#brands">Brands</a><a class="l" href="#services">Services</a><a class="l" href="brand/">Brand</a><a class="l" href="#visit">Visit</a>
     <a class="btn primary sm" href="app/">Open app</a>
   </nav>
 </div></header>
 
 <div class="hero"><div class="wrap">
   <div>
-    <div class="kicker">Brandhoop Mobile Point · नीम का थाना</div>
+    <div class="kicker" id="brandTag">Brandhoop Mobile Point · नीम का थाना</div>
     <h1>Find your next phone</h1>
     <p class="lead">New phones and accessories in one shop. See what you like, then ask for today’s best price, gifts and offers.</p>
     <p class="lead hi">नए फ़ोन और एक्सेसरी, एक ही दुकान पर। पसंद चुनें, फिर आज की सबसे अच्छी कीमत पूछें।</p>
@@ -234,7 +236,7 @@
 </main>
 
 <footer><div class="wrap">
-  <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="credits.html">Photo credits</a> ·
+  <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="credits.html">Photo credits</a> · <a href="brand/">Brand kit</a> ·
   <a href="https://github.com/pallavsharmaofficial/brandhoop/issues">Report a problem</a><br>
   Brandhoop Mobile Point · Gate No. 5, Kamla Modi Market, Neem Ka Thana · +91 86197 67291
 </div></footer>
@@ -244,6 +246,14 @@
   var ASK = 'https://wa.me/918619767291?text=';
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
   fetch('live/shop.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (shop) {
+    // Brand colours and tagline set from the admin panel's Design Studio.
+    var br = shop.brand, hex = /^#[0-9a-fA-F]{6}$/;
+    if (br && !window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      var root = document.documentElement.style;
+      if (hex.test(br.primary || '')) { root.setProperty('--brand', br.primary); root.setProperty('--deep', br.primary); }
+      if (hex.test(br.accent || '')) root.setProperty('--accent', br.accent);
+    } else if (br && hex.test(br.accent || '')) document.documentElement.style.setProperty('--accent', br.accent);
+    if (br && br.tagline) { var tg = document.getElementById('brandTag'); var t = br.tagline.en || br.tagline.hi; if (tg && t) tg.textContent = br.tagline.hi && br.tagline.en ? br.tagline.en + ' · ' + br.tagline.hi : t; }
     var phones = (shop.products || []).filter(function (p) { return p.category === 'smartphone'; });
     // brands, most models first
     var count = {}; phones.forEach(function (p) { if (p.brand) count[p.brand] = (count[p.brand] || 0) + 1; });

@@ -281,7 +281,7 @@ class _Hero extends StatelessWidget {
         gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: <Color>[BrandColors.indigoDeep, BrandColors.indigo, Color(0xFF3F51B5)],
+          colors: <Color>[BrandColors.indigoDeep, BrandColors.indigo, BrandColors.navy2],
         ),
       ),
       child: Column(
@@ -345,10 +345,10 @@ class _SearchBox extends StatelessWidget {
 }
 
 const List<List<Color>> _offerColors = <List<Color>>[
-  <Color>[Color(0xFF283593), Color(0xFF5C6BC0)],
-  <Color>[Color(0xFFEF6C00), Color(0xFFFFB74D)],
-  <Color>[Color(0xFF00695C), Color(0xFF4DB6AC)],
-  <Color>[Color(0xFF6A1B9A), Color(0xFFBA68C8)],
+  <Color>[Color(0xFF1F2744), Color(0xFF566170)],
+  <Color>[Color(0xFFD8662A), Color(0xFFF08A45)],
+  <Color>[Color(0xFF2B3558), Color(0xFF8B94A0)],
+  <Color>[Color(0xFFA9481C), Color(0xFFD8662A)],
 ];
 
 class _OfferCarousel extends StatefulWidget {
@@ -482,13 +482,13 @@ class _LiveHero extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: <Color>[BrandColors.indigoDeep, BrandColors.indigo, Color(0xFF3F51B5)],
+            colors: <Color>[BrandColors.indigoDeep, BrandColors.indigo, BrandColors.navy2],
           ),
         ),
         child: Stack(
           children: <Widget>[
             Positioned(right: -30, top: -40, child: Container(width: 170, height: 170, decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white.withValues(alpha: 0.07)))),
-            Positioned(right: 14, bottom: 10, child: Icon(Icons.smartphone, size: 130, color: Colors.white.withValues(alpha: 0.10))),
+            const Positioned(right: 12, bottom: 6, child: Opacity(opacity: 0.22, child: BrandMark(size: 150))),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
               child: Column(
