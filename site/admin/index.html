@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@500;700&display=swap">
 <style>
   :root { --brand:#1F2744; --deep:#141A33; --accent:#D8662A; --ink:#14182B; --paper:#F6F6F6; --soft:#fff; --line:#DDE0E8; --ok:#2E7D32; --warn:#EF6C00; --bad:#C62828; }
-  @media (prefers-color-scheme: dark) { :root { --ink:#ECEEF6; --paper:#0F1322; --soft:#181D33; --line:#2A3050; --brand:#C9D0EE; } }
+  @media (prefers-color-scheme: dark) { :root { --ink:#ECEEF6; --paper:#0F1322; --soft:#181D33; --line:#2A3050; --brand:#C9D0EE; } button { color:#14182B; } button.alt, button.ghost { color:var(--brand); } button.bad { color:#fff; } input::placeholder { color:#7c849c; } }
   * { box-sizing:border-box; }
   body { margin:0; font:17px/1.5 Montserrat,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari",sans-serif; color:var(--ink); background:var(--paper); padding-bottom:110px; }
   header { background:linear-gradient(160deg,var(--deep),#2B3558); color:#fff; padding:18px 16px; display:flex; align-items:center; gap:10px; }
