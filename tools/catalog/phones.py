@@ -109,6 +109,7 @@ PHONES = [
  ('vivo-v80-5g', 'vivo V80 5G', 'vivo', 'Oct 2026', [('8 GB + 128 GB', 62999), ('8 GB + 256 GB', 69999), ('8 GB + 512 GB', 79999)], [], 'vivo V80', ['v80']),
  ('oppo-a6-5g', 'OPPO A6 5G', 'OPPO', 'Jan 2026', [('4 GB + 128 GB', 17999), ('6 GB + 128 GB', 19999), ('6 GB + 256 GB', 21999)],
      hl(('7,000 mAh battery', '7,000 mAh बैटरी'), ('45W fast charging', '45W फ़ास्ट चार्जिंग'), ('50 MP camera', '50 MP कैमरा')), 'OPPO A6 5G', ['oppo a6 5g']),
+ ('oppo-a6s-5g', 'OPPO A6s 5G', 'OPPO', 'Mar 2026', [('128 GB', None)], [], 'OPPO A6s', ['a6s']),
  ('oppo-k14x-5g', 'OPPO K14x 5G', 'OPPO', 'Feb 2026', [('4 GB + 128 GB', 14999), ('6 GB + 128 GB', 16999)],
      hl(('6,500 mAh battery', '6,500 mAh बैटरी'), ('120 Hz display', '120 Hz डिस्प्ले'), ('MediaTek Dimensity 6300', 'MediaTek Dimensity 6300')), 'OPPO K14x', ['k14x']),
  ('oppo-k14-5g', 'OPPO K14 5G', 'OPPO', 'Mar 2026', [('6 GB + 128 GB', 17999), ('8 GB + 256 GB', 21999)],

@@ -95,7 +95,7 @@ class LiveBenefitCard extends StatelessWidget {
               ],
               if (product.callForBest) ...<Widget>[
                 const SizedBox(height: 8),
-                Text(context.tr.liveRefNote, style: Theme.of(context).textTheme.bodySmall?.copyWith(height: 1.4)),
+                Text(product.refPriceLabel.en.startsWith('Shop price') ? context.tr.liveShopNote : context.tr.liveRefNote, style: Theme.of(context).textTheme.bodySmall?.copyWith(height: 1.4)),
               ],
             ],
           ),
@@ -120,7 +120,9 @@ class LiveBargainBar extends StatelessWidget {
     final String shop = store.name.of(lang);
     final String name = '${product.name.of(lang)}${variant.label.isEmpty ? '' : ' (${variant.label})'}';
     final String msg = variant.price > 0
-        ? context.tr.liveBargainMsg(shop, name, formatRupees(variant.price))
+        ? (product.refPriceLabel.en.startsWith('Shop price')
+            ? context.tr.liveBargainMsgShop(shop, name, formatRupees(variant.price))
+            : context.tr.liveBargainMsg(shop, name, formatRupees(variant.price)))
         : context.tr.liveBargainMsgNoPrice(shop, name);
     final bool hasPhone = store.phone.trim().isNotEmpty;
     return SafeArea(

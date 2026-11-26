@@ -1,7 +1,7 @@
 T = [
 # --- App -----------------------------------------------------------------
 ('appName', 'Brandhoop', 'ब्रांडहूप'),
-('appTagline', 'Your own mobile shop, now in your pocket', 'आपकी अपनी मोबाइल दुकान, अब आपकी जेब में'),
+('appTagline', 'New phones and accessories, one shop', 'नए फ़ोन और एक्सेसरी, एक ही दुकान पर'),
 ('chooseLanguage', 'Choose your language', 'अपनी भाषा चुनें'),
 ('chooseLanguageHint', 'You can change it any time from the top of the screen.', 'आप इसे कभी भी स्क्रीन के ऊपर से बदल सकते हैं।'),
 ('languageHindi', 'हिन्दी', 'हिन्दी'),

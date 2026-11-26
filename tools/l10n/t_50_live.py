@@ -48,3 +48,8 @@ T += [
 ('liveIllustration', 'Photo for illustration', 'चित्र केवल उदाहरण के लिए'),
 ('liveAskModel', 'Tell us your phone model for the right fit.', 'सही फ़िट के लिए अपना फ़ोन मॉडल बताएँ।'),
 ]
+
+T += [
+('liveShopNote', 'This is the shop’s price on the date shown. Prices change, so call or WhatsApp to confirm today’s price, gifts and EMI help at the shop.', 'यह दिखाई गई तारीख़ की दुकान की कीमत है। कीमत बदलती रहती है, इसलिए आज की कीमत, गिफ़्ट और दुकान पर EMI मदद के लिए कॉल या व्हाट्सऐप करें।'),
+('liveBargainMsgShop', 'Hello {shop}, I am interested in {product} (shop price {price}). Please confirm it is available and tell me the gifts and offers.', 'नमस्ते {shop}, मुझे {product} चाहिए (दुकान की कीमत {price})। कृपया बताएँ कि यह उपलब्ध है या नहीं, और गिफ़्ट व ऑफ़र क्या हैं।'),
+]

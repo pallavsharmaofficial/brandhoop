@@ -13,7 +13,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get appName => 'ब्रांडहूप';
 
   @override
-  String get appTagline => 'आपकी अपनी मोबाइल दुकान, अब आपकी जेब में';
+  String get appTagline => 'नए फ़ोन और एक्सेसरी, एक ही दुकान पर';
 
   @override
   String get chooseLanguage => 'अपनी भाषा चुनें';
@@ -3240,6 +3240,15 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get liveAskModel => 'सही फ़िट के लिए अपना फ़ोन मॉडल बताएँ।';
+
+  @override
+  String get liveShopNote =>
+      'यह दिखाई गई तारीख़ की दुकान की कीमत है। कीमत बदलती रहती है, इसलिए आज की कीमत, गिफ़्ट और दुकान पर EMI मदद के लिए कॉल या व्हाट्सऐप करें।';
+
+  @override
+  String liveBargainMsgShop(String shop, String product, String price) {
+    return 'नमस्ते $shop, मुझे $product चाहिए (दुकान की कीमत $price)। कृपया बताएँ कि यह उपलब्ध है या नहीं, और गिफ़्ट व ऑफ़र क्या हैं।';
+  }
 
   @override
   String get shopByBrand => 'ब्रांड से खरीदें';

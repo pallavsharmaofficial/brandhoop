@@ -107,7 +107,7 @@ abstract class AppLocalizations {
   /// No description provided for @appTagline.
   ///
   /// In en, this message translates to:
-  /// **'Your own mobile shop, now in your pocket'**
+  /// **'New phones and accessories, one shop'**
   String get appTagline;
 
   /// No description provided for @chooseLanguage.
@@ -5629,6 +5629,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tell us your phone model for the right fit.'**
   String get liveAskModel;
+
+  /// No description provided for @liveShopNote.
+  ///
+  /// In en, this message translates to:
+  /// **'This is the shop’s price on the date shown. Prices change, so call or WhatsApp to confirm today’s price, gifts and EMI help at the shop.'**
+  String get liveShopNote;
+
+  /// No description provided for @liveBargainMsgShop.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello {shop}, I am interested in {product} (shop price {price}). Please confirm it is available and tell me the gifts and offers.'**
+  String liveBargainMsgShop(String shop, String product, String price);
 
   /// No description provided for @shopByBrand.
   ///

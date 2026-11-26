@@ -1,7 +1,7 @@
 {
   "@@locale": "en",
   "appName": "Brandhoop",
-  "appTagline": "Your own mobile shop, now in your pocket",
+  "appTagline": "New phones and accessories, one shop",
   "chooseLanguage": "Choose your language",
   "chooseLanguageHint": "You can change it any time from the top of the screen.",
   "languageHindi": "हिन्दी",
@@ -1707,6 +1707,21 @@
   "catHolder": "Stands and tripods",
   "liveIllustration": "Photo for illustration",
   "liveAskModel": "Tell us your phone model for the right fit.",
+  "liveShopNote": "This is the shop’s price on the date shown. Prices change, so call or WhatsApp to confirm today’s price, gifts and EMI help at the shop.",
+  "liveBargainMsgShop": "Hello {shop}, I am interested in {product} (shop price {price}). Please confirm it is available and tell me the gifts and offers.",
+  "@liveBargainMsgShop": {
+    "placeholders": {
+      "shop": {
+        "type": "String"
+      },
+      "product": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
   "shopByBrand": "Shop by brand",
   "popularPhones": "Popular phones",
   "heroLiveTitle": "Find your next phone",

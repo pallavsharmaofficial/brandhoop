@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -39,6 +38,5 @@ Future<void> main() async {
   runApp(BrandhoopApp(
     services: services,
     prefs: prefs,
-    deviceLanguage: ui.PlatformDispatcher.instance.locale.languageCode,
   ));
 }

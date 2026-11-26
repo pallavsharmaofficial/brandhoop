@@ -13,7 +13,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appName => 'Brandhoop';
 
   @override
-  String get appTagline => 'Your own mobile shop, now in your pocket';
+  String get appTagline => 'New phones and accessories, one shop';
 
   @override
   String get chooseLanguage => 'Choose your language';
@@ -3250,6 +3250,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get liveAskModel => 'Tell us your phone model for the right fit.';
+
+  @override
+  String get liveShopNote =>
+      'This is the shop’s price on the date shown. Prices change, so call or WhatsApp to confirm today’s price, gifts and EMI help at the shop.';
+
+  @override
+  String liveBargainMsgShop(String shop, String product, String price) {
+    return 'Hello $shop, I am interested in $product (shop price $price). Please confirm it is available and tell me the gifts and offers.';
+  }
 
   @override
   String get shopByBrand => 'Shop by brand';

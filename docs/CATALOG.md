@@ -56,3 +56,11 @@ model), counter signs (combo offer, price-lock draft, services, pre-owned,
 payments and EMI, app QR), a shop plan and a Hindi checklist. Rebuild with
 `python3 tools/shopkit/make_kit.py && node tools/shopkit/shoot.js`. The strips
 come from the same lists as the app, so re-run after the catalogue changes.
+
+## Shop prices and the OPPO range (26 Nov 2026)
+
+`tools/catalog/shop_data.py` holds the prices the owner gave for each model (every RAM + storage variant), plus highlights and specs for the product page. A model listed there shows the shop's price, dated, with the "Shop price, updated <date>" label. The phone still opens WhatsApp ("ask availability"), because the live storefront has no checkout and the shop's real stock is not known.
+
+`ONLY_SHOP_PHONES = True` leaves every phone without owner pricing out of `assets/live/shop.json` (they stay in `phones.py`). Set it to `False` to show the old launch-price list again. Run `python3 tools/catalog/build_catalog.py` after any change.
+
+Specs were checked against Indian news and price-list pages (91mobiles, Beebom, FoneArena, GSMArena, Digit, Gizmochina, Smartprix, OPPO India). Where sources disagreed the spec was left out: F35 and F35 Pro chipset, the F35 series display refresh rate, and the Reno 16c battery and charging. Free-licence photos (Wikimedia Commons) do not exist for these 2025-26 models, so they use the drawn placeholder until the shop adds its own photos in the admin panel.

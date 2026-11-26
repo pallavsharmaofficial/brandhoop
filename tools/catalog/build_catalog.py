@@ -12,13 +12,13 @@ import json, pathlib, sys
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path.insert(0, str(HERE))
-import phones, accessories  # noqa: E402
+import phones, accessories, shop_data  # noqa: E402
 
 RAW = 'https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/'
 shop_path = ROOT / 'assets' / 'live' / 'shop.json'
 shop = json.loads(shop_path.read_text())
 acc_files = json.loads((HERE / 'acc_images.json').read_text())['files']
-FEATURED = {'oppo-a6x-5g', 'redmi-15-5g', 'samsung-galaxy-m36-5g', 'iphone-17', 'samsung-galaxy-a56-5g', 'redmi-note-15-pro-5g', 'realme-p4-power-5g', 'oneplus-nord-ce5'}
+FEATURED = set(shop_data.DATA)   # every phone the owner has priced is shown on the home screen
 USER_PHOTOS = {'oppo-a6x-5g': 'site/products/oppo-a6x-5g.jpg'}
 
 def have(path):
@@ -26,6 +26,11 @@ def have(path):
 
 products = []
 for pid, name, brand, launch, variants, highlights, _q, _must in phones.PHONES:
+    sd = shop_data.DATA.get(pid)
+    if shop_data.ONLY_SHOP_PHONES and not sd:
+        continue   # not priced by the owner yet: kept in phones.py, left out of the shop
+    if sd:
+        variants, highlights = sd['prices'], sd.get('highlights') or highlights
     known = any(v[1] for v in variants)
     p = {
         'id': pid, 'name': {'en': name, 'hi': ''}, 'brand': brand,
@@ -33,7 +38,12 @@ for pid, name, brand, launch, variants, highlights, _q, _must in phones.PHONES:
         'callForBest': True, 'featured': pid in FEATURED, 'emiEligible': pid not in phones.KEYPAD,
         'variants': [{'id': f'v{i+1}', 'label': l, 'color': '', 'price': (pr or 0), 'mrp': (pr or 0), 'stock': 1} for i, (l, pr) in enumerate(variants)],
     }
-    if known:
+    if sd:
+        p['refPriceLabel'] = {'en': f'Shop price, updated {shop_data.UPDATED[0]}', 'hi': f'दुकान की कीमत, {shop_data.UPDATED[1]} तक'}
+        p['description'] = {'en': f'Shop price as of {shop_data.UPDATED[0]}. Prices can change, so call or WhatsApp to confirm today’s price, gifts, offers and EMI.',
+                            'hi': f'{shop_data.UPDATED[1]} तक की दुकान की कीमत। कीमत बदल सकती है, इसलिए आज की कीमत, गिफ़्ट, ऑफ़र और EMI के लिए कॉल या WhatsApp करें।'}
+        p['specs'] = dict(sd.get('specs', {}))
+    elif known:
         mon, _, yr = launch.partition(' ')
         en = f'Launch price ({launch})' if launch else 'Launch price'
         hi = f'लॉन्च कीमत ({phones.M.get(mon, mon)} {yr})' if launch else 'लॉन्च कीमत'

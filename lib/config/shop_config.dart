@@ -21,8 +21,8 @@ class ShopConfig {
   static StoreSettings defaults() => StoreSettings(
         name: const LocalizedText('Brandhoop Mobile Point', 'ब्रांडहूप मोबाइल पॉइंट'),
         tagline: const LocalizedText(
-          'Your own mobile shop in Neem Ka Thana, now in your pocket',
-          'नीम का थाना की आपकी अपनी मोबाइल दुकान, अब आपकी जेब में',
+          'New phones and accessories, one shop in Neem Ka Thana',
+          'नए फ़ोन और एक्सेसरी, नीम का थाना की एक ही दुकान पर',
         ),
         addressLine:
             const LocalizedText('Gate No. 5, Kamla Modi Market', 'गेट नं. 5, कमला मोदी मार्केट'),
