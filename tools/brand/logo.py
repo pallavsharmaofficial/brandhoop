@@ -110,7 +110,7 @@ def _real_defs(uid):
         f'<radialGradient id="{u}fp" cx=".45" cy=".4" r=".75"><stop offset="0" stop-color="#B85F2A"/><stop offset=".7" stop-color="#A24C1E"/><stop offset="1" stop-color="#7E3411"/></radialGradient>'
         f'<linearGradient id="{u}ring" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5A2A12"/><stop offset=".5" stop-color="#B8683A"/><stop offset="1" stop-color="#E2A06F"/></linearGradient>'
         f'<linearGradient id="{u}pill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#171B24"/><stop offset="1" stop-color="#2E3440"/></linearGradient>'
-        f'<linearGradient id="{u}btn" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5E616D"/><stop offset=".6" stop-color="#9A9CA8"/><stop offset="1" stop-color="#6E717C"/></linearGradient>'
+        f'<linearGradient id="{u}btn" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4A4D58"/><stop offset=".45" stop-color="#A3A6B2"/><stop offset="1" stop-color="#5C5F6A"/></linearGradient>'
         f'<clipPath id="{u}cb"><path d="{BODY_TRACED}"/></clipPath>'
         f'<clipPath id="{u}cf"><circle cx="523" cy="518" r="64"/></clipPath>'
         f'<filter id="{u}bl2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2"/></filter>'
@@ -124,8 +124,8 @@ def _real_inner(uid):
     PLUG = ('M464 249H500C524 249 540 266 540 286.5C540 307 524 324 500 324H464Z', 'M450 250V324', 'M408 276H446M408 288H446M408 300H446')
     g = []
     # side buttons (behind body)
-    for y0, y1 in ((243, 293), (298, 336), (353, 391), (402, 451)):
-        g.append(f'<rect x="331" y="{y0}" width="17" height="{y1-y0}" rx="7" fill="url(#{u}btn)" stroke="#40434D" stroke-width="1.5"/>')
+    for y0, y1 in ((247, 289), (302, 332), (357, 387), (406, 447)):
+        g.append(f'<rect x="341" y="{y0}" width="9" height="{y1-y0}" rx="3.6" fill="url(#{u}btn)" stroke="#2F323B" stroke-width="1"/><rect x="342.6" y="{y0+3}" width="1.4" height="{y1-y0-6}" rx=".7" fill="#fff" opacity=".35"/>')
     g.append(f'<path d="{BODY_TRACED}" fill="url(#{u}b)"/>')
     g.append(f'<g clip-path="url(#{u}cb)">')
     g.append(f'<rect x="322" y="144" width="420" height="300" fill="url(#{u}hi)"/>')
@@ -200,7 +200,7 @@ def mark_inner(style='color', uid='m', body_color=None, detail_color=None):
         g.append(f'<path d="{BODY}" fill="none" stroke="{bez}" stroke-width="6" stroke-opacity=".75"/>')
     # side buttons
     btn = '#7F8791' if style == 'color' else (detail_color or '#FFFFFF')
-    g.append(f'<rect x="330" y="238" width="17" height="62" rx="6" fill="{btn}"/><rect x="330" y="352" width="17" height="62" rx="6" fill="{btn}"/>')
+    g.append(f'<rect x="340" y="247" width="9" height="42" rx="3.6" fill="{btn}"/><rect x="340" y="302" width="9" height="30" rx="3.6" fill="{btn}"/><rect x="340" y="357" width="9" height="30" rx="3.6" fill="{btn}"/><rect x="340" y="406" width="9" height="41" rx="3.6" fill="{btn}"/>')
     # notch + lens
     g.append(f'<rect x="461" y="181" width="108" height="32" rx="16" fill="{dark}"/>')
     if style == 'color': g.append('<circle cx="551" cy="197" r="5.5" fill="#3B4560"/>')
