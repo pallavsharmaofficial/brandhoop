@@ -36,18 +36,39 @@ The catalogue is not stored in the knowledge file. The assistant reads the live 
 
 To teach it something new, add a playbook to `kb.js` (title, keywords, three steps, first step, check) and publish.
 
-## On-device AI (beta)
-Settings (⚙ in the assistant) offers a small language model that runs on the phone's GPU through WebLLM
-(`@mlc-ai/web-llm` 0.2.89, models Qwen2.5 0.5B/1.5B or Gemma 2 2B). It downloads once (0.4 to 1.6 GB), then answers coaching questions
-without internet, using the same knowledge and the live catalogue as context. It can only advise. It cannot change data, so a wrong
-answer cannot damage the shop. It needs Chrome with WebGPU (recent Android phones with enough memory). Small models are weaker in Hindi than
-in English; the playbooks work without it and are the main source of advice.
+## Offline first
+* The panel opens with no signal (the page, the assistant and the last shop file are stored on the phone).
+* Every change is saved on the phone as a draft, photos included. Closing the app or losing signal loses nothing; the draft comes back at the next open.
+* "प्रकाशित करें" with no signal is queued. When the signal returns it is sent by itself (an "online" event, and a check every 30 seconds).
+* If the file on GitHub changed meanwhile (for example the catalogue was rebuilt), the owner's changes are merged into the newer file product by product, offer by offer, setting by setting. If both sides changed the same field, the owner's value is kept and a note is shown.
+* The light in the header shows the state: ● online, ○ offline with changes saved, ⏳ queued to publish.
+* `tools/catalog/build_catalog.py` keeps the owner's edits: a product changed from the panel after the date in `shop_data.UPDATED`, and any product the owner added, are not overwritten by a rebuild.
+* Code: `site/admin/sync.js` (draft, cache, merge, queued publish), `sw.js` (offline shell).
+
+## Which brain answers (cloud, on-device, playbook)
+Commands (rates, adding, hiding, offers, hours, photos) never need an AI and work offline and instantly. For advice:
+1. A clear playbook match is answered at once from `kb.js`. That is the fastest and most relevant answer.
+2. Otherwise the assistant picks between the **cloud AI** (Claude API, internet and a key the owner types in) and the **on-device AI** (WebLLM on the phone's GPU).
+   Each has a score: quality (starts 0.8 cloud, 0.6 on-device; moves with the owner's 👍 and 👎) minus 0.04 per second of time to first word.
+   The higher score is tried first. A cloud failure or a start slower than 9 seconds rests the cloud for five minutes and the next one answers.
+   With no signal only the on-device AI and the playbooks are available.
+3. If no AI is available the playbook is used. Settings (⚙) let the owner force cloud only, on-device only, or automatic.
+
+Neither AI can change shop data. They only advise, so a wrong answer cannot damage the shop.
+
+**Cloud AI and privacy.** The key is entered in ⚙, kept on the phone sealed with the owner's PIN (same method as the GitHub token) and sent only to
+`api.anthropic.com`. In cloud mode the question, the recent chat and a short list of phones with rates go to Anthropic. In offline mode nothing leaves the phone.
+Use a separate key with a low spending limit. The default model is `claude-haiku-5-5` and can be changed in ⚙.
+
+**On-device AI.** `@mlc-ai/web-llm` 0.2.89 with Gemma 2 2B (recommended), Qwen2.5 1.5B or 0.5B. It downloads once (0.4 to 1.6 GB), is kept in the
+browser's storage (the panel asks Chrome to keep it) and loads in the background the next time the assistant is opened. It needs Chrome with WebGPU.
+Small models are weaker in Hindi than in English, so the playbooks stay the main source of advice.
 
 ## Voice
-Typing always works. The microphone uses the browser's speech recognition (Hindi or English). On Android Chrome this normally goes
-through Google's speech service and needs internet; Chrome's fully offline speech needs the Hindi language pack installed.
+Typing always works. The microphone uses the browser's speech recognition (Hindi or English). Online it normally goes through Google's speech service.
+With no signal the assistant asks Chrome for on-device recognition; that needs the Hindi voice pack, which ⚙ can download once while online.
 Replies can be read out loud (⚙, "जवाब बोलकर सुनाओ").
 
 ## Files
-`site/admin/saathi/kb.js` knowledge, `saathi.js` commands and screen, `llm.js` optional model loader, `site/admin/manifest.webmanifest`
-and `sw.js` for installing the panel as an app.
+`site/admin/saathi/kb.js` knowledge, `saathi.js` commands, brain switch and screen, `llm.js` on-device and cloud AI loaders, `site/admin/sync.js` offline layer,
+`site/admin/manifest.webmanifest` and `sw.js` for installing the panel as an app.

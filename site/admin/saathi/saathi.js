@@ -86,8 +86,8 @@
   /* ---------- the conversation ---------- */
   var S = { pending: null, choose: null, adding: null, history: [], quiz: null, lang: 'hi-IN', speak: false, rec: null };
   var prefs = {}; try { prefs = JSON.parse(localStorage.getItem('saathiPrefs') || '{}'); } catch (e) { }
-  if (prefs.lang) S.lang = prefs.lang; if (prefs.speak) S.speak = true;
-  function savePrefs() { try { localStorage.setItem('saathiPrefs', JSON.stringify({ lang: S.lang, speak: S.speak, model: prefs.model || '' })); } catch (e) { } }
+  if (prefs.lang) S.lang = prefs.lang; if (prefs.speak) S.speak = true; if (!prefs.mode) prefs.mode = 'auto'; if (!prefs.cloudModel) prefs.cloudModel = 'claude-haiku-5-5';
+  function savePrefs() { prefs.lang = S.lang; prefs.speak = S.speak; try { localStorage.setItem('saathiPrefs', JSON.stringify(prefs)); } catch (e) { } }
 
   var log, input, dlg;
   function scroll() { log.scrollTop = log.scrollHeight; }
@@ -278,9 +278,10 @@
     var pr = KB.principles.filter(function (x) { return x.id === pb.principle; })[0] || KB.principles[0];
     bot('🧭 ' + pb.title + '\n' + pb.understand + '\n\n✅ तीन कदम:\n' + pb.steps.map(function (s, i) { return (i + 1) + ') ' + s; }).join('\n') + '\n\n▶ आज का पहला कदम: ' + pb.first + '\n🔎 जाँच: ' + pb.check + '\n\n💡 ' + pr.hi + ': ' + pr.idea + '\nसवाल: ' + pr.ask);
   }
-  function findPlaybook(raw) {
+  function findPlaybook(raw) { var r = findPlaybookScored(raw); return r ? r.pb : null; }
+  function findPlaybookScored(raw) {
     var best = null, sc = 0, s = raw.toLowerCase(); KB.playbooks.forEach(function (pb) { var n = 0; pb.kw.forEach(function (k) { k = k.toLowerCase(); if (s.indexOf(k) === -1) return; n += (k.length > 3 || (/^[a-z]+$/.test(k) && new RegExp('(^|[^a-z])' + k + '(?![a-z])').test(s))) ? 2 : 1; }); if (n > sc) { sc = n; best = pb; } });
-    return sc >= 2 ? best : null;
+    return sc >= 2 ? { pb: best, score: sc } : null;
   }
   function actQuiz(answer) {
     if (S.quiz && answer != null) {
@@ -365,16 +366,27 @@
     if (has(low, ['सबसे सस्ता', 'सबसे महंगा', 'cheapest', 'costliest', 'sabse sasta', 'sabse mehenga'])) return actQuery(raw, t);
     var listing = has(low, ['कितने', 'kitne', 'सबसे', 'list', 'लिस्ट', 'दिखाओ', 'बताओ', 'show', 'batao', 'dikhao']);
     if (hasProd && (has(low, W.price) || isShort(low) || listing)) return actQuery(raw, t);
-    var pb = findPlaybook(raw); if (pb) return coach(pb);
+    var pbs = findPlaybookScored(raw);
+    if (pbs) { if (pbs.score >= 4 || !engines().length) return coach(pbs.pb); return advise(raw); }   // a clear playbook is the fastest and most relevant answer
     if (listing || has(low, W.price)) return actQuery(raw, t);
-    if (window.SaathiLLM && window.SaathiLLM.ready()) return askModel(raw);
+    if (engines().length) return advise(raw);
     bot('मुझे पूरी बात समझ नहीं आई। आप चाहें तो ऐसे बोल सकते हैं:\n• "A6x 4/128 का रेट 22999 कर दो"\n• "आज का प्लान"\n• "ग्राहक का बजट कम है, क्या करूँ?"\n\nया "मदद" बोलिए। सलाह के लिए तीन बातें बताइए: क्या हुआ? कितना? आप क्या चाहते हैं?');
   }
-  /* ----- optional on-device model: advice only, never changes data ----- */
+  /* ----- the brain switch: cloud AI when the signal is good, on-device AI when it is not, whichever is faster and more useful.
+     Both only give advice. They never change shop data; changes always go through the commands above and a "हाँ". ----- */
+  var ST = { cloud: { q: 0.8, ms: 2500, down: 0 }, device: { q: 0.6, ms: 7000, down: 0 } };
+  try { var saved = JSON.parse(localStorage.getItem('saathiStats') || 'null'); if (saved) { ['cloud', 'device'].forEach(function (k) { if (saved[k]) { ST[k].q = saved[k].q; ST[k].ms = saved[k].ms; } }); } } catch (e) { }
+  function saveStats() { try { localStorage.setItem('saathiStats', JSON.stringify({ cloud: { q: ST.cloud.q, ms: ST.cloud.ms }, device: { q: ST.device.q, ms: ST.device.ms } })); } catch (e) { } }
+  var utility = function (n) { return ST[n].q - 0.04 * ST[n].ms / 1000; };
+  function engines() {
+    var c = [];
+    if (prefs.mode !== 'device' && navigator.onLine && A.cloudKey() && Date.now() > ST.cloud.down && window.SaathiCloud) c.push('cloud');
+    if (prefs.mode !== 'cloud' && window.SaathiLLM && window.SaathiLLM.ready()) c.push('device');
+    return c.sort(function (x, y) { return utility(y) - utility(x); });
+  }
   var turns = [];
   function digest() {
-    var ph = phones().filter(function (p) { return p.active !== false; });
-    return ph.slice(0, 20).map(function (p) { return pname(p) + ': ' + (p.variants || []).map(function (v) { return v.label + ' ' + rupee(v.price || 0); }).join(', ') + (p.specs && p.specs.battery ? ' (' + p.specs.battery + ')' : ''); }).join('\n');
+    return phones().filter(function (p) { return p.active !== false; }).slice(0, 24).map(function (p) { return pname(p) + ': ' + (p.variants || []).map(function (v) { return v.label + ' ' + rupee(v.price || 0); }).join(', ') + (p.specs && p.specs.battery ? ' (' + p.specs.battery + ')' : ''); }).join('\n');
   }
   function systemPrompt(q) {
     var pb = findPlaybook(q), pr = KB.principles.map(function (x) { return '- ' + x.hi + ': ' + x.idea; }).join('\n'), s = KB.shop;
@@ -384,10 +396,32 @@
       'Never invent prices, discounts, ratings, stock or EMI promises. You cannot change shop data; if the owner wants a change, tell him the exact words to say, like "A6x 4/128 का रेट 22999 कर दो".\n' +
       'Shop rules:\n' + KB.rules.join('\n') + '\nPrinciples:\n' + pr + '\nServices: ' + s.servicesHi + '\nEMI: ' + s.emiHi + '\nPhones in the app now:\n' + digest() + (pb ? '\nRelevant playbook: ' + pb.title + ': ' + pb.steps.join(' ') : '');
   }
-  function askModel(q) {
-    var box = bot('…'); turns.push({ role: 'user', content: q }); var acc = '';
-    window.SaathiLLM.ask([{ role: 'system', content: systemPrompt(q) }].concat(turns.slice(-6)), function (tok) { acc += tok; box.textContent = acc; scroll(); }).then(function () { turns.push({ role: 'assistant', content: acc }); if (S.speak) bot(''); }, function (e) { box.textContent = 'AI मॉडल से जवाब नहीं आया: ' + (e && e.message || e); });
+  function context(q) { // the last few turns, always starting with the owner's turn
+    var t = turns.slice(-6).concat([{ role: 'user', content: q }]); while (t.length && t[0].role !== 'user') t.shift(); return t;
   }
+  function advise(raw) {
+    var list = engines(), box = bot('…'), acc = '';
+    var next = function () {
+      var e = list.shift();
+      if (!e) { var pb = findPlaybook(raw); box.remove(); return pb ? coach(pb) : bot('अभी AI से जवाब नहीं मिल पाया। "मदद" बोलिए या "आज का प्लान" देखिए।'); }
+      var t0 = performance.now(), first = 0; acc = ''; box.textContent = e === 'cloud' ? '☁ सोच रहा हूँ…' : '📱 फ़ोन पर सोच रहा हूँ…';
+      var on = function (tok) { if (!first) first = performance.now() - t0; acc += tok; box.textContent = acc; scroll(); };
+      var run = e === 'cloud'
+        ? window.SaathiCloud.ask({ key: A.cloudKey(), model: prefs.cloudModel, system: systemPrompt(raw), messages: context(raw), onToken: on, timeoutMs: 9000 })
+        : window.SaathiLLM.ask([{ role: 'system', content: systemPrompt(raw) }].concat(context(raw)), on);
+      run.then(function () {
+        if (!acc) throw new Error('खाली जवाब');
+        ST[e].ms = 0.5 * ST[e].ms + 0.5 * (first || (performance.now() - t0)); saveStats(); turns.push({ role: 'user', content: raw }, { role: 'assistant', content: acc });
+        box.append(h('div', { class: 'sa-tag' }, (e === 'cloud' ? '☁ क्लाउड AI · ' : '📱 फ़ोन पर AI · ') + ((first || 0) / 1000).toFixed(1) + ' सेकंड में शुरू'), row(btn('👍 काम का', function () { rate(e, 1, box); }), btn('👎 ठीक नहीं', function () { rate(e, 0, box); })));
+        if (S.speak && 'speechSynthesis' in window) { try { var u = new SpeechSynthesisUtterance(acc); u.lang = 'hi-IN'; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (x) { } }
+      }).catch(function () {
+        if (e === 'cloud') ST.cloud.down = Date.now() + 5 * 60 * 1000;     // rest the cloud for five minutes after a failure or a slow start
+        next();
+      });
+    };
+    next();
+  }
+  function rate(e, v, box) { ST[e].q = 0.7 * ST[e].q + 0.3 * v; saveStats(); box.querySelectorAll('.sa-row').forEach(function (r) { r.remove(); }); box.append(h('div', { class: 'sa-tag' }, v ? 'धन्यवाद, अगली बार इसे और पसंद करूँगा।' : 'ठीक है, अगली बार दूसरे तरीके को मौका दूँगा।')); }
 
   /* ---------- the screen ---------- */
   function build() {
@@ -405,7 +439,7 @@
       '.sa-in{display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:var(--paper)}',
       '.sa-in input{flex:1;font-size:17px}.sa-in button{padding:10px 14px}.sa-mic.on{background:#c62828;color:#fff}',
       '.sa-ok{color:var(--ok);margin:4px 0}.sa-no{color:var(--bad);margin:4px 0}.sa-set{padding:10px 14px;border-bottom:1px solid var(--line);background:var(--soft);font-size:14px}.sa-set label{display:flex;gap:8px;align-items:center;margin:6px 0;font-weight:600}.sa-set select{width:auto}',
-      '.sa-prev{margin-top:8px}'
+      '.sa-prev{margin-top:8px}', '.sa-tag{font-size:12px;color:var(--muted);margin-top:6px}'
     ].join('\n'); document.head.append(css);
     var fab = $('saathiFab'); if (!fab) { fab = h('button', { id: 'saathiFab', class: 'hide', type: 'button' }, '🎙️ सहायक'); document.body.append(fab); }
     log = h('div', { class: 'sa-l' }); input = h('input', { type: 'text', placeholder: 'बोलिए या लिखिए…', enterkeyhint: 'send', autocomplete: 'off' });
@@ -422,7 +456,7 @@
     dlg = h('dialog', { id: 'saathiDlg' }, h('div', { class: 'sa-w' }, head, settings, log, chips, h('div', { class: 'sa-in' }, mic, input, send)));
     document.body.append(dlg);
     var go = function () { var v = input.value; input.value = ''; respond(v); }; send.onclick = go; input.onkeydown = function (e) { if (e.key === 'Enter') go(); };
-    fab.onclick = function () { dlg.showModal(); if (!log.children.length) { var d = new Date(), g = d.getHours() < 12 ? 'सुप्रभात' : d.getHours() < 17 ? 'नमस्ते' : 'शुभ संध्या'; bot(g + ' नरेश जी! मैं आपका सहायक हूँ। बोलकर या लिखकर बताइए क्या करना है, रेट बदलना, फ़ोन जोड़ना, छुपाना, ऑफ़र लगाना, या दुकान बढ़ाने की सलाह।\n"मदद" बोलिए तो सारे आदेश बताऊँगा।'); actPlan(); } };
+    fab.onclick = function () { dlg.showModal(); if (prefs.loaded && window.SaathiLLM && SaathiLLM.supported() && !SaathiLLM.ready() && !S.loading) { S.loading = true; SaathiLLM.load(prefs.model, function () { }).catch(function () { }).then(function () { S.loading = false; }); } if (!log.children.length) { var d = new Date(), g = d.getHours() < 12 ? 'सुप्रभात' : d.getHours() < 17 ? 'नमस्ते' : 'शुभ संध्या'; bot(g + ' नरेश जी! मैं आपका सहायक हूँ। बोलकर या लिखकर बताइए क्या करना है, रेट बदलना, फ़ोन जोड़ना, छुपाना, ऑफ़र लगाना, या दुकान बढ़ाने की सलाह।\n"मदद" बोलिए तो सारे आदेश बताऊँगा।'); actPlan(); } };
     voice(mic, input);
     aiSettings(aiBox);
   }
@@ -432,24 +466,33 @@
     mic.onclick = function () {
       if (S.rec) { S.rec.stop(); return; }
       var r = new R(); r.lang = S.lang; r.interimResults = true; r.maxAlternatives = 1; S.rec = r;
-      try { if (r.processLocally !== undefined) r.processLocally = false; } catch (e) { }
+      try { if ('processLocally' in r) r.processLocally = !navigator.onLine; } catch (e) { }   // offline: use the phone's own speech engine if its language pack is installed
       r.onresult = function (ev) { var t = ''; for (var i = ev.resultIndex; i < ev.results.length; i++) t += ev.results[i][0].transcript; input.value = t; if (ev.results[ev.results.length - 1].isFinal) { var v = input.value; input.value = ''; respond(v); } };
-      r.onerror = function (e) { bot(e.error === 'not-allowed' ? 'माइक की इजाज़त चाहिए। ब्राउज़र की सेटिंग में माइक चालू कीजिए।' : 'बोला हुआ सुनाई नहीं दिया, फिर कोशिश कीजिए।'); };
+      r.onerror = function (e) { bot(e.error === 'not-allowed' ? 'माइक की इजाज़त चाहिए। ब्राउज़र की सेटिंग में माइक चालू कीजिए।' : e.error === 'language-not-supported' ? 'बिना नेट के बोलने के लिए ⚙ में "हिंदी आवाज़-पैक डाउनलोड" कीजिए। अभी टाइप करके काम चलाइए।' : 'बोला हुआ सुनाई नहीं दिया, फिर कोशिश कीजिए।'); };
       r.onend = function () { mic.classList.remove('on'); S.rec = null; };
       mic.classList.add('on'); try { r.start(); } catch (e) { mic.classList.remove('on'); S.rec = null; }
     };
   }
   function aiSettings(box) {
-    var L = window.SaathiLLM; if (!L) return;
-    var status = h('div', { style: 'font-weight:400;margin-top:4px' });
-    if (!L.supported()) { box.append(h('div', { style: 'margin-top:6px' }, 'ऑन-डिवाइस AI (बीटा): इस फ़ोन/ब्राउज़र में WebGPU नहीं है, इसलिए अभी चालू नहीं हो सकता। आदेश और सलाह फिर भी चलेंगे।')); return; }
-    var sel = h('select', {}, h('option', { value: 'Qwen2.5-0.5B-Instruct-q4f16_1-MLC' }, 'हल्का (Qwen 0.5B, ~0.4 GB)'), h('option', { value: 'Qwen2.5-1.5B-Instruct-q4f16_1-MLC' }, 'बेहतर (Qwen 1.5B, ~1 GB)'), h('option', { value: 'gemma-2-2b-it-q4f16_1-MLC' }, 'सबसे अच्छा (Gemma 2B, ~1.6 GB)'));
-    if (prefs.model) sel.value = prefs.model;
-    var b = btn('डाउनलोड करके चालू करें', function () {
-      prefs.model = sel.value; savePrefs(); b.disabled = true; status.textContent = 'डाउनलोड हो रहा है… (वाई-फ़ाई पर करें, एक ही बार लगेगा)';
-      L.load(sel.value, function (p) { status.textContent = p; }).then(function () { status.textContent = '✓ ऑन-डिवाइस AI चालू है। ये सलाह के लिए है, डेटा नहीं बदलेगा। फ़ोन से बाहर कुछ नहीं जाता।'; }, function (e) { b.disabled = false; status.textContent = 'चालू नहीं हो पाया: ' + (e && e.message || e); });
-    }, 'ok');
-    box.append(h('div', { style: 'margin-top:8px;font-weight:700' }, 'ऑन-डिवाइस AI (बीटा)'), h('div', { style: 'font-weight:400' }, 'सलाह के सवालों के जवाब फ़ोन पर ही चलने वाले मॉडल से। नए फ़ोन पर Chrome चाहिए।'), sel, row(b), status);
+    var L = window.SaathiLLM, status = h('div', { style: 'font-weight:400;margin-top:4px' }), mode = h('select', {}, h('option', { value: 'auto' }, 'अपने-आप (तेज़ और काम का जो हो)'), h('option', { value: 'cloud' }, 'सिर्फ़ क्लाउड AI'), h('option', { value: 'device' }, 'सिर्फ़ फ़ोन पर (ऑफ़लाइन)'));
+    mode.value = prefs.mode; mode.onchange = function () { prefs.mode = mode.value; savePrefs(); };
+    box.append(h('div', { style: 'margin-top:8px;font-weight:700' }, 'AI कैसे जवाब दे'), mode);
+    var key = h('input', { type: 'password', placeholder: 'क्लाउड AI की (API) कुंजी, खाली = बंद', autocomplete: 'off', style: 'width:100%' }), cm = h('input', { type: 'text', value: prefs.cloudModel, style: 'width:100%' });
+    var cstat = h('div', { style: 'font-weight:400;margin-top:4px' }, A.cloudKey() ? '✓ कुंजी इस फ़ोन में सेव है (PIN से बंद)।' : 'कुंजी नहीं डाली, इसलिए क्लाउड AI बंद है।');
+    var save = btn('कुंजी सेव करें', function () { prefs.cloudModel = cm.value.trim() || 'claude-haiku-5-5'; savePrefs(); A.setCloudKey(key.value.trim()).then(function () { key.value = ''; cstat.textContent = A.cloudKey() ? '✓ कुंजी इस फ़ोन में सेव है (PIN से बंद)।' : 'कुंजी हटा दी।'; }, function (e) { cstat.textContent = e.message; }); }, 'ok');
+    box.append(h('div', { style: 'margin-top:8px;font-weight:700' }, '☁ क्लाउड AI (इंटरनेट पर, ज़्यादा समझदार)'), h('div', { style: 'font-weight:400' }, 'चालू रहने पर आपका सवाल और फ़ोन की सूची Anthropic को जाती है। कुंजी कम खर्च-सीमा वाली अलग बनाइए। ऑफ़लाइन मोड में कुछ बाहर नहीं जाता।'), key, cm, row(save), cstat);
+    if (!L || !L.supported()) { box.append(h('div', { style: 'margin-top:8px' }, '📱 फ़ोन पर AI: इस ब्राउज़र में WebGPU नहीं है, इसलिए अभी चालू नहीं हो सकता। Chrome अपडेट कीजिए।')); }
+    else {
+      var sel = h('select', {}, h('option', { value: 'gemma-2-2b-it-q4f16_1-MLC' }, 'सबसे अच्छा (Gemma 2B, ~1.6 GB) · सुझाया हुआ'), h('option', { value: 'Qwen2.5-1.5B-Instruct-q4f16_1-MLC' }, 'तेज़ (Qwen 1.5B, ~1 GB)'), h('option', { value: 'Qwen2.5-0.5B-Instruct-q4f16_1-MLC' }, 'हल्का (Qwen 0.5B, ~0.4 GB)'));
+      if (prefs.model) sel.value = prefs.model;
+      var b = btn(L.ready() ? '✓ चालू है' : 'डाउनलोड करके चालू करें', function () {
+        prefs.model = sel.value; savePrefs(); b.disabled = true; status.textContent = 'डाउनलोड हो रहा है… (वाई-फ़ाई पर करें, एक ही बार लगेगा)';
+        L.load(sel.value, function (p) { status.textContent = p; }).then(function () { prefs.loaded = true; savePrefs(); status.textContent = '✓ फ़ोन पर AI चालू है। बिना नेट के भी सलाह देगा; डेटा नहीं बदलेगा।'; }, function (e) { b.disabled = false; status.textContent = 'चालू नहीं हो पाया: ' + (e && e.message || e); });
+      }, 'ok');
+      box.append(h('div', { style: 'margin-top:8px;font-weight:700' }, '📱 फ़ोन पर AI (ऑफ़लाइन चलता है)'), sel, row(b), status);
+    }
+    var R = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (R && R.install) { var vs = h('div', { style: 'font-weight:400;margin-top:4px' }); box.append(h('div', { style: 'margin-top:8px;font-weight:700' }, '🎙️ बिना नेट के बोलना'), row(btn('हिंदी आवाज़-पैक डाउनलोड करें', function () { vs.textContent = 'डाउनलोड हो रहा है…'; Promise.resolve(R.install({ langs: ['hi-IN'], processLocally: true })).then(function (ok) { vs.textContent = ok === false ? 'चालू नहीं हो पाया।' : '✓ अब बिना नेट के भी बोलकर लिख सकेंगे।'; }, function (e) { vs.textContent = 'चालू नहीं हो पाया: ' + (e && e.message || e); }); })), vs); }
   }
   window.Saathi = { respond: respond, matchProducts: matchProducts, norm: norm, parse: parseNewProduct, variantSpec: variantSpec, pricesIn: pricesIn, open: function () { $('saathiFab').click(); } };
   build();

@@ -79,6 +79,29 @@ for pid, en, hi, cat, key, fit in accessories.ACC:
         p['tags'].append('illustration')
     products.append(p)
 
+# The owner edits the shop from the admin panel (prices, new phones, photos). A rebuild must never undo that:
+#  * a generated product the owner changed after the date in shop_data.UPDATED keeps the owner's version;
+#  * a product the owner added (an id that is not in phones.py or accessories.py) is kept at the top.
+import datetime
+MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+def updated_on(p):
+    import re
+    m = re.search(r'updated (\d+) (\w{3}) (\d{4})', (p.get('refPriceLabel') or {}).get('en', ''))
+    return datetime.date(int(m.group(3)), MON.index(m.group(2)) + 1, int(m.group(1))) if m else None
+base_date = datetime.datetime.strptime(shop_data.UPDATED[0], '%d %b %Y').date()
+existing = {p['id']: p for p in shop.get('products', [])}
+generated = {p['id'] for p in products}
+known_ids = {row[0] for row in phones.PHONES} | {row[0] for row in accessories.ACC}
+kept = 0
+for i, p in enumerate(products):
+    old_p = existing.get(p['id'])
+    d = updated_on(old_p) if old_p else None
+    if old_p and d and d > base_date:
+        products[i] = old_p; kept += 1
+owner_added = [p for pid, p in existing.items() if pid not in generated and pid not in known_ids]
+products = owner_added + products
+if kept or owner_added:
+    print(f'kept the owner\'s edits: {kept} changed products, {len(owner_added)} added products')
 shop['products'] = products
 shop_path.write_text(json.dumps(shop, ensure_ascii=False, indent=2) + '\n')
 print(len(products), 'products:', sum(1 for p in products if p['category'] in ('smartphone', 'featurePhone')), 'phones,', sum(1 for p in products if p['id'].startswith('acc-')), 'accessories,',

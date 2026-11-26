@@ -66,6 +66,7 @@
 <header>
   <img src="../brand/logo/brandhoop-mark-white.svg" alt="" style="height:44px"><h1>ब्रांडहूप · दुकान पैनल<small>Brandhoop shop panel</small></h1>
   <a href="../shop-kit/" style="color:inherit;font-size:14px;margin-left:auto;margin-right:10px;text-decoration:underline">🖨️ प्रिंट किट</a><a href="../brand/" style="color:inherit;font-size:14px;margin-right:10px;text-decoration:underline">🎨 ब्रांड किट</a><a href="../brand/cards/" style="color:inherit;font-size:14px;margin-right:10px;text-decoration:underline">💳 कार्ड स्टूडियो</a>
+  <span id="netBadge" style="font-size:12px;font-weight:700;border-radius:99px;padding:4px 10px;color:#fff;background:#566170;margin-right:6px;white-space:nowrap">…</span>
   <button class="alt" id="installBtn" style="padding:7px 12px;display:none">📲 इंस्टॉल</button>
   <button class="alt hide" id="lockBtn" style="padding:7px 12px">🔒 बंद</button>
 </header>
@@ -310,7 +311,7 @@ const pending = new Map(); // file name -> { b64, dataUrl }
 
 /* ---------- small helpers ---------- */
 function say(text, kind = 'info') { const m = $('msg'); m.textContent = text; m.className = 'msg-' + kind; }
-function markDirty(on = true) { dirty = on; $('publish').disabled = !on; if (on) say('बदलाव अभी प्रकाशित नहीं हुए — नीचे “प्रकाशित करें” दबाएँ।', 'info'); }
+function markDirty(on = true) { dirty = on; $('publish').disabled = !on; if (on) say('बदलाव अभी प्रकाशित नहीं हुए — नीचे “प्रकाशित करें” दबाएँ।', 'info'); if (window.Sync) Sync.changed(); }
 function slug(s) { return (s || 'item').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || 'item'; }
 function rid() { return Math.random().toString(36).slice(2, 6); }
 const rupees = (n) => '₹' + Number(n).toLocaleString('en-IN');
@@ -333,16 +334,20 @@ async function deriveKey(pin, salt) {
   const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pin), 'PBKDF2', false, ['deriveKey']);
   return crypto.subtle.deriveKey({ name: 'PBKDF2', salt, iterations: 200000, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, false, ['encrypt', 'decrypt']);
 }
-async function sealToken(tok, pin) {
+let sessionPin = null, cloudKey = '';
+const CLOUD_KEY = 'brandhoopAdminCloudKey';
+async function sealTo(storeKey, text, pin) {
   const salt = crypto.getRandomValues(new Uint8Array(16)), iv = crypto.getRandomValues(new Uint8Array(12));
-  const ct = new Uint8Array(await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, await deriveKey(pin, salt), new TextEncoder().encode(tok)));
-  localStorage.setItem(STORE_KEY, JSON.stringify({ s: b64(salt), i: b64(iv), c: b64(ct) }));
+  const ct = new Uint8Array(await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, await deriveKey(pin, salt), new TextEncoder().encode(text)));
+  localStorage.setItem(storeKey, JSON.stringify({ s: b64(salt), i: b64(iv), c: b64(ct) }));
 }
-async function openToken(pin) {
-  const o = JSON.parse(localStorage.getItem(STORE_KEY));
+async function openFrom(storeKey, pin) {
+  const o = JSON.parse(localStorage.getItem(storeKey));
   const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: unb64(o.i) }, await deriveKey(pin, unb64(o.s)), unb64(o.c));
   return new TextDecoder().decode(pt);
 }
+const sealToken = (tok, pin) => sealTo(STORE_KEY, tok, pin);
+const openToken = (pin) => openFrom(STORE_KEY, pin);
 function showLock() {
   $('panel').classList.add('hide'); $('bar').classList.add('hide'); $('lockBtn').classList.add('hide'); $('lock').classList.remove('hide');
   const has = !!localStorage.getItem(STORE_KEY);
@@ -353,15 +358,15 @@ $('setupBtn').onclick = async () => {
   if (!/^(github_pat_|ghp_)/.test(t)) return $('lockMsg').textContent = 'टोकन सही नहीं लगता। github_pat_ से शुरू होना चाहिए।';
   if (p1.length < 4) return $('lockMsg').textContent = 'PIN कम से कम 4 अंक का रखें।';
   if (p1 !== p2) return $('lockMsg').textContent = 'दोनों PIN एक जैसे नहीं हैं।';
-  await sealToken(t, p1); token = t; $('tok').value = $('pin1').value = $('pin2').value = ''; await enter();
+  await sealToken(t, p1); token = t; sessionPin = p1; cloudKey = ''; $('tok').value = $('pin1').value = $('pin2').value = ''; await enter();
 };
 $('unlockBtn').onclick = async () => {
-  try { token = await openToken($('pin').value); $('pin').value = ''; await enter(); }
+  try { const pin = $('pin').value; token = await openToken(pin); sessionPin = pin; cloudKey = ''; if (localStorage.getItem(CLOUD_KEY)) { try { cloudKey = await openFrom(CLOUD_KEY, pin); } catch (e) { /* key stays locked */ } } $('pin').value = ''; await enter(); }
   catch (e) { $('lockMsg').textContent = 'PIN गलत है।'; }
 };
 $('pin').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('unlockBtn').click(); });
 $('forgetBtn').onclick = () => { if (confirm('इस फ़ोन से टोकन हटाएँ? दोबारा सेटअप करना होगा।')) { localStorage.removeItem(STORE_KEY); showLock(); } };
-$('lockBtn').onclick = () => { if (dirty && !confirm('बदलाव प्रकाशित नहीं हुए। फिर भी बंद करें?')) return; token = null; shop = {}; showLock(); };
+$('lockBtn').onclick = () => { if (dirty && !confirm('बदलाव प्रकाशित नहीं हुए। फिर भी बंद करें?')) return; token = null; sessionPin = null; cloudKey = ''; shop = {}; showLock(); };
 
 /* ---------- GitHub ---------- */
 async function gh(method, path, body) {
@@ -385,14 +390,22 @@ async function fetchShop() {
 }
 async function enter() {
   say('लोड हो रहा है…');
-  try {
-    const f = await fetchShop(); baseSha = f.sha; baseText = f.text; shop = JSON.parse(f.text);
-  } catch (e) {
-    $('lock').classList.remove('hide'); $('lockMsg').textContent = explain(e); return;
+  let f = null, offline = false;
+  try { f = await fetchShop(); await Sync.saveCache(f); }
+  catch (e) {
+    if (e.status) { $('lock').classList.remove('hide'); $('lockMsg').textContent = explain(e); return; }
+    f = await Sync.loadCache(); offline = true;
+    if (!f) { $('lock').classList.remove('hide'); $('lockMsg').textContent = 'पहली बार इंटरनेट चाहिए। नेट आने पर दोबारा खोलिए।'; return; }
   }
-  $('lock').classList.add('hide'); $('panel').classList.remove('hide'); $('bar').classList.remove('hide'); $('lockBtn').classList.remove('hide'); $('saathiFab').classList.remove('hide');
+  baseSha = f.sha; baseText = f.text; shop = JSON.parse(f.text);
   shop.settings ||= {}; shop.offers ||= []; shop.products ||= []; shop.features ||= {}; shop.gallery ||= [];
-  renderAll(); markDirty(false); say('तैयार। सामान जोड़ें या बदलें, फिर “प्रकाशित करें” दबाएँ।');
+  const d = await Sync.restoreDraft();
+  shop.settings ||= {}; shop.offers ||= []; shop.products ||= []; shop.features ||= {}; shop.gallery ||= [];
+  $('lock').classList.add('hide'); $('panel').classList.remove('hide'); $('bar').classList.remove('hide'); $('lockBtn').classList.remove('hide'); $('saathiFab').classList.remove('hide');
+  renderAll(); markDirty(d.restored);
+  if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
+  say((offline ? 'ऑफ़लाइन खुला (पिछली सेव कॉपी से)। ' : '') + (d.restored ? 'पिछले अधूरे बदलाव फ़ोन से वापस आ गए। ' + (d.notes.length ? 'ध्यान दें: ' + d.notes.join('; ') + '। ' : '') : '') + (d.restored || offline ? '' : 'तैयार। सामान जोड़ें या बदलें, फिर “प्रकाशित करें” दबाएँ।'), d.restored ? 'info' : 'ok');
+  Sync.tick();
 }
 
 /* ---------- render ---------- */
@@ -589,28 +602,7 @@ function problems() {
   shop.products.forEach((p) => { const n = (p.name && p.name.en) || '?'; if (!p.variants || !p.variants.length) out.push(n + ': कोई रूप नहीं'); (p.variants || []).forEach((v) => { if (!p.callForBest && !(v.price > 0)) out.push(n + ': कीमत नहीं'); }); });
   return out;
 }
-$('publish').onclick = async () => {
-  readShop(); const bad = problems(); if (bad.length) return say('पहले ठीक करें: ' + bad.join(' · '), 'bad');
-  const btn = $('publish'); btn.disabled = true;
-  try {
-    say('जाँच रहे हैं…');
-    const latest = await fetchShop();
-    if (latest.sha !== baseSha && !confirm('इस बीच फ़ाइल किसी और ने बदली है। फिर भी आपका नया रूप लिखें?')) { btn.disabled = false; return say('रद्द किया।'); }
-    // Photos first, so the file never points at a picture that is not there yet.
-    const used = new Set([...shop.products.flatMap((p) => p.imageUrls || []), ...(shop.gallery || []).map((g) => g.url), ...shop.offers.map((o) => o.imageUrl), ...(shop.designs || []).map((d) => d.photoUrl)].filter(Boolean).map((u) => u.split('/').pop())); let n = 0;
-    for (const [name, img] of pending) {
-      if (!used.has(name)) { pending.delete(name); continue; }
-      say(`फ़ोटो भेज रहे हैं… ${++n}/${[...pending.keys()].filter((k) => used.has(k)).length}`);
-      await gh('PUT', (img.dir || IMG_DIR) + '/' + name, { message: 'Shop photo (admin panel)', content: img.b64, branch: BRANCH });
-      pending.delete(name);
-    }
-    say('प्रकाशित हो रहा है…');
-    const text = JSON.stringify(shop, null, 2) + '\n';
-    const res = await gh('PUT', FILE, { message: 'Shop update (admin panel)', content: utf8ToB64(text), sha: latest.sha, branch: BRANCH });
-    baseSha = res.content.sha; baseText = text; markDirty(false); renderRaw();
-    say('✓ प्रकाशित हो गया। ऐप में 1–5 मिनट में दिखेगा (ऐप दोबारा खोलें)।', 'ok');
-  } catch (e) { btn.disabled = false; say('प्रकाशित नहीं हुआ: ' + explain(e), 'bad'); }
-};
+$('publish').onclick = () => Sync.publish();
 window.addEventListener('beforeunload', (e) => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
 
 /* ---------- design studio ---------- */
@@ -708,9 +700,19 @@ window.AdminAPI = {
   shop: () => shop,
   mutate(fn) { const snap = JSON.stringify(shop); fn(shop); shop.settings ||= {}; shop.offers ||= []; shop.products ||= []; renderAll(); markDirty(); return snap; },
   restore(snap) { shop = JSON.parse(snap); shop.settings ||= {}; shop.offers ||= []; shop.products ||= []; shop.features ||= {}; shop.gallery ||= []; renderAll(); markDirty(); },
-  publish() { if (!dirty) { say('अभी कोई बदलाव प्रकाशित करने के लिए नहीं है।'); return; } $('publish').click(); },
+  publish() { if (!dirty && !(window.Sync && Sync.queued())) { say('अभी कोई बदलाव प्रकाशित करने के लिए नहीं है।'); return; } Sync.publish(); },
   dirty: () => dirty, slug, rid,
-  addPhoto: (file, base) => addPhoto(file, base, IMG_DIR)
+  addPhoto: (file, base) => addPhoto(file, base, IMG_DIR),
+  // used by sync.js (offline drafts, merge, queued publish)
+  state: () => ({ shop, baseSha, baseText, pending }),
+  setShop(x) { shop = x; shop.settings ||= {}; shop.offers ||= []; shop.products ||= []; shop.features ||= {}; shop.gallery ||= []; renderAll(); },
+  setBase(sha, text) { baseSha = sha; baseText = text; },
+  clean() { markDirty(false); renderRaw(); },
+  signedIn: () => !!token, readShop: () => readShop(), problems: () => problems(), say: (t, k) => say(t, k), fetchShop: () => fetchShop(), gh: (m, p, b) => gh(m, p, b), explain: (e) => explain(e), utf8ToB64: (t) => utf8ToB64(t),
+  FILE, IMG_DIR, BRANCH,
+  // optional cloud-AI key, kept on this phone sealed with the owner's PIN
+  cloudKey: () => cloudKey,
+  async setCloudKey(k) { if (!sessionPin) throw new Error('पहले पैनल खोलिए'); if (!k) { localStorage.removeItem(CLOUD_KEY); cloudKey = ''; return; } await sealTo(CLOUD_KEY, k, sessionPin); cloudKey = k; }
 };
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 let installEvt = null;
@@ -720,6 +722,7 @@ window.addEventListener('appinstalled', () => { $('installBtn').style.display = 
 
 showLock();
 </script>
+<script src="sync.js"></script>
 <script src="saathi/kb.js"></script>
 <script src="saathi/llm.js"></script>
 <script src="saathi/saathi.js"></script>
