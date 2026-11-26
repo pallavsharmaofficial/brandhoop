@@ -175,6 +175,38 @@ body:after{content:"";position:absolute;left:0;right:0;bottom:0;height:7mm;backg
 .r{position:absolute;left:70px;bottom:62px;right:70px}.r b{display:block;font-size:54px;font-weight:800}.r span{display:block;font-size:30px;font-weight:600;color:var(--orange2);margin-top:10px}.r em{display:block;font-style:normal;font-size:26px;font-weight:600;color:#cfd5ea;margin-top:12px}
 body:after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:var(--orange)}''', out_png='site/og-image.png')
 
+
+# ------------------------------------------------------------------ A5 counter card in the Tech Grid style (trim 148 x 210 mm, plus a copy with 3 mm bleed)
+APP_URL = 'https://pallavsharmaofficial.github.io/brandhoop/app/'
+TAG_CARD_HI = 'नया फोन हो या रिपेयरिंग का काम, हर ज़रूरत का एक ही मुकाम'
+def counter_tech():
+    for name, b in (('counter-card-a5-trim', 0), ('counter-card-a5-bleed', 3)):
+        w, h = 148 + 2 * b, 210 + 2 * b
+        body = f"""<div class="art"></div><div class="in" style="left:{b}mm;top:{b}mm">
+<div class="lg">{hlogo('68mm', 'dark')}</div>
+<h1 class="hi"><span>ऐप खोलो,</span><span class="o">ख़ुद सब देख लो</span></h1>
+<div class="chip hi">फ़ोन और एक्सेसरीज़ · सब कुछ यहीं</div>
+<div class="qc"><div class="qr">{qr(APP_URL, P['navy'], '65mm')}</div><div class="cap hi">QR स्कैन करो → ऐप खुलेगा</div></div>
+<div class="tg hi">{TAG_CARD_HI}</div>
+<div class="ad hi">{C['addr_hi']}</div>
+<div class="ph"><span class="hi">कॉल / WhatsApp</span> <b>{C['phone']}</b><i>·</i><span>{C['web_short']}</span></div></div>
+<div class="bar" style="height:{4 + b}mm"></div>"""
+        css = f"""body{{background:linear-gradient(165deg,#1F2744 0%,#141A33 55%,#0B0F1C 100%);color:#fff}}
+.art{{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.055) 0 .25mm,transparent .25mm 8mm),repeating-linear-gradient(90deg,rgba(255,255,255,.055) 0 .25mm,transparent .25mm 8mm)}}
+.art:after{{content:"";position:absolute;inset:0;background:url(../../../site/brand/cards/lineart.png) center top/160mm auto repeat;opacity:.05}}
+.in{{position:absolute;width:148mm;height:210mm}}
+.lg{{position:absolute;left:0;right:0;top:11mm;display:flex;justify-content:center}}
+h1{{position:absolute;left:0;right:0;top:43mm;text-align:center;font-size:14mm;line-height:1.18;font-weight:800}}h1 span{{display:block}}h1 .o{{color:var(--orange2)}}
+.chip{{position:absolute;left:0;right:0;top:79mm;margin:0 auto;width:max-content;border:.5mm solid var(--orange);color:#fff;border-radius:6mm;padding:1.4mm 5mm;font-size:4.2mm;font-weight:700;background:rgba(216,102,42,.16)}}
+.qc{{position:absolute;left:0;right:0;top:93mm;margin:0 auto;width:79mm;background:#fff;border-radius:6mm;padding:6mm 6mm 4mm;box-shadow:0 2mm 8mm rgba(0,0,0,.4);border:1.2mm solid var(--orange)}}
+.qr{{display:block;width:65mm;height:65mm}}.qr svg{{display:block}}
+.cap{{margin-top:3mm;text-align:center;font-size:4.6mm;font-weight:800;color:var(--navy)}}
+.tg{{position:absolute;left:10mm;right:10mm;top:184mm;text-align:center;font-size:4.1mm;font-weight:700;color:#fff}}
+.ad{{position:absolute;left:8mm;right:8mm;top:192mm;text-align:center;font-size:3.1mm;font-weight:600;color:#C5CCE4}}
+.ph{{position:absolute;left:0;right:0;top:197.5mm;text-align:center;font-size:3.2mm;font-weight:600;color:#C5CCE4;white-space:nowrap}}.ph b{{color:#fff;font-size:3.8mm;font-weight:800}}.ph i{{margin:0 2mm;font-style:normal;color:var(--orange2)}}
+.bar{{position:absolute;left:0;right:0;bottom:0;background:var(--orange)}}"""
+        page(name, w, h, body, css=css, unit='mm', out_png=OUTB + f'print/cards/{name}-300dpi.png', pdf=OUTB + f'print/cards/{name}.pdf', dsf=3.125)
+
 # ------------------------------------------------------------------ app and web icons
 def icons():
     tile = f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">{mark_defs("ia")}<rect width="1024" height="1024" fill="{P["paper"]}"/><g transform="translate(512 512) scale(1.5) translate(-521 -412)">{mark_inner("color", "ia")}</g></svg>'
@@ -201,6 +233,6 @@ def logo_pngs():
     page('png-brandhoop-mark', 1200, 1200, f'<div class="c">{mark("900px")}</div>', css='body{background:transparent}.c{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}', out_png=OUTB + 'logo/brandhoop-mark.png')
 
 if __name__ == '__main__':
-    cards(); poster(); social(); misc(); icons(); logo_pngs()
+    cards(); poster(); social(); misc(); counter_tech(); icons(); logo_pngs()
     (BUILD / 'manifest.json').write_text(json.dumps(MANIFEST, ensure_ascii=False, indent=1))
     print(len(MANIFEST), 'pages')

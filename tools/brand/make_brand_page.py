@@ -10,7 +10,10 @@ LOGOS = [('Logo', 'brandhoop-logo', 'light'), ('Logo on dark', 'brandhoop-logo-o
 PRINT = [('Business card, front', 'business-card-front.png', ''), ('Business card, back', 'business-card-back.png', ''), ('A4 poster', 'poster-a4.png', 'poster-a4.pdf'),
          ('WhatsApp status', 'whatsapp-status.png', ''), ('Instagram post', 'instagram-post.png', ''), ('Profile picture', 'profile-picture.png', ''), ('Facebook cover', 'facebook-cover.png', ''),
          ('Google profile cover', 'google-profile-cover.png', ''), ('Shop board 3:1', 'shop-board-3x1.png', 'shop-board-3x1.pdf'), ('Letterhead A4', 'letterhead-a4.png', 'letterhead-a4.pdf'),
-         ('Counter card A5', 'counter-card-a5.png', 'counter-card-a5.pdf')] + [(f'Highlight: {n}', f'highlight-{n.lower().replace(" ", "-")}.png', '') for n in ['Phones', 'Accessories', 'Skin cutting', 'Repair', 'EMI', 'Shop tour', 'Customers']]
+         ('Counter card A5 (light, landscape)', 'counter-card-a5.png', 'counter-card-a5.pdf'),
+         ('Counter card A5 portrait, Tech Grid (trim)', 'cards/counter-card-a5-trim-300dpi.png', 'cards/counter-card-a5-trim.pdf'), ('Counter card A5 portrait, Tech Grid (3 mm bleed)', 'cards/counter-card-a5-bleed-300dpi.png', 'cards/counter-card-a5-bleed.pdf'),
+         ('Visiting card front, 600 dpi', 'cards/visiting-card-front-600dpi.png', 'cards/visiting-card-print-trim-size.pdf'), ('Visiting card back, 600 dpi', 'cards/visiting-card-back-600dpi.png', ''),
+         ('Visiting card front + 3 mm bleed', 'cards/visiting-card-front-bleed-600dpi.png', 'cards/visiting-card-print-with-3mm-bleed.pdf'), ('Visiting card back + 3 mm bleed', 'cards/visiting-card-back-bleed-600dpi.png', '')] + [(f'Highlight: {n}', f'highlight-{n.lower().replace(" ", "-")}.png', '') for n in ['Phones', 'Accessories', 'Skin cutting', 'Repair', 'EMI', 'Shop tour', 'Customers']]
 COLORS = [('Navy', '#1F2744'), ('Navy 2', '#2B3558'), ('Slate', '#566170'), ('Slate light', '#8B94A0'), ('Orange', '#D8662A'), ('Orange light', '#F08A45'), ('Orange dark', '#A9481C'), ('Paper', '#F6F6F6')]
 
 def esc(s): return html.escape(s)

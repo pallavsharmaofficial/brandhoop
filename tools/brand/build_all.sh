@@ -6,6 +6,8 @@ python3 tools/brand/logo.py
 python3 tools/brand/make_assets.py
 (cd tools/brand && node shoot.js)
 python3 tools/brand/resize_icons.py
+node tools/brand/export_cards.js
+python3 tools/brand/make_print_pdfs.py
 python3 tools/brand/make_brand_page.py
 dart run flutter_launcher_icons
 dart run flutter_native_splash:create

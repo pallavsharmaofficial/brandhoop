@@ -192,6 +192,23 @@
     function dl(side) { var st = cur(), c = document.createElement('canvas'); render(c, st, side, 1); c.toBlob(function (b) { var a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'brandhoop-card-' + st.id + '-' + side + '.png'; a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000); }, 'image/png'); }
     $('dlF').onclick = function () { dl('front'); }; $('dlB').onclick = function () { dl('back'); };
   }
+
+  // Used by tools/brand/export_cards.js to make print files: render(styleId, side, scale, bleedPx) returns a canvas, with the edge pixels stretched into the bleed.
+  window.CardStudioAPI = {
+    set: function (o) { Object.keys(o).forEach(function (k) { S[k] = o[k]; }); },
+    ready: function () { return !!(lineart.naturalWidth && Object.keys(logos).every(function (k) { return logos[k].naturalWidth; })); },
+    render: function (id, side, scale, bleed) {
+      var st = STYLES.filter(function (s) { return s.id === id; })[0], c = document.createElement('canvas'); render(c, st, side, scale);
+      if (!bleed) return c;
+      var b = Math.round(bleed * scale), w = c.width, h = c.height, o = document.createElement('canvas'), g = o.getContext('2d'); o.width = w + 2 * b; o.height = h + 2 * b;
+      g.drawImage(c, b, b); var i = Math.round(4 * scale); // stretch pixels from a few px inside, so a grid line or frame on the very edge is not smeared into the bleed
+      g.drawImage(c, i, 0, 1, h, 0, b, b, h); g.drawImage(c, w - 1 - i, 0, 1, h, w + b, b, b, h);
+      g.drawImage(c, 0, i, w, 1, b, 0, w, b); g.drawImage(c, 0, h - 1 - i, w, 1, b, h + b, w, b);
+      g.drawImage(c, i, i, 1, 1, 0, 0, b, b); g.drawImage(c, w - 1 - i, i, 1, 1, w + b, 0, b, b);
+      g.drawImage(c, i, h - 1 - i, 1, 1, 0, h + b, b, b); g.drawImage(c, w - 1 - i, h - 1 - i, 1, 1, w + b, h + b, b, b);
+      return o;
+    }
+  };
   load(); build(); bind(); fill();
   (document.fonts && document.fonts.load ? Promise.all([document.fonts.load('800 40px Montserrat'), document.fonts.load('700 20px Montserrat'), document.fonts.load('700 20px "Noto Sans Devanagari"'), document.fonts.load('800 40px "Noto Sans Devanagari"')]).catch(function () { }) : Promise.resolve()).then(refresh);
   refresh();
