@@ -141,16 +141,23 @@ def _real_inner(uid):
     g.append(f'<rect x="460" y="181" width="110" height="31" rx="15.5" fill="url(#{u}pill)" stroke="#0F131A" stroke-width="1.5"/>'
              f'<rect x="466" y="184" width="98" height="3" rx="1.5" fill="#fff" opacity=".07"/>'
              f'<circle cx="552" cy="196.5" r="7" fill="#1A2030" stroke="#3A4258" stroke-width="1.5"/><circle cx="552" cy="196.5" r="3.2" fill="#2F3C66"/><circle cx="550.8" cy="195.2" r="1.1" fill="#fff" opacity=".7"/>')
-    # engraved plug icon: dark inset shadow, orange line, light edge
-    for d in PLUG:
-        g.append(f'<path d="{d}" fill="none" stroke="#0E1218" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" opacity=".6" filter="url(#{u}bl2)" transform="translate(0,2)"/>')
-    for d in PLUG:
-        g.append(f'<path d="{d}" fill="none" stroke="url(#{u}or)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>')
-        g.append(f'<path d="{d}" fill="none" stroke="#F7B27D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".55" transform="translate(0,-1.8)"/>')
-    g.append(f'<circle cx="507" cy="286.5" r="15" fill="#0E1218" opacity=".45" filter="url(#{u}bl2)" transform="translate(0,2)"/>'
-             f'<circle cx="507" cy="286.5" r="12.5" fill="url(#{u}or)"/><circle cx="511" cy="283" r="4.3" fill="#2B1A12"/><circle cx="512.3" cy="281.8" r="1.4" fill="#F7B27D"/>')
+    # engraved charger: a D-shaped plug body with a slot, two prongs, and an "eye" looking up and to the right
+    DP = 'M447 256H504.5A32.5 32.5 0 0 1 504.5 321H447Z'
+    BAR = 'M461.6 256V321'
+    PRONG = 'M412 278H447M412 300H447'
+    g.append(f'<path d="{DP}" fill="#0E1218" stroke="#0E1218" stroke-width="15" stroke-linejoin="round" opacity=".55" filter="url(#{u}bl2)" transform="translate(0,2.5)"/>')
+    g.append(f'<path d="{PRONG}" stroke="#0E1218" stroke-width="13" stroke-linecap="round" opacity=".55" filter="url(#{u}bl2)" transform="translate(0,2.5)"/>')
+    g.append(f'<path d="{DP}" fill="#252A34"/><path d="{DP}" fill="none" stroke="#10141B" stroke-width="3" opacity=".6" transform="translate(0,3)" clip-path="url(#{u}cb)"/>')
+    for d, w in ((PRONG, 7), (DP, 6.2), (BAR, 5)):
+        g.append(f'<path d="{d}" fill="none" stroke="#5A2610" stroke-width="{w+2.2}" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>')
+    for d, w in ((PRONG, 7), (DP, 6.2), (BAR, 5)):
+        g.append(f'<path d="{d}" fill="none" stroke="url(#{u}or)" stroke-width="{w}" stroke-linecap="round" stroke-linejoin="round"/>')
+        g.append(f'<path d="{d}" fill="none" stroke="#F7B27D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".4" transform="translate(0,-1.9)"/>')
+    g.append(f'<circle cx="510.6" cy="286" r="15.6" fill="#5A2610" opacity=".85"/><circle cx="510.6" cy="286" r="14.2" fill="url(#{u}or)"/>'
+             f'<circle cx="515.2" cy="282.4" r="5.4" fill="#C86A30"/><circle cx="515.2" cy="282.4" r="4.2" fill="#2A2D36"/>')
     # engraved dot
-    g.append(f'<circle cx="583" cy="286" r="16" fill="#0E1218" opacity=".6" filter="url(#{u}bl2)" transform="translate(0,2.5)"/><circle cx="583" cy="286" r="14.5" fill="#2A3039"/><circle cx="583" cy="286.5" r="12.5" fill="url(#{u}or)"/><circle cx="580" cy="283" r="3" fill="#fff" opacity=".18"/>')
+    g.append(f'<circle cx="584" cy="286" r="17.5" fill="#0E1218" opacity=".6" filter="url(#{u}bl2)" transform="translate(0,2.5)"/><circle cx="584" cy="286" r="15.6" fill="#262B34"/>'
+             f'<circle cx="584" cy="286.8" r="13.6" fill="url(#{u}or)"/><path d="M570.6 284A13.6 13.6 0 0 1 597.4 284" fill="none" stroke="#000" stroke-width="3" opacity=".25"/>')
     # fingerprint well
     g.append(f'<circle cx="523" cy="518" r="72" fill="#0B0F15" opacity=".55" filter="url(#{u}bl4)" transform="translate(0,5)"/>'
              f'<circle cx="523" cy="518" r="69" fill="url(#{u}ring)"/><circle cx="523" cy="518" r="64.5" fill="url(#{u}fp)"/>'
