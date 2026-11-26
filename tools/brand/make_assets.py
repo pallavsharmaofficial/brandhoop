@@ -17,7 +17,7 @@ BUILD = HERE / 'build'; BUILD.mkdir(exist_ok=True)
 FONT = (HERE / 'fonts').as_uri()
 
 CONTENT = {
-    'name': 'Brandhoop Mobile Point', 'owner': 'Naresh Saini', 'phone': '86197 67291', 'phone_raw': '918619767291',
+    'name': 'Brandhoop Mobile Point', 'owner': 'Naresh Saini', 'phone': '86197 67291', 'phone2': '72399 38540', 'phone2_raw': '917239938540', 'phone_raw': '918619767291',
     'addr_en': 'Gate No. 5, Kamla Modi Market, Neem Ka Thana, Rajasthan 332713', 'addr_hi': 'गेट नं. 5, कमला मोदी मार्केट, नीम का थाना, राजस्थान 332713',
     'web': 'https://pallavsharmaofficial.github.io/brandhoop/', 'web_short': 'pallavsharmaofficial.github.io/brandhoop',
     'tag_hi': 'मोबाइल · एक्सेसरी · स्किन कटिंग · रिपेयरिंग · EMI', 'headline_hi': 'नया फ़ोन? आज की कीमत पूछें',
@@ -87,7 +87,7 @@ def cards():
 .f{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}.f svg{height:auto}
 body:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3.2mm;background:var(--orange)}''', unit='mm', out_png=OUTB + 'print/business-card-front.png', pdf=None, dsf=3.125)
     back = f'''<div class="l"><div class="nm">{H.escape(C['owner'])}</div><div class="rl">{H.escape(C['name'])}</div>
-<div class="ln">{ico('phone', 13, 'var(--orange)')}<span>{C['phone']}</span></div>
+<div class="ln">{ico('phone', 13, 'var(--orange)')}<span>{C['phone']} · {C['phone2']}</span></div>
 <div class="ln">{ico('chat', 13, 'var(--orange)')}<span>WhatsApp</span></div>
 <div class="ln">{ico('pin', 13, 'var(--orange)')}<span class="hi">{H.escape(C['addr_hi'].replace(', राजस्थान 332713', ''))}</span></div>
 <div class="ln">{ico('globe', 13, 'var(--orange)')}<span>{C['web_short'].replace('pallavsharmaofficial.github.io','…github.io')}</span></div></div>
@@ -103,7 +103,7 @@ body:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3.2mm;bac
 def poster():
     body = f'''<div class="top"><div class="lg">{logo_dark("100mm")}</div><h1 class="hi">{C['headline_hi']}</h1><p class="hi">नए फ़ोन और एक्सेसरी, एक ही दुकान पर</p></div>
 <div class="mid"><div class="rows">
-<div class="rw">{ico('phone', 30, 'var(--orange)')}<div><b>{C['phone']}</b><span class="hi">कॉल या WhatsApp करें</span></div></div>
+<div class="rw">{ico('phone', 30, 'var(--orange)')}<div><b>{C['phone']} · {C['phone2']}</b><span class="hi">कॉल या WhatsApp करें</span></div></div>
 <div class="rw">{ico('pin', 30, 'var(--orange)')}<div><b class="hi">{C['addr_hi'].split(',')[0]}, {C['addr_hi'].split(',')[1].strip()}</b><span class="hi">{', '.join(x.strip() for x in C['addr_hi'].split(',')[2:])}</span></div></div>
 <div class="rw">{ico('globe', 30, 'var(--orange)')}<div><b style="font-size:4.2mm;word-break:normal">{C['web_short']}</b><span class="hi">ऐप और सारे फ़ोन देखें</span></div></div></div>
 <div class="qr">{qr(C['web'], P['navy'], '46mm')}<div class="hi">ऐप खोलने के लिए स्कैन करें</div></div></div>
@@ -125,15 +125,15 @@ def social():
     status = f'''<div class="m">{mark("430px")}</div><h1 class="hi">{C['headline_hi']}</h1><p class="hi">नए फ़ोन और एक्सेसरी, एक ही दुकान पर</p>
 <div class="ch hi"><span>मोबाइल</span><span>एक्सेसरी</span><span>स्किन कटिंग</span><span>रिपेयरिंग</span></div>
 <div class="nm">BRAND<i>HOOP</i></div><div class="sb">MOBILE POINT · <span class="hi">नीम का थाना</span></div>
-<div class="bar"><b>कॉल / WhatsApp: {C['phone']}</b></div>'''
+<div class="bar"><b>कॉल / WhatsApp: {C['phone']} · {C['phone2']}</b></div>'''
     page('status', 1080, 1920, status, css='''body{background:radial-gradient(130% 90% at 80% 0%,var(--navy2),var(--navy) 62%);color:#fff;text-align:center}
 .m{padding-top:130px}h1{font-size:84px;font-weight:800;line-height:1.2;margin:70px 60px 0}p{font-size:42px;font-weight:600;color:var(--orange2);margin-top:26px}
 .ch{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:60px 50px 0}.ch span{border:3px solid var(--orange);color:#fff;border-radius:60px;padding:12px 30px;font-size:34px;font-weight:700}
 .nm{position:absolute;left:0;right:0;bottom:290px;font-size:78px;font-weight:800;letter-spacing:.01em}.nm i{font-style:normal;color:var(--orange)}
 .sb{position:absolute;left:0;right:0;bottom:225px;font-size:36px;font-weight:600;letter-spacing:.12em;color:var(--orange2)}
-.bar{position:absolute;left:60px;right:60px;bottom:90px;background:var(--orange);border-radius:30px;padding:30px;font-size:46px;color:#fff}''', out_png=OUTB + 'print/whatsapp-status.png')
+.bar{position:absolute;left:60px;right:60px;bottom:90px;background:var(--orange);border-radius:30px;padding:30px;font-size:40px;color:#fff}''', out_png=OUTB + 'print/whatsapp-status.png')
     post = f'''<div class="m">{mark("360px")}</div><div class="t"><h1 class="hi">नए फ़ोन<br>और एक्सेसरी</h1><p class="hi">एक ही दुकान पर</p><div class="ch hi"><span>स्किन कटिंग</span><span>रिपेयरिंग</span><span>EMI</span></div></div>
-<div class="ft"><div class="nm">BRAND<i>HOOP</i> <small>MOBILE POINT</small></div><div class="hi">{C['phone']} · गेट नं. 5, कमला मोदी मार्केट, नीम का थाना</div></div>'''
+<div class="ft"><div class="nm">BRAND<i>HOOP</i> <small>MOBILE POINT</small></div><div class="hi">{C['phone']} · {C['phone2']}<br>गेट नं. 5, कमला मोदी मार्केट, नीम का थाना</div></div>'''
     page('instagram-post', 1080, 1350, post, css='''body{background:var(--paper)}
 .m{position:absolute;left:70px;top:150px}.t{position:absolute;left:520px;top:150px;width:490px}
 h1{font-size:72px;font-weight:800;line-height:1.15;color:var(--navy)}p{font-size:46px;font-weight:700;color:var(--orange);margin-top:22px}
@@ -155,15 +155,15 @@ h1{font-size:72px;font-weight:800;line-height:1.15;color:var(--navy)}p{font-size
 # ------------------------------------------------------------------ shop board 3:1, letterhead, counter card, og image
 def misc():
     board = f'''<div class="m">{mark("760px")}</div><div class="t"><div class="nm">BRAND<i>HOOP</i></div><div class="sb">MOBILE POINT</div><div class="hi sv">{C['tag_hi']}</div>
-<div class="hi ad">{C['addr_hi'].replace(', राजस्थान 332713', '')}</div></div><div class="ph"><span class="hi">कॉल / WhatsApp</span><b>{C['phone']}</b></div><div class="st"></div>'''
+<div class="hi ad">{C['addr_hi'].replace(', राजस्थान 332713', '')}</div></div><div class="ph"><span class="hi">कॉल / WhatsApp</span><b>{C['phone']}<br>{C['phone2']}</b></div><div class="st"></div>'''
     page('shop-board', 3600, 1200, board, css='''body{background:radial-gradient(100% 140% at 85% 0%,var(--navy2),var(--navy) 62%);color:#fff}
 .m{position:absolute;left:150px;top:200px}.t{position:absolute;left:1000px;top:150px}
 .nm{font-size:300px;font-weight:800;line-height:1;letter-spacing:.005em}.nm i{font-style:normal;color:var(--orange)}.sb{font-size:120px;font-weight:600;letter-spacing:.18em;color:var(--orange2);margin-top:10px}
 .sv{font-size:96px;font-weight:700;margin-top:60px}.ad{font-size:64px;font-weight:600;color:#cfd5ea;margin-top:34px}
-.ph{position:absolute;right:120px;bottom:130px;text-align:right}.ph span{display:block;font-size:56px;font-weight:700;color:var(--orange2)}.ph b{font-size:150px;font-weight:800}
+.ph{position:absolute;right:120px;bottom:130px;text-align:right}.ph span{display:block;font-size:56px;font-weight:700;color:var(--orange2)}.ph b{font-size:112px;font-weight:800;line-height:1.1}
 .st{position:absolute;left:0;right:0;bottom:0;height:60px;background:var(--orange)}''', out_png=OUTB + 'print/shop-board-3x1.png', pdf=OUTB + 'print/shop-board-3x1.pdf')
     lh = f'''<div class="h">{hlogo("86mm")}</div><div class="w">{mark("120mm", 'solid', body_color='#1F2744', detail_color='#F6F6F6')}</div>
-<div class="ft"><span>{C['phone']}</span><span class="hi">{C['addr_hi']}</span><span>{C['web_short']}</span></div>'''
+<div class="ft"><span>{C['phone']} · {C['phone2']}</span><span class="hi">{C['addr_hi']}</span><span>{C['web_short']}</span></div>'''
     page('letterhead-a4', 210, 297, lh, css='''body{background:#fff}.h{position:absolute;left:18mm;top:14mm}.h svg{height:auto}.w{position:absolute;right:-20mm;top:92mm;opacity:.05}
 .ft{position:absolute;left:0;right:0;bottom:0;height:14mm;background:var(--navy);color:#fff;display:flex;gap:10mm;align-items:center;justify-content:center;font-size:3.2mm;font-weight:600;border-top:1.2mm solid var(--orange)}''', unit='mm', out_png=OUTB + 'print/letterhead-a4.png', pdf=OUTB + 'print/letterhead-a4.pdf', dsf=1240 / (210 / 25.4 * 96))
     cc = f'''<div class="l">{mark("70mm")}</div><div class="r"><h1 class="hi">ऐप खोलें<br>सारे फ़ोन देखें</h1><div class="q">{qr(C['web'], P['navy'], '62mm')}</div><p class="hi">कैमरा खोलें, QR स्कैन करें, फिर कॉल या WhatsApp करें: <b>{C['phone']}</b></p></div>'''
@@ -189,7 +189,7 @@ def counter_tech():
 <div class="qc"><div class="qr">{qr(APP_URL, P['navy'], '65mm')}</div><div class="cap hi">QR स्कैन करो → ऐप खुलेगा</div></div>
 <div class="tg hi">{TAG_CARD_HI}</div>
 <div class="ad hi">{C['addr_hi']}</div>
-<div class="ph"><span class="hi">कॉल / WhatsApp</span> <b>{C['phone']}</b><i>·</i><span>{C['web_short']}</span></div></div>
+<div class="ph"><span class="hi">कॉल / WhatsApp</span> <b>{C['phone']}</b><i>·</i><b>{C['phone2']}</b></div></div>
 <div class="bar" style="height:{4 + b}mm"></div>"""
         css = f"""body{{background:linear-gradient(165deg,#1F2744 0%,#141A33 55%,#0B0F1C 100%);color:#fff}}
 .art{{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.055) 0 .25mm,transparent .25mm 8mm),repeating-linear-gradient(90deg,rgba(255,255,255,.055) 0 .25mm,transparent .25mm 8mm)}}

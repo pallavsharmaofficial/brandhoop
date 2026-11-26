@@ -7,7 +7,7 @@
     hi: { name: 'नरेश सैनी', role: 'मालिक', tagline: 'नए फ़ोन और एक्सेसरी, एक ही दुकान पर', address: 'गेट नं. 5, कमला मोदी मार्केट, नीम का थाना, राजस्थान 332713', services: 'मोबाइल · एक्सेसरी · रिपेयर · स्किन कटिंग · EMI' },
     en: { name: 'Naresh Saini', role: 'Owner', tagline: 'New phones and accessories, one shop', address: 'Gate No. 5, Kamla Modi Market, Neem Ka Thana, Rajasthan 332713', services: 'Mobiles · Accessories · Repair · Skin cutting · EMI' }
   };
-  var COMMON = { phone: '86197 67291', wa: '86197 67291', web: 'pallavsharmaofficial.github.io/brandhoop' };
+  var COMMON = { phone: '86197 67291', phone2: '72399 38540', wa: '86197 67291', web: 'pallavsharmaofficial.github.io/brandhoop' };
   var MAPS = 'https://www.google.com/maps/place/Brandhoop+Mobile+Point/@27.7415504,75.7817561,17z/data=!3m1!4b1!4m6!3m5!1s0x396d275817d19c4f:0x92f9965c781103ad!8m2!3d27.7415504!4d75.7817561!16s%2Fg%2F11g1lxn9kc';
   var KEY = 'brandhoopCardStudio1';
   var S = { lang: 'hi', style: 'phonewall', f: {}, primary: '#1F2744', accent: '#D8662A', qrt: 'wa', artAll: false };
@@ -64,7 +64,7 @@
     T(g, val('name'), x, y, 46, 800, ink(st), 'left', w); T(g, val('role'), x, y + 56, 24, 700, accentOn(st, P), 'left', w); return y + 96;
   }
   function contacts(g, P, st, x, y, w, size, lines) {
-    var same = String(val('phone')).replace(/\D/g, '') === String(val('wa')).replace(/\D/g, ''), items = lines || [['Call', val('phone') + (same ? '  (Call + WhatsApp)' : '')], ['WhatsApp', same ? '' : val('wa')], ['Web', val('web')]];
+    var same = String(val('phone')).replace(/\D/g, '') === String(val('wa')).replace(/\D/g, ''), items = lines || [['Call', val('phone') + (same ? '  (Call + WhatsApp)' : '')], ['Call 2', val('phone2')], ['WhatsApp', same ? '' : val('wa')], ['Web', val('web')]];
     items.forEach(function (it) { if (!it[1]) return; g.fillStyle = accentOn(st, P); g.beginPath(); g.arc(x + 6, y + size * 0.55, 5, 0, 7); g.fill(); T(g, it[1], x + 24, y, size, 700, ink(st), 'left', w - 24); y += size * 1.7; });
     return y;
   }
@@ -83,7 +83,7 @@
       if (st.deco === 'glow') { var rg = g.createRadialGradient(W * 0.85, H * 0.9, 10, W * 0.85, H * 0.9, 420); rg.addColorStop(0, P.A + '99'); rg.addColorStop(1, P.A + '00'); g.fillStyle = rg; g.fillRect(0, 0, W, H); }
       drawLogo(g, 'logo-horizontal-on-dark', 52, 40, 100);
       T(g, val('name'), 56, 372, 52, 800, '#FFFFFF', 'left', 640); T(g, val('role'), 56, 434, 26, 700, '#FFB486', 'left', 640);
-      T(g, val('phone'), 56, 486, 36, 800, '#FFFFFF', 'left', 640); T(g, val('tagline'), 56, 534, 20, 600, 'rgba(255,255,255,.85)', 'left', 940);
+      T(g, val('phone') + (val('phone2') ? '  ·  ' + val('phone2') : ''), 56, 488, 32, 800, '#FFFFFF', 'left', 700); T(g, val('tagline'), 56, 534, 20, 600, 'rgba(255,255,255,.85)', 'left', 940);
     } else if (L === 'left' || L === 'right') {
       var pw = 400, px = L === 'left' ? 0 : W - pw, cx = L === 'left' ? pw + 56 : 56, cw = W - pw - 112;
       photoOr(g, P, st, px, 0, pw, H);
@@ -104,8 +104,8 @@
       drawLogo(g, logoName(st, true), W / 2, 64, 118, 'center');
       T(g, val('name'), W / 2, 214, 46, 800, ik, 'center', W - 160); T(g, val('role'), W / 2, 270, 22, 700, accentOn(st, P), 'center');
       g.fillStyle = P.A; g.fillRect(W / 2 - 40, 318, 80, 3);
-      T(g, val('phone') + '   ·   ' + val('web'), W / 2, 346, 24, 700, ik, 'center', W - 140); g.font = '600 20px ' + FONT;
-      var ly = 396; wrap(g, val('address'), W - 220).slice(0, 2).forEach(function (l) { T(g, l, W / 2, ly, 20, 600, sub(st), 'center'); ly += 30; });
+      T(g, val('phone') + (val('phone2') ? '  ·  ' + val('phone2') : ''), W / 2, 340, 26, 700, ik, 'center', W - 140); T(g, val('web'), W / 2, 376, 18, 600, sub(st), 'center', W - 140); g.font = '600 20px ' + FONT;
+      var ly = 408; wrap(g, val('address'), W - 220).slice(0, 2).forEach(function (l) { T(g, l, W / 2, ly, 20, 600, sub(st), 'center'); ly += 30; });
       T(g, val('tagline'), W / 2, 484, 20, 600, sub(st), 'center', W - 160);
     } else if (L === 'stripe') {
       g.fillStyle = P.A; g.fillRect(0, 0, 110, H); g.save(); g.translate(70, H - 40); g.rotate(-Math.PI / 2); T(g, 'BRANDHOOP · MOBILE POINT', 0, 0, 26, 800, '#FFFFFF', 'left', H - 80); g.restore();
@@ -137,7 +137,7 @@
     g.fillStyle = P.A; g.fillRect(0, H - 14, W, 14);
     drawLogo(g, logoName(st, true), 56, 44, 96);
     var y = 190;
-    if (st.layout === 'center') { T(g, val('name'), 56, y, 42, 800, ik, 'left', 600); T(g, val('role'), 56, y + 50, 22, 700, accentOn(st, P), 'left'); y = contacts(g, P, st, 56, y + 96, 600, 24, [['Call', val('phone') + (String(val('phone')).replace(/\D/g, '') === String(val('wa')).replace(/\D/g, '') ? '  (Call + WhatsApp)' : '')], ['WhatsApp', String(val('phone')).replace(/\D/g, '') === String(val('wa')).replace(/\D/g, '') ? '' : val('wa')]]); }
+    if (st.layout === 'center') { T(g, val('name'), 56, y, 42, 800, ik, 'left', 600); T(g, val('role'), 56, y + 50, 22, 700, accentOn(st, P), 'left'); y = contacts(g, P, st, 56, y + 96, 600, 24, [['Call', val('phone') + (String(val('phone')).replace(/\D/g, '') === String(val('wa')).replace(/\D/g, '') ? '  (Call + WhatsApp)' : '')], ['Call 2', val('phone2')], ['WhatsApp', String(val('phone')).replace(/\D/g, '') === String(val('wa')).replace(/\D/g, '') ? '' : val('wa')]]); }
     else { g.font = '700 26px ' + FONT; wrap(g, val('tagline'), 560).slice(0, 3).forEach(function (l) { T(g, l, 56, y, 26, 700, ik, 'left'); y += 38; }); y += 10; }
     y = addr(g, P, st, 56, y + 4, 560, 19);
     T(g, val('services'), 56, Math.min(y + 20, H - 80), 18, 700, accentOn(st, P), 'left', 600);
@@ -173,9 +173,9 @@
   }
   function queue() { clearTimeout(timer); timer = setTimeout(refresh, 120); }
 
-  function fill() { ['name', 'role', 'phone', 'wa', 'web', 'address', 'tagline', 'services'].forEach(function (k) { $('f_' + k).value = val(k); }); $('lang').value = S.lang; $('c_primary').value = S.primary; $('c_accent').value = S.accent; $('qrt').value = S.qrt; $('artAll').checked = S.artAll; }
+  function fill() { ['name', 'role', 'phone', 'phone2', 'wa', 'web', 'address', 'tagline', 'services'].forEach(function (k) { $('f_' + k).value = val(k); }); $('lang').value = S.lang; $('c_primary').value = S.primary; $('c_accent').value = S.accent; $('qrt').value = S.qrt; $('artAll').checked = S.artAll; }
   function bind() {
-    ['name', 'role', 'phone', 'wa', 'web', 'address', 'tagline', 'services'].forEach(function (k) { $('f_' + k).addEventListener('input', function () { S.f[k] = $('f_' + k).value; save(); queue(); }); });
+    ['name', 'role', 'phone', 'phone2', 'wa', 'web', 'address', 'tagline', 'services'].forEach(function (k) { $('f_' + k).addEventListener('input', function () { S.f[k] = $('f_' + k).value; save(); queue(); }); });
     $('lang').onchange = function () { S.lang = $('lang').value; ['name', 'role', 'tagline', 'address', 'services'].forEach(function (k) { delete S.f[k]; }); save(); fill(); queue(); };
     $('c_primary').oninput = function () { S.primary = $('c_primary').value; save(); queue(); };
     $('c_accent').oninput = function () { S.accent = $('c_accent').value; save(); queue(); };
