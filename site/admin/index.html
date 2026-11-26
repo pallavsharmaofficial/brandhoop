@@ -66,6 +66,7 @@
 <header>
   <img src="../brand/logo/brandhoop-mark-white.svg" alt="" style="height:44px"><h1>ब्रांडहूप · दुकान पैनल<small>Brandhoop shop panel</small></h1>
   <a href="../shop-kit/" style="color:inherit;font-size:14px;margin-left:auto;margin-right:10px;text-decoration:underline">🖨️ प्रिंट किट</a><a href="../brand/" style="color:inherit;font-size:14px;margin-right:10px;text-decoration:underline">🎨 ब्रांड किट</a><a href="../brand/cards/" style="color:inherit;font-size:14px;margin-right:10px;text-decoration:underline">💳 कार्ड स्टूडियो</a>
+  <button class="alt" id="docBtn" type="button" style="padding:7px 12px;margin-right:6px">🩺 फ़ोन डॉक्टर</button>
   <span id="netBadge" style="font-size:12px;font-weight:700;border-radius:99px;padding:4px 10px;color:#fff;background:#566170;margin-right:6px;white-space:nowrap">…</span>
   <button class="alt" id="installBtn" style="padding:7px 12px;display:none">📲 इंस्टॉल</button>
   <button class="alt hide" id="lockBtn" style="padding:7px 12px">🔒 बंद</button>
@@ -723,6 +724,8 @@ window.addEventListener('appinstalled', () => { $('installBtn').style.display = 
 showLock();
 </script>
 <script src="sync.js"></script>
+<script src="doctor/parse.js"></script>
+<script src="doctor/doctor.js"></script>
 <script src="saathi/kb.js"></script>
 <script src="saathi/llm.js"></script>
 <script src="saathi/saathi.js"></script>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>फ़ोन केयर · Brandhoop Mobile Point</title>
+<meta name="description" content="फ़ोन धीमा है? बैटरी जल्दी ख़त्म? 1 मिनट में मुफ़्त जाँच और फ़ोन तेज़ करने के आसान तरीके। ब्रांडहूप मोबाइल पॉइंट, नीम का थाना।">
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#1F2744"><link rel="icon" type="image/png" href="../favicon.png"><link rel="apple-touch-icon" href="../admin/icons/icon-192.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@500;700;800&display=swap">
+<style>
+:root{--brand:#1F2744;--deep:#141A33;--accent:#D8662A;--ink:#14182B;--muted:#566170;--paper:#F6F6F6;--card:#fff;--line:#E1E4EA;--ok:#2E7D32;--warn:#EF6C00;--bad:#C62828}
+@media (prefers-color-scheme:dark){:root{--brand:#C9D0EE;--ink:#ECEEF6;--muted:#A4ABBD;--paper:#0F1322;--card:#181D33;--line:#2A3050}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 Montserrat,"Noto Sans Devanagari",system-ui,sans-serif;background:var(--paper);color:var(--ink);padding-bottom:60px}
+header{background:radial-gradient(120% 140% at 85% 0%,#2B3558,#1F2744 60%,#141A33);color:#fff;padding:18px 16px 22px}header .in,main{max-width:640px;margin:0 auto}
+header img{height:46px}h1{font-size:26px;line-height:1.2;margin:12px 0 6px}header p{margin:0;opacity:.88}
+main{padding:0 14px}section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin:14px 0}h2{font-size:19px;margin:0 0 8px;color:var(--brand)}
+button,.btn{font:inherit;font-weight:700;border:0;border-radius:12px;padding:12px 16px;background:var(--brand);color:var(--paper);cursor:pointer;text-decoration:none;display:inline-block}
+.btn.or,button.or{background:var(--accent);color:#fff}.alt{background:transparent;color:var(--brand);border:1.5px solid var(--brand)}.sm{padding:8px 12px;font-size:14px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.muted{color:var(--muted);font-size:14px}.res{display:flex;gap:10px;align-items:flex-start;margin:6px 0;padding:8px 10px;border-radius:10px;background:var(--paper)}.res b{display:block}
+.tip{border-left:6px solid var(--accent);background:rgba(216,102,42,.1);border-radius:10px;padding:10px 12px;margin:14px 0}.tip b{color:var(--accent)}
+.step{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--line)}.step:first-of-type{border-top:0}.step input{width:22px;height:22px;margin-top:3px;accent-color:var(--accent)}.step small{display:block;color:var(--muted)}
+details{margin-top:4px}summary{cursor:pointer;color:var(--accent);font-weight:700;font-size:14px}.ov{position:fixed;inset:0;z-index:20;background:#000;color:#fff;display:flex;flex-direction:column}.ov .bar{padding:10px;display:flex;gap:8px;justify-content:center;background:rgba(0,0,0,.7);flex-wrap:wrap}
+.ov canvas,.ov video{flex:1;width:100%;min-height:0;object-fit:cover}.grid{flex:1;display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(10,1fr);gap:2px;touch-action:none}.grid div{background:#333}.grid div.on{background:#2E7D32}
+.score{font-size:42px;font-weight:800}.bar2{height:10px;border-radius:99px;background:var(--line);overflow:hidden}.bar2 i{display:block;height:100%;background:var(--accent)}.hide{display:none!important}
+.pill{display:inline-block;border-radius:99px;padding:2px 10px;font-size:13px;font-weight:700;color:#fff}
+</style></head><body>
+<header><div class="in"><img src="../brand/logo/brandhoop-logo-horizontal-on-dark.svg" alt="Brandhoop Mobile Point"><h1>फ़ोन धीमा है? बैटरी जल्दी ख़त्म?</h1><p>1 मिनट में जाँचिए और फ़ोन को तेज़ रखने के आसान तरीके पाइए। बिना कोई ऐप डाले, बार-बार इस्तेमाल कीजिए। कैमरा, माइक या GPS की जाँच दबाने पर ही उसकी अनुमति माँगी जाती है।</p></div></header>
+<main>
+<section id="quick"><h2>1 · फ़ोन की झटपट जाँच</h2><div class="muted">आपके फ़ोन में ही होती है। कोई फ़ाइल या जानकारी कहीं अपलोड नहीं होती।</div>
+  <div class="row"><button class="or" id="runQuick" type="button">▶ जाँच शुरू करें</button></div><div id="quickOut"></div></section>
+<div id="tipA"></div>
+<section id="hw"><h2>2 · हार्डवेयर की जाँच (एक-एक करके)</h2><div class="muted">हर बटन दबाइए और बताइए सब ठीक है या नहीं। नतीजे सबसे नीचे रिपोर्ट में जुड़ेंगे।</div><div class="row" id="hwBtns"></div><div id="hwOut"></div></section>
+<div id="tipB"></div>
+<section id="steps"><h2>3 · आज की सफ़ाई (इसी से फ़ोन तेज़ होता है)</h2><div class="muted">असली सफ़ाई फ़ोन की अपनी सेटिंग से होती है। कोई वेबसाइट दूसरे ऐप का कैश अपने-आप साफ़ नहीं कर सकती, और जो ऐप ऐसा करने का दावा करते हैं वे अक्सर फ़ोन को और धीमा करते हैं।</div><div id="stepList"></div><div class="row"><button class="alt sm" id="resetSteps" type="button">नई शुरुआत</button><button class="alt sm" id="ics" type="button">हर हफ़्ते याद दिलाओ (कैलेंडर)</button></div><div class="muted" id="streak"></div></section>
+<section><h2>4 · ये मत कीजिए</h2><ul style="padding-left:18px;margin:0">
+  <li><b>"RAM बूस्टर", "क्लीनर", "फ़ोन कूलर" ऐप मत डालिए।</b> ये ख़ुद बैकग्राउंड में चलकर बैटरी खाते और विज्ञापन दिखाते हैं।</li>
+  <li><b>अनजान APK मत डालिए।</b> ठगी वाले ऐप अक्सर "फ़ोन तेज़ करने" के नाम पर आते हैं।</li>
+  <li><b>किसी को OTP, UPI PIN या स्क्रीन-शेयर मत दीजिए</b>, चाहे वह फ़ोन ठीक करने का दावा करे।</li>
+  <li>पूरा स्टोरेज मत भरिए। 15 से 20% खाली रखिए।</li></ul></section>
+<div id="tipC"></div>
+<section id="report"><h2>5 · आपकी रिपोर्ट</h2><div id="repOut" class="muted">ऊपर की जाँचें चलाइए, फिर यहाँ रिपोर्ट बनेगी।</div><div class="row"><button class="or hide" id="wa" type="button">दुकान को WhatsApp पर भेजें</button></div></section>
+<section id="app"><h2>Brandhoop ऐप</h2><div>दुकान के सारे फ़ोन, एक्सेसरी और रेट, एक जगह। आज की कीमत और ऑफ़र WhatsApp पर पूछिए।</div>
+  <div class="row"><a class="btn or" href="../app/">ऐप खोलें (वेब)</a><a class="btn alt" href="../download/brandhoop.apk" download>ऐप डाउनलोड (APK)</a><button class="alt" id="install" type="button" style="display:none">इस पेज को ऐप बनाएँ</button></div>
+  <div class="muted" style="margin-top:6px">iPhone पर: Share दबाकर "Add to Home Screen"।</div></section>
+</main>
+<footer style="max-width:640px;margin:0 auto;padding:0 14px 20px" class="muted"><b>Brandhoop Mobile Point</b> · गेट नं. 5, कमला मोदी मार्केट, नीम का थाना, राजस्थान 332713 · 86197 67291 · 72399 38540<br>यह पेज सिर्फ़ मोटा अंदाज़ा देता है, फ़ोन की भीतरी जाँच (बैटरी की सेहत, हार्डवेयर) के लिए दुकान पर दिखाइए।</footer>
+<script src="care.js"></script>
+</body></html>

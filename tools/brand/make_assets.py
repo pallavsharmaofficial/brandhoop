@@ -207,6 +207,34 @@ h1{{position:absolute;left:0;right:0;top:43mm;text-align:center;font-size:14mm;l
 .bar{{position:absolute;left:0;right:0;bottom:0;background:var(--orange)}}"""
         page(name, w, h, body, css=css, unit='mm', out_png=OUTB + f'print/cards/{name}-300dpi.png', pdf=OUTB + f'print/cards/{name}.pdf', dsf=3.125)
 
+
+# ------------------------------------------------------------------ counter poster for the free Phone Care page (A4, and A5 scaled from it)
+CARE_URL = 'https://pallavsharmaofficial.github.io/brandhoop/care/'
+def care_poster():
+    for name, w, h, k in (('care-poster-a4', 210, 297, 1.0), ('care-poster-a5', 148, 210, 148 / 210)):
+        pts = ['फ़ोन कितना तेज़ है, तुरंत जानिए', 'बैटरी, स्क्रीन, टच, स्पीकर, कैमरा की जाँच', 'फ़ोन तेज़ करने के आसान, सही तरीके', 'कोई ऐप डालने की ज़रूरत नहीं']
+        lis = ''.join(f'<li><i>✓</i><span class="hi">{t}</span></li>' for t in pts)
+        body = f"""<div class="art"></div><div class="wrap" style="transform:scale({k});transform-origin:0 0;width:210mm;height:297mm">
+<div class="lg">{hlogo('80mm', 'dark')}</div>
+<h1 class="hi"><span>फ़ोन धीमा है?</span><span class="o">बैटरी जल्दी ख़त्म?</span></h1>
+<div class="chip hi">1 मिनट में मुफ़्त जाँच · फिर बार-बार काम आएगा</div>
+<div class="qc"><div class="qr">{qr(CARE_URL, P['navy'], '78mm')}</div><div class="cap hi">QR स्कैन करो → जाँच खुलेगी</div></div>
+<ul class="pts">{lis}</ul>
+<div class="ft"><b>Brandhoop Mobile Point</b><span class="hi">गेट नं. 5, कमला मोदी मार्केट, नीम का थाना</span><span><b>{C['phone']}</b> · <b>{C['phone2']}</b></span></div>
+<div class="bar"></div></div>"""
+        css = """body{background:linear-gradient(165deg,#1F2744 0%,#141A33 55%,#0B0F1C 100%);color:#fff}
+.art{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.055) 0 .3mm,transparent .3mm 9mm),repeating-linear-gradient(90deg,rgba(255,255,255,.055) 0 .3mm,transparent .3mm 9mm)}
+.art:after{content:"";position:absolute;inset:0;background:url(../../site/brand/cards/lineart.png) center top/230mm auto repeat;opacity:.05}
+.wrap{position:absolute;left:0;top:0}.lg{position:absolute;left:0;right:0;top:14mm;display:flex;justify-content:center}
+h1{position:absolute;left:0;right:0;top:57mm;text-align:center;font-size:18mm;line-height:1.15;font-weight:800}h1 span{display:block}h1 .o{color:var(--orange2)}
+.chip{position:absolute;left:0;right:0;top:101mm;margin:0 auto;width:max-content;border:.6mm solid var(--orange);border-radius:8mm;padding:2mm 7mm;font-size:5.4mm;font-weight:700;background:rgba(216,102,42,.16)}
+.qc{position:absolute;left:0;right:0;top:115mm;margin:0 auto;width:104mm;background:#fff;border-radius:8mm;padding:8mm 8mm 4mm;border:1.6mm solid var(--orange);box-shadow:0 3mm 10mm rgba(0,0,0,.4)}
+.qr{width:78mm;height:78mm;margin:0 auto}.qr svg{display:block}.cap{margin-top:4mm;text-align:center;font-size:6mm;font-weight:800;color:var(--navy)}
+.pts{position:absolute;left:34mm;right:20mm;top:226mm;list-style:none;margin:0;padding:0;font-size:5mm;font-weight:600}.pts li{display:flex;gap:4mm;align-items:center;margin:1.2mm 0}.pts i{font-style:normal;color:var(--orange2);font-weight:800}
+.ft{position:absolute;left:0;right:0;bottom:12mm;text-align:center;font-size:4.2mm;line-height:1.5;color:#C5CCE4}.ft b{color:#fff}.ft span{display:block}
+.bar{position:absolute;left:0;right:0;bottom:0;height:6mm;background:var(--orange)}"""
+        page(name, w, h, body, css=css, unit='mm', out_png=OUTB + f'print/{name}.png', pdf=OUTB + f'print/{name}.pdf', dsf=(w / 25.4 * 300) / (w / 25.4 * 96))
+
 # ------------------------------------------------------------------ app and web icons
 def icons():
     tile = f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">{mark_defs("ia")}<rect width="1024" height="1024" fill="{P["paper"]}"/><g transform="translate(512 512) scale(1.5) translate(-521 -412)">{mark_inner("color", "ia")}</g></svg>'
@@ -233,6 +261,6 @@ def logo_pngs():
     page('png-brandhoop-mark', 1200, 1200, f'<div class="c">{mark("900px")}</div>', css='body{background:transparent}.c{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}', out_png=OUTB + 'logo/brandhoop-mark.png')
 
 if __name__ == '__main__':
-    cards(); poster(); social(); misc(); counter_tech(); icons(); logo_pngs()
+    cards(); poster(); social(); misc(); counter_tech(); care_poster(); icons(); logo_pngs()
     (BUILD / 'manifest.json').write_text(json.dumps(MANIFEST, ensure_ascii=False, indent=1))
     print(len(MANIFEST), 'pages')
