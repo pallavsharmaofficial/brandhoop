@@ -47,3 +47,5 @@ Re-check against the manufacturer or distributor price list before quoting.
 ## Card Studio
 
 `site/brand/cards/qrcode.js` is qrcode-generator 1.4.4 by Kazuhiko Arase (MIT licence), copied unchanged so the page works without a CDN. The 20 card styles and their image prompts are in `site/brand/cards/styles.js`; the drawing code is `studio.js`. The prompts describe unbranded phones and invented scenes; generated people are not real and must not be shown as customers.
+
+`site/brand/cards/lineart.png` is the phone-accessory line drawing supplied by the shop owner, turned into white lines on transparent and drawn at 5% opacity on the front of the Tech Grid card. Check that the source drawing may be used on printed material (stock-vector licences differ) before printing in bulk.

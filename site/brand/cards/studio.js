@@ -10,14 +10,14 @@
   var COMMON = { phone: '86197 67291', wa: '86197 67291', web: 'pallavsharmaofficial.github.io/brandhoop' };
   var MAPS = 'https://www.google.com/maps/place/Brandhoop+Mobile+Point/@27.7415504,75.7817561,17z/data=!3m1!4b1!4m6!3m5!1s0x396d275817d19c4f:0x92f9965c781103ad!8m2!3d27.7415504!4d75.7817561!16s%2Fg%2F11g1lxn9kc';
   var KEY = 'brandhoopCardStudio1';
-  var S = { lang: 'hi', style: 'phonewall', f: {}, primary: '#1F2744', accent: '#D8662A', qrt: 'wa' };
+  var S = { lang: 'hi', style: 'phonewall', f: {}, primary: '#1F2744', accent: '#D8662A', qrt: 'wa', artAll: false };
   var photos = {}; // style id or '_all' -> Image
-  var logos = {};
+  var logos = {}, lineart = new Image(); lineart.onload = queue; lineart.src = 'lineart.png';
   ['brandhoop-logo', 'brandhoop-logo-on-dark', 'brandhoop-logo-horizontal', 'brandhoop-logo-horizontal-on-dark', 'brandhoop-mark', 'brandhoop-mark-white'].forEach(function (n) {
     var i = new Image(); i.onload = queue; i.src = '../logo/' + n + '.svg'; logos[n] = i;
   });
 
-  function load() { try { var j = JSON.parse(localStorage.getItem(KEY) || 'null'); if (j) { S.lang = j.lang || S.lang; S.style = j.style || S.style; S.f = j.f || {}; S.primary = j.primary || S.primary; S.accent = j.accent || S.accent; S.qrt = j.qrt || S.qrt; } } catch (e) { } }
+  function load() { try { var j = JSON.parse(localStorage.getItem(KEY) || 'null'); if (j) { S.lang = j.lang || S.lang; S.style = j.style || S.style; S.f = j.f || {}; S.primary = j.primary || S.primary; S.accent = j.accent || S.accent; S.qrt = j.qrt || S.qrt; S.artAll = !!j.artAll; } } catch (e) { } }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { } }
   function val(k) { return S.f[k] !== undefined ? S.f[k] : (DEF[S.lang][k] !== undefined ? DEF[S.lang][k] : COMMON[k]); }
 
@@ -50,6 +50,11 @@
   function bgPhoto(g, P, st) { var im = photos[st.id] || photos._all; if (!im || !st.bgPhoto) return; cover(g, im, 0, 0, W, H); g.fillStyle = st.dark ? tokA(P.D, st.ov) : 'rgba(255,255,255,' + st.ov + ')'; g.fillRect(0, 0, W, H); }
   function tokA(hex, a) { var n = parseInt(hex.slice(1), 16); return 'rgba(' + (n >> 16) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')'; }
 
+  // Phone-accessory line art, white at 5%, on the front of centred and framed cards (always on Tech Grid, optional on other dark ones)
+  function art(g, st) {
+    if (!(st.art || (S.artAll && st.dark)) || (st.layout !== 'center' && st.layout !== 'frame') || !lineart.naturalWidth) return;
+    g.save(); g.globalAlpha = 0.05; var k = W / lineart.naturalWidth, h = lineart.naturalHeight * k; g.drawImage(lineart, 0, (H - h) / 2, W, h); g.restore();
+  }
   function ink(st) { return st.dark ? '#FFFFFF' : '#14182B'; }
   function sub(st) { return st.dark ? 'rgba(255,255,255,.82)' : '#566170'; }
   function accentOn(st, P) { return st.dark && st.bg[0] === 'A' ? '#FFFFFF' : P.A; }
@@ -66,7 +71,7 @@
   function addr(g, P, st, x, y, w, size) { g.font = '600 ' + size + 'px ' + FONT; wrap(g, val('address'), w).slice(0, 3).forEach(function (l) { T(g, l, x, y, size, 600, sub(st), 'left'); y += size * 1.45; }); return y; }
 
   function front(g, P, st) {
-    bgFill(g, P, st); bgPhoto(g, P, st);
+    bgFill(g, P, st); bgPhoto(g, P, st); art(g, st);
     var L = st.layout, ik = ink(st);
     if (L === 'center') {
       drawLogo(g, logoName(st, false), W / 2, 36, 410, 'center'); g.font = '600 24px ' + FONT;
@@ -168,14 +173,15 @@
   }
   function queue() { clearTimeout(timer); timer = setTimeout(refresh, 120); }
 
-  function fill() { ['name', 'role', 'phone', 'wa', 'web', 'address', 'tagline', 'services'].forEach(function (k) { $('f_' + k).value = val(k); }); $('lang').value = S.lang; $('c_primary').value = S.primary; $('c_accent').value = S.accent; $('qrt').value = S.qrt; }
+  function fill() { ['name', 'role', 'phone', 'wa', 'web', 'address', 'tagline', 'services'].forEach(function (k) { $('f_' + k).value = val(k); }); $('lang').value = S.lang; $('c_primary').value = S.primary; $('c_accent').value = S.accent; $('qrt').value = S.qrt; $('artAll').checked = S.artAll; }
   function bind() {
     ['name', 'role', 'phone', 'wa', 'web', 'address', 'tagline', 'services'].forEach(function (k) { $('f_' + k).addEventListener('input', function () { S.f[k] = $('f_' + k).value; save(); queue(); }); });
     $('lang').onchange = function () { S.lang = $('lang').value; ['name', 'role', 'tagline', 'address', 'services'].forEach(function (k) { delete S.f[k]; }); save(); fill(); queue(); };
     $('c_primary').oninput = function () { S.primary = $('c_primary').value; save(); queue(); };
     $('c_accent').oninput = function () { S.accent = $('c_accent').value; save(); queue(); };
+    $('artAll').onchange = function () { S.artAll = $('artAll').checked; save(); queue(); };
     $('qrt').onchange = function () { S.qrt = $('qrt').value; save(); queue(); };
-    $('reset').onclick = function () { S.f = {}; S.primary = '#1F2744'; S.accent = '#D8662A'; S.qrt = 'wa'; save(); fill(); queue(); };
+    $('reset').onclick = function () { S.f = {}; S.primary = '#1F2744'; S.accent = '#D8662A'; S.qrt = 'wa'; S.artAll = false; save(); fill(); queue(); };
     function setPhoto(file, all) { var u = URL.createObjectURL(file), im = new Image(); im.onload = function () { photos[all ? '_all' : S.style] = im; queue(); }; im.src = u; }
     var all = false; $('addPhoto').onclick = function () { all = false; $('file').click(); }; $('addAll').onclick = function () { all = true; $('file').click(); };
     $('file').onchange = function (e) { if (e.target.files[0]) setPhoto(e.target.files[0], all); e.target.value = ''; all = false; };

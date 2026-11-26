@@ -29,7 +29,7 @@ const STYLES = [
   { id: 'slate', n: 'Slate Premium', hi: 'स्लेट प्रीमियम', layout: 'frame', bg: ['S', 'K'], dark: 1, deco: 'none', bgPhoto: 1, ov: 0.5,
     ratio: '7:4 (landscape)', slot: 'Textured background inside the frame',
     prompt: 'Dark slate-grey brushed aluminium texture, extremely fine grain, soft highlight gradient from the top right, a very subtle scratch-free satin finish, completely empty with no objects, high-resolution material texture photograph' },
-  { id: 'techgrid', n: 'Tech Grid', hi: 'टेक ग्रिड', layout: 'center', bg: ['D', '#0B0F1C'], dark: 1, deco: 'grid', bgPhoto: 1, ov: 0.55,
+  { id: 'techgrid', n: 'Tech Grid', hi: 'टेक ग्रिड', layout: 'center', bg: ['D', '#0B0F1C'], dark: 1, deco: 'grid', art: 1, bgPhoto: 1, ov: 0.55,
     ratio: '7:4 (landscape)', slot: 'Faint background texture behind the centred logo',
     prompt: 'Macro photograph of a dark blue circuit board with fine copper traces and tiny orange glowing LEDs, extremely shallow depth of field, abstract, large soft out-of-focus area in the centre, technology background, no readable text on components' },
   { id: 'diwali', n: 'Festival Diwali', hi: 'फ़ेस्टिवल दिवाली', layout: 'full', bg: ['A', 'Ad'], dark: 1, deco: 'none', ov: 0.4,
