@@ -39,6 +39,7 @@ figcaption {{ padding:10px 14px 12px; display:flex; justify-content:space-betwee
 <a class="back" href="../">← Back to the website</a>
 <h1>Brandhoop brand kit</h1>
 <p>The logo is a phone shaped like the letter B. Every file here is made from the same vector artwork, so it stays sharp at any size. SVG files scale without limit; PNG files have a transparent background.</p>
+<p><a href="cards/" style="display:inline-block;background:var(--orange);color:#fff;padding:10px 16px;border-radius:12px;text-decoration:none">Open Card Studio: 20 customizable card styles + image prompts →</a></p>
 <h2>Logos</h2><div class="grid">{cards}</div>
 <h2>Colours</h2><div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(130px,1fr))">{cols}</div>
 <p style="margin-top:12px">Type: Montserrat for names and headings, Noto Sans Devanagari for Hindi.</p>

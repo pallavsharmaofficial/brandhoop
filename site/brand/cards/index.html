@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Card Studio · Brandhoop Mobile Point</title><meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="../../favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@500;700;800&display=swap">
+<style>
+:root { --navy:#1F2744; --orange:#D8662A; --ink:#14182B; --muted:#566170; --paper:#F6F6F6; --card:#fff; --line:#E1E4EA; --chip:#ECEEF6; }
+@media (prefers-color-scheme: dark) { :root { --ink:#ECEEF6; --muted:#A4ABBD; --paper:#0F1322; --card:#181D33; --line:#2A3050; --navy:#C9D0EE; --chip:#222845; } }
+* { box-sizing:border-box; } body { margin:0; font:15px/1.5 Montserrat,"Noto Sans Devanagari",system-ui,sans-serif; background:var(--paper); color:var(--ink); }
+.wrap { max-width:1180px; margin:0 auto; padding:20px 16px 80px; }
+h1 { font-size:clamp(26px,4.5vw,38px); margin:8px 0 4px; color:var(--navy); } h2 { font-size:20px; margin:30px 0 10px; color:var(--navy); }
+p, li { color:var(--muted); } a { color:var(--orange); font-weight:700; } .back { font-size:14px; }
+.steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:10px; margin:12px 0; padding:0; list-style:none; }
+.steps li { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px 14px; } .steps b { color:var(--orange); }
+.panel { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px; }
+.fields { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:10px 12px; }
+label { display:block; font-weight:700; font-size:13px; margin-bottom:3px; color:var(--ink); }
+input, select, textarea { width:100%; font:inherit; padding:9px 10px; border:1.5px solid var(--line); border-radius:10px; background:var(--paper); color:var(--ink); }
+input[type=color] { padding:2px; height:40px; }
+button { font:inherit; font-weight:700; border:0; border-radius:10px; padding:10px 14px; cursor:pointer; background:var(--navy); color:var(--paper); }
+button.alt { background:transparent; color:var(--navy); border:1.5px solid var(--navy); } button.or { background:var(--orange); color:#fff; } button.sm { padding:6px 10px; font-size:13px; }
+.row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.preview { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:14px; margin-top:12px; }
+.preview canvas { width:100%; height:auto; border-radius:12px; box-shadow:0 6px 24px rgba(0,0,0,.18); background:#ccc; display:block; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }
+.st { background:var(--card); border:2px solid var(--line); border-radius:14px; padding:8px; cursor:pointer; } .st.on { border-color:var(--orange); }
+.st canvas { width:100%; height:auto; border-radius:8px; display:block; } .st .t { display:flex; justify-content:space-between; align-items:center; gap:6px; margin-top:8px; font-weight:700; font-size:14px; }
+.st .t small { color:var(--muted); font-weight:500; } .st .b { display:flex; gap:6px; margin-top:6px; }
+.pr { background:var(--chip); border-radius:12px; padding:12px 14px; margin-top:10px; font-size:14px; color:var(--ink); white-space:pre-wrap; }
+.pr .m { color:var(--muted); font-size:13px; margin-top:6px; }
+.note { font-size:13px; color:var(--muted); } .hide { display:none; } #toast { position:fixed; left:50%; bottom:24px; transform:translateX(-50%); background:var(--navy); color:var(--paper); padding:10px 16px; border-radius:99px; font-weight:700; opacity:0; transition:opacity .2s; pointer-events:none; }
+</style></head><body><div class="wrap">
+<a class="back" href="../">← Brand kit</a>
+<h1>Card Studio · कार्ड स्टूडियो</h1>
+<p>20 card styles made with the Brandhoop logo. Change the details once and every style updates. Download the front and back as print-ready PNG (1050 × 600 px, 3.5 × 2 inch at 300 dpi).</p>
+<ol class="steps">
+  <li><b>1.</b> Fill in the details and pick colours.</li>
+  <li><b>2.</b> Choose a style below. It shows front and back.</li>
+  <li><b>3.</b> Press <b>Copy prompt</b> on a style, make the picture in Gemini, ChatGPT or any image tool.</li>
+  <li><b>4.</b> Press <b>Add photo</b>, choose the picture, and the card uses it. Then <b>Download</b>.</li>
+</ol>
+
+<div class="panel"><div class="fields">
+  <div><label>Language of the default text</label><select id="lang"><option value="hi">हिंदी</option><option value="en">English</option></select></div>
+  <div><label>Name</label><input id="f_name"></div>
+  <div><label>Role</label><input id="f_role"></div>
+  <div><label>Phone</label><input id="f_phone" inputmode="tel"></div>
+  <div><label>WhatsApp</label><input id="f_wa" inputmode="tel"></div>
+  <div><label>Website</label><input id="f_web"></div>
+  <div style="grid-column:1/-1"><label>Address</label><input id="f_address"></div>
+  <div style="grid-column:1/-1"><label>Tagline</label><input id="f_tagline"></div>
+  <div style="grid-column:1/-1"><label>Services line</label><input id="f_services"></div>
+  <div><label>Main colour</label><input type="color" id="c_primary" value="#1F2744"></div>
+  <div><label>Accent colour</label><input type="color" id="c_accent" value="#D8662A"></div>
+  <div><label>QR code opens</label><select id="qrt"><option value="wa">WhatsApp chat</option><option value="maps">Google Maps listing</option><option value="web">Website</option><option value="none">No QR code</option></select></div>
+  <div><label>&nbsp;</label><button class="alt" id="reset">Reset colours and text</button></div>
+</div></div>
+
+<h2 id="selTitle">Selected style</h2>
+<div class="row"><button class="or" id="dlF">⬇ Download front</button><button class="or" id="dlB">⬇ Download back</button>
+  <button class="alt" id="addPhoto">Add photo to this style</button><button class="alt" id="addAll">Add photo to all styles</button><button class="alt" id="clrPhoto">Remove photos</button>
+  <button class="alt sm" id="qShop">Use shop front photo</button><button class="alt sm" id="qWall">Use phone wall photo</button><input type="file" id="file" accept="image/*" class="hide"></div>
+<div class="preview"><canvas id="pf"></canvas><canvas id="pb"></canvas></div>
+<div class="pr" id="prompt"></div>
+
+<h2>All 20 styles</h2>
+<div class="grid" id="grid"></div>
+<p class="note">The AI prompts describe unbranded phones and invented scenes, with no text in the picture (the card adds the text). People in generated images are not real; do not present them as customers or as the owner. For the owner portrait (style 20) a real photo of Naresh is better than a generated one.</p>
+</div>
+<div id="toast"></div>
+<script src="qrcode.js"></script>
+<script src="styles.js"></script>
+<script src="studio.js"></script>
+</body></html>

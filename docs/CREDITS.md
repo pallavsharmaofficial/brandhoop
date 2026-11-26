@@ -43,3 +43,7 @@ launch (some reports mention 2026 increases). Where outlets disagreed or nothing
 reliable turned up, the phone shows "Price on call": Galaxy A06, M16, A26;
 Motorola g06 Power and g96; POCO F7; vivo V50; Galaxy S25; OnePlus 13; iPhone 16e.
 Re-check against the manufacturer or distributor price list before quoting.
+
+## Card Studio
+
+`site/brand/cards/qrcode.js` is qrcode-generator 1.4.4 by Kazuhiko Arase (MIT licence), copied unchanged so the page works without a CDN. The 20 card styles and their image prompts are in `site/brand/cards/styles.js`; the drawing code is `studio.js`. The prompts describe unbranded phones and invented scenes; generated people are not real and must not be shown as customers.
