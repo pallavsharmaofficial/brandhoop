@@ -1,7 +1,10 @@
 {
   "settings": {
     "phone": "8619767291",
-    "whatsapp": "8619767291"
+    "whatsapp": "8619767291",
+    "mapsUrl": "https://www.google.com/maps/place/Brandhoop+Mobile+Point/@27.7415504,75.7817561,17z/data=!3m1!4b1!4m6!3m5!1s0x396d275817d19c4f:0x92f9965c781103ad!8m2!3d27.7415504!4d75.7817561!16s%2Fg%2F11g1lxn9kc",
+    "latitude": 27.7415504,
+    "longitude": 75.7817561
   },
   "offers": [
     {
