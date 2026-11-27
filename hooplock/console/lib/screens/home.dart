@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text(api.shopName.isEmpty ? 'HoopLock' : api.shopName, overflow: TextOverflow.ellipsis),
         actions: [
           if (admin) IconButton(tooltip: t('shops'), icon: const Icon(Icons.storefront_outlined), onPressed: () => _open(const ShopsScreen())),
-          IconButton(tooltip: 'Support', icon: const Icon(Icons.headset_mic_outlined), onPressed: () => launchUrl(Uri.parse('https://wa.me/'))),
+          IconButton(tooltip: 'Guide', icon: const Icon(Icons.help_outline), onPressed: () => launchUrl(Uri.parse('https://pallavsharmaofficial.github.io/hooplock/#guide'))),
         ],
       ),
       body: RefreshIndicator(
@@ -62,6 +62,16 @@ class _HomeScreenState extends State<HomeScreen> {
         onRefresh: _load,
         child: PageBody(
           child: ListView(padding: const EdgeInsets.fromLTRB(16, 8, 16, 32), children: [
+            if (kDemo) Container(
+              margin: const EdgeInsets.only(bottom: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              decoration: BoxDecoration(color: const Color(0xFFFFF4CC), borderRadius: BorderRadius.circular(10)),
+              child: const Row(children: [
+                Icon(Icons.school_outlined, color: Color(0xFF8A6100)),
+                SizedBox(width: 8),
+                Expanded(child: Text('Practice mode: sample shop, no real phones. अभ्यास मोड: नमूना दुकान।', style: TextStyle(color: Color(0xFF8A6100), fontWeight: FontWeight.w600))),
+              ]),
+            ),
             _banner(),
             const SizedBox(height: 20),
             if (api.merchantId == null) ...[

@@ -4,6 +4,11 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'demo/demo_backend.dart';
+
+/// Practice mode: everything runs inside the app with a sample shop (build with --dart-define=HOOPLOCK_DEMO=true).
+const kDemo = bool.fromEnvironment('HOOPLOCK_DEMO');
+
 /// Server address. On the website it is the same origin; for the phone app pass
 /// --dart-define=API_BASE=https://your-server
 const _apiBaseDefine = String.fromEnvironment('API_BASE');
@@ -71,7 +76,9 @@ class Api extends ChangeNotifier {
   }
 
   Future<void> login(String phone, String password) async {
-    final r = await _send(() => http.post(uri('/api/auth/login'), headers: headers(auth: false), body: jsonEncode({'phone': phone, 'password': password}))) as Map<String, dynamic>;
+    final r = (kDemo
+        ? await DemoBackend.I.handle('POST', '/api/auth/login', null, {'phone': phone, 'password': password}, null, null)
+        : await _send(() => http.post(uri('/api/auth/login'), headers: headers(auth: false), body: jsonEncode({'phone': phone, 'password': password})))) as Map<String, dynamic>;
     _token = r['token'] as String;
     user = SessionUser(r['user'] as Map<String, dynamic>);
     final p = await SharedPreferences.getInstance();
@@ -114,17 +121,28 @@ class Api extends ChangeNotifier {
     return Uri.parse('$apiBase$path').replace(queryParameters: (q == null || q.isEmpty) ? null : q);
   }
 
-  Future<dynamic> get(String path, [Map<String, dynamic>? query]) =>
-      _send(() => http.get(uri(path, query), headers: headers()));
+  Future<dynamic> _demo(String method, String path, Map<String, dynamic>? query, Object? body) async {
+    try {
+      return await DemoBackend.I.handle(method, path, query, body, _token, actingMerchantId);
+    } on ApiError catch (e) {
+      if (e.status == 401) await logout();
+      rethrow;
+    }
+  }
 
-  Future<dynamic> post(String path, [Object? body]) =>
-      _send(() => http.post(uri(path), headers: headers(), body: jsonEncode(body ?? {})));
+  Future<dynamic> get(String path, [Map<String, dynamic>? query]) => kDemo
+      ? _demo('GET', path, query, null)
+      : _send(() => http.get(uri(path, query), headers: headers()));
+
+  Future<dynamic> post(String path, [Object? body]) => kDemo
+      ? _demo('POST', path, null, body ?? {})
+      : _send(() => http.post(uri(path), headers: headers(), body: jsonEncode(body ?? {})));
 
   Future<dynamic> patch(String path, Object body) =>
-      _send(() => http.patch(uri(path), headers: headers(), body: jsonEncode(body)));
+      kDemo ? _demo('PATCH', path, null, body) : _send(() => http.patch(uri(path), headers: headers(), body: jsonEncode(body)));
 
   Future<dynamic> put(String path, Object body) =>
-      _send(() => http.put(uri(path), headers: headers(), body: jsonEncode(body)));
+      kDemo ? _demo('PUT', path, null, body) : _send(() => http.put(uri(path), headers: headers(), body: jsonEncode(body)));
 
   Future<dynamic> _send(Future<http.Response> Function() f) async {
     http.Response r;

@@ -63,7 +63,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
     final (from, to) = _dates;
     return Scaffold(
       appBar: _bar(context, t('reports'), actions: [
-        IconButton(tooltip: 'Export CSV', icon: const Icon(Icons.download), onPressed: () => launchUrl(Api.I.uri('/api/reports/devices.csv', {
+        if (!kDemo) IconButton(tooltip: 'Export CSV', icon: const Icon(Icons.download), onPressed: () => launchUrl(Api.I.uri('/api/reports/devices.csv', {
               'access_token': Api.I.token, if (Api.I.actingMerchantId != null) 'merchantId': Api.I.actingMerchantId,
             }))),
       ]),

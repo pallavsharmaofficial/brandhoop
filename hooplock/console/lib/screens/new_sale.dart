@@ -278,6 +278,17 @@ class _EnrollQrScreenState extends State<EnrollQrScreen> {
               SizedBox(width: 8),
               Text('Waiting for the phone…', style: TextStyle(color: muted)),
             ]),
+            if (kDemo) ...[
+              const SizedBox(height: 12),
+              FilledButton.icon(
+                icon: const Icon(Icons.phone_android),
+                label: const Text('Practice: pretend the phone scanned this QR'),
+                onPressed: () async {
+                  final r = await busy(context, () => Api.I.post('/api/devices/${widget.deviceId}/simulate-scan', {}));
+                  if (r != null) _check();
+                },
+              ),
+            ],
             const SizedBox(height: 20),
             const SoftCard(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text('How to set up', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),

@@ -1,6 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
 import '../api.dart';
+import '../demo/demo_backend.dart';
 import '../i18n.dart';
 import '../widgets.dart';
 
@@ -46,7 +47,25 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 16),
             const Center(child: Text('HoopLock', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w800, color: ink))),
             const Center(child: Text('EMI सुरक्षित · दुकान निश्चिंत', style: TextStyle(fontSize: 16, color: muted))),
-            const SizedBox(height: 36),
+            const SizedBox(height: 24),
+            if (kDemo) Container(
+              padding: const EdgeInsets.all(14),
+              decoration: BoxDecoration(color: brandSoft, border: Border.all(color: brand), borderRadius: BorderRadius.circular(12)),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                const Text('Practice mode · अभ्यास मोड', style: TextStyle(fontWeight: FontWeight.w800, color: brand, fontSize: 16)),
+                const SizedBox(height: 4),
+                const Text('A sample shop to learn every button. No real phone is locked.\nनमूना दुकान — हर बटन सीखें। कोई असली फ़ोन लॉक नहीं होगा।'),
+                const SizedBox(height: 8),
+                Wrap(spacing: 8, runSpacing: 8, children: [
+                  for (final (label, phone) in const [('Owner / मालिक', '9000000001'), ('Staff / स्टाफ़', '9000000003'), ('Admin', '9999999999')])
+                    ActionChip(label: Text(label), onPressed: () => setState(() { _phone.text = phone; _pass.text = 'demo1234'; })),
+                ]),
+                const SizedBox(height: 4),
+                const Text('Password: demo1234', style: TextStyle(color: muted)),
+                TextButton(onPressed: () async { await DemoBackend.I.reset(); if (context.mounted) toast(context, 'Sample shop reset'); }, child: const Text('Reset sample shop')),
+              ]),
+            ),
+            const SizedBox(height: 16),
             TextField(
               controller: _phone,
               keyboardType: TextInputType.phone,
