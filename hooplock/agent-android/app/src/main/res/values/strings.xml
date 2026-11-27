@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HoopLock</string>
+    <string name="admin_description">Keeps this financed phone secured until all EMIs are paid. Removed automatically after the last EMI.</string>
+    <string name="enroll_connecting">Connecting to the shop…</string>
+    <string name="enroll_failed">Could not reach the server. Check the internet and try again.</string>
+    <string name="retry">Try again</string>
+    <string name="later">Continue, finish later</string>
+    <string name="consent_title">EMI phone agreement</string>
+    <string name="consent_body">This phone was bought on EMI from %1$s.\n\n• Until every EMI is paid, the shop manages this phone. Factory reset is turned off.\n• If an EMI is late, you will get reminders first. After that the phone may be restricted, and later locked.\n• Even when locked, emergency calls and calls to the shop always work, and incoming calls ring.\n• The shop can see the phone\'s location only when it is locked or reported stolen. Your messages, photos and contacts are never read.\n• When the last EMI is paid, all of this is removed.</string>
+    <string name="consent_accept">I agree</string>
+    <string name="locked_title">This phone is locked</string>
+    <string name="locked_sub">EMI payment is pending</string>
+    <string name="due_amount">Amount due: ₹%1$s</string>
+    <string name="overdue_days">Overdue by %1$d days</string>
+    <string name="pay_qr">Scan with any UPI app on another phone to pay</string>
+    <string name="call_shop">Call shop %1$s</string>
+    <string name="emergency">Emergency call</string>
+    <string name="refresh">I have paid — check again</string>
+    <string name="checking">Checking…</string>
+    <string name="warning_title">EMI payment overdue</string>
+    <string name="warning_body">Please pay your EMI to keep using this phone without restriction.</string>
+    <string name="ok">OK, I will pay</string>
+    <string name="restricted_notice">Apps are paused because an EMI is overdue. Calls and SMS still work.</string>
+    <string name="status_ok">This phone is secured by %1$s. Next EMI: %2$s</string>
+    <string name="status_not_enrolled">Not set up yet.</string>
+    <string name="released_title">All EMIs paid</string>
+    <string name="released_body">Thank you. The phone is now free. Tap below to remove HoopLock.</string>
+    <string name="remove_app">Remove HoopLock</string>
+    <string name="channel_name">EMI reminders</string>
+</resources>

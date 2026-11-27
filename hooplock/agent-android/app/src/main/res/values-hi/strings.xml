@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="admin_description">सभी EMI चुकने तक यह फ़ोन सुरक्षित रहता है। आख़िरी EMI के बाद अपने आप हट जाता है।</string>
+    <string name="enroll_connecting">दुकान से जुड़ रहे हैं…</string>
+    <string name="enroll_failed">सर्वर से संपर्क नहीं हो पाया। इंटरनेट देखकर फिर कोशिश करें।</string>
+    <string name="retry">फिर कोशिश करें</string>
+    <string name="later">आगे बढ़ें, बाद में पूरा करें</string>
+    <string name="consent_title">EMI फ़ोन अनुबंध</string>
+    <string name="consent_body">यह फ़ोन %1$s से EMI पर लिया गया है।\n\n• सभी EMI चुकने तक दुकान इस फ़ोन को मैनेज करेगी। फ़ैक्टरी रीसेट बंद रहेगा।\n• EMI देर होने पर पहले याद दिलाया जाएगा। उसके बाद फ़ोन सीमित, और फिर लॉक हो सकता है।\n• लॉक होने पर भी इमरजेंसी कॉल और दुकान को कॉल हमेशा होगी, और आने वाली कॉल बजेंगी।\n• फ़ोन की लोकेशन दुकान सिर्फ़ लॉक या चोरी होने पर देख सकती है। आपके मैसेज, फ़ोटो और कॉन्टैक्ट कभी नहीं पढ़े जाते।\n• आख़िरी EMI के बाद यह सब हट जाएगा।</string>
+    <string name="consent_accept">मैं सहमत हूँ</string>
+    <string name="locked_title">यह फ़ोन लॉक है</string>
+    <string name="locked_sub">EMI भुगतान बाकी है</string>
+    <string name="due_amount">बकाया राशि: ₹%1$s</string>
+    <string name="overdue_days">%1$d दिन से बकाया</string>
+    <string name="pay_qr">भुगतान के लिए किसी दूसरे फ़ोन से UPI ऐप से स्कैन करें</string>
+    <string name="call_shop">दुकान को कॉल करें %1$s</string>
+    <string name="emergency">इमरजेंसी कॉल</string>
+    <string name="refresh">मैंने भुगतान कर दिया — फिर जाँचें</string>
+    <string name="checking">जाँच रहे हैं…</string>
+    <string name="warning_title">EMI बकाया है</string>
+    <string name="warning_body">फ़ोन बिना रोक-टोक चलाने के लिए कृपया EMI जमा करें।</string>
+    <string name="ok">ठीक है, मैं भुगतान करूँगा</string>
+    <string name="restricted_notice">EMI बकाया होने से ऐप रोके गए हैं। कॉल और SMS चलते रहेंगे।</string>
+    <string name="status_ok">यह फ़ोन %1$s द्वारा सुरक्षित है। अगली EMI: %2$s</string>
+    <string name="status_not_enrolled">अभी सेटअप नहीं हुआ।</string>
+    <string name="released_title">सभी EMI चुका दी गईं</string>
+    <string name="released_body">धन्यवाद। फ़ोन अब पूरी तरह आपका है। HoopLock हटाने के लिए नीचे टैप करें।</string>
+    <string name="remove_app">HoopLock हटाएँ</string>
+    <string name="channel_name">EMI रिमाइंडर</string>
+</resources>
