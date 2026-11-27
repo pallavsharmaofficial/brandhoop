@@ -18,6 +18,7 @@ class Model3D extends Equatable {
     this.sourceName = '',
     this.sourceUrl = '',
     this.exact = true,
+    this.generated = false,
     this.sizeKb = 0,
   });
 
@@ -41,6 +42,9 @@ class Model3D extends Equatable {
   /// True when the model is this very phone; false when it is a sibling shown as
   /// a stand-in ("Representative model, colour may differ").
   final bool exact;
+
+  /// Built from the phone's published size and camera layout, not a real model of it.
+  final bool generated;
   final int sizeKb;
 
   /// Credit line, as in the app: 3D model, title, author, licence, source.
@@ -57,6 +61,7 @@ class Model3D extends Equatable {
         'sourceName': sourceName,
         'sourceUrl': sourceUrl,
         'exact': exact,
+        if (generated) 'generated': true,
         'sizeKb': sizeKb,
       };
 
@@ -86,10 +91,11 @@ class Model3D extends Equatable {
       sourceName: j.str('sourceName'),
       sourceUrl: j.str('sourceUrl'),
       exact: j.flag('exact', true),
+      generated: j.flag('generated'),
       sizeKb: j.integer('sizeKb'),
     );
   }
 
   @override
-  List<Object?> get props => <Object?>[glb, poster, title, author, license, licenseUrl, attributionRequired, sourceName, sourceUrl, exact, sizeKb];
+  List<Object?> get props => <Object?>[glb, poster, title, author, license, licenseUrl, attributionRequired, sourceName, sourceUrl, exact, generated, sizeKb];
 }

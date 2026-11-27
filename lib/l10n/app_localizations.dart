@@ -5804,6 +5804,12 @@ abstract class AppLocalizations {
   /// **'Representative model, colour may differ'**
   String get media3dRepresentative;
 
+  /// No description provided for @media3dIllustrative.
+  ///
+  /// In en, this message translates to:
+  /// **'Illustrative 3D model built from this phone’s published size and camera layout. Colour and details may differ.'**
+  String get media3dIllustrative;
+
   /// No description provided for @media3dLicenseTerms.
   ///
   /// In en, this message translates to:
@@ -5832,6 +5838,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Photo {n} of {total}'**
   String mediaPhotoOf(String n, String total);
+
+  /// No description provided for @emiHeroTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone on EMI'**
+  String get emiHeroTitle;
+
+  /// No description provided for @emiHeroSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Take the phone home with just 3 documents. The lender decides the approval.'**
+  String get emiHeroSub;
+
+  /// No description provided for @emiHowTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How it works'**
+  String get emiHowTitle;
+
+  /// No description provided for @emiStep1.
+  ///
+  /// In en, this message translates to:
+  /// **'Bring 3 documents'**
+  String get emiStep1;
+
+  /// No description provided for @emiStep1Sub.
+  ///
+  /// In en, this message translates to:
+  /// **'PAN card, Aadhaar card and bank passbook.'**
+  String get emiStep1Sub;
+
+  /// No description provided for @emiStep2.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your phone'**
+  String get emiStep2;
+
+  /// No description provided for @emiStep2Sub.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick it in the shop, or ask us on WhatsApp first.'**
+  String get emiStep2Sub;
+
+  /// No description provided for @emiStep3.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply at the counter'**
+  String get emiStep3;
+
+  /// No description provided for @emiStep3Sub.
+  ///
+  /// In en, this message translates to:
+  /// **'Bajaj Finserv EMI is available only at the shop, because it needs a face scan.'**
+  String get emiStep3Sub;
+
+  /// No description provided for @emiStep4.
+  ///
+  /// In en, this message translates to:
+  /// **'The lender approves'**
+  String get emiStep4;
+
+  /// No description provided for @emiStep4Sub.
+  ///
+  /// In en, this message translates to:
+  /// **'Approval and the final instalments are decided by the lender. Ask us for today’s schemes and rates.'**
+  String get emiStep4Sub;
+
+  /// No description provided for @emiLendersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Lenders on our shop sign'**
+  String get emiLendersTitle;
+
+  /// No description provided for @emiLendersList.
+  ///
+  /// In en, this message translates to:
+  /// **'Bajaj Finserv · IDFC First Bank · HDFC Bank'**
+  String get emiLendersList;
+
+  /// No description provided for @emiCardNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Zero down payment is offered to card customers. Ask us for the terms.'**
+  String get emiCardNote;
+
+  /// No description provided for @accountShopLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Brandhoop Mobile Point, Neem Ka Thana'**
+  String get accountShopLine;
+
+  /// No description provided for @accountHeroSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Language, theme and help for this app.'**
+  String get accountHeroSub;
+
+  /// No description provided for @storeHoursTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'In the shop'**
+  String get storeHoursTitle;
 }
 
 class _AppLocalizationsDelegate

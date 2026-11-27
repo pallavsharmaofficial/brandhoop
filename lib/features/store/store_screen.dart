@@ -15,6 +15,7 @@ import '../../state/data_cubits.dart';
 import '../../state/session_cubit.dart';
 import '../../util/launch.dart';
 import '../../widgets/common.dart';
+import '../home/live_home.dart';
 import '../../widgets/store_widgets.dart';
 import '../auth/auth_gate.dart';
 
@@ -32,33 +33,8 @@ class StoreScreen extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.fromLTRB(16, 4, 16, 32),
           children: <Widget>[
-            // The shop's poster sits here once the owner adds assets/branding/poster.jpg.
-            ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: AspectRatio(
-                aspectRatio: 1.6,
-                child: Image.asset(
-                  'assets/branding/poster.jpg',
-                  fit: BoxFit.cover,
-                  errorBuilder: (BuildContext c, Object e, StackTrace? s) => Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(colors: <Color>[BrandColors.indigoDeep, BrandColors.indigo]),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        const Icon(Icons.storefront, color: Colors.white, size: 52),
-                        const SizedBox(height: 10),
-                        Text(store.name.of(lang), textAlign: TextAlign.center, style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.w900)),
-                        const SizedBox(height: 4),
-                        Text(store.tagline.of(lang), textAlign: TextAlign.center, style: const TextStyle(color: Colors.white70)),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            PageHero(icon: Icons.storefront_outlined, title: store.name.of(lang), subtitle: store.tagline.of(lang)),
+            if (AppEnv.live) const LiveGalleryStrip(),
             const SizedBox(height: 16),
             Card(
               child: Padding(

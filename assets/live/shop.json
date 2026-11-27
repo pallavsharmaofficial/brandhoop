@@ -107,7 +107,21 @@
       ],
       "imageUrls": [
         "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/products/oppo-a6x-5g.jpg"
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-a6x-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-a6x-5g.webp",
+        "title": "OPPO A6x 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 33
+      }
     },
     {
       "id": "vivo-y11-5g",
@@ -170,7 +184,21 @@
           "en": "IP65 dust and splash protection",
           "hi": "IP65 धूल और छींटों से सुरक्षा"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-y11-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-y11-5g.webp",
+        "title": "vivo Y11 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 34
+      }
     },
     {
       "id": "vivo-y21-5g",
@@ -233,7 +261,21 @@
           "en": "MediaTek Dimensity 6300",
           "hi": "MediaTek Dimensity 6300"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-y21-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-y21-5g.webp",
+        "title": "vivo Y21 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 34
+      }
     },
     {
       "id": "vivo-y31t-5g",
@@ -300,7 +342,21 @@
           "en": "50 MP camera",
           "hi": "50 MP कैमरा"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-y31t-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-y31t-5g.webp",
+        "title": "vivo Y31t 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 34
+      }
     },
     {
       "id": "vivo-s2-fe-5g",
@@ -366,7 +422,21 @@
           "en": "IP68 / IP69 water and dust protection",
           "hi": "IP68 / IP69 पानी और धूल से सुरक्षा"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-s2-fe-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-s2-fe-5g.webp",
+        "title": "vivo S2 FE 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 34
+      }
     },
     {
       "id": "vivo-s2-5g",
@@ -432,7 +502,21 @@
           "en": "IP68 / IP69 water and dust protection",
           "hi": "IP68 / IP69 पानी और धूल से सुरक्षा"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-s2-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-s2-5g.webp",
+        "title": "vivo S2 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 34
+      }
     },
     {
       "id": "vivo-v70-fe-5g",
@@ -499,7 +583,21 @@
           "en": "50 MP front camera",
           "hi": "50 MP फ्रंट कैमरा"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-v70-fe-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-v70-fe-5g.webp",
+        "title": "vivo V70 FE 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 34
+      }
     },
     {
       "id": "vivo-v80-5g",
@@ -653,7 +751,21 @@
           "en": "Side fingerprint sensor",
           "hi": "साइड फ़िंगरप्रिंट सेंसर"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-a6-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-a6-5g.webp",
+        "title": "OPPO A6 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 34
+      }
     },
     {
       "id": "oppo-a6s-5g",
@@ -707,7 +819,21 @@
           "en": "50 MP camera",
           "hi": "50 MP कैमरा"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-a6s-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-a6s-5g.webp",
+        "title": "OPPO A6s 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 31
+      }
     },
     {
       "id": "oppo-k14x-5g",
@@ -781,7 +907,21 @@
           "en": "IP64 dust and splash protection",
           "hi": "IP64 धूल और छींटों से सुरक्षा"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-k14x-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-k14x-5g.webp",
+        "title": "OPPO K14x 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 34
+      }
     },
     {
       "id": "oppo-k14-5g",
@@ -836,7 +976,21 @@
           "en": "120 Hz display",
           "hi": "120 Hz डिस्प्ले"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-k14-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-k14-5g.webp",
+        "title": "OPPO K14 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 34
+      }
     },
     {
       "id": "oppo-f35-5g",
@@ -898,7 +1052,21 @@
           "en": "IP69K water and dust protection",
           "hi": "IP69K पानी और धूल से सुरक्षा"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-f35-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-f35-5g.webp",
+        "title": "OPPO F35 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 34
+      }
     },
     {
       "id": "oppo-f35-pro-5g",
@@ -972,7 +1140,21 @@
           "en": "IP69K water and dust protection",
           "hi": "IP69K पानी और धूल से सुरक्षा"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-f35-pro-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-f35-pro-5g.webp",
+        "title": "OPPO F35 Pro 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 34
+      }
     },
     {
       "id": "oppo-reno-16c-5g",
@@ -1042,7 +1224,21 @@
           "en": "50 MP front camera",
           "hi": "50 MP फ्रंट कैमरा"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-reno-16c-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-reno-16c-5g.webp",
+        "title": "OPPO Reno 16c 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 37
+      }
     },
     {
       "id": "oppo-reno-16-5g",
@@ -1117,7 +1313,21 @@
           "en": "IP68 / IP69 water and dust protection",
           "hi": "IP68 / IP69 पानी और धूल से सुरक्षा"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-reno-16-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-reno-16-5g.webp",
+        "title": "OPPO Reno 16 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 37
+      }
     },
     {
       "id": "vivo-t5x-5g",
@@ -1192,7 +1402,21 @@
           "en": "IP68 / IP69 water and dust protection",
           "hi": "IP68 / IP69 पानी और धूल से सुरक्षा"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-t5x-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-t5x-5g.webp",
+        "title": "vivo T5x 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 34
+      }
     },
     {
       "id": "vivo-t5-pro-5g",
@@ -1267,7 +1491,21 @@
           "en": "IP68 / IP69 water and dust protection",
           "hi": "IP68 / IP69 पानी और धूल से सुरक्षा"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-t5-pro-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-t5-pro-5g.webp",
+        "title": "vivo T5 Pro 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 34
+      }
     },
     {
       "id": "vivo-t5-lite-5g",
@@ -1350,7 +1588,21 @@
           "en": "IP65 dust and splash protection",
           "hi": "IP65 धूल और छींटों से सुरक्षा"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-t5-lite-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-t5-lite-5g.webp",
+        "title": "vivo T5 Lite 5G, illustrative model",
+        "author": "Brandhoop",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attributionRequired": false,
+        "sourceName": "Brandhoop",
+        "sourceUrl": "",
+        "exact": false,
+        "generated": true,
+        "sizeKb": 34
+      }
     },
     {
       "id": "acc-earphones-wired",

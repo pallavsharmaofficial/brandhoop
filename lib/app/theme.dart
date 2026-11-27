@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart' show CupertinoPageTransitionsBuilder;
+import 'package:flutter/services.dart';
 
 import 'palette.dart';
 
@@ -22,37 +24,61 @@ class BrandColors {
   static const Color paper = Palette.slate50;
 }
 
+/// Montserrat for the Latin script (bundled, same as the website); Hindi falls back to the phone's Devanagari font.
+const String _font = 'Montserrat';
+const List<String> _fallback = <String>['Noto Sans Devanagari', 'Noto Sans', 'sans-serif'];
+
 ThemeData buildTheme(Brightness brightness) {
   final bool dark = brightness == Brightness.dark;
-  final ColorScheme scheme = ColorScheme.fromSeed(
-    seedColor: BrandColors.indigo,
-    brightness: brightness,
-    secondary: BrandColors.saffron,
+  final ColorScheme base = ColorScheme.fromSeed(seedColor: Palette.navy700, brightness: brightness);
+  final ColorScheme scheme = base.copyWith(
+    primary: dark ? Palette.navy200 : Palette.navy700,
+    onPrimary: dark ? Palette.navy900 : Colors.white,
+    primaryContainer: dark ? Palette.navy600 : Palette.navy100,
+    onPrimaryContainer: dark ? Palette.navy50 : Palette.navy800,
+    secondary: dark ? Palette.saffron400 : Palette.saffron500,
+    onSecondary: Palette.slate900,
+    secondaryContainer: dark ? const Color(0xFF3A2A24) : Palette.saffron100,
+    onSecondaryContainer: dark ? Palette.saffron200 : Palette.saffron800,
+    surface: dark ? Palette.nightSurface : Palette.lightSurface,
+    onSurface: dark ? Palette.nightInk : Palette.lightInk,
+    onSurfaceVariant: dark ? Palette.nightMuted : Palette.lightMuted,
+    outline: dark ? Palette.slate500 : Palette.slate400,
+    outlineVariant: dark ? Palette.nightLine : Palette.lightLine,
+    surfaceContainerHighest: dark ? Palette.nightSurface2 : Palette.lightSurface2,
   );
   final Color bg = dark ? Palette.nightBg : Palette.lightBg;
-  final RoundedRectangleBorder shape12 =
-      RoundedRectangleBorder(borderRadius: BorderRadius.circular(14));
+  final Color accent = dark ? Palette.saffron400 : Palette.saffron500;
+  final Color cardColor = dark ? Palette.nightSurface : Palette.lightSurface;
+  final RoundedRectangleBorder shape14 = RoundedRectangleBorder(borderRadius: BorderRadius.circular(14));
+  final TextTheme text = Typography.material2021().black.apply(fontFamily: _font, fontFamilyFallback: _fallback, bodyColor: scheme.onSurface, displayColor: scheme.onSurface);
   return ThemeData(
     useMaterial3: true,
     colorScheme: scheme,
+    fontFamily: _font,
+    fontFamilyFallback: _fallback,
+    textTheme: text,
     scaffoldBackgroundColor: bg,
     visualDensity: VisualDensity.standard,
+    splashFactory: InkSparkle.splashFactory,
+    // A dark navy bar on every screen, like the website's hero: white title and icons.
     appBarTheme: AppBarTheme(
-      backgroundColor: bg,
+      backgroundColor: dark ? Palette.navy800 : Palette.navy700,
+      foregroundColor: Colors.white,
       surfaceTintColor: Colors.transparent,
       elevation: 0,
-      scrolledUnderElevation: 0.5,
+      scrolledUnderElevation: 0,
       centerTitle: false,
-      titleTextStyle: TextStyle(
-        color: scheme.onSurface,
-        fontSize: 20,
-        fontWeight: FontWeight.w700,
-      ),
+      iconTheme: const IconThemeData(color: Colors.white),
+      actionsIconTheme: const IconThemeData(color: Colors.white),
+      systemOverlayStyle: SystemUiOverlayStyle.light,
+      titleTextStyle: const TextStyle(fontFamily: _font, fontFamilyFallback: _fallback, color: Colors.white, fontSize: 19, fontWeight: FontWeight.w800, letterSpacing: 0.1),
     ),
     cardTheme: CardThemeData(
-      elevation: 0,
+      elevation: dark ? 0 : 1.5,
+      shadowColor: const Color(0x261F2744),
       margin: EdgeInsets.zero,
-      color: dark ? Palette.nightSurface : Palette.lightSurface,
+      color: cardColor,
       surfaceTintColor: Colors.transparent,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
@@ -61,76 +87,98 @@ ThemeData buildTheme(Brightness brightness) {
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: dark ? Palette.nightSurface : Palette.lightSurface,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: scheme.outlineVariant),
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: scheme.outlineVariant),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: scheme.primary, width: 1.6),
-      ),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+      fillColor: cardColor,
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: BorderSide(color: scheme.outlineVariant)),
+      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: BorderSide(color: scheme.outlineVariant)),
+      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: BorderSide(color: accent, width: 2)),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
     ),
+    // Main buttons are the accent orange with dark text (white on this orange is too faint to read).
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
+        backgroundColor: accent,
+        foregroundColor: Palette.slate900,
+        disabledBackgroundColor: scheme.outlineVariant,
         minimumSize: const Size(64, 50),
-        shape: shape12,
-        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+        shape: shape14,
+        elevation: 0,
+        textStyle: const TextStyle(fontFamily: _font, fontSize: 15.5, fontWeight: FontWeight.w800),
       ),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(backgroundColor: accent, foregroundColor: Palette.slate900, minimumSize: const Size(64, 50), shape: shape14, textStyle: const TextStyle(fontFamily: _font, fontWeight: FontWeight.w800)),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
+        foregroundColor: scheme.primary,
+        side: BorderSide(color: dark ? Palette.navy300 : Palette.navy700, width: 1.5),
         minimumSize: const Size(64, 50),
-        shape: shape12,
-        textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+        shape: shape14,
+        textStyle: const TextStyle(fontFamily: _font, fontSize: 15, fontWeight: FontWeight.w700),
       ),
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        shape: shape12,
-        textStyle: const TextStyle(fontWeight: FontWeight.w600),
+        foregroundColor: dark ? Palette.saffron300 : Palette.saffron700,
+        shape: shape14,
+        textStyle: const TextStyle(fontFamily: _font, fontWeight: FontWeight.w800),
       ),
     ),
     chipTheme: ChipThemeData(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      shape: const StadiumBorder(),
       side: BorderSide(color: scheme.outlineVariant),
-      labelStyle: TextStyle(fontWeight: FontWeight.w600, color: scheme.onSurface),
+      backgroundColor: cardColor,
+      selectedColor: dark ? const Color(0xFF3A2A24) : Palette.saffron100,
+      checkmarkColor: dark ? Palette.saffron300 : Palette.saffron700,
+      labelStyle: TextStyle(fontFamily: _font, fontWeight: FontWeight.w700, fontSize: 13, color: scheme.onSurface),
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+    ),
+    segmentedButtonTheme: SegmentedButtonThemeData(
+      style: ButtonStyle(
+        shape: const WidgetStatePropertyAll<OutlinedBorder>(StadiumBorder()),
+        side: WidgetStatePropertyAll<BorderSide>(BorderSide(color: scheme.outlineVariant)),
+        backgroundColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> s) => s.contains(WidgetState.selected) ? (dark ? const Color(0xFF3A2A24) : Palette.saffron100) : null),
+        foregroundColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> s) => s.contains(WidgetState.selected) ? (dark ? Palette.saffron200 : Palette.saffron800) : scheme.onSurface),
+        textStyle: const WidgetStatePropertyAll<TextStyle>(TextStyle(fontFamily: _font, fontWeight: FontWeight.w700, fontSize: 13)),
+      ),
     ),
     navigationBarTheme: NavigationBarThemeData(
       height: 68,
-      backgroundColor: dark ? Palette.nightSurface : Palette.lightSurface,
+      elevation: 8,
+      shadowColor: const Color(0x331F2744),
+      backgroundColor: cardColor,
       surfaceTintColor: Colors.transparent,
       indicatorColor: dark ? Palette.saffron500.withValues(alpha: 0.28) : Palette.saffron100,
       iconTheme: WidgetStateProperty.resolveWith<IconThemeData>((Set<WidgetState> st) => IconThemeData(
             color: st.contains(WidgetState.selected) ? (dark ? Palette.saffron300 : Palette.navy700) : (dark ? Palette.slate400 : Palette.slate600),
           )),
       labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>((Set<WidgetState> st) => TextStyle(
-            fontSize: 12,
+            fontFamily: _font,
+            fontSize: 11.5,
             fontWeight: st.contains(WidgetState.selected) ? FontWeight.w800 : FontWeight.w600,
             color: st.contains(WidgetState.selected) ? (dark ? Palette.saffron300 : Palette.navy700) : (dark ? Palette.slate400 : Palette.slate600),
           )),
     ),
-    dividerTheme: DividerThemeData(
-      color: scheme.outlineVariant.withValues(alpha: 0.6),
-      space: 1,
-      thickness: 1,
-    ),
-    snackBarTheme: SnackBarThemeData(
-      behavior: SnackBarBehavior.floating,
-      shape: shape12,
-    ),
-    dialogTheme: DialogThemeData(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
-    bottomSheetTheme: const BottomSheetThemeData(
+    dividerTheme: DividerThemeData(color: scheme.outlineVariant.withValues(alpha: 0.7), space: 1, thickness: 1),
+    snackBarTheme: SnackBarThemeData(behavior: SnackBarBehavior.floating, shape: shape14, backgroundColor: Palette.navy700, contentTextStyle: const TextStyle(fontFamily: _font, color: Colors.white, fontWeight: FontWeight.w600)),
+    dialogTheme: DialogThemeData(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)), backgroundColor: cardColor, surfaceTintColor: Colors.transparent),
+    bottomSheetTheme: BottomSheetThemeData(
       showDragHandle: true,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-      ),
+      backgroundColor: cardColor,
+      surfaceTintColor: Colors.transparent,
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(26))),
     ),
     listTileTheme: const ListTileThemeData(contentPadding: EdgeInsets.symmetric(horizontal: 16)),
+    progressIndicatorTheme: ProgressIndicatorThemeData(color: accent),
+    switchTheme: SwitchThemeData(
+      thumbColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> s) => s.contains(WidgetState.selected) ? Palette.slate900 : null),
+      trackColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> s) => s.contains(WidgetState.selected) ? accent : null),
+    ),
+    checkboxTheme: CheckboxThemeData(fillColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> s) => s.contains(WidgetState.selected) ? accent : null), checkColor: const WidgetStatePropertyAll<Color>(Palette.slate900)),
+    radioTheme: RadioThemeData(fillColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> s) => s.contains(WidgetState.selected) ? accent : null)),
+    pageTransitionsTheme: const PageTransitionsTheme(builders: <TargetPlatform, PageTransitionsBuilder>{
+      TargetPlatform.android: FadeForwardsPageTransitionsBuilder(),
+      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+    }),
   );
 }

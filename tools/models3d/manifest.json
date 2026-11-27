@@ -3,13 +3,41 @@
   "name": "OPPO A6x 5G",
   "searched": "2026-11-27",
   "candidates": [],
-  "status": "none"
+  "status": "generated",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-a6x-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-a6x-5g.webp",
+   "title": "OPPO A6x 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 33
+  }
  },
  "vivo-y11-5g": {
   "name": "vivo Y11 5G",
   "searched": "2026-11-27",
   "candidates": [],
-  "status": "none"
+  "status": "generated",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-y11-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-y11-5g.webp",
+   "title": "vivo Y11 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 34
+  }
  },
  "vivo-y21-5g": {
   "name": "vivo Y21 5G",
@@ -38,20 +66,62 @@
     "verdict": "similar"
    }
   ],
-  "status": "rejected",
-  "note": "\"exact\" title match is a repair-guide test-point diagram (1.9k faces), not a 3D phone model. Not used."
+  "status": "generated",
+  "note": "\"exact\" title match is a repair-guide test-point diagram (1.9k faces), not a 3D phone model. Not used.",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-y21-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-y21-5g.webp",
+   "title": "vivo Y21 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 34
+  }
  },
  "vivo-y31t-5g": {
   "name": "vivo Y31t 5G",
   "searched": "2026-11-27",
   "candidates": [],
-  "status": "none"
+  "status": "generated",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-y31t-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-y31t-5g.webp",
+   "title": "vivo Y31t 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 34
+  }
  },
  "vivo-s2-fe-5g": {
   "name": "vivo S2 FE 5G",
   "searched": "2026-11-27",
   "candidates": [],
-  "status": "none"
+  "status": "generated",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-s2-fe-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-s2-fe-5g.webp",
+   "title": "vivo S2 FE 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 34
+  }
  },
  "vivo-s2-5g": {
   "name": "vivo S2 5G",
@@ -124,13 +194,41 @@
     "verdict": "similar"
    }
   ],
-  "status": "candidates"
+  "status": "generated",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-s2-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-s2-5g.webp",
+   "title": "vivo S2 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 34
+  }
  },
  "vivo-v70-fe-5g": {
   "name": "vivo V70 FE 5G",
   "searched": "2026-11-27",
   "candidates": [],
-  "status": "none"
+  "status": "generated",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-v70-fe-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-v70-fe-5g.webp",
+   "title": "vivo V70 FE 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 34
+  }
  },
  "vivo-v80-5g": {
   "name": "vivo V80 5G",
@@ -225,66 +323,220 @@
     "verdict": "similar"
    }
   ],
-  "status": "candidates"
+  "status": "generated",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-a6-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-a6-5g.webp",
+   "title": "OPPO A6 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 34
+  }
  },
  "oppo-a6s-5g": {
   "name": "OPPO A6s 5G",
   "searched": "2026-11-27",
   "candidates": [],
-  "status": "none"
+  "status": "generated",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-a6s-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-a6s-5g.webp",
+   "title": "OPPO A6s 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 31
+  }
  },
  "oppo-k14x-5g": {
   "name": "OPPO K14x 5G",
   "searched": "2026-11-27",
   "candidates": [],
-  "status": "none"
+  "status": "generated",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-k14x-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-k14x-5g.webp",
+   "title": "OPPO K14x 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 34
+  }
  },
  "oppo-k14-5g": {
   "name": "OPPO K14 5G",
   "searched": "2026-11-27",
   "candidates": [],
-  "status": "none"
+  "status": "generated",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-k14-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-k14-5g.webp",
+   "title": "OPPO K14 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 34
+  }
  },
  "oppo-f35-5g": {
   "name": "OPPO F35 5G",
   "searched": "2026-11-27",
   "candidates": [],
-  "status": "none"
+  "status": "generated",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-f35-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-f35-5g.webp",
+   "title": "OPPO F35 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 34
+  }
  },
  "oppo-f35-pro-5g": {
   "name": "OPPO F35 Pro 5G",
   "searched": "2026-11-27",
   "candidates": [],
-  "status": "none"
+  "status": "generated",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-f35-pro-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-f35-pro-5g.webp",
+   "title": "OPPO F35 Pro 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 34
+  }
  },
  "oppo-reno-16c-5g": {
   "name": "OPPO Reno 16c 5G",
   "searched": "2026-11-27",
   "candidates": [],
-  "status": "none"
+  "status": "generated",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-reno-16c-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-reno-16c-5g.webp",
+   "title": "OPPO Reno 16c 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 37
+  }
  },
  "oppo-reno-16-5g": {
   "name": "OPPO Reno 16 5G",
   "searched": "2026-11-27",
   "candidates": [],
-  "status": "none"
+  "status": "generated",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-reno-16-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/oppo-reno-16-5g.webp",
+   "title": "OPPO Reno 16 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 37
+  }
  },
  "vivo-t5x-5g": {
   "name": "vivo T5x 5G",
   "searched": "2026-11-27",
   "candidates": [],
-  "status": "none"
+  "status": "generated",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-t5x-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-t5x-5g.webp",
+   "title": "vivo T5x 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 34
+  }
  },
  "vivo-t5-pro-5g": {
   "name": "vivo T5 Pro 5G",
   "searched": "2026-11-27",
   "candidates": [],
-  "status": "none"
+  "status": "generated",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-t5-pro-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-t5-pro-5g.webp",
+   "title": "vivo T5 Pro 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 34
+  }
  },
  "vivo-t5-lite-5g": {
   "name": "vivo T5 Lite 5G",
   "searched": "2026-11-27",
   "candidates": [],
-  "status": "none"
+  "status": "generated",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-t5-lite-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-t5-lite-5g.webp",
+   "title": "vivo T5 Lite 5G, illustrative model",
+   "author": "Brandhoop",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attributionRequired": false,
+   "sourceName": "Brandhoop",
+   "sourceUrl": "",
+   "exact": false,
+   "generated": true,
+   "sizeKb": 34
+  }
  }
 }

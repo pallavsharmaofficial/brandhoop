@@ -120,6 +120,18 @@ void main() {
     expect(find.text('Representative model, colour may differ'), findsOneWidget);
   });
 
+  testWidgets('a generated model is labelled illustrative, with no credit line', (WidgetTester t) async {
+    final _FakeViewer v = _FakeViewer();
+    const Model3D gen = Model3D(glb: 'https://example.com/g.glb', title: 'x', author: 'Brandhoop', license: 'CC0 1.0', attributionRequired: false, exact: false, generated: true);
+    await _pump(t, _phone(model: gen), v);
+    await t.tap(find.text('3D View'));
+    await t.pump();
+    expect(find.byKey(const ValueKey<String>('media3dIllustrative')), findsOneWidget);
+    expect(find.byKey(const ValueKey<String>('media3dRepresentative')), findsNothing);
+    expect(find.byKey(const ValueKey<String>('media3dCredit')), findsNothing);
+    expect(Model3D.tryFromJson(gen.toJson())?.generated, isTrue);
+  });
+
   testWidgets('an error (no WebGL, broken file) goes back to the photos by itself', (WidgetTester t) async {
     final _FakeViewer v = _FakeViewer();
     await _pump(t, _phone(model: _ccBy), v);

@@ -1,0 +1,58 @@
+{
+ "id": "oppo-f35-5g",
+ "name": "OPPO F35 5G",
+ "brand": "OPPO",
+ "dims": {
+  "h": 159.1,
+  "w": 75.8,
+  "t": 8.8
+ },
+ "cornerR": 9.5,
+ "front": "flat",
+ "frame": "flat",
+ "finish": "matte",
+ "colour": "#5B8FD1",
+ "colourName": "Wave Blue",
+ "cutout": "punch-center",
+ "layout": "pill-v2",
+ "confidence": "medium",
+ "note": "capsule module top-left (layout from two sources)",
+ "buttons": {
+  "side": "right",
+  "volume": {
+   "y": 46,
+   "len": 22
+  },
+  "power": {
+   "y": 70,
+   "len": 10
+  }
+ },
+ "island": {
+  "shape": "pill",
+  "x": 5,
+  "y": 5,
+  "w": 17,
+  "h": 36
+ },
+ "lenses": [
+  {
+   "x": 13.5,
+   "y": 13.5,
+   "r": 5.6
+  },
+  {
+   "x": 13.5,
+   "y": 31,
+   "r": 5.6
+  }
+ ],
+ "flash": [
+  {
+   "x": 28,
+   "y": 12,
+   "r": 1.7,
+   "on": "back"
+  }
+ ]
+}

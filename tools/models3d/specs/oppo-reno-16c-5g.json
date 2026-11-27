@@ -1,0 +1,63 @@
+{
+ "id": "oppo-reno-16c-5g",
+ "name": "OPPO Reno 16c 5G",
+ "brand": "OPPO",
+ "dims": {
+  "h": 158.2,
+  "w": 74.9,
+  "t": 8.4
+ },
+ "cornerR": 10.5,
+ "front": "flat",
+ "frame": "flat",
+ "finish": "glossy",
+ "colour": "#8E7CC3",
+ "colourName": "Twilight Violet",
+ "cutout": "punch-center",
+ "layout": "rect-3",
+ "confidence": "low",
+ "note": "three lenses; layout inferred from the Reno 16 series",
+ "buttons": {
+  "side": "right",
+  "volume": {
+   "y": 46,
+   "len": 22
+  },
+  "power": {
+   "y": 70,
+   "len": 10
+  }
+ },
+ "island": {
+  "shape": "rounded-rect",
+  "r": 7,
+  "x": 5,
+  "y": 5,
+  "w": 33,
+  "h": 35
+ },
+ "lenses": [
+  {
+   "x": 14.5,
+   "y": 14.5,
+   "r": 5.8
+  },
+  {
+   "x": 14.5,
+   "y": 30.5,
+   "r": 5.8
+  },
+  {
+   "x": 29,
+   "y": 22.5,
+   "r": 5
+  }
+ ],
+ "flash": [
+  {
+   "x": 30,
+   "y": 11,
+   "r": 1.8
+  }
+ ]
+}

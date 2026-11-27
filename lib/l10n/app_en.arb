@@ -1759,6 +1759,7 @@
   "media3dLoading": "Loading 3D model",
   "media3dFailed": "3D view is not available on this device, showing photos.",
   "media3dRepresentative": "Representative model, colour may differ",
+  "media3dIllustrative": "Illustrative 3D model built from this phone’s published size and camera layout. Colour and details may differ.",
   "media3dLicenseTerms": "Licence terms",
   "media3dCredit": "3D model: {title} by {author}, {license} ({source})",
   "@media3dCredit": {
@@ -1801,5 +1802,22 @@
         "type": "String"
       }
     }
-  }
+  },
+  "emiHeroTitle": "Phone on EMI",
+  "emiHeroSub": "Take the phone home with just 3 documents. The lender decides the approval.",
+  "emiHowTitle": "How it works",
+  "emiStep1": "Bring 3 documents",
+  "emiStep1Sub": "PAN card, Aadhaar card and bank passbook.",
+  "emiStep2": "Choose your phone",
+  "emiStep2Sub": "Pick it in the shop, or ask us on WhatsApp first.",
+  "emiStep3": "Apply at the counter",
+  "emiStep3Sub": "Bajaj Finserv EMI is available only at the shop, because it needs a face scan.",
+  "emiStep4": "The lender approves",
+  "emiStep4Sub": "Approval and the final instalments are decided by the lender. Ask us for today’s schemes and rates.",
+  "emiLendersTitle": "Lenders on our shop sign",
+  "emiLendersList": "Bajaj Finserv · IDFC First Bank · HDFC Bank",
+  "emiCardNote": "Zero down payment is offered to card customers. Ask us for the terms.",
+  "accountShopLine": "Brandhoop Mobile Point, Neem Ka Thana",
+  "accountHeroSub": "Language, theme and help for this app.",
+  "storeHoursTitle": "In the shop"
 }

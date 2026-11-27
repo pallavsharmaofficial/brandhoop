@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../core/money.dart';
+import '../app/palette.dart';
 import '../app/theme.dart';
 import '../l10n/l10n.dart';
 import '../state/settings_cubit.dart';
@@ -130,27 +131,36 @@ class EmptyState extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData t = Theme.of(context);
     return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(32),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            CircleAvatar(
-              radius: 36,
-              backgroundColor: t.colorScheme.primaryContainer,
-              child: Icon(icon, size: 34, color: t.colorScheme.primary),
-            ),
-            const SizedBox(height: 16),
-            Text(title, textAlign: TextAlign.center, style: t.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800)),
-            if (message != null) ...<Widget>[
-              const SizedBox(height: 6),
-              Text(message!, textAlign: TextAlign.center, style: t.textTheme.bodyMedium?.copyWith(color: t.colorScheme.onSurfaceVariant)),
-            ],
-            if (actionLabel != null && onAction != null) ...<Widget>[
+      child: Reveal(
+        child: Padding(
+          padding: const EdgeInsets.all(32),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Floating(
+                amplitude: 5,
+                child: Container(
+                  width: 92,
+                  height: 92,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    gradient: RadialGradient(colors: <Color>[Palette.saffron500.withValues(alpha: 0.28), Palette.saffron500.withValues(alpha: 0.04)]),
+                  ),
+                  child: Icon(icon, size: 42, color: t.brightness == Brightness.dark ? Palette.saffron300 : Palette.navy700),
+                ),
+              ),
               const SizedBox(height: 16),
-              FilledButton(onPressed: onAction, child: Text(actionLabel!)),
+              Text(title, textAlign: TextAlign.center, style: t.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800)),
+              if (message != null) ...<Widget>[
+                const SizedBox(height: 6),
+                Text(message!, textAlign: TextAlign.center, style: t.textTheme.bodyMedium?.copyWith(color: t.colorScheme.onSurfaceVariant)),
+              ],
+              if (actionLabel != null && onAction != null) ...<Widget>[
+                const SizedBox(height: 18),
+                Pressable(child: FilledButton(onPressed: onAction, child: Text(actionLabel!))),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );
@@ -314,16 +324,16 @@ class LanguageButton extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
           decoration: BoxDecoration(
-            border: Border.all(color: Theme.of(context).colorScheme.outline),
+            border: Border.all(color: Colors.white54),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              const Icon(Icons.translate, size: 16),
+              const Icon(Icons.translate, size: 16, color: Colors.white),
               const SizedBox(width: 6),
               // Show the language you will switch TO.
-              Text(hi ? context.tr.languageShortEn : context.tr.languageShortHi, style: const TextStyle(fontWeight: FontWeight.w800)),
+              Text(hi ? context.tr.languageShortEn : context.tr.languageShortHi, style: const TextStyle(fontWeight: FontWeight.w800, color: Colors.white)),
             ],
           ),
         ),
@@ -426,4 +436,90 @@ Future<String?> promptDialog(
   );
   c.dispose();
   return v;
+}
+
+/// A dark navy card with a saffron glow, an icon, a title and a line of text, and room for
+/// buttons under it. The in-page counterpart of the app bar, used at the top of EMI, account and similar screens.
+class PageHero extends StatelessWidget {
+  const PageHero({super.key, required this.icon, required this.title, this.subtitle, this.children = const <Widget>[]});
+
+  final IconData icon;
+  final String title;
+  final String? subtitle;
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context) => Reveal(
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(24),
+          child: Container(
+            width: double.infinity,
+            decoration: const BoxDecoration(gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: <Color>[Palette.navy800, Palette.navy700, Palette.navy600])),
+            child: Stack(
+              children: <Widget>[
+                Positioned(right: -36, top: -46, child: Container(width: 170, height: 170, decoration: BoxDecoration(shape: BoxShape.circle, gradient: RadialGradient(colors: <Color>[Palette.saffron500.withValues(alpha: 0.45), Palette.saffron500.withValues(alpha: 0)])))),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Floating(
+                        amplitude: 3,
+                        child: Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(14), border: Border.all(color: Colors.white24)),
+                          child: Icon(icon, color: Palette.saffron300, size: 28),
+                        ),
+                      ),
+                      const SizedBox(height: 14),
+                      Text(title, style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w800, height: 1.15)),
+                      if (subtitle != null) ...<Widget>[
+                        const SizedBox(height: 8),
+                        Text(subtitle!, style: const TextStyle(color: Colors.white70, height: 1.45, fontSize: 14)),
+                      ],
+                      if (children.isNotEmpty) ...<Widget>[const SizedBox(height: 16), ...children],
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+}
+
+/// One row of a how-it-works list: a numbered saffron dot, a title and a line of text.
+class StepTile extends StatelessWidget {
+  const StepTile({super.key, required this.n, required this.title, this.text});
+
+  final int n;
+  final String title;
+  final String? text;
+
+  @override
+  Widget build(BuildContext context) => Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              width: 30,
+              height: 30,
+              alignment: Alignment.center,
+              decoration: const BoxDecoration(shape: BoxShape.circle, color: Palette.saffron500),
+              child: Text('$n', style: const TextStyle(color: Palette.slate900, fontWeight: FontWeight.w800)),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(title, style: const TextStyle(fontWeight: FontWeight.w800, height: 1.25)),
+                  if (text != null) Padding(padding: const EdgeInsets.only(top: 2), child: Text(text!, style: Theme.of(context).textTheme.bodySmall?.copyWith(height: 1.4))),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
 }

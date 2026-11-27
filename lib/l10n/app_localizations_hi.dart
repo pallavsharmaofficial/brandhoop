@@ -3337,6 +3337,10 @@ class AppLocalizationsHi extends AppLocalizations {
       'यह एक मिलता-जुलता मॉडल है, रंग अलग हो सकता है';
 
   @override
+  String get media3dIllustrative =>
+      'यह फ़ोन के प्रकाशित साइज़ और कैमरा लेआउट से बना काल्पनिक 3D मॉडल है। रंग और बारीकियाँ अलग हो सकती हैं।';
+
+  @override
   String get media3dLicenseTerms => 'लाइसेंस की शर्तें';
 
   @override
@@ -3358,4 +3362,60 @@ class AppLocalizationsHi extends AppLocalizations {
   String mediaPhotoOf(String n, String total) {
     return 'फ़ोटो $n / $total';
   }
+
+  @override
+  String get emiHeroTitle => 'EMI पर फ़ोन';
+
+  @override
+  String get emiHeroSub =>
+      'सिर्फ़ 3 document पर फ़ोन घर ले जाइए। मंज़ूरी फ़ाइनेंस कंपनी तय करती है।';
+
+  @override
+  String get emiHowTitle => 'कैसे होता है';
+
+  @override
+  String get emiStep1 => 'ये 3 document लाइए';
+
+  @override
+  String get emiStep1Sub => 'पैन कार्ड, आधार कार्ड और बैंक पासबुक।';
+
+  @override
+  String get emiStep2 => 'अपना फ़ोन चुनिए';
+
+  @override
+  String get emiStep2Sub => 'दुकान पर चुनिए, या पहले WhatsApp पर पूछिए।';
+
+  @override
+  String get emiStep3 => 'काउंटर पर आवेदन कीजिए';
+
+  @override
+  String get emiStep3Sub =>
+      'बजाज फिनसर्व EMI सिर्फ़ दुकान पर मिलती है, क्योंकि उसमें फ़ेस स्कैन चाहिए।';
+
+  @override
+  String get emiStep4 => 'फ़ाइनेंस कंपनी मंज़ूर करती है';
+
+  @override
+  String get emiStep4Sub =>
+      'मंज़ूरी और आख़िरी किस्तें फ़ाइनेंस कंपनी तय करती है। आज की स्कीम और दरें हमसे पूछिए।';
+
+  @override
+  String get emiLendersTitle =>
+      'हमारे दुकान के बोर्ड पर लिखी फ़ाइनेंस कंपनियाँ';
+
+  @override
+  String get emiLendersList => 'बजाज फिनसर्व · IDFC First Bank · HDFC Bank';
+
+  @override
+  String get emiCardNote =>
+      'कार्ड वाले ग्राहकों को ज़ीरो डाउन पेमेंट दिया जाता है। शर्तें हमसे पूछिए।';
+
+  @override
+  String get accountShopLine => 'ब्रांडहूप मोबाइल पॉइंट, नीम का थाना';
+
+  @override
+  String get accountHeroSub => 'इस ऐप की भाषा, थीम और मदद।';
+
+  @override
+  String get storeHoursTitle => 'दुकान में';
 }

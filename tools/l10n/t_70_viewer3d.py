@@ -10,6 +10,7 @@ T = [
 ('media3dLoading', 'Loading 3D model', '3D मॉडल लोड हो रहा है'),
 ('media3dFailed', '3D view is not available on this device, showing photos.', 'इस फ़ोन पर 3D व्यू नहीं चल पा रहा, फ़ोटो दिखा रहे हैं।'),
 ('media3dRepresentative', 'Representative model, colour may differ', 'यह एक मिलता-जुलता मॉडल है, रंग अलग हो सकता है'),
+('media3dIllustrative', 'Illustrative 3D model built from this phone’s published size and camera layout. Colour and details may differ.', 'यह फ़ोन के प्रकाशित साइज़ और कैमरा लेआउट से बना काल्पनिक 3D मॉडल है। रंग और बारीकियाँ अलग हो सकती हैं।'),
 ('media3dLicenseTerms', 'Licence terms', 'लाइसेंस की शर्तें'),
 ('media3dCredit', '3D model: {title} by {author}, {license} ({source})', '3D मॉडल: {title}, {author} द्वारा, {license} ({source})'),
 ('media3dCreditNoAuthor', '3D model: {title}, {license} ({source})', '3D मॉडल: {title}, {license} ({source})'),

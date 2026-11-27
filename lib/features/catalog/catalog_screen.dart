@@ -11,6 +11,7 @@ import '../../l10n/l10n.dart';
 import '../../state/cart_cubit.dart';
 import '../../state/data_cubits.dart';
 import '../../widgets/common.dart';
+import '../../widgets/motion.dart';
 import '../../widgets/product_card.dart';
 import 'catalog_query.dart';
 
@@ -73,8 +74,15 @@ class _CatalogScreenState extends State<CatalogScreen> {
         wideWidth: 1180,
         child: Column(
           children: <Widget>[
+           // The search box and the filters continue the app bar, so the top of the page is one navy block.
+           DecoratedBox(
+            decoration: BoxDecoration(
+              color: Theme.of(context).appBarTheme.backgroundColor,
+              borderRadius: const BorderRadius.vertical(bottom: Radius.circular(26)),
+            ),
+            child: Column(children: <Widget>[
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
+              padding: const EdgeInsets.fromLTRB(16, 4, 16, 10),
               child: TextField(
                 controller: _search,
                 textInputAction: TextInputAction.search,
@@ -122,6 +130,9 @@ class _CatalogScreenState extends State<CatalogScreen> {
                   ],
                 ),
               ),
+            const SizedBox(height: 12),
+            ]),
+           ),
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 4, 8, 0),
               child: Row(
@@ -177,7 +188,12 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         mainAxisExtent: 296,
                       ),
                       itemCount: shown.length,
-                      itemBuilder: (BuildContext _, int i) => ProductCard(product: shown[i], settings: store),
+                      itemBuilder: (BuildContext _, int i) => Reveal(
+                        key: ValueKey<String>(shown[i].id),
+                        delay: Duration(milliseconds: 45 * (i % 6)),
+                        rise: 12,
+                        child: ProductCard(product: shown[i], settings: store),
+                      ),
                     ),
             ),
           ],

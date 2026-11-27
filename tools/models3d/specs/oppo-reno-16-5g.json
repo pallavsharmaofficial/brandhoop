@@ -1,0 +1,63 @@
+{
+ "id": "oppo-reno-16-5g",
+ "name": "OPPO Reno 16 5G",
+ "brand": "OPPO",
+ "dims": {
+  "h": 151.2,
+  "w": 72.4,
+  "t": 8.22
+ },
+ "cornerR": 10.5,
+ "front": "flat",
+ "frame": "flat",
+ "finish": "glossy",
+ "colour": "#A98BD6",
+ "colourName": "Stellar Purple",
+ "cutout": "punch-center",
+ "layout": "rect-3",
+ "confidence": "medium",
+ "note": "low square island, three lenses",
+ "buttons": {
+  "side": "right",
+  "volume": {
+   "y": 46,
+   "len": 22
+  },
+  "power": {
+   "y": 70,
+   "len": 10
+  }
+ },
+ "island": {
+  "shape": "rounded-rect",
+  "r": 7,
+  "x": 5,
+  "y": 5,
+  "w": 33,
+  "h": 35
+ },
+ "lenses": [
+  {
+   "x": 14.5,
+   "y": 14.5,
+   "r": 5.8
+  },
+  {
+   "x": 14.5,
+   "y": 30.5,
+   "r": 5.8
+  },
+  {
+   "x": 29,
+   "y": 22.5,
+   "r": 5
+  }
+ ],
+ "flash": [
+  {
+   "x": 30,
+   "y": 11,
+   "r": 1.8
+  }
+ ]
+}

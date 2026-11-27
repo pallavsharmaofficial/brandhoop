@@ -3347,6 +3347,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get media3dRepresentative => 'Representative model, colour may differ';
 
   @override
+  String get media3dIllustrative =>
+      'Illustrative 3D model built from this phone’s published size and camera layout. Colour and details may differ.';
+
+  @override
   String get media3dLicenseTerms => 'Licence terms';
 
   @override
@@ -3368,4 +3372,59 @@ class AppLocalizationsEn extends AppLocalizations {
   String mediaPhotoOf(String n, String total) {
     return 'Photo $n of $total';
   }
+
+  @override
+  String get emiHeroTitle => 'Phone on EMI';
+
+  @override
+  String get emiHeroSub =>
+      'Take the phone home with just 3 documents. The lender decides the approval.';
+
+  @override
+  String get emiHowTitle => 'How it works';
+
+  @override
+  String get emiStep1 => 'Bring 3 documents';
+
+  @override
+  String get emiStep1Sub => 'PAN card, Aadhaar card and bank passbook.';
+
+  @override
+  String get emiStep2 => 'Choose your phone';
+
+  @override
+  String get emiStep2Sub => 'Pick it in the shop, or ask us on WhatsApp first.';
+
+  @override
+  String get emiStep3 => 'Apply at the counter';
+
+  @override
+  String get emiStep3Sub =>
+      'Bajaj Finserv EMI is available only at the shop, because it needs a face scan.';
+
+  @override
+  String get emiStep4 => 'The lender approves';
+
+  @override
+  String get emiStep4Sub =>
+      'Approval and the final instalments are decided by the lender. Ask us for today’s schemes and rates.';
+
+  @override
+  String get emiLendersTitle => 'Lenders on our shop sign';
+
+  @override
+  String get emiLendersList => 'Bajaj Finserv · IDFC First Bank · HDFC Bank';
+
+  @override
+  String get emiCardNote =>
+      'Zero down payment is offered to card customers. Ask us for the terms.';
+
+  @override
+  String get accountShopLine => 'Brandhoop Mobile Point, Neem Ka Thana';
+
+  @override
+  String get accountHeroSub => 'Language, theme and help for this app.';
+
+  @override
+  String get storeHoursTitle => 'In the shop';
 }

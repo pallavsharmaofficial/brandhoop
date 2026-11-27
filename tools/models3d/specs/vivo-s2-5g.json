@@ -1,0 +1,57 @@
+{
+ "id": "vivo-s2-5g",
+ "name": "vivo S2 5G",
+ "brand": "vivo",
+ "dims": {
+  "h": 164.42,
+  "w": 75.25,
+  "t": 7.99
+ },
+ "cornerR": 10.5,
+ "front": "curved",
+ "frame": "flat",
+ "finish": "glossy",
+ "colour": "#2F4C8C",
+ "colourName": "Sapphire Blue",
+ "cutout": "punch-center",
+ "layout": "pill-h2",
+ "confidence": "medium",
+ "note": "horizontal Skyline bar, top centre",
+ "buttons": {
+  "side": "right",
+  "volume": {
+   "y": 46,
+   "len": 22
+  },
+  "power": {
+   "y": 70,
+   "len": 10
+  }
+ },
+ "island": {
+  "shape": "pill",
+  "x": 14.625,
+  "y": 5,
+  "w": 46,
+  "h": 18
+ },
+ "lenses": [
+  {
+   "x": 25.625,
+   "y": 14,
+   "r": 5.2
+  },
+  {
+   "x": 40.625,
+   "y": 14,
+   "r": 5.2
+  }
+ ],
+ "flash": [
+  {
+   "x": 53.125,
+   "y": 14,
+   "r": 2.1
+  }
+ ]
+}

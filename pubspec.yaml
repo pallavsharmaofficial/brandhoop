@@ -55,4 +55,13 @@ flutter:
     - assets/branding/
     - assets/live/
     - assets/img/
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat_500Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Montserrat_700Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Montserrat_800ExtraBold.ttf
+          weight: 800
 

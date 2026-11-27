@@ -1,0 +1,56 @@
+{
+ "id": "oppo-a6s-5g",
+ "name": "OPPO A6s 5G",
+ "brand": "OPPO",
+ "dims": {
+  "h": 166.6,
+  "w": 78.5,
+  "t": 8.6
+ },
+ "cornerR": 9.5,
+ "front": "flat",
+ "frame": "flat",
+ "finish": "matte",
+ "colour": "#5E4A6B",
+ "colourName": "Plum Purple",
+ "cutout": "punch-center",
+ "layout": "rings-v2",
+ "confidence": "low",
+ "note": "two ring lenses on the back, no island (one source)",
+ "buttons": {
+  "side": "right",
+  "volume": {
+   "y": 46,
+   "len": 22
+  },
+  "power": {
+   "y": 70,
+   "len": 10
+  }
+ },
+ "island": {
+  "shape": "none"
+ },
+ "lenses": [
+  {
+   "x": 14.5,
+   "y": 14.5,
+   "r": 6.4,
+   "on": "back"
+  },
+  {
+   "x": 14.5,
+   "y": 31.5,
+   "r": 6.4,
+   "on": "back"
+  }
+ ],
+ "flash": [
+  {
+   "x": 28,
+   "y": 12,
+   "r": 1.8,
+   "on": "back"
+  }
+ ]
+}

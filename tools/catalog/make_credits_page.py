@@ -16,7 +16,8 @@ names = {
     'pendrive': 'Pen drive', 'stand': 'Phone stand', 'carholder': 'Car phone holder', 'tripod_tall': 'Tripod', 'tripod_flex': 'Flexible tripod',
 }
 m3 = json.loads((HERE.parent / 'models3d' / 'manifest.json').read_text()) if (HERE.parent / 'models3d' / 'manifest.json').exists() else {}
-models = [(pid, e['model3d']) for pid, e in m3.items() if e.get('model3d')]
+models = [(pid, e['model3d']) for pid, e in m3.items() if e.get('model3d') and not e['model3d'].get('generated')]
+ngen = sum(1 for e in m3.values() if (e.get('model3d') or {}).get('generated'))
 li = lambda t, u, extra='': f'<li>{html.escape(t)}{extra}: <a href="{html.escape(u)}">link</a></li>'
 pex = [li(t, f'https://www.pexels.com/photo/{i}/') for t, i in fixed.items()] + [li(names[k], f'https://www.pexels.com/photo/{i}/') for k, i in acc.items() if k in names]
 mod = [f'<li>{html.escape(m["title"])} by {html.escape(m["author"])}, <a href="{html.escape(m["licenseUrl"])}">{html.escape(m["license"])}</a> ({html.escape(m["sourceName"])}): <a href="{html.escape(m["sourceUrl"])}">link</a>'
@@ -34,6 +35,7 @@ h1{{color:#283593}}h2{{color:#283593;font-size:20px;margin-top:28px}}a{{color:#2
 <h2>3D models (Sketchfab)</h2>
 <p>Models of the phones shown in the 3D View, used under CC BY 4.0 or CC0. Each was optimised (smaller textures, compression) for the web. Follow the links for the author and licence text.</p>
 <ul>{''.join(mod) or '<li>None yet.</li>'}</ul>
+<p>{ngen} more phones show an illustrative 3D model that Brandhoop generated from the phone's published size, colour and camera layout (public spec sheets and reviews). It is not a scan, a photo or anyone's model, and it is released under CC0.</p>
 <h2>Pexels (accessory and festival photos)</h2>
 <p>Free-to-use photographs under the <a href="https://www.pexels.com/license/">Pexels licence</a>, credited here anyway. Accessory pictures are for illustration only.</p>
 <ul>{''.join(pex)}</ul>

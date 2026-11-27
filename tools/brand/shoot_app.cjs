@@ -34,7 +34,7 @@ const serve = (dir, prefix) => http.createServer((q, r) => {
     return fs.existsSync(f) && fs.statSync(f).isFile() ? r.fulfill({ status: 200, contentType: MIME[path.extname(f)] || 'application/octet-stream', headers: { 'access-control-allow-origin': '*' }, body: fs.readFileSync(f) }) : r.fulfill({ status: 404, body: '' });
   });
   const lang = opt('lang', 'en');
-  await p.addInitScript((l) => { try { localStorage.setItem('flutter.bh.onboarded', 'true'); localStorage.setItem('flutter.bh.lang', JSON.stringify(l)); } catch (e) {} }, lang);
+  if (!has('fresh')) await p.addInitScript((l) => { try { localStorage.setItem('flutter.bh.onboarded', 'true'); localStorage.setItem('flutter.bh.lang', JSON.stringify(l)); } catch (e) {} }, lang);
   const base = has('site') ? 'http://localhost:8767/' : 'http://localhost:8767/app/';
   await p.goto(base + urlPath.replace(/^app\//, ''));
   await p.waitForTimeout(+opt('wait', 6500));

@@ -50,7 +50,7 @@
       ph.className = 'ph art'; ph.style.setProperty('--a', pair[0]); ph.style.setProperty('--b', pair[1]); ph.innerHTML = GLYPH;
     }
     if (p.specs && p.specs.chip) ph.appendChild(el('span', 'sp', p.specs.chip));
-    if (p.model3d) ph.appendChild(el('span', 'three', '360° 3D'));
+    if (p.model3d) ph.appendChild(el('span', 'three', p.model3d.generated ? '360° 3D · illustrative' : '360° 3D'));
     c.appendChild(ph);
     var b = el('div', 'b'); b.appendChild(el('div', 'brand', p.brand)); b.appendChild(el('div', 'name', p.name.en));
     var hl = (p.highlights || []).slice(0, 2).map(function (h) { return h.en; }).join(' · ');
@@ -135,7 +135,8 @@
     if (br && hex.test(br.accent || '')) document.documentElement.style.setProperty('--accent', br.accent);
     if (br && br.tagline) { var tg = $('brandTag'); var t = br.tagline.en || br.tagline.hi; if (tg && t) tg.textContent = br.tagline.hi && br.tagline.en ? br.tagline.en + ' · ' + br.tagline.hi : t; }
     phones = (shop.products || []).filter(function (p) { return p.category === 'smartphone' && p.active !== false; });
-    phones.sort(function (a, b) { return (b.model3d ? 1 : 0) - (a.model3d ? 1 : 0) || (b.featured ? 1 : 0) - (a.featured ? 1 : 0); });
+    var real = function (p) { return p.model3d && !p.model3d.generated ? 1 : 0; };
+    phones.sort(function (a, b) { return real(b) - real(a) || (b.featured ? 1 : 0) - (a.featured ? 1 : 0); });
     var count = {}; phones.forEach(function (p) { if (p.brand) count[p.brand] = (count[p.brand] || 0) + 1; });
     var brands = Object.keys(count).sort(function (a, b) { return count[b] - count[a] || a.localeCompare(b); });
     var chips = $('brandChips');
@@ -147,7 +148,7 @@
     chip('All (' + phones.length + ')', ''); brands.forEach(function (b) { chip(b + ' (' + count[b] + ')', b); });
     render();
     banner((shop.offers || []).filter(function (o) { return o.kind === 'banner' && o.title; }));
-    var withModel = phones.filter(function (p) { return p.model3d; })[0]; if (withModel) hero(withModel.model3d);
+    var withModel = phones.filter(real)[0]; if (withModel) hero(withModel.model3d);
   }).catch(function () {
     $('grid').appendChild(el('p', 'empty', 'Open the shop app to see all phones.'));
   });

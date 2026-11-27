@@ -1,0 +1,58 @@
+{
+ "id": "oppo-f35-pro-5g",
+ "name": "OPPO F35 Pro 5G",
+ "brand": "OPPO",
+ "dims": {
+  "h": 162.6,
+  "w": 77.6,
+  "t": 8.4
+ },
+ "cornerR": 9.5,
+ "front": "flat",
+ "frame": "flat",
+ "finish": "matte",
+ "colour": "#E88A4A",
+ "colourName": "Sunrise Orange",
+ "cutout": "punch-center",
+ "layout": "pill-v2",
+ "confidence": "medium",
+ "note": "semi-circular island top-left",
+ "buttons": {
+  "side": "right",
+  "volume": {
+   "y": 46,
+   "len": 22
+  },
+  "power": {
+   "y": 70,
+   "len": 10
+  }
+ },
+ "island": {
+  "shape": "pill",
+  "x": 5,
+  "y": 5,
+  "w": 17,
+  "h": 36
+ },
+ "lenses": [
+  {
+   "x": 13.5,
+   "y": 13.5,
+   "r": 5.6
+  },
+  {
+   "x": 13.5,
+   "y": 31,
+   "r": 5.6
+  }
+ ],
+ "flash": [
+  {
+   "x": 28,
+   "y": 12,
+   "r": 1.7,
+   "on": "back"
+  }
+ ]
+}

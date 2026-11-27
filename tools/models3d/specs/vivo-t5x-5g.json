@@ -1,0 +1,58 @@
+{
+ "id": "vivo-t5x-5g",
+ "name": "vivo T5x 5G",
+ "brand": "vivo",
+ "dims": {
+  "h": 166.64,
+  "w": 78.43,
+  "t": 8.39
+ },
+ "cornerR": 9.5,
+ "front": "flat",
+ "frame": "flat",
+ "finish": "matte",
+ "colour": "#6FBF73",
+ "colourName": "Cyber Green",
+ "cutout": "punch-center",
+ "layout": "square-2",
+ "confidence": "medium",
+ "note": "rounded square module, Aura light inside",
+ "buttons": {
+  "side": "right",
+  "volume": {
+   "y": 46,
+   "len": 22
+  },
+  "power": {
+   "y": 70,
+   "len": 10
+  }
+ },
+ "island": {
+  "shape": "rounded-rect",
+  "r": 6.5,
+  "x": 5,
+  "y": 5,
+  "w": 27,
+  "h": 27
+ },
+ "lenses": [
+  {
+   "x": 13.5,
+   "y": 13,
+   "r": 5
+  },
+  {
+   "x": 13.5,
+   "y": 25,
+   "r": 5
+  }
+ ],
+ "flash": [
+  {
+   "x": 26,
+   "y": 11,
+   "r": 1.9
+  }
+ ]
+}

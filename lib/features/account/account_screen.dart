@@ -32,7 +32,7 @@ class AccountScreen extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
           children: <Widget>[
             if (AppEnv.live)
-              const SizedBox.shrink()
+              PageHero(icon: Icons.person_outline, title: context.tr.appName, subtitle: context.tr.accountHeroSub)
             else if (u == null)
               Card(
                 child: Padding(

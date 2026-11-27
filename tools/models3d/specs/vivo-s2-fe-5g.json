@@ -1,0 +1,58 @@
+{
+ "id": "vivo-s2-fe-5g",
+ "name": "vivo S2 FE 5G",
+ "brand": "vivo",
+ "dims": {
+  "h": 163.9,
+  "w": 76.5,
+  "t": 8.69
+ },
+ "cornerR": 9.5,
+ "front": "flat",
+ "frame": "flat",
+ "finish": "matte",
+ "colour": "#7FA38A",
+ "colourName": "Stellar Green",
+ "cutout": "punch-center",
+ "layout": "square-2",
+ "confidence": "low",
+ "note": "squarish island; no source gave the exact layout",
+ "buttons": {
+  "side": "right",
+  "volume": {
+   "y": 46,
+   "len": 22
+  },
+  "power": {
+   "y": 70,
+   "len": 10
+  }
+ },
+ "island": {
+  "shape": "rounded-rect",
+  "r": 6.5,
+  "x": 5,
+  "y": 5,
+  "w": 27,
+  "h": 27
+ },
+ "lenses": [
+  {
+   "x": 13.5,
+   "y": 13,
+   "r": 5
+  },
+  {
+   "x": 13.5,
+   "y": 25,
+   "r": 5
+  }
+ ],
+ "flash": [
+  {
+   "x": 26,
+   "y": 11,
+   "r": 1.9
+  }
+ ]
+}

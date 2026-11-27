@@ -303,7 +303,7 @@ class _Credit extends StatelessWidget {
         ? context.tr.media3dCreditNoAuthor(model.title, model.license, src)
         : context.tr.media3dCredit(model.title, model.author, model.license, src);
     final bool showCredit = model.attributionRequired && model.hasCredit;
-    if (!showCredit && model.exact) return const SizedBox.shrink();
+    if (!showCredit && model.exact && !model.generated) return const SizedBox.shrink();
     return Padding(
       padding: const EdgeInsets.only(top: 8),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
@@ -320,7 +320,12 @@ class _Credit extends StatelessWidget {
                 child: Text(context.tr.media3dLicenseTerms, style: small?.copyWith(decoration: TextDecoration.underline)),
               ),
           ]),
-        if (!model.exact)
+        if (model.generated)
+          Padding(
+            padding: const EdgeInsets.only(top: 2),
+            child: Text(context.tr.media3dIllustrative, key: const ValueKey<String>('media3dIllustrative'), style: small?.copyWith(fontWeight: FontWeight.w700)),
+          )
+        else if (!model.exact)
           Padding(
             padding: const EdgeInsets.only(top: 2),
             child: Text(context.tr.media3dRepresentative, key: const ValueKey<String>('media3dRepresentative'), style: small?.copyWith(fontWeight: FontWeight.w700)),

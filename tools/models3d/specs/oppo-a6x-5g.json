@@ -1,0 +1,52 @@
+{
+ "id": "oppo-a6x-5g",
+ "name": "OPPO A6x 5G",
+ "brand": "OPPO",
+ "dims": {
+  "h": 166.6,
+  "w": 78.5,
+  "t": 8.6
+ },
+ "cornerR": 9.5,
+ "front": "flat",
+ "frame": "flat",
+ "finish": "matte",
+ "colour": "#6B7355",
+ "colourName": "Olive Green",
+ "cutout": "punch-center",
+ "layout": "single-pill",
+ "confidence": "medium",
+ "note": "one 13 MP lens in a vertical pill, top-left",
+ "buttons": {
+  "side": "right",
+  "volume": {
+   "y": 46,
+   "len": 22
+  },
+  "power": {
+   "y": 70,
+   "len": 10
+  }
+ },
+ "island": {
+  "shape": "pill",
+  "x": 5,
+  "y": 5,
+  "w": 17,
+  "h": 33
+ },
+ "lenses": [
+  {
+   "x": 13.5,
+   "y": 13.5,
+   "r": 5.6
+  }
+ ],
+ "flash": [
+  {
+   "x": 13.5,
+   "y": 30,
+   "r": 2
+  }
+ ]
+}

@@ -44,3 +44,17 @@ allow commercial use and changes are accepted: CC0 and CC BY.
 
 CC BY needs a credit: the product page shows "3D model: title by author, licence (source)" with links.
 A model that is only a stand-in for the phone also says "Representative model, colour may differ".
+
+## Illustrative models (phones with no real model)
+
+Sketchfab has a real CC0 / CC BY model only for the vivo V80. The other 18 phones get a model **generated from numbers**:
+
+```
+python3 tools/models3d/build_specs.py      # size, colour, camera layout per phone -> specs/<id>.json
+python3 tools/models3d/generate_all.py     # generate_phone.mjs -> optimise -> poster -> manifest ("generated": true)
+python3 tools/models3d/attach.py           # into shop.json
+```
+
+`tools/models3d/build_specs.py` holds the facts (height, width, thickness, colour, camera island and lens positions) taken from public spec text; each phone has a `confidence` and a note where the layout was inferred. `generate_phone.mjs` builds the body, screen, camera island, lenses, flash, keys and a brand word with @gltf-transform/core; nothing is copied from a photo or another model, so the result is CC0. Each is about 35 KB.
+
+The product page labels them "Illustrative 3D model built from this phone's published size and camera layout. Colour and details may differ." (`Model3D.generated`). To use a real model later, put its Sketchfab uid in `choice` in `manifest.json` and run `pipeline.py`; a real model replaces the generated one.
