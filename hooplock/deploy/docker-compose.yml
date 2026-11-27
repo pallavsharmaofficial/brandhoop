@@ -1,4 +1,4 @@
-# HoopLock on any Linux VPS (2 GB RAM is enough): API + website + agent APK, PostgreSQL, HTTPS.
+# HoopLock on any Linux VPS (1 GB RAM is enough): API, PostgreSQL, HTTPS. Easiest: deploy/install.sh
 #   cp .env.example .env   # fill it in
 #   docker compose up -d --build
 # iPhone management (needs Apple Business Manager): docker compose --profile ios up -d
@@ -17,7 +17,7 @@ services:
       retries: 10
 
   app:
-    build: { context: ../.., dockerfile: hooplock/Dockerfile }
+    build: { context: ../server }
     restart: unless-stopped
     depends_on: { db: { condition: service_healthy } }
     environment:
@@ -27,6 +27,7 @@ services:
       ADMIN_PHONE: ${ADMIN_PHONE}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD}
       AGENT_SIGNATURE_CHECKSUM: ${AGENT_SIGNATURE_CHECKSUM}
+      AGENT_APK_URL: ${AGENT_APK_URL:-https://pallavsharmaofficial.github.io/hooplock/agent/hooplock-agent.apk}
       NANOMDM_URL: ${NANOMDM_URL:-}
       NANOMDM_API_KEY: ${NANOMDM_API_KEY:-}
       MDM_WEBHOOK_SECRET: ${MDM_WEBHOOK_SECRET:-}
@@ -54,7 +55,7 @@ services:
     image: caddy:2-alpine
     restart: unless-stopped
     ports: ["80:80", "443:443"]
-    environment: { DOMAIN: "${DOMAIN}", MDM_DOMAIN: "${MDM_DOMAIN:-mdm.invalid}" }
+    environment: { DOMAIN: "${DOMAIN}", MDM_DOMAIN: "${MDM_DOMAIN:-}" }
     volumes: [./Caddyfile:/etc/caddy/Caddyfile:ro, caddy:/data]
 
 volumes: { db: {}, mdm: {}, caddy: {} }

@@ -29,6 +29,28 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
+  Future<void> _connect() async {
+    final c = TextEditingController(text: savedServer ?? 'https://');
+    final url = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Server address'),
+        content: Column(mainAxisSize: MainAxisSize.min, children: [
+          const Text('Paste the HoopLock server address Pallav gave you.\nपल्लव जी का दिया सर्वर पता डालें।'),
+          const SizedBox(height: 12),
+          TextField(controller: c, keyboardType: TextInputType.url, autocorrect: false, decoration: const InputDecoration(hintText: 'https://...')),
+        ]),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(ctx), child: Text(t('cancel'))),
+          FilledButton(style: FilledButton.styleFrom(minimumSize: const Size(100, 44)), onPressed: () => Navigator.pop(ctx, c.text), child: const Text('Connect')),
+        ],
+      ),
+    );
+    if (url == null || !mounted) return;
+    final ok = await busy(context, () => Api.I.setServer(url).then((_) => true), done: 'Connected');
+    if (ok == true && mounted) setState(() { _phone.clear(); _pass.clear(); });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,9 +107,19 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             if (_error != null) Padding(padding: const EdgeInsets.only(top: 12), child: Text(_error!, style: const TextStyle(color: danger))),
             const SizedBox(height: 22),
+            if (kDemoBuild && !kDemo) Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: Text('Server: $apiBase', style: const TextStyle(color: muted)),
+            ),
             FilledButton(onPressed: _busy ? null : _submit, child: _busy ? const SizedBox(width: 22, height: 22, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2)) : Text(t('login'))),
             const SizedBox(height: 12),
             TextButton(onPressed: () => Lang.I.set(Lang.I.value == 'hi' ? 'en' : 'hi'), child: Text(t('language'))),
+            if (kDemoBuild)
+              TextButton.icon(
+                icon: Icon(kDemo ? Icons.cloud_outlined : Icons.school_outlined),
+                label: Text(kDemo ? 'Connect to real server · असली सर्वर से जोड़ें' : 'Back to practice mode · अभ्यास मोड'),
+                onPressed: kDemo ? _connect : () async { await Api.I.setServer(null); if (mounted) setState(() {}); },
+              ),
           ]),
         ),
       ),

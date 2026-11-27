@@ -264,7 +264,7 @@ class _EnrollQrScreenState extends State<EnrollQrScreen> {
                 child: Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(border: Border.all(color: brand, width: 2), borderRadius: BorderRadius.circular(16)),
-                  child: QrImageView(data: _e!['qr'] as String, size: 300, errorCorrectionLevel: QrErrorCorrectLevel.M),
+                  child: QrImageView(data: _e!['qr'] as String, size: (MediaQuery.sizeOf(context).width - 64).clamp(260.0, 420.0), errorCorrectionLevel: QrErrorCorrectLevel.L, backgroundColor: Colors.white),
                 ),
               ),
             ),

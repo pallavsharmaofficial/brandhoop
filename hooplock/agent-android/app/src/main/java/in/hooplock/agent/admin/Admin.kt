@@ -69,6 +69,13 @@ class ProvisioningModeActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val result = Intent()
+        // The QR's extras (server + enrollment token) arrive here first. Keep them, and hand them back so
+        // the setup wizard forwards them to the policy-compliance screen.
+        val extras = HoopAdminReceiver.extrasOf(intent)
+        if (extras != null) {
+            HoopAdminReceiver.saveExtras(this, extras)
+            result.putExtra(DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, extras)
+        }
         if (Build.VERSION.SDK_INT >= 29) {
             result.putExtra(DevicePolicyManager.EXTRA_PROVISIONING_MODE, DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE)
         }

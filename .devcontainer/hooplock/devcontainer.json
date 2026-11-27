@@ -1,0 +1,17 @@
+{
+  "name": "HoopLock test server",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "hostRequirements": { "cpus": 2 },
+  "postCreateCommand": "bash hooplock/deploy/codespace/setup.sh",
+  "postStartCommand": "bash hooplock/deploy/codespace/start.sh",
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": { "label": "HoopLock server", "visibility": "public", "onAutoForward": "silent" }
+  },
+  "customizations": {
+    "codespaces": { "openFiles": ["hooplock/deploy/codespace/README.md"] }
+  }
+}

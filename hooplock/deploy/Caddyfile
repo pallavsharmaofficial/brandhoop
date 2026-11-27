@@ -3,7 +3,7 @@
 	reverse_proxy app:8080
 }
 
-# iPhones talk to NanoMDM here (only with the "ios" profile running)
-{$MDM_DOMAIN} {
-	reverse_proxy nanomdm:9000
-}
+# iPhone MDM (later): uncomment and set MDM_DOMAIN in .env, then run with --profile ios
+# {$MDM_DOMAIN} {
+# 	reverse_proxy nanomdm:9000
+# }

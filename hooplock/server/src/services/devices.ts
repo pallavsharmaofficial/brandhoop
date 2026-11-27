@@ -157,7 +157,6 @@ export function provisioningPayload(token: string, opts: { wifiSsid?: string; wi
     'android.app.extra.PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME': config.agentComponent,
     'android.app.extra.PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION': config.agentApkUrl || `${config.publicUrl}/agent/hooplock-agent.apk`,
     'android.app.extra.PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM': config.agentSignatureChecksum,
-    'android.app.extra.PROVISIONING_SKIP_ENCRYPTION': false,
     'android.app.extra.PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED': true,
     'android.app.extra.PROVISIONING_ADMIN_EXTRAS_BUNDLE': { server: config.publicUrl, token },
   };

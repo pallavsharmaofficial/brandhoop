@@ -297,5 +297,5 @@ class PageBody extends StatelessWidget {
   final Widget child;
   final double maxWidth;
   @override
-  Widget build(BuildContext context) => Center(child: ConstrainedBox(constraints: BoxConstraints(maxWidth: maxWidth), child: child));
+  Widget build(BuildContext context) => Align(alignment: Alignment.topCenter, child: ConstrainedBox(constraints: BoxConstraints(maxWidth: maxWidth), child: child));
 }

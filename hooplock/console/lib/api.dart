@@ -6,14 +6,22 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'demo/demo_backend.dart';
 
-/// Practice mode: everything runs inside the app with a sample shop (build with --dart-define=HOOPLOCK_DEMO=true).
-const kDemo = bool.fromEnvironment('HOOPLOCK_DEMO');
+/// Practice build (--dart-define=HOOPLOCK_DEMO=true): runs with a built-in sample shop until the user
+/// connects it to a real server from the sign-in screen.
+const kDemoBuild = bool.fromEnvironment('HOOPLOCK_DEMO');
+
+/// Server chosen on the sign-in screen (saved on the device), if any.
+String? savedServer;
+
+/// True while the app uses the built-in sample shop.
+bool get kDemo => kDemoBuild && (savedServer == null || savedServer!.isEmpty);
 
 /// Server address. On the website it is the same origin; for the phone app pass
 /// --dart-define=API_BASE=https://your-server
 const _apiBaseDefine = String.fromEnvironment('API_BASE');
 
 String get apiBase {
+  if (savedServer != null && savedServer!.isNotEmpty) return savedServer!;
   if (_apiBaseDefine.isNotEmpty) return _apiBaseDefine;
   if (kIsWeb) return Uri.base.origin;
   return 'http://10.0.2.2:8080';
@@ -59,6 +67,7 @@ class Api extends ChangeNotifier {
 
   Future<void> restore() async {
     final p = await SharedPreferences.getInstance();
+    savedServer = p.getString('server');
     _token = p.getString('token');
     final u = p.getString('user');
     if (_token != null && u != null) {
@@ -92,7 +101,34 @@ class Api extends ChangeNotifier {
     user = null;
     actingMerchantId = null;
     final p = await SharedPreferences.getInstance();
-    await p.clear();
+    for (final k in ['token', 'user', 'acting_mid', 'acting_name']) {
+      await p.remove(k);
+    }
+    notifyListeners();
+  }
+
+  /// Connects the app to a HoopLock server (checks it answers first). null = back to practice mode.
+  Future<void> setServer(String? url) async {
+    final p = await SharedPreferences.getInstance();
+    if (url == null || url.trim().isEmpty) {
+      await logout();
+      savedServer = null;
+      await p.remove('server');
+      notifyListeners();
+      return;
+    }
+    var u = url.trim();
+    if (!u.startsWith('http')) u = 'https://$u';
+    u = u.replaceAll(RegExp(r'/+$'), '');
+    try {
+      final r = await http.get(Uri.parse('$u/healthz')).timeout(const Duration(seconds: 15));
+      if (r.statusCode != 200 || !r.body.contains('ok')) throw Exception();
+    } catch (_) {
+      throw ApiError(0, 'No HoopLock server answered at $u');
+    }
+    await logout();
+    savedServer = u;
+    await p.setString('server', u);
     notifyListeners();
   }
 
