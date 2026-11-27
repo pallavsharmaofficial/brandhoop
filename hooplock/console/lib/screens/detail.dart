@@ -173,9 +173,10 @@ class _DeviceDetailScreenState extends State<DeviceDetailScreen> {
             style: TextStyle(color: muted)),
       ],
       if (pending && ios)
-        const SoftCard(child: Text('iPhone locking needs the iOS MDM server (Apple Business Manager). Until it is set up, this iPhone is recorded for EMI tracking, reminders and payments only.')),
+        const SoftCard(child: Text('Waiting for this iPhone to enroll. Add its serial number to your Apple Business Manager, assign it to the HoopLock MDM server, then turn the iPhone on (or erase it) and finish setup. It appears here as Active.')),
       if (active || d['status'] == 'removed') ...[
-        OrangeTabs(labels: [t('online'), t('offline')], index: _offline ? 1 : 0, onChanged: (i) => setState(() => _offline = i == 1)),
+        if (!ios) OrangeTabs(labels: [t('online'), t('offline')], index: _offline ? 1 : 0, onChanged: (i) => setState(() => _offline = i == 1)),
+        if (ios) const Text('iPhone: Lock uses Apple Lost Mode (message + your number, emergency calls only). Locate works while locked.', style: TextStyle(color: muted)),
         if (_offline)
           const Padding(
             padding: EdgeInsets.only(top: 8),
@@ -195,14 +196,14 @@ class _DeviceDetailScreenState extends State<DeviceDetailScreen> {
     final lock = d['lockState'] as String;
     final ios = d['platform'] == 'ios';
     final tiles = <Widget>[
-      ActionTile(icon: Icons.lock_rounded, label: t('lock_device'), enabled: lock != 'locked' && !ios, onTap: () => _changeState('locked')),
-      ActionTile(icon: Icons.lock_open_rounded, label: t('unlock_device'), enabled: lock != 'unlocked' && !ios, onTap: () => _changeState('unlocked')),
+      ActionTile(icon: Icons.lock_rounded, label: t('lock_device'), enabled: lock != 'locked', onTap: () => _changeState('locked')),
+      ActionTile(icon: Icons.lock_open_rounded, label: t('unlock_device'), enabled: lock != 'unlocked', onTap: () => _changeState('unlocked')),
       ActionTile(icon: Icons.warning_amber_rounded, label: t('warning'), enabled: lock == 'unlocked' && !ios, onTap: () => _changeState('warning')),
       ActionTile(icon: Icons.apps_outage_rounded, label: t('restrict'), enabled: lock != 'restricted' && lock != 'locked' && !ios, onTap: () => _changeState('restricted')),
       ActionTile(icon: Icons.currency_rupee, label: t('collect'), enabled: (d['loan']['status']) == 'open', onTap: () => _collect(s)),
       if (!_offline) ActionTile(icon: Icons.notifications_active_outlined, label: t('remind'), onTap: _remind),
       if (!_offline) ActionTile(icon: Icons.message_outlined, label: t('message'), enabled: !ios, onTap: _message),
-      if (!_offline) ActionTile(icon: Icons.my_location, label: t('locate'), enabled: !ios, onTap: _locate),
+      if (!_offline) ActionTile(icon: Icons.my_location, label: t('locate'), enabled: !ios || lock == 'locked', onTap: _locate),
       if (!_offline) ActionTile(icon: Icons.link, label: 'Payment link', onTap: _payLink),
       ActionTile(icon: Icons.verified_outlined, label: t('release'), onTap: _release),
     ];
@@ -424,6 +425,7 @@ class _DeviceDetailScreenState extends State<DeviceDetailScreen> {
     if (ok != true || !mounted) return;
     final r = await busy(context, () => Api.I.post('/api/devices/$_id/release', {'force': open}), done: 'Release sent');
     if (r == null) return;
+    if (r['appleBusinessManager'] != null && mounted) toast(context, r['appleBusinessManager'] as String);
     await _load();
     if (_offline) _smsSheet(r['sms'] as String?, _d!['sim1Number'] as String?);
   }

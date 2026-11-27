@@ -1,0 +1,60 @@
+# HoopLock on any Linux VPS (2 GB RAM is enough): API + website + agent APK, PostgreSQL, HTTPS.
+#   cp .env.example .env   # fill it in
+#   docker compose up -d --build
+# iPhone management (needs Apple Business Manager): docker compose --profile ios up -d
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: hooplock
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: hooplock
+    volumes: [db:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hooplock"]
+      interval: 5s
+      retries: 10
+
+  app:
+    build: { context: ../.., dockerfile: hooplock/Dockerfile }
+    restart: unless-stopped
+    depends_on: { db: { condition: service_healthy } }
+    environment:
+      DATABASE_URL: postgres://hooplock:${POSTGRES_PASSWORD}@db:5432/hooplock
+      PUBLIC_URL: https://${DOMAIN}
+      JWT_SECRET: ${JWT_SECRET}
+      ADMIN_PHONE: ${ADMIN_PHONE}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      AGENT_SIGNATURE_CHECKSUM: ${AGENT_SIGNATURE_CHECKSUM}
+      NANOMDM_URL: ${NANOMDM_URL:-}
+      NANOMDM_API_KEY: ${NANOMDM_API_KEY:-}
+      MDM_WEBHOOK_SECRET: ${MDM_WEBHOOK_SECRET:-}
+      FCM_SERVICE_ACCOUNT: ${FCM_SERVICE_ACCOUNT:-}
+      FCM_PROJECT_ID: ${FCM_PROJECT_ID:-}
+      FCM_APP_ID: ${FCM_APP_ID:-}
+      FCM_API_KEY: ${FCM_API_KEY:-}
+      FCM_SENDER_ID: ${FCM_SENDER_ID:-}
+      RAZORPAY_KEY_ID: ${RAZORPAY_KEY_ID:-}
+      RAZORPAY_KEY_SECRET: ${RAZORPAY_KEY_SECRET:-}
+      RAZORPAY_WEBHOOK_SECRET: ${RAZORPAY_WEBHOOK_SECRET:-}
+
+  # Apple MDM protocol server. Pin the version you deploy; see hooplock/mdm-ios/README.md.
+  nanomdm:
+    profiles: [ios]
+    image: ghcr.io/micromdm/nanomdm:${NANOMDM_VERSION:-latest}
+    restart: unless-stopped
+    command: >
+      -storage file -storage-dsn /data/db -api ${NANOMDM_API_KEY}
+      -webhook-url http://app:8080/mdm/webhook/${MDM_WEBHOOK_SECRET}
+      -ca /data/ca.pem -listen :9000
+    volumes: [mdm:/data]
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports: ["80:80", "443:443"]
+    environment: { DOMAIN: "${DOMAIN}", MDM_DOMAIN: "${MDM_DOMAIN:-mdm.invalid}" }
+    volumes: [./Caddyfile:/etc/caddy/Caddyfile:ro, caddy:/data]
+
+volumes: { db: {}, mdm: {}, caddy: {} }

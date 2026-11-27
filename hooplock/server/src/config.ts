@@ -47,5 +47,11 @@ export const config = {
     password: process.env.ADMIN_PASSWORD ?? '',
     name: process.env.ADMIN_NAME ?? 'Super Admin',
   },
+  /** iPhone MDM (NanoMDM). Optional until Apple Business Manager is set up. */
+  nanomdm: {
+    url: process.env.NANOMDM_URL ?? '',
+    apiKey: process.env.NANOMDM_API_KEY ?? '',
+    webhookSecret: process.env.MDM_WEBHOOK_SECRET ?? '',
+  },
   runScheduler: (process.env.RUN_SCHEDULER ?? 'true') === 'true',
 };

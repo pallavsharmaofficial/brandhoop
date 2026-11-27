@@ -7,6 +7,7 @@ import { audit } from './audit.js';
 import { pushSync } from './fcm.js';
 import { loanSummary, todayIST, addMonths } from './loans.js';
 import { settingsOf } from './settings.js';
+import { iosApplyLock, iosRelease, mdmEnabled } from './mdm.js';
 
 export interface DeviceRow {
   id: string; merchant_id: string; customer_id: string; platform: 'android' | 'ios';
@@ -39,7 +40,11 @@ export async function setLockState(
   const d = await getDevice(deviceId, merchantId);
   if (d.status === 'released') throw conflict('This phone is already released');
   if (d.status === 'removed') throw conflict('The locker app is no longer on this phone');
-  if (d.platform === 'ios') throw conflict('iPhone locking needs the iOS MDM server (phase 3). Not set up yet.');
+  if (d.platform === 'ios') {
+    if (!mdmEnabled()) throw conflict('iPhone locking needs the iPhone management server (Apple Business Manager + MDM). Not set up yet.');
+    if (next === 'warning' || next === 'restricted') throw badRequest('iPhones support Lock and Unlock only. Send a reminder instead.');
+    if (d.status !== 'active') throw conflict('This iPhone has not enrolled yet');
+  }
 
   if (!opts.skipRules && rank[next] > rank[d.lock_state]) {
     const m = await one<{ settings: unknown }>('select settings from merchants where id = $1', [merchantId]);
@@ -58,6 +63,11 @@ export async function setLockState(
      where id = $1 returning state_seq, command_key, fcm_token`,
     [deviceId, next, next === 'unlocked' ? '' : opts.reason, opts.message ?? null]);
   await audit({ merchantId, userId: opts.user?.id ?? null, action: `device.${next}`, target: deviceId, data: { reason: opts.reason, message: opts.message } });
+  if (d.platform === 'ios') {
+    const m = await one<{ name: string; phone: string }>('select name, phone from merchants where id = $1', [merchantId]);
+    await iosApplyLock(deviceId, next as 'locked' | 'unlocked', m!, opts.message ?? d.lock_message);
+    return { seq: row!.state_seq, sms: null, changed };
+  }
   void pushSync(row!.fcm_token, opts.log);
   const sms = row!.command_key ? smsCommand(row!.command_key, deviceId, row!.state_seq, next) : null;
   return { seq: row!.state_seq, sms, changed };
@@ -73,6 +83,11 @@ export async function requestRelease(deviceId: string, merchantId: string, user:
     `update devices set status = 'released', lock_state = 'unlocked', lock_reason = '', state_seq = state_seq + 1
      where id = $1 returning state_seq, command_key, fcm_token`, [deviceId]);
   await audit({ merchantId, userId: user.id, action: 'device.release', target: deviceId, data: { force } });
+  if (d.platform === 'ios') {
+    if (mdmEnabled() && d.status === 'active') await iosRelease(deviceId);
+    else await q("update devices set released_at = now() where id = $1", [deviceId]);
+    return { sms: null, appleBusinessManager: 'Also release this serial number from Apple Business Manager (Devices > Release).' };
+  }
   void pushSync(row!.fcm_token, log);
   return { sms: row!.command_key ? smsCommand(row!.command_key, deviceId, row!.state_seq, 'released') : null };
 }

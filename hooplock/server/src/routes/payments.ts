@@ -9,6 +9,7 @@ import { safeEqual } from '../security.js';
 import { getDevice } from '../services/devices.js';
 import { loanSummary } from '../services/loans.js';
 import { recordPayment } from './devices.js';
+import { handleWebhook } from '../services/mdm.js';
 
 /**
  * Razorpay payment links: the shop sends the customer a link (also shown as a QR on the lock
@@ -42,6 +43,13 @@ export async function paymentRoutes(app: FastifyInstance) {
     if (!r.ok) throw badRequest('Razorpay did not create the link: ' + (await r.text()).slice(0, 200));
     const j = (await r.json()) as { short_url: string; id: string };
     return { url: j.short_url, id: j.id, amount };
+  });
+
+  /** NanoMDM webhook (iPhone check-ins and command results). Secret in the URL: /mdm/webhook/<secret> */
+  app.post('/mdm/webhook/:secret', async (req) => {
+    const { secret } = req.params as { secret: string };
+    if (!config.nanomdm.webhookSecret || !safeEqual(secret, config.nanomdm.webhookSecret)) throw unauthorized('Bad secret');
+    return handleWebhook(req.body);
   });
 
   app.post('/api/webhooks/razorpay', { config: { rawBody: true } }, async (req) => {

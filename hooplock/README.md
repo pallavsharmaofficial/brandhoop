@@ -1,16 +1,17 @@
 # HoopLock
 
 EMI device locking for phones sold on credit by Brandhoop Mobile Point and other shops. Android now,
-iPhone in phase 3. Managed from a website and a phone app (same Flutter code). Built from scratch as
+iPhone through Apple MDM once Apple Business Manager is ready. Managed from a website and a phone app (same Flutter code). Built from scratch as
 its own project; it can merge into the Brandhoop app later.
 
 | Folder | What | Status |
 |---|---|---|
-| `server/` | API (TypeScript, Fastify, PostgreSQL): shops, staff, key wallet, credit sales, EMI schedules, signed lock commands, SMS offline codes, location, payments, auto-unlock, reminders, gradual lock scheduler, audit log, Razorpay webhook | Working, 13 end-to-end tests |
+| `server/` | API (TypeScript, Fastify, PostgreSQL): shops, staff, key wallet, credit sales, EMI schedules, signed lock commands, SMS offline codes, location, payments, auto-unlock, reminders, gradual lock scheduler, audit log, Razorpay webhook, iPhone MDM bridge | Working, 19 end-to-end tests |
 | `agent-android/` | Locker app on the customer's phone (Kotlin, Device Owner, installed by QR) | Builds; unit-tested crypto; **needs testing on real phones** |
 | `console/` | Shop website + Android/iOS app (Flutter) | Working against the server |
 | `agent-dist/` | The signed agent APK the provisioning QR downloads | Pilot build |
-| `mdm-ios/` | iPhone MDM (NanoMDM) | Phase 3, not started |
+| `mdm-ios/` | iPhone locking via Apple MDM (NanoMDM): Lost Mode lock/unlock, locate, release | Server side done and tested against a fake MDM; needs Apple Business Manager + push certificate |
+| `deploy/` | docker-compose for any VPS (app, PostgreSQL, HTTPS, optional NanoMDM) | Alternative to Railway |
 | `docs/` | `RESEARCH.md`, `PLAN.md`, `SETUP.md`, `PROTOCOL.md` | |
 
 ## What a shop can do

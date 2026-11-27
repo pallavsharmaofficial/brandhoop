@@ -9,6 +9,7 @@ import { getDevice, issueEnrollment, LOCK_REASONS, requestRelease, setLockState 
 import { pushSync } from '../services/fcm.js';
 import { sendSms } from '../services/sms.js';
 import { smsCommand } from '../security.js';
+import { iosLocate } from '../services/mdm.js';
 
 export async function deviceRoutes(app: FastifyInstance) {
   /** Lock / unlock / warn / restrict. */
@@ -53,6 +54,10 @@ export async function deviceRoutes(app: FastifyInstance) {
     const b = z.object({ reason: z.string().trim().min(3).max(200) }).parse(req.body);
     const d = await getDevice(id, mid);
     if (d.status !== 'active') throw conflict('Phone is not active');
+    if (d.platform === 'ios') {
+      if (d.lock_state !== 'locked') throw badRequest('Apple allows locating an iPhone only while it is locked (Lost Mode)');
+      await iosLocate(id);
+    }
     await q('update devices set locate_requested = true where id = $1', [id]);
     await audit({ merchantId: mid, userId: u.id, action: 'device.locate', target: id, data: { reason: b.reason } });
     void pushSync(d.fcm_token, req.log);
