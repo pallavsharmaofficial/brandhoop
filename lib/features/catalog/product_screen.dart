@@ -28,6 +28,7 @@ import '../../widgets/store_widgets.dart';
 import '../auth/auth_gate.dart';
 import 'emi_plans_sheet.dart';
 import 'live_widgets.dart';
+import 'product_media.dart';
 
 class ProductScreen extends StatefulWidget {
   const ProductScreen({super.key, required this.productId});
@@ -124,10 +125,7 @@ class _ProductScreenState extends State<ProductScreen> {
       ),
       body: _ProductLayout(
           children: <Widget>[
-            AspectRatio(
-              aspectRatio: 1.5,
-              child: ProductArt(product: p, radius: 20),
-            ),
+            ProductMedia(product: p),
             Padding(
               padding: const EdgeInsets.only(top: 16),
               child: Column(

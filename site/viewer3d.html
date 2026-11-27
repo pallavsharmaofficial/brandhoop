@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Brandhoop 3D view</title>
+<!--
+  One static page that shows one phone model. Used by the storefront (an iframe on
+  the web, webview_flutter on Android) and also fine to open on its own:
+    viewer3d.html?src=<glb>&poster=<webp>&mode=inline|full&fs=<label>&arl=<label>&hint=<text>&alt=<text>
+  Events go to the host as {source:'brandhoop-3d', type, ...}: through the
+  Brandhoop3D JS channel when it exists (webview_flutter), and window.parent.postMessage
+  otherwise. Types: ready, progress {value 0..1}, load, error {reason}, fullscreen (the
+  host should open the full-screen viewer), scroll {dy} (inline only: scroll the host page by dy px). The host can send {type:'set-mode', mode}.
+  The model is fetched only here, and this page is only opened after a person taps "3D".
+  Everything (model-viewer, Draco decoder) is served from this site: no CDN.
+-->
+<style>
+:root{--navy:#1F2744;--orange:#D8662A;--bg:#EEF1F8}
+@media (prefers-color-scheme: dark){:root{--bg:#161B30}}
+html,body{margin:0;height:100%;background:var(--bg);overflow:hidden;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+model-viewer{width:100%;height:100%;--poster-color:transparent;background:radial-gradient(ellipse at 50% 35%,#fff 0%,var(--bg) 70%);outline:none}
+@media (prefers-color-scheme: dark){model-viewer{background:radial-gradient(ellipse at 50% 35%,#2A3358 0%,var(--bg) 70%)}}
+.bar{position:absolute;left:0;right:0;top:0;height:4px;background:rgba(31,39,68,.12);transition:opacity .3s}
+.bar i{display:block;height:100%;width:0;background:var(--orange);transition:width .15s}
+.bar.done{opacity:0}
+.btn{position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--navy);box-shadow:0 1px 6px rgba(0,0,0,.25);display:grid;place-items:center;cursor:pointer;padding:0}
+.btn svg{width:22px;height:22px}
+.hint{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-size:13px;color:var(--navy);opacity:.75;pointer-events:none;transition:opacity .4s}
+@media (prefers-color-scheme: dark){.hint{color:#fff}}
+.hint.gone{opacity:0}
+#ar{position:absolute;left:50%;bottom:44px;transform:translateX(-50%);background:var(--orange);color:#fff;border:0;border-radius:24px;padding:12px 22px;font-size:15px;font-weight:700;box-shadow:0 2px 10px rgba(0,0,0,.3);display:none}
+body.full #ar.ok{display:block}
+#err{position:absolute;inset:0;display:none;place-items:center;color:var(--navy);font-size:14px;text-align:center;padding:24px}
+</style>
+</head>
+<body>
+<model-viewer id="mv" camera-controls shadow-intensity="1" shadow-softness="1" exposure="1.05"
+  environment-image="neutral" tone-mapping="neutral" auto-rotate auto-rotate-delay="0" rotation-per-second="30deg"
+  interaction-prompt="none" reveal="auto" loading="eager" alt="3D view of the phone">
+  <button slot="ar-button" id="ar" type="button">View in your space</button>
+</model-viewer>
+<div class="bar" id="bar"><i id="fill"></i></div>
+<button class="btn" id="fsb" type="button" aria-label="Fullscreen">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+</button>
+<div class="hint" id="hint"></div>
+<div id="err"></div>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var mv = document.getElementById('mv');
+  var fill = document.getElementById('fill'), bar = document.getElementById('bar');
+  var fsb = document.getElementById('fsb'), hint = document.getElementById('hint'), ar = document.getElementById('ar');
+  var failed = false, loaded = false, mode = 'inline';
+
+  function emit(type, extra) {
+    var m = { source: 'brandhoop-3d', type: type };
+    for (var k in (extra || {})) m[k] = extra[k];
+    try { if (window.Brandhoop3D && window.Brandhoop3D.postMessage) window.Brandhoop3D.postMessage(JSON.stringify(m)); } catch (e) {}
+    try { if (window.parent && window.parent !== window) window.parent.postMessage(m, '*'); } catch (e) {}
+  }
+  function fail(reason) {
+    if (failed || loaded) return; failed = true;
+    bar.classList.add('done'); emit('error', { reason: reason });
+  }
+
+  // Model and poster must be https (or same-origin / local) files; nothing else is fetched.
+  function safe(u) { try { var x = new URL(u, location.href); return /^https?:$/.test(x.protocol) ? x.href : ''; } catch (e) { return ''; } }
+  var src = safe(q.get('src') || ''), poster = safe(q.get('poster') || '');
+  if (q.get('fs')) fsb.setAttribute('aria-label', q.get('fs'));
+  if (q.get('arl')) ar.textContent = q.get('arl');
+  if (q.get('alt')) mv.setAttribute('alt', q.get('alt'));
+  hint.textContent = q.get('hint') || '';
+
+  function setMode(m) {
+    mode = m === 'full' ? 'full' : 'inline';
+    document.body.className = mode;
+    if (mode === 'full') {
+      // free rotate, pinch zoom, AR
+      mv.style.touchAction = 'none'; mv.removeAttribute('touch-action'); mv.removeAttribute('disable-zoom');
+      mv.setAttribute('touch-action', 'none');
+      mv.setAttribute('min-camera-orbit', 'auto 0deg auto'); mv.setAttribute('max-camera-orbit', 'auto 180deg auto');
+      mv.setAttribute('ar', ''); mv.setAttribute('ar-modes', 'scene-viewer quick-look webxr');
+      mv.setAttribute('ar-scale', 'fixed'); mv.setAttribute('ar-placement', 'floor');
+      fsb.style.display = 'none';
+    } else {
+      // only a horizontal drag turns the phone, so vertical swipes still scroll the page
+      mv.setAttribute('touch-action', 'pan-y'); mv.setAttribute('disable-zoom', '');
+      mv.setAttribute('min-camera-orbit', 'auto 78deg auto'); mv.setAttribute('max-camera-orbit', 'auto 78deg auto');
+      mv.removeAttribute('ar'); fsb.style.display = '';
+    }
+  }
+  setMode(q.get('mode'));
+  window.addEventListener('message', function (e) {
+    var d = e.data; if (d && d.type === 'set-mode') setMode(d.mode);
+  });
+
+  fsb.addEventListener('click', function () {
+    emit('fullscreen');
+    // opened on its own (no host to answer): use the browser's fullscreen
+    if (window.parent === window && !window.Brandhoop3D) {
+      var el = document.documentElement; (el.requestFullscreen || el.webkitRequestFullscreen || function () {}).call(el);
+    }
+  });
+
+  // Inline, an iframe swallows the touches that start on it, so the host page could not be scrolled
+  // by dragging here. A vertical drag (or the wheel) is therefore passed up as {type:'scroll', dy}
+  // (px the page should move down); a sideways drag is left to model-viewer, which turns the phone.
+  (function () {
+    var t0 = null;
+    document.addEventListener('touchstart', function (e) { var t = e.touches[0]; t0 = { x: t.clientX, y: t.clientY, dir: '' }; }, { passive: true });
+    document.addEventListener('touchmove', function (e) {
+      if (mode !== 'inline' || !t0) return;
+      var t = e.touches[0], dx = t.clientX - t0.x, dy = t.clientY - t0.y;
+      if (!t0.dir && (Math.abs(dx) > 6 || Math.abs(dy) > 6)) t0.dir = Math.abs(dy) > Math.abs(dx) ? 'v' : 'h';
+      if (t0.dir === 'v') { emit('scroll', { dy: -dy }); t0.x = t.clientX; t0.y = t.clientY; }
+    }, { passive: true });
+    document.addEventListener('wheel', function (e) { if (mode === 'inline') emit('scroll', { dy: e.deltaY }); }, { passive: true });
+  })();
+
+  // auto-rotate until the first touch
+  function stopSpin() { mv.removeAttribute('auto-rotate'); hint.classList.add('gone'); }
+  mv.addEventListener('pointerdown', stopSpin, { once: true });
+  mv.addEventListener('wheel', stopSpin, { once: true, passive: true });
+
+  mv.addEventListener('progress', function (e) {
+    var p = Math.max(0, Math.min(1, e.detail.totalProgress || 0));
+    fill.style.width = (p * 100) + '%'; emit('progress', { value: p });
+    if (p >= 1) bar.classList.add('done');
+  });
+  mv.addEventListener('load', function () {
+    if (failed) return; loaded = true; bar.classList.add('done'); emit('load');
+    setTimeout(function () { hint.classList.add('gone'); }, 4000);
+  });
+  mv.addEventListener('error', function (e) {
+    var d = e && e.detail; fail((d && (d.type || (d.sourceError && d.sourceError.message))) || 'model-error');
+  });
+  mv.addEventListener('ar-status', function (e) { if (e.detail.status === 'failed') ar.classList.remove('ok'); });
+  mv.addEventListener('model-visibility', function () { if (mv.canActivateAR) ar.classList.add('ok'); });
+  mv.addEventListener('load', function () { if (mv.canActivateAR) ar.classList.add('ok'); });
+
+  // no WebGL: say so at once, so the host can show the photos
+  var gl = false;
+  try { var c = document.createElement('canvas'); gl = !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (e) {}
+  if (!gl) { document.getElementById('err').style.display = 'grid'; document.getElementById('err').textContent = ''; return fail('no-webgl'); }
+  if (!src) return fail('no-src');
+
+  // Scripts come from this site; the Draco decoder too.
+  var s = document.createElement('script'); s.type = 'module'; s.src = 'vendor/model-viewer.min.js';
+  s.onerror = function () { fail('script'); };
+  s.onload = function () {
+    try { customElements.get('model-viewer').dracoDecoderLocation = new URL('vendor/draco/', location.href).href; } catch (e) {}
+    if (poster) mv.setAttribute('poster', poster);
+    mv.setAttribute('src', src);
+    emit('ready');
+    // a model that never starts loading (blocked network) must not leave a spinner forever
+    setTimeout(function () { if (!loaded && !failed) fail('timeout'); }, 45000);
+  };
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>

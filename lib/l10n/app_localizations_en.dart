@@ -3311,4 +3311,61 @@ class AppLocalizationsEn extends AppLocalizations {
   String liveServiceAsk(String shop, String service) {
     return 'Hi $shop, I want to know about $service.';
   }
+
+  @override
+  String get mediaPhotos => 'Photos';
+
+  @override
+  String get media3dView => '3D View';
+
+  @override
+  String get media3dTap => 'Tap to view in 3D';
+
+  @override
+  String get media3dPlay => 'Play 3D view';
+
+  @override
+  String get media3dDrag => 'Drag sideways to turn the phone';
+
+  @override
+  String get media3dFullscreen => 'Fullscreen';
+
+  @override
+  String get media3dClose => 'Close';
+
+  @override
+  String get media3dAr => 'View in your space';
+
+  @override
+  String get media3dLoading => 'Loading 3D model';
+
+  @override
+  String get media3dFailed =>
+      '3D view is not available on this device, showing photos.';
+
+  @override
+  String get media3dRepresentative => 'Representative model, colour may differ';
+
+  @override
+  String get media3dLicenseTerms => 'Licence terms';
+
+  @override
+  String media3dCredit(
+    String title,
+    String author,
+    String license,
+    String source,
+  ) {
+    return '3D model: $title by $author, $license ($source)';
+  }
+
+  @override
+  String media3dCreditNoAuthor(String title, String license, String source) {
+    return '3D model: $title, $license ($source)';
+  }
+
+  @override
+  String mediaPhotoOf(String n, String total) {
+    return 'Photo $n of $total';
+  }
 }

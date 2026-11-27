@@ -573,7 +573,20 @@
           "en": "90W fast charging",
           "hi": "90W फ़ास्ट चार्जिंग"
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-v80-5g.glb",
+        "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-v80-5g.webp",
+        "title": "vivo V80 - Early Summer Green - S60",
+        "author": "Abdulkhaliq Alamery",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "attributionRequired": true,
+        "sourceName": "Sketchfab",
+        "sourceUrl": "https://sketchfab.com/3d-models/none-0d9911436af64fb1ae4411be9d7b97dc",
+        "exact": true,
+        "sizeKb": 459
+      }
     },
     {
       "id": "oppo-a6-5g",

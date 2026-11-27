@@ -1,0 +1,290 @@
+{
+ "oppo-a6x-5g": {
+  "name": "OPPO A6x 5G",
+  "searched": "2026-11-27",
+  "candidates": [],
+  "status": "none"
+ },
+ "vivo-y11-5g": {
+  "name": "vivo Y11 5G",
+  "searched": "2026-11-27",
+  "candidates": [],
+  "status": "none"
+ },
+ "vivo-y21-5g": {
+  "name": "vivo Y21 5G",
+  "searched": "2026-11-27",
+  "candidates": [
+   {
+    "uid": "a3f77912bfe547a7aaf10ca82b0cecd1",
+    "title": "Vivo Y21 V2111 PD2139F Test Point (New Security)",
+    "author": "BoredManatee9002",
+    "license": "by",
+    "licenseLabel": "CC Attribution",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://sketchfab.com/3d-models/none-a3f77912bfe547a7aaf10ca82b0cecd1",
+    "faces": 1948,
+    "verdict": "exact"
+   },
+   {
+    "uid": "df1e1855de9041969c08f6f17f41795a",
+    "title": "Huawei Honor X10 5G TEL-AN10 TestPoint",
+    "author": "BoredManatee9002",
+    "license": "by",
+    "licenseLabel": "CC Attribution",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://sketchfab.com/3d-models/none-df1e1855de9041969c08f6f17f41795a",
+    "faces": 148,
+    "verdict": "similar"
+   }
+  ],
+  "status": "rejected",
+  "note": "\"exact\" title match is a repair-guide test-point diagram (1.9k faces), not a 3D phone model. Not used."
+ },
+ "vivo-y31t-5g": {
+  "name": "vivo Y31t 5G",
+  "searched": "2026-11-27",
+  "candidates": [],
+  "status": "none"
+ },
+ "vivo-s2-fe-5g": {
+  "name": "vivo S2 FE 5G",
+  "searched": "2026-11-27",
+  "candidates": [],
+  "status": "none"
+ },
+ "vivo-s2-5g": {
+  "name": "vivo S2 5G",
+  "searched": "2026-11-27",
+  "candidates": [
+   {
+    "uid": "34ce9835f477432f9eb5683f265133ca",
+    "title": "Sanee S2 Flash File MT6261 (Firmware) 100%",
+    "author": "IntenseStand3753",
+    "license": "by",
+    "licenseLabel": "CC Attribution",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://sketchfab.com/3d-models/none-34ce9835f477432f9eb5683f265133ca",
+    "faces": 536,
+    "verdict": "similar"
+   },
+   {
+    "uid": "c44723a3d4b8473fb8be7ced278661a1",
+    "title": "Phone Samsung Galaxy S2 N250314",
+    "author": "Otherwhatsapp",
+    "license": "by",
+    "licenseLabel": "CC Attribution",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://sketchfab.com/3d-models/none-c44723a3d4b8473fb8be7ced278661a1",
+    "faces": 992,
+    "verdict": "similar"
+   },
+   {
+    "uid": "585199714aad478ba82d036e6797aeb9",
+    "title": "Ch2 S2 Phone Booth",
+    "author": "RamonaFlowers🌼",
+    "license": "by",
+    "licenseLabel": "CC Attribution",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://sketchfab.com/3d-models/none-585199714aad478ba82d036e6797aeb9",
+    "faces": 1588,
+    "verdict": "similar"
+   },
+   {
+    "uid": "acf9aabf8c86462182eb26cba3dd6da8",
+    "title": "Ch2_s2 Phone booth",
+    "author": "Cradle of the Cube",
+    "license": "by",
+    "licenseLabel": "CC Attribution",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://sketchfab.com/3d-models/none-acf9aabf8c86462182eb26cba3dd6da8",
+    "faces": 1618,
+    "verdict": "similar"
+   },
+   {
+    "uid": "6f64cb49d94c4108adc9be975cc28bca",
+    "title": "Sanee S2 Pro Flash File SC6531E (Firmware)",
+    "author": "PriorPenguin6628",
+    "license": "by",
+    "licenseLabel": "CC Attribution",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://sketchfab.com/3d-models/none-6f64cb49d94c4108adc9be975cc28bca",
+    "faces": 18960,
+    "verdict": "similar"
+   },
+   {
+    "uid": "33253a6e0d394d2db851696339e57908",
+    "title": "Child Moxxie - Helluva boss",
+    "author": "Nayra_Fox",
+    "license": "by",
+    "licenseLabel": "CC Attribution",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://sketchfab.com/3d-models/none-33253a6e0d394d2db851696339e57908",
+    "faces": 698477,
+    "verdict": "similar"
+   }
+  ],
+  "status": "candidates"
+ },
+ "vivo-v70-fe-5g": {
+  "name": "vivo V70 FE 5G",
+  "searched": "2026-11-27",
+  "candidates": [],
+  "status": "none"
+ },
+ "vivo-v80-5g": {
+  "name": "vivo V80 5G",
+  "searched": "2026-11-27",
+  "candidates": [
+   {
+    "uid": "0d9911436af64fb1ae4411be9d7b97dc",
+    "title": "vivo V80 - Early Summer Green - S60",
+    "author": "Abdulkhaliq Alamery",
+    "license": "by",
+    "licenseLabel": "CC Attribution",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://sketchfab.com/3d-models/none-0d9911436af64fb1ae4411be9d7b97dc",
+    "faces": 59663,
+    "verdict": "exact"
+   },
+   {
+    "uid": "dbf0e4a8033f459897cc2d48b5ac97ec",
+    "title": "vivo V80 - Midsummer Night",
+    "author": "Abdulkhaliq Alamery",
+    "license": "by",
+    "licenseLabel": "CC Attribution",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://sketchfab.com/3d-models/none-dbf0e4a8033f459897cc2d48b5ac97ec",
+    "faces": 59663,
+    "verdict": "exact"
+   },
+   {
+    "uid": "dbe63a77abf94d47abd8a38c1bb51ac3",
+    "title": "vivo v80 5g 3d model",
+    "author": "PikkmeStudios",
+    "license": "by",
+    "licenseLabel": "CC Attribution",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://sketchfab.com/3d-models/none-dbe63a77abf94d47abd8a38c1bb51ac3",
+    "faces": 65468,
+    "verdict": "exact"
+   },
+   {
+    "uid": "0e024437dec247dab0a0edabad465a80",
+    "title": "vivo V80 Orange – Desert Dunes",
+    "author": "Abdulkhaliq Alamery",
+    "license": "by",
+    "licenseLabel": "CC Attribution",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://sketchfab.com/3d-models/none-0e024437dec247dab0a0edabad465a80",
+    "faces": 263246,
+    "verdict": "exact"
+   },
+   {
+    "uid": "8805772b85c64711a8702f866b127a07",
+    "title": "vivo V80 Lite – Emerald Green",
+    "author": "Abdulkhaliq Alamery",
+    "license": "by",
+    "licenseLabel": "CC Attribution",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://sketchfab.com/3d-models/none-8805772b85c64711a8702f866b127a07",
+    "faces": 240466,
+    "verdict": "similar"
+   }
+  ],
+  "status": "attached",
+  "choice": "0d9911436af64fb1ae4411be9d7b97dc",
+  "note": "Four exact vivo V80 models exist; this one has a clean 60k-face mesh and no studio watermark (PikkmeStudios has a logo in the render, the others are colour variants).",
+  "model3d": {
+   "glb": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-v80-5g.glb",
+   "poster": "https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/site/models/vivo-v80-5g.webp",
+   "title": "vivo V80 - Early Summer Green - S60",
+   "author": "Abdulkhaliq Alamery",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "attributionRequired": true,
+   "sourceName": "Sketchfab",
+   "sourceUrl": "https://sketchfab.com/3d-models/none-0d9911436af64fb1ae4411be9d7b97dc",
+   "exact": true,
+   "sizeKb": 459
+  }
+ },
+ "oppo-a6-5g": {
+  "name": "OPPO A6 5G",
+  "searched": "2026-11-27",
+  "candidates": [
+   {
+    "uid": "d14e46f7051a4aa3abc14c5540eae8aa",
+    "title": "Invens E2 Flash File Without Password SC7731E",
+    "author": "LinearPizza3440",
+    "license": "by",
+    "licenseLabel": "CC Attribution",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://sketchfab.com/3d-models/none-d14e46f7051a4aa3abc14c5540eae8aa",
+    "faces": 198232,
+    "verdict": "similar"
+   }
+  ],
+  "status": "candidates"
+ },
+ "oppo-a6s-5g": {
+  "name": "OPPO A6s 5G",
+  "searched": "2026-11-27",
+  "candidates": [],
+  "status": "none"
+ },
+ "oppo-k14x-5g": {
+  "name": "OPPO K14x 5G",
+  "searched": "2026-11-27",
+  "candidates": [],
+  "status": "none"
+ },
+ "oppo-k14-5g": {
+  "name": "OPPO K14 5G",
+  "searched": "2026-11-27",
+  "candidates": [],
+  "status": "none"
+ },
+ "oppo-f35-5g": {
+  "name": "OPPO F35 5G",
+  "searched": "2026-11-27",
+  "candidates": [],
+  "status": "none"
+ },
+ "oppo-f35-pro-5g": {
+  "name": "OPPO F35 Pro 5G",
+  "searched": "2026-11-27",
+  "candidates": [],
+  "status": "none"
+ },
+ "oppo-reno-16c-5g": {
+  "name": "OPPO Reno 16c 5G",
+  "searched": "2026-11-27",
+  "candidates": [],
+  "status": "none"
+ },
+ "oppo-reno-16-5g": {
+  "name": "OPPO Reno 16 5G",
+  "searched": "2026-11-27",
+  "candidates": [],
+  "status": "none"
+ },
+ "vivo-t5x-5g": {
+  "name": "vivo T5x 5G",
+  "searched": "2026-11-27",
+  "candidates": [],
+  "status": "none"
+ },
+ "vivo-t5-pro-5g": {
+  "name": "vivo T5 Pro 5G",
+  "searched": "2026-11-27",
+  "candidates": [],
+  "status": "none"
+ },
+ "vivo-t5-lite-5g": {
+  "name": "vivo T5 Lite 5G",
+  "searched": "2026-11-27",
+  "candidates": [],
+  "status": "none"
+ }
+}

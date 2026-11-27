@@ -1,0 +1,17 @@
+T = [
+('mediaPhotos', 'Photos', 'फ़ोटो'),
+('media3dView', '3D View', '3D व्यू'),
+('media3dTap', 'Tap to view in 3D', '3D में देखने के लिए टैप करें'),
+('media3dPlay', 'Play 3D view', '3D व्यू चलाएँ'),
+('media3dDrag', 'Drag sideways to turn the phone', 'फ़ोन घुमाने के लिए उँगली से खिसकाएँ'),
+('media3dFullscreen', 'Fullscreen', 'फ़ुलस्क्रीन'),
+('media3dClose', 'Close', 'बंद करें'),
+('media3dAr', 'View in your space', 'अपने कमरे में देखें'),
+('media3dLoading', 'Loading 3D model', '3D मॉडल लोड हो रहा है'),
+('media3dFailed', '3D view is not available on this device, showing photos.', 'इस फ़ोन पर 3D व्यू नहीं चल पा रहा, फ़ोटो दिखा रहे हैं।'),
+('media3dRepresentative', 'Representative model, colour may differ', 'यह एक मिलता-जुलता मॉडल है, रंग अलग हो सकता है'),
+('media3dLicenseTerms', 'Licence terms', 'लाइसेंस की शर्तें'),
+('media3dCredit', '3D model: {title} by {author}, {license} ({source})', '3D मॉडल: {title}, {author} द्वारा, {license} ({source})'),
+('media3dCreditNoAuthor', '3D model: {title}, {license} ({source})', '3D मॉडल: {title}, {license} ({source})'),
+('mediaPhotoOf', 'Photo {n} of {total}', 'फ़ोटो {n} / {total}'),
+]

@@ -13,6 +13,8 @@ HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path.insert(0, str(HERE))
 import phones, accessories, shop_data  # noqa: E402
+sys.path.insert(0, str(ROOT / 'tools' / 'models3d'))
+import attach  # noqa: E402  (3D models and extra photos collected by tools/models3d)
 
 RAW = 'https://raw.githubusercontent.com/pallavsharmaofficial/brandhoop/main/'
 shop_path = ROOT / 'assets' / 'live' / 'shop.json'
@@ -99,6 +101,10 @@ for i, p in enumerate(products):
     bd = base_date_of(p['id'])
     if old_p and d and bd and d > bd and not os.environ.get('CATALOG_FORCE'):
         products[i] = old_p; kept += 1
+# 3D models and photos from tools/models3d are part of the catalogue: a rebuild must not drop them.
+n3d, nph = attach.apply(products)
+if n3d or nph:
+    print(f'3D models: {n3d} products, extra photos: {nph} products')
 owner_added = [p for pid, p in existing.items() if pid not in generated and pid not in known_ids]
 products = owner_added + products
 if kept or owner_added:

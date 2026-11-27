@@ -1,0 +1,17 @@
+{
+  "name": "brandhoop-models3d",
+  "version": "1.0.0",
+  "description": "Optimises 3D phone models and renders posters for the Brandhoop storefront",
+  "dependencies": {
+    "@gltf-transform/cli": "4.5.1",
+    "@gltf-transform/core": "4.5.1",
+    "@gltf-transform/extensions": "4.5.1",
+    "@gltf-transform/functions": "4.5.1",
+    "@google/model-viewer": "4.4.0",
+    "draco3dgltf": "1.5.9",
+    "sharp": "0.35.5",
+    "three": "0.170.0"
+  },
+  "private": true,
+  "type": "module"
+}

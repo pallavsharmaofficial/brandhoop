@@ -1,0 +1,122 @@
+{
+ "oppo-a6x-5g": {
+  "name": "OPPO A6x 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ },
+ "vivo-y11-5g": {
+  "name": "vivo Y11 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ },
+ "vivo-y21-5g": {
+  "name": "vivo Y21 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ },
+ "vivo-y31t-5g": {
+  "name": "vivo Y31t 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ },
+ "vivo-s2-fe-5g": {
+  "name": "vivo S2 FE 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ },
+ "vivo-s2-5g": {
+  "name": "vivo S2 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ },
+ "vivo-v70-fe-5g": {
+  "name": "vivo V70 FE 5G",
+  "searched": "2026-11-27",
+  "photos": [
+   {
+    "file": "Vivo V70 FE bagian belakang dengan casing wireless.jpg",
+    "author": "MobilGalantsuper1999PS",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3AVivo_V70_FE_bagian_belakang_dengan_casing_wireless.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Vivo_V70_FE_bagian_belakang_dengan_casing_wireless.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "width": 2448,
+    "height": 3264
+   },
+   {
+    "file": "Vivo V70 FE layar nyala normal.jpg",
+    "author": "MobilGalantsuper1999PS",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3AVivo_V70_FE_layar_nyala_normal.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Vivo_V70_FE_layar_nyala_normal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "width": 2448,
+    "height": 3264
+   }
+  ],
+  "reviewed": {
+   "Vivo V70 FE bagian belakang dengan casing wireless.jpg": "rejected: held in a hand, dark case over the phone, bedroom floor behind it",
+   "Vivo V70 FE layar nyala normal.jpg": "not reviewed: Wikimedia rate limit (HTTP 429) stopped the download; rerun process_photos.py --preview later"
+  }
+ },
+ "vivo-v80-5g": {
+  "name": "vivo V80 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ },
+ "oppo-a6-5g": {
+  "name": "OPPO A6 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ },
+ "oppo-a6s-5g": {
+  "name": "OPPO A6s 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ },
+ "oppo-k14x-5g": {
+  "name": "OPPO K14x 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ },
+ "oppo-k14-5g": {
+  "name": "OPPO K14 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ },
+ "oppo-f35-5g": {
+  "name": "OPPO F35 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ },
+ "oppo-f35-pro-5g": {
+  "name": "OPPO F35 Pro 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ },
+ "oppo-reno-16c-5g": {
+  "name": "OPPO Reno 16c 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ },
+ "oppo-reno-16-5g": {
+  "name": "OPPO Reno 16 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ },
+ "vivo-t5x-5g": {
+  "name": "vivo T5x 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ },
+ "vivo-t5-pro-5g": {
+  "name": "vivo T5 Pro 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ },
+ "vivo-t5-lite-5g": {
+  "name": "vivo T5 Lite 5G",
+  "searched": "2026-11-27",
+  "photos": []
+ }
+}

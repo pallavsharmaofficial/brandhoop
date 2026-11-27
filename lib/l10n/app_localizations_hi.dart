@@ -3300,4 +3300,62 @@ class AppLocalizationsHi extends AppLocalizations {
   String liveServiceAsk(String shop, String service) {
     return 'नमस्ते $shop, मुझे $service के बारे में जानना है।';
   }
+
+  @override
+  String get mediaPhotos => 'फ़ोटो';
+
+  @override
+  String get media3dView => '3D व्यू';
+
+  @override
+  String get media3dTap => '3D में देखने के लिए टैप करें';
+
+  @override
+  String get media3dPlay => '3D व्यू चलाएँ';
+
+  @override
+  String get media3dDrag => 'फ़ोन घुमाने के लिए उँगली से खिसकाएँ';
+
+  @override
+  String get media3dFullscreen => 'फ़ुलस्क्रीन';
+
+  @override
+  String get media3dClose => 'बंद करें';
+
+  @override
+  String get media3dAr => 'अपने कमरे में देखें';
+
+  @override
+  String get media3dLoading => '3D मॉडल लोड हो रहा है';
+
+  @override
+  String get media3dFailed =>
+      'इस फ़ोन पर 3D व्यू नहीं चल पा रहा, फ़ोटो दिखा रहे हैं।';
+
+  @override
+  String get media3dRepresentative =>
+      'यह एक मिलता-जुलता मॉडल है, रंग अलग हो सकता है';
+
+  @override
+  String get media3dLicenseTerms => 'लाइसेंस की शर्तें';
+
+  @override
+  String media3dCredit(
+    String title,
+    String author,
+    String license,
+    String source,
+  ) {
+    return '3D मॉडल: $title, $author द्वारा, $license ($source)';
+  }
+
+  @override
+  String media3dCreditNoAuthor(String title, String license, String source) {
+    return '3D मॉडल: $title, $license ($source)';
+  }
+
+  @override
+  String mediaPhotoOf(String n, String total) {
+    return 'फ़ोटो $n / $total';
+  }
 }

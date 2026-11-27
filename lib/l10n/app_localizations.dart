@@ -5737,6 +5737,101 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hi {shop}, I want to know about {service}.'**
   String liveServiceAsk(String shop, String service);
+
+  /// No description provided for @mediaPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos'**
+  String get mediaPhotos;
+
+  /// No description provided for @media3dView.
+  ///
+  /// In en, this message translates to:
+  /// **'3D View'**
+  String get media3dView;
+
+  /// No description provided for @media3dTap.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to view in 3D'**
+  String get media3dTap;
+
+  /// No description provided for @media3dPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Play 3D view'**
+  String get media3dPlay;
+
+  /// No description provided for @media3dDrag.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag sideways to turn the phone'**
+  String get media3dDrag;
+
+  /// No description provided for @media3dFullscreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Fullscreen'**
+  String get media3dFullscreen;
+
+  /// No description provided for @media3dClose.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get media3dClose;
+
+  /// No description provided for @media3dAr.
+  ///
+  /// In en, this message translates to:
+  /// **'View in your space'**
+  String get media3dAr;
+
+  /// No description provided for @media3dLoading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading 3D model'**
+  String get media3dLoading;
+
+  /// No description provided for @media3dFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'3D view is not available on this device, showing photos.'**
+  String get media3dFailed;
+
+  /// No description provided for @media3dRepresentative.
+  ///
+  /// In en, this message translates to:
+  /// **'Representative model, colour may differ'**
+  String get media3dRepresentative;
+
+  /// No description provided for @media3dLicenseTerms.
+  ///
+  /// In en, this message translates to:
+  /// **'Licence terms'**
+  String get media3dLicenseTerms;
+
+  /// No description provided for @media3dCredit.
+  ///
+  /// In en, this message translates to:
+  /// **'3D model: {title} by {author}, {license} ({source})'**
+  String media3dCredit(
+    String title,
+    String author,
+    String license,
+    String source,
+  );
+
+  /// No description provided for @media3dCreditNoAuthor.
+  ///
+  /// In en, this message translates to:
+  /// **'3D model: {title}, {license} ({source})'**
+  String media3dCreditNoAuthor(String title, String license, String source);
+
+  /// No description provided for @mediaPhotoOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo {n} of {total}'**
+  String mediaPhotoOf(String n, String total);
 }
 
 class _AppLocalizationsDelegate

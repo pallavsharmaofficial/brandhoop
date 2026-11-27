@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 import '../core/json.dart';
 import '../core/money.dart';
 import 'localized_text.dart';
+import 'model3d.dart';
 
 enum ProductGroup { phones, accessories, protection }
 
@@ -104,6 +105,7 @@ class Product extends Equatable {
     this.highlights = const <LocalizedText>[],
     this.specs = const <String, String>{},
     this.imageUrls = const <String>[],
+    this.model3d,
     required this.variants,
     this.warrantyMonths = 12,
     this.gstRatePct = 18,
@@ -130,6 +132,9 @@ class Product extends Equatable {
   /// to values; the screens translate the keys.
   final Map<String, String> specs;
   final List<String> imageUrls;
+
+  /// An optional 3D model of this exact phone (see tools/models3d). Null: photos only.
+  final Model3D? model3d;
   final List<ProductVariant> variants;
   final int warrantyMonths;
   final double gstRatePct;
@@ -187,6 +192,7 @@ class Product extends Equatable {
     List<LocalizedText>? highlights,
     Map<String, String>? specs,
     List<String>? imageUrls,
+    Model3D? model3d,
     List<ProductVariant>? variants,
     int? warrantyMonths,
     double? gstRatePct,
@@ -209,6 +215,7 @@ class Product extends Equatable {
         highlights: highlights ?? this.highlights,
         specs: specs ?? this.specs,
         imageUrls: imageUrls ?? this.imageUrls,
+        model3d: model3d ?? this.model3d,
         variants: variants ?? this.variants,
         warrantyMonths: warrantyMonths ?? this.warrantyMonths,
         gstRatePct: gstRatePct ?? this.gstRatePct,
@@ -233,6 +240,7 @@ class Product extends Equatable {
         'highlights': highlights.map((LocalizedText t) => t.toJson()).toList(),
         'specs': specs,
         'imageUrls': imageUrls,
+        if (model3d != null) 'model3d': model3d!.toJson(),
         'variants': variants.map((ProductVariant v) => v.toJson()).toList(),
         'warrantyMonths': warrantyMonths,
         'gstRatePct': gstRatePct,
@@ -263,6 +271,7 @@ class Product extends Equatable {
           : const <LocalizedText>[],
       specs: specs.map((String k, dynamic v) => MapEntry<String, String>(k, '$v')),
       imageUrls: j.strings('imageUrls'),
+      model3d: Model3D.tryFromJson(j['model3d']),
       variants: j.list('variants').map(ProductVariant.fromJson).toList(),
       warrantyMonths: j.integer('warrantyMonths', 12),
       gstRatePct: j.decimal('gstRatePct', 18),
@@ -281,7 +290,7 @@ class Product extends Equatable {
 
   @override
   List<Object?> get props => <Object?>[
-        id, name, brand, category, description, highlights, specs, imageUrls,
+        id, name, brand, category, description, highlights, specs, imageUrls, model3d,
         variants, warrantyMonths, gstRatePct, emiEligible, noCostEmi, featured,
         active, tags, callForBest, refPriceLabel, gift, giftValue, createdAt,
       ];

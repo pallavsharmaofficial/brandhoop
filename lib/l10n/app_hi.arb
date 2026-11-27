@@ -939,5 +939,20 @@
   "homeTrustEmi": "बजाज EMI",
   "homeTrustEmiSub": "सिर्फ़ दुकान पर (फेस स्कैन ज़रूरी)",
   "serviceSkin": "स्किन कटिंग",
-  "liveServiceAsk": "नमस्ते {shop}, मुझे {service} के बारे में जानना है।"
+  "liveServiceAsk": "नमस्ते {shop}, मुझे {service} के बारे में जानना है।",
+  "mediaPhotos": "फ़ोटो",
+  "media3dView": "3D व्यू",
+  "media3dTap": "3D में देखने के लिए टैप करें",
+  "media3dPlay": "3D व्यू चलाएँ",
+  "media3dDrag": "फ़ोन घुमाने के लिए उँगली से खिसकाएँ",
+  "media3dFullscreen": "फ़ुलस्क्रीन",
+  "media3dClose": "बंद करें",
+  "media3dAr": "अपने कमरे में देखें",
+  "media3dLoading": "3D मॉडल लोड हो रहा है",
+  "media3dFailed": "इस फ़ोन पर 3D व्यू नहीं चल पा रहा, फ़ोटो दिखा रहे हैं।",
+  "media3dRepresentative": "यह एक मिलता-जुलता मॉडल है, रंग अलग हो सकता है",
+  "media3dLicenseTerms": "लाइसेंस की शर्तें",
+  "media3dCredit": "3D मॉडल: {title}, {author} द्वारा, {license} ({source})",
+  "media3dCreditNoAuthor": "3D मॉडल: {title}, {license} ({source})",
+  "mediaPhotoOf": "फ़ोटो {n} / {total}"
 }
