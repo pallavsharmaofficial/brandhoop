@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -5,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../app/env.dart';
 import 'live_home.dart';
 import '../../app/routes.dart';
+import '../../app/palette.dart';
 import '../../app/theme.dart';
 import '../../domain/offer.dart';
 import '../../domain/product.dart';
@@ -15,6 +18,8 @@ import '../../state/data_cubits.dart';
 import '../../state/session_cubit.dart';
 import '../../widgets/brand_mark.dart';
 import '../../widgets/common.dart';
+import '../../widgets/hero_phones.dart';
+import '../../widgets/motion.dart';
 import '../../widgets/product_art.dart';
 import '../../widgets/product_card.dart';
 import '../../util/launch.dart';
@@ -100,6 +105,7 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 14),
               child: AppEnv.live ? _LiveHero(store: store) : _Hero(store: store),
             ),
+            if (AppEnv.live) const Padding(padding: EdgeInsets.only(top: 12), child: _TrustStrip()),
             if (AppEnv.live) Padding(padding: const EdgeInsets.only(top: 16), child: _QuickActions(store: store)),
             if (offers.isNotEmpty) Padding(padding: const EdgeInsets.only(top: 18), child: _OfferCarousel(offers: offers, lang: lang)),
             if (brands.length > 1)
@@ -345,10 +351,10 @@ class _SearchBox extends StatelessWidget {
 }
 
 const List<List<Color>> _offerColors = <List<Color>>[
-  <Color>[Color(0xFF1F2744), Color(0xFF566170)],
-  <Color>[Color(0xFFD8662A), Color(0xFFF08A45)],
-  <Color>[Color(0xFF2B3558), Color(0xFF8B94A0)],
-  <Color>[Color(0xFFA9481C), Color(0xFFD8662A)],
+  <Color>[Palette.navy800, Palette.navy500],
+  <Color>[Palette.navy700, Palette.saffron700],
+  <Color>[Palette.navy600, Palette.slate600],
+  <Color>[Palette.saffron800, Palette.saffron500],
 ];
 
 class _OfferCarousel extends StatefulWidget {
@@ -363,6 +369,19 @@ class _OfferCarousel extends StatefulWidget {
 class _OfferCarouselState extends State<_OfferCarousel> {
   PageController? _controller;
   int _page = 0;
+  Timer? _auto;
+
+  @override
+  void initState() {
+    super.initState();
+    // Turns by itself every few seconds, unless the phone asks for fewer animations.
+    _auto = Timer.periodic(const Duration(seconds: 6), (Timer _) {
+      final PageController? c = _controller;
+      if (!mounted || c == null || !c.hasClients || widget.offers.length < 2) return;
+      if (MediaQuery.maybeDisableAnimationsOf(context) ?? false) return;
+      c.animateToPage((_page + 1) % widget.offers.length, duration: const Duration(milliseconds: 450), curve: Curves.easeInOutCubic);
+    });
+  }
 
   @override
   void didChangeDependencies() {
@@ -376,6 +395,7 @@ class _OfferCarouselState extends State<_OfferCarousel> {
 
   @override
   void dispose() {
+    _auto?.cancel();
     _controller?.dispose();
     super.dispose();
   }
@@ -387,7 +407,7 @@ class _OfferCarouselState extends State<_OfferCarousel> {
     return Column(
       children: <Widget>[
         SizedBox(
-          height: 140,
+          height: 178,
           child: PageView.builder(
             controller: _controller,
             padEnds: MediaQuery.sizeOf(context).width < 900,
@@ -398,7 +418,8 @@ class _OfferCarouselState extends State<_OfferCarousel> {
               final List<Color> c = _offerColors[o.colorSeed.abs() % _offerColors.length];
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 6),
-                child: InkWell(
+                child: Pressable(
+                 child: InkWell(
                   borderRadius: BorderRadius.circular(22),
                   onTap: () => context.go(o.id == 'o_exchange' ? Routes.exchange : Routes.shop),
                   child: Ink(
@@ -434,9 +455,20 @@ class _OfferCarouselState extends State<_OfferCarousel> {
                             style: const TextStyle(color: Colors.white70, fontSize: 13, height: 1.3),
                           ),
                         ],
+                        const SizedBox(height: 10),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                          decoration: BoxDecoration(color: Palette.saffron500, borderRadius: BorderRadius.circular(16)),
+                          child: Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                            Text(context.tr.viewAll, style: const TextStyle(color: Palette.slate900, fontSize: 12.5, fontWeight: FontWeight.w800)),
+                            const SizedBox(width: 4),
+                            const Icon(Icons.arrow_forward, size: 14, color: Palette.slate900),
+                          ]),
+                        ),
                       ],
                     ),
                   ),
+                 ),
                 ),
               );
             },
@@ -455,7 +487,7 @@ class _OfferCarouselState extends State<_OfferCarousel> {
                     width: i == _page ? 20 : 6,
                     height: 6,
                     decoration: BoxDecoration(
-                      color: i == _page ? BrandColors.indigo : Theme.of(context).colorScheme.outlineVariant,
+                      color: i == _page ? Palette.saffron500 : Theme.of(context).colorScheme.outlineVariant,
                       borderRadius: BorderRadius.circular(3),
                     ),
                   ),
@@ -475,63 +507,171 @@ class _LiveHero extends StatelessWidget {
   Widget build(BuildContext context) {
     final String lang = context.lang;
     final String shop = store.name.of(lang);
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(26),
-      child: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: <Color>[BrandColors.indigoDeep, BrandColors.indigo, BrandColors.navy2],
-          ),
+    final bool wide = MediaQuery.sizeOf(context).width >= 700;
+    final Widget text = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(shop, style: const TextStyle(color: Palette.saffron200, fontWeight: FontWeight.w800, letterSpacing: 0.3)),
+        const SizedBox(height: 8),
+        Text(
+          context.tr.heroLiveTitle,
+          style: TextStyle(color: Colors.white, fontSize: wide ? 38 : 27, fontWeight: FontWeight.w900, height: 1.1),
         ),
-        child: Stack(
+        const SizedBox(height: 8),
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 440),
+          child: Text(context.tr.heroLiveSub, style: const TextStyle(color: Colors.white70, height: 1.4, fontSize: 13.5)),
+        ),
+        const SizedBox(height: 16),
+        Wrap(
+          spacing: 10,
+          runSpacing: 10,
           children: <Widget>[
-            Positioned(right: -30, top: -40, child: Container(width: 170, height: 170, decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white.withValues(alpha: 0.07)))),
-            const Positioned(right: 12, bottom: 6, child: Opacity(opacity: 0.22, child: BrandMark(size: 150))),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(shop, style: const TextStyle(color: BrandColors.saffronSoft, fontWeight: FontWeight.w800, letterSpacing: 0.3)),
-                  const SizedBox(height: 8),
-                  Text(
-                    context.tr.heroLiveTitle,
-                    style: const TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w900, height: 1.12),
-                  ),
-                  const SizedBox(height: 8),
-                  ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 440),
-                    child: Text(context.tr.heroLiveSub, style: const TextStyle(color: Colors.white70, height: 1.4)),
-                  ),
-                  const SizedBox(height: 16),
-                  Wrap(
-                    spacing: 10,
-                    runSpacing: 10,
-                    children: <Widget>[
-                      FilledButton.icon(
-                        onPressed: () => context.go(Routes.shopWith(category: ProductCategory.smartphone.name)),
-                        style: FilledButton.styleFrom(backgroundColor: BrandColors.saffron, foregroundColor: Colors.black87),
-                        icon: const Icon(Icons.smartphone),
-                        label: Text(context.tr.heroBrowse),
-                      ),
-                      OutlinedButton.icon(
-                        onPressed: () => sendToShop(context, context.tr.liveGenericAsk(shop)),
-                        style: OutlinedButton.styleFrom(foregroundColor: Colors.white, side: const BorderSide(color: Colors.white54)),
-                        icon: const Icon(Icons.chat_outlined),
-                        label: Text(context.tr.heroAsk),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 14),
-                  StoreStatusBadge(store, onDark: true),
-                  const SizedBox(height: 4),
-                  AddressLines(store, onDark: true),
-                ],
+            Pressable(
+              child: FilledButton.icon(
+                onPressed: () => context.go(Routes.shopWith(category: ProductCategory.smartphone.name)),
+                style: FilledButton.styleFrom(backgroundColor: Palette.saffron500, foregroundColor: Palette.slate900),
+                icon: const Icon(Icons.smartphone),
+                label: Text(context.tr.heroBrowse),
+              ),
+            ),
+            Pressable(
+              child: OutlinedButton.icon(
+                onPressed: () => sendToShop(context, context.tr.liveGenericAsk(shop)),
+                style: OutlinedButton.styleFrom(foregroundColor: Colors.white, side: const BorderSide(color: Colors.white54)),
+                icon: const Icon(Icons.chat_outlined),
+                label: Text(context.tr.heroAsk),
               ),
             ),
           ],
+        ),
+        const SizedBox(height: 14),
+        StoreStatusBadge(store, onDark: true),
+        const SizedBox(height: 4),
+        AddressLines(store, onDark: true),
+      ],
+    );
+    return Reveal(
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(26),
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: <Color>[Palette.navy800, Palette.navy700, Palette.navy600]),
+          ),
+          child: Stack(
+            children: <Widget>[
+              Positioned(right: -40, top: -50, child: Container(width: 190, height: 190, decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white.withValues(alpha: 0.05)))),
+              Positioned(left: -60, bottom: -90, child: Container(width: 200, height: 200, decoration: BoxDecoration(shape: BoxShape.circle, color: Palette.saffron500.withValues(alpha: 0.10)))),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 20, 14, 20),
+                child: wide
+                    ? Row(crossAxisAlignment: CrossAxisAlignment.center, children: <Widget>[Expanded(flex: 6, child: text), const SizedBox(width: 20), const Expanded(flex: 4, child: Center(child: HeroPhones(height: 250)))])
+                    : Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Row(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                            Expanded(child: _HeroHead(shop: shop)),
+                            const HeroPhones(height: 128),
+                          ]),
+                          const SizedBox(height: 12),
+                          ConstrainedBox(constraints: const BoxConstraints(maxWidth: 440), child: Text(context.tr.heroLiveSub, style: const TextStyle(color: Colors.white70, height: 1.4, fontSize: 13.5))),
+                          const SizedBox(height: 16),
+                          _HeroActions(store: store, shop: shop),
+                          const SizedBox(height: 14),
+                          StoreStatusBadge(store, onDark: true),
+                          const SizedBox(height: 4),
+                          AddressLines(store, onDark: true),
+                        ],
+                      ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _HeroHead extends StatelessWidget {
+  const _HeroHead({required this.shop});
+  final String shop;
+
+  @override
+  Widget build(BuildContext context) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(shop, style: const TextStyle(color: Palette.saffron200, fontWeight: FontWeight.w800, letterSpacing: 0.3, fontSize: 12.5)),
+          const SizedBox(height: 8),
+          Text(context.tr.heroLiveTitle, style: const TextStyle(color: Colors.white, fontSize: 27, fontWeight: FontWeight.w900, height: 1.1)),
+        ],
+      );
+}
+
+class _HeroActions extends StatelessWidget {
+  const _HeroActions({required this.store, required this.shop});
+  final StoreSettings store;
+  final String shop;
+
+  @override
+  Widget build(BuildContext context) => Wrap(
+        spacing: 10,
+        runSpacing: 10,
+        children: <Widget>[
+          Pressable(
+            child: FilledButton.icon(
+              onPressed: () => context.go(Routes.shopWith(category: ProductCategory.smartphone.name)),
+              style: FilledButton.styleFrom(backgroundColor: Palette.saffron500, foregroundColor: Palette.slate900),
+              icon: const Icon(Icons.smartphone),
+              label: Text(context.tr.heroBrowse),
+            ),
+          ),
+          Pressable(
+            child: OutlinedButton.icon(
+              onPressed: () => sendToShop(context, context.tr.liveGenericAsk(shop)),
+              style: OutlinedButton.styleFrom(foregroundColor: Colors.white, side: const BorderSide(color: Colors.white54)),
+              icon: const Icon(Icons.chat_outlined),
+              label: Text(context.tr.heroAsk),
+            ),
+          ),
+        ],
+      );
+}
+
+/// Four short promises under the hero. They are things the shop really does.
+class _TrustStrip extends StatelessWidget {
+  const _TrustStrip();
+
+  @override
+  Widget build(BuildContext context) {
+    final List<(IconData, String)> items = <(IconData, String)>[
+      (Icons.storefront_outlined, context.tr.homeTrustLocal),
+      (Icons.call_outlined, context.tr.homeTrustBargain),
+      (Icons.card_giftcard, context.tr.homeTrustGifts),
+      (Icons.account_balance_wallet_outlined, context.tr.homeTrustEmi),
+    ];
+    final ColorScheme cs = Theme.of(context).colorScheme;
+    return SizedBox(
+      height: 44,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: items.length,
+        separatorBuilder: (BuildContext _, int _) => const SizedBox(width: 8),
+        itemBuilder: (BuildContext _, int i) => Reveal(
+          delay: Duration(milliseconds: 70 * i),
+          rise: 8,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            decoration: BoxDecoration(
+              color: Theme.of(context).cardTheme.color,
+              borderRadius: BorderRadius.circular(22),
+              border: Border.all(color: cs.outlineVariant.withValues(alpha: 0.6)),
+            ),
+            child: Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
+              Icon(items[i].$1, size: 18, color: Palette.saffron500),
+              const SizedBox(width: 8),
+              Text(items[i].$2, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 12.5)),
+            ]),
+          ),
         ),
       ),
     );
@@ -661,6 +801,7 @@ const Map<ProductCategory, String> _categoryPhoto = <ProductCategory, String>{
 class _CategoryRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final Set<ProductCategory> stocked = context.watch<ProductsCubit>().state.where((Product p) => p.active).map((Product p) => p.category).toSet();
     final List<ProductCategory> cats = <ProductCategory>[
       ProductCategory.smartphone,
       ProductCategory.featurePhone,
@@ -674,44 +815,56 @@ class _CategoryRow extends StatelessWidget {
       ProductCategory.speaker,
       ProductCategory.memory,
       ProductCategory.holder,
-    ];
+    ].where(stocked.contains).toList();
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
     return SizedBox(
-      height: 100,
+      height: 112,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
+        clipBehavior: Clip.none,
         itemCount: cats.length,
-        separatorBuilder: (BuildContext _, int _) => const SizedBox(width: 12),
+        separatorBuilder: (BuildContext _, int _) => const SizedBox(width: 10),
         itemBuilder: (BuildContext _, int i) {
           final ProductCategory c = cats[i];
-          return InkWell(
-            borderRadius: BorderRadius.circular(14),
-            onTap: () => context.go(Routes.shopWith(category: c.name)),
-            child: SizedBox(
-              width: 76,
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    width: 62,
-                    height: 62,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primaryContainer.withValues(alpha: 0.6),
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Theme.of(context).colorScheme.outlineVariant, width: 1.5),
-                    ),
-                    clipBehavior: Clip.antiAlias,
-                    child: _categoryPhoto[c] == null
-                        ? Icon(categoryIcon(c), color: Theme.of(context).colorScheme.primary)
-                        : Image.asset(_categoryPhoto[c]!, fit: BoxFit.cover),
+          final String? photo = _categoryPhoto[c];
+          return Reveal(
+            delay: Duration(milliseconds: 50 * i.clamp(0, 6)),
+            rise: 10,
+            child: Pressable(
+              child: InkWell(
+                borderRadius: BorderRadius.circular(18),
+                onTap: () => context.go(Routes.shopWith(category: c.name)),
+                child: Container(
+                  width: 92,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    color: dark ? Palette.nightSurface : Palette.navy50,
+                    borderRadius: BorderRadius.circular(18),
+                    border: Border.all(color: dark ? Palette.nightLine : Palette.lightLine),
                   ),
-                  const SizedBox(height: 6),
-                  Text(
-                    context.tr.category(c),
-                    maxLines: 2,
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600, height: 1.15),
+                  child: Column(
+                    children: <Widget>[
+                      Expanded(
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: photo == null
+                              ? Icon(categoryIcon(c), color: Palette.navy500, size: 30)
+                              : Image.asset(photo, fit: BoxFit.cover, alignment: Alignment.center),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+                        child: Text(
+                          context.tr.category(c),
+                          maxLines: 1,
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(fontSize: 11.5, fontWeight: FontWeight.w800),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
           );

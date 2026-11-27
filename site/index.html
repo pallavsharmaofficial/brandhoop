@@ -9,118 +9,27 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@500;700&display=swap">
 <meta name="theme-color" content="#1F2744">
+<link rel="stylesheet" href="assets/brand-tokens.css">
+<link rel="stylesheet" href="assets/site.css">
+<script>if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('anim');</script>
 <meta property="og:title" content="Brandhoop Mobile Point · Neem Ka Thana">
 <meta property="og:description" content="New phones and accessories in one shop. Ask for today’s best price.">
 <meta property="og:image" content="https://pallavsharmaofficial.github.io/brandhoop/og-image.png">
-<style>
-  :root { --brand:#1F2744; --deep:#141A33; --accent:#D8662A; --soft-accent:#FBE3D2; --ink:#14182B; --muted:#566170; --paper:#F6F6F6; --card:#fff; --line:#E1E4EA; --chip:#ECEEF6; }
-  @media (prefers-color-scheme: dark) { :root { --brand:#C9D0EE; --ink:#ECEEF6; --muted:#A4ABBD; --paper:#0F1322; --card:#181D33; --line:#2A3050; --chip:#222845; --accent:#F08A45; } }
-  * { box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body { margin:0; font:17px/1.55 Montserrat,"Noto Sans Devanagari",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:var(--paper); }
-  a { color:var(--brand); }
-  .wrap { max-width:1120px; margin:0 auto; padding:0 20px; }
-  .hi { color:var(--muted); font-size:.92em; }
-  /* header */
-  header.top { position:sticky; top:0; z-index:10; background:color-mix(in srgb,var(--paper) 88%,transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
-  header.top .wrap { display:flex; align-items:center; gap:14px; height:62px; }
-  .logo { display:flex; align-items:center; gap:10px; font-weight:800; color:var(--ink); text-decoration:none; font-size:19px; }
-  .logo img { display:block; }
-  nav { margin-left:auto; display:flex; align-items:center; gap:18px; }
-  nav a.l { color:var(--ink); text-decoration:none; font-weight:600; font-size:15px; }
-  .btn { display:inline-block; border-radius:14px; padding:12px 20px; font-weight:700; text-decoration:none; font-size:16px; text-align:center; line-height:1.25; }
-  .btn small { display:block; font-weight:500; font-size:12px; opacity:.85; }
-  .primary { background:var(--accent); color:#111; }
-  .ghost { border:2px solid var(--brand); color:var(--brand); background:transparent; }
-  .sm { padding:9px 16px; font-size:14px; border-radius:12px; }
-  @media (max-width:720px) { nav a.l { display:none; } }
-  /* hero */
-  .hero { background:radial-gradient(120% 140% at 85% 0%,#2B3558,#1F2744 60%,#141A33); color:#fff; }
-  .hero .wrap { display:grid; grid-template-columns:1.1fr .9fr; gap:34px; align-items:center; padding-top:46px; padding-bottom:50px; }
-  .kicker { color:var(--soft-accent); font-weight:700; letter-spacing:.03em; }
-  .hero h1 { font-size:clamp(34px,6vw,56px); line-height:1.08; margin:10px 0 8px; }
-  .hero p.lead { font-size:19px; opacity:.93; max-width:520px; margin:0 0 6px; }
-  .hero .hi { color:#cfd3f5; }
-  .cta { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0 10px; }
-  .hero .ghost { border-color:#fff; color:#fff; }
-  .apk { font-size:14px; color:#cfd3f5; }
-  .apk a { color:#fff; }
-  .phone { justify-self:center; width:min(290px,78vw); background:#0c0c10; border-radius:44px; padding:12px; box-shadow:0 30px 70px rgba(0,0,0,.45); }
-  .screen { background:var(--paper); border-radius:34px; overflow:hidden; height:520px; position:relative; color:var(--ink); }
-  .screen .bar { padding:14px 16px 8px; font-weight:800; display:flex; align-items:center; gap:8px; }
-  .screen .bar img { width:24px; height:24px; border-radius:6px; }
-  .reel { display:flex; flex-direction:column; gap:10px; padding:4px 12px 12px; animation:scroll 26s linear infinite; }
-  .screen:hover .reel { animation-play-state:paused; }
-  @keyframes scroll { from { transform:translateY(0); } to { transform:translateY(-50%); } }
-  @media (prefers-reduced-motion: reduce) { .reel { animation:none; } }
-  .mini { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; }
-  .mini img { width:100%; height:120px; object-fit:cover; display:block; }
-  .mini div { padding:8px 10px 10px; font-size:13px; font-weight:700; line-height:1.25; }
-  .mini span { display:block; font-weight:500; font-size:11px; color:var(--muted); }
-  @media (max-width:860px) { .hero .wrap { grid-template-columns:1fr; } .phone { order:-1; } .screen { height:420px; } }
-  /* sections */
-  section { padding:44px 0 6px; }
-  h2 { font-size:clamp(24px,4vw,32px); margin:0 0 6px; }
-  .sub { color:var(--muted); margin:0 0 20px; }
-  .chips { display:flex; flex-wrap:wrap; gap:10px; }
-  .chip { display:inline-flex; align-items:center; gap:8px; background:var(--chip); border:1px solid var(--line); border-radius:999px; padding:8px 16px 8px 8px; text-decoration:none; color:var(--ink); font-weight:700; }
-  .chip i { width:26px; height:26px; border-radius:50%; background:var(--brand); color:#fff; font-style:normal; display:grid; place-items:center; font-size:13px; }
-  @media (prefers-color-scheme: dark) { .chip i { color:#121317; } }
-  .cats { display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:14px; }
-  .cat { text-align:center; text-decoration:none; color:var(--ink); font-weight:700; font-size:14px; }
-  .cat img { width:92px; height:92px; border-radius:50%; object-fit:cover; border:2px solid var(--line); display:block; margin:0 auto 8px; background:var(--card); }
-  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:16px; }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:20px; overflow:hidden; display:flex; flex-direction:column; }
-  .card .ph { aspect-ratio:3/2; background:var(--chip); }
-  .card .ph img { width:100%; height:100%; object-fit:cover; display:block; }
-  .card .b { padding:12px 14px 14px; display:flex; flex-direction:column; gap:4px; flex:1; }
-  .brand { font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
-  .name { font-weight:800; line-height:1.25; }
-  .spec { font-size:13px; color:var(--muted); }
-  .tag { align-self:flex-start; background:var(--soft-accent); color:#7a3b00; border-radius:8px; padding:3px 9px; font-size:12px; font-weight:800; margin-top:4px; }
-  .card .row { margin-top:auto; padding-top:10px; display:flex; gap:8px; }
-  .card .row a { flex:1; }
-  @media (max-width:560px) { .grid { grid-template-columns:repeat(2,1fr); gap:10px; } .card .row { flex-direction:column; } .card .b { padding:10px; } .name { font-size:15px; } }
-  .photos { display:grid; grid-template-columns:1.25fr 1fr; gap:14px; }
-  .photos figure { margin:0; border-radius:20px; overflow:hidden; background:var(--card); border:1px solid var(--line); }
-  .photos { align-items:start; }
-  .photos img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; }
-  .photos figure:nth-child(2) img { aspect-ratio:auto; }
-  .photos figcaption { padding:10px 14px; font-weight:700; font-size:15px; }
-  @media (max-width:720px) { .photos { grid-template-columns:1fr; } }
-  .svc { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; }
-  .svc .tile { display:flex; gap:14px; align-items:flex-start; padding:16px; }
-  .svc .ic { flex:none; margin:0; }
-  .note { font-size:14px; color:var(--muted); margin-top:12px; }
-  .tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
-  .tile { background:var(--card); border:1px solid var(--line); border-radius:20px; padding:18px; }
-  .tile .ic { width:44px; height:44px; border-radius:14px; background:var(--soft-accent); display:grid; place-items:center; font-size:22px; margin-bottom:10px; }
-  .tile b { display:block; }
-  .tile span { color:var(--muted); font-size:15px; }
-  .worry { background:#FFF3E0; color:#3b2600; border-radius:22px; padding:24px; display:grid; gap:12px; }
-  @media (prefers-color-scheme: dark) { .worry { background:#3b2a10; color:#ffe9c7; } .worry .hi { color:#e6c79a; } }
-  .worry h2 { color:inherit; }
-  .two { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-  @media (max-width:720px) { .two { grid-template-columns:1fr; } }
-  .box { background:var(--card); border:1px solid var(--line); border-radius:20px; padding:20px; }
-  .box h3 { margin:0 0 6px; }
-  footer { margin-top:50px; padding:30px 0 40px; border-top:1px solid var(--line); color:var(--muted); font-size:15px; text-align:center; }
-  .qr img { width:170px; height:170px; background:#fff; border-radius:12px; padding:8px; }
-</style>
 </head>
 <body>
-<header class="top"><div class="wrap">
-  <a class="logo" href="./" aria-label="Brandhoop Mobile Point"><picture><source media="(prefers-color-scheme: dark)" srcset="brand/logo/brandhoop-logo-horizontal-on-dark.svg"><img src="brand/logo/brandhoop-logo-horizontal.svg" alt="Brandhoop Mobile Point" style="height:42px;width:auto"></picture></a>
+<header class="top" id="top"><div class="wrap">
+  <a class="logo" href="./" aria-label="Brandhoop Mobile Point"><picture><source media="(prefers-color-scheme: dark)" srcset="brand/logo/brandhoop-logo-horizontal-on-dark.svg"><img src="brand/logo/brandhoop-logo-horizontal.svg" alt="Brandhoop Mobile Point" style="height:34px;width:auto"></picture></a>
   <nav>
-    <a class="l" href="#phones">Phones</a><a class="l" href="#brands">Brands</a><a class="l" href="#services">Services</a><a class="l" href="care/">Phone check</a><a class="l" href="brand/">Brand</a><a class="l" href="#visit">Visit</a>
+    <a class="l" href="#phones">Phones</a><a class="l" href="#categories">Categories</a><a class="l" href="#services">Services</a><a class="l" href="care/">Phone check</a><a class="l" href="brand/">Brand</a><a class="l" href="#visit">Visit</a>
+    <button class="iconbtn" id="searchBtn" type="button" aria-label="Search phones"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
     <a class="btn primary sm" href="app/">Open app</a>
   </nav>
 </div></header>
 
-<div class="hero"><div class="wrap">
+<div class="hero"><div class="orb o1"></div><div class="orb o2"></div><div class="wrap">
   <div>
     <div class="kicker" id="brandTag">Brandhoop Mobile Point · नीम का थाना</div>
-    <h1>Find your next phone</h1>
+    <h1>Find your <em>next phone</em></h1>
     <p class="lead">New phones and accessories in one shop. See what you like, then ask for today’s best price, gifts and offers.</p>
     <p class="lead hi">नए फ़ोन और एक्सेसरी, एक ही दुकान पर। पसंद चुनें, फिर आज की सबसे अच्छी कीमत पूछें।</p>
     <div class="cta">
@@ -130,43 +39,55 @@
     </div>
     <div class="apk">Android? <a href="download/brandhoop.apk" download>Download the app (APK)</a> · iPhone: open the app, Share, Add to Home Screen</div>
   </div>
-  <div class="phone"><div class="screen" aria-hidden="true">
-    <div class="bar"><img src="favicon.png" alt="">Brandhoop</div>
-    <div class="reel" id="reel"></div>
-  </div></div>
+  <figure class="stage" id="stage" style="margin:0">
+    <div class="glow"></div><div class="ring"></div><div class="ring r2"></div>
+    <svg class="poster" id="heroArt" viewBox="0 0 240 250" aria-hidden="true"><use href="#phones"/></svg>
+    <span class="chipf c1"><b>5G</b> phones</span><span class="chipf c2">EMI on <b>3 documents</b></span><span class="chipf c3">Call to <b>bargain</b></span>
+    <figcaption id="heroCap"></figcaption>
+  </figure>
+</div></div>
+
+<div class="trust"><div class="wrap">
+  <div class="tr rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l1-5h16l1 5M4 9v11h16V9M9 20v-6h6v6"/></svg><div>Real shop, real address<span>Gate 5, Kamla Modi Market</span></div></div>
+  <div class="tr rv" style="--d:.07s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg><div>Call to bargain<span>Today’s best price on any phone</span></div></div>
+  <div class="tr rv" style="--d:.14s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18v4H3zM5 12v9h14v-9M12 8v13"/><path d="M12 8c-2-4-6-3-5 0 .6 1.5 5 0 5 0zm0 0c2-4 6-3 5 0-.6 1.5-5 0-5 0z"/></svg><div>Gifts and offers<span>Ask what comes with your phone</span></div></div>
+  <div class="tr rv" style="--d:.21s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 11h18M7 16h3"/></svg><div>Phone on EMI<span>With 3 documents, lender approves</span></div></div>
 </div></div>
 
 <main class="wrap">
-  <section id="brands">
-    <h2>Shop by brand <span class="hi">· ब्रांड से खरीदें</span></h2>
-    <p class="sub">Tap a brand to see its phones in the app.</p>
-    <div class="chips" id="brandChips"></div>
-  </section>
-
-  <section>
+  <section id="categories" class="rv">
     <h2>Shop by category <span class="hi">· श्रेणी से खरीदें</span></h2>
-    <p class="sub">53 kinds of accessories, from chargers to smartwatches.</p>
+    <p class="sub">Phones and 53 kinds of accessories, from chargers to smartwatches.</p>
     <div class="cats">
-      <a class="cat" href="app/#/shop?cat=smartphone"><img src="app/assets/assets/img/cat_phones.jpg" alt="" loading="lazy">Smartphones<br><span class="hi">स्मार्टफ़ोन</span></a>
-      <a class="cat" href="app/#/shop?cat=earphones"><img src="app/assets/assets/img/cat_earbuds.jpg" alt="" loading="lazy">Earphones<br><span class="hi">ईयरफ़ोन</span></a>
-      <a class="cat" href="app/#/shop?cat=charger"><img src="app/assets/assets/img/cat_wall.jpg" alt="" loading="lazy">Chargers<br><span class="hi">चार्जर</span></a>
-      <a class="cat" href="app/#/shop?cat=caseCover"><img src="app/assets/assets/img/cat_case.jpg" alt="" loading="lazy">Cases<br><span class="hi">कवर</span></a>
-      <a class="cat" href="app/#/shop?cat=screenGuard"><img src="app/assets/assets/img/cat_glass.jpg" alt="" loading="lazy">Screen guards<br><span class="hi">स्क्रीन गार्ड</span></a>
-      <a class="cat" href="app/#/shop?cat=powerBank"><img src="app/assets/assets/img/cat_chargers.jpg" alt="" loading="lazy">Power banks<br><span class="hi">पावर बैंक</span></a>
-      <a class="cat" href="app/#/shop?cat=smartwatch"><img src="app/assets/assets/img/cat_watch.jpg" alt="" loading="lazy">Smartwatches<br><span class="hi">स्मार्टवॉच</span></a>
-      <a class="cat" href="app/#/shop?cat=speaker"><img src="app/assets/assets/img/cat_speaker.jpg" alt="" loading="lazy">Speakers<br><span class="hi">स्पीकर</span></a>
+      <a class="cat" href="app/#/shop?cat=smartphone"><img src="app/assets/assets/img/cat_phones.jpg" alt="" loading="lazy"><span><div>Smartphones<small>स्मार्टफ़ोन</small></div><i>→</i></span></a>
+      <a class="cat" href="app/#/shop?cat=earphones"><img src="app/assets/assets/img/cat_earbuds.jpg" alt="" loading="lazy"><span><div>Earphones<small>ईयरफ़ोन</small></div><i>→</i></span></a>
+      <a class="cat" href="app/#/shop?cat=charger"><img src="app/assets/assets/img/cat_wall.jpg" alt="" loading="lazy"><span><div>Chargers<small>चार्जर</small></div><i>→</i></span></a>
+      <a class="cat" href="app/#/shop?cat=caseCover"><img src="app/assets/assets/img/cat_case.jpg" alt="" loading="lazy"><span><div>Cases<small>कवर</small></div><i>→</i></span></a>
+      <a class="cat" href="app/#/shop?cat=screenGuard"><img src="app/assets/assets/img/cat_glass.jpg" alt="" loading="lazy"><span><div>Screen guards<small>स्क्रीन गार्ड</small></div><i>→</i></span></a>
+      <a class="cat" href="app/#/shop?cat=powerBank"><img src="app/assets/assets/img/cat_chargers.jpg" alt="" loading="lazy"><span><div>Power banks<small>पावर बैंक</small></div><i>→</i></span></a>
+      <a class="cat" href="app/#/shop?cat=smartwatch"><img src="app/assets/assets/img/cat_watch.jpg" alt="" loading="lazy"><span><div>Smartwatches<small>स्मार्टवॉच</small></div><i>→</i></span></a>
+      <a class="cat" href="app/#/shop?cat=speaker"><img src="app/assets/assets/img/cat_speaker.jpg" alt="" loading="lazy"><span><div>Speakers<small>स्पीकर</small></div><i>→</i></span></a>
     </div>
   </section>
 
-  <section id="phones">
-    <h2>Popular phones <span class="hi">· लोकप्रिय फ़ोन</span></h2>
-    <p class="sub">Ask for today’s best price. Prices change often, so we do not print one here.</p>
+  <section class="rv" id="offers" hidden>
+    <div class="banner" id="banner" aria-roledescription="carousel" aria-label="Offers from the shop"><div class="slides" id="slides"></div><div class="dots" id="dots"></div></div>
+  </section>
+
+  <section id="phones" class="rv">
+    <h2>Phones in the shop <span class="hi">· दुकान के फ़ोन</span></h2>
+    <p class="sub">Shop prices with their date. Prices change, so call or WhatsApp for today’s best price, gifts and EMI.</p>
+    <div class="tools">
+      <div class="chips" id="brandChips" role="group" aria-label="Filter by brand"></div>
+      <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="q" aria-label="Search phones" type="search" placeholder="Search a phone or a feature" autocomplete="off"></label>
+      <div class="count" id="count" aria-live="polite"></div>
+    </div>
     <div class="grid" id="grid"></div>
     <noscript><p>Open the <a href="app/">shop app</a> to see all phones.</p></noscript>
     <p style="margin-top:18px"><a class="btn ghost" href="app/#/shop?cat=smartphone">See all phones in the app<small>सारे फ़ोन ऐप में देखें</small></a></p>
   </section>
 
-  <section>
+  <section class="rv">
     <h2>Our shop <span class="hi">· हमारी दुकान</span></h2>
     <p class="sub">Real photos of the shop, so you know where to find us.</p>
     <div class="photos">
@@ -175,7 +96,7 @@
     </div>
   </section>
 
-  <section id="services">
+  <section id="services" class="rv">
     <h2>What we do <span class="hi">· हमारी सेवाएँ</span></h2>
     <p class="sub">Everything below is on our shop signboard. Ask in the shop or on WhatsApp for prices and terms.</p>
     <div class="svc">
@@ -190,7 +111,7 @@
     <p class="note">EMI lenders on our sign: Bajaj Finserv, IDFC First Bank and HDFC Bank. Approval is decided by the lender. Bajaj Finserv EMI is available only at the shop because it needs a face scan. Zero down payment is offered to card customers; ask us for the terms.</p>
   </section>
 
-  <section>
+  <section class="rv">
     <h2>Why Brandhoop <span class="hi">· ब्रांडहूप क्यों</span></h2>
     <div class="tiles">
       <div class="tile"><div class="ic">🏪</div><b>Real shop, real address</b><span>Gate No. 5, Kamla Modi Market, Neem Ka Thana.</span></div>
@@ -200,7 +121,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="rv">
     <div class="worry">
       <h2>Worried prices will go up? <span class="hi">· कीमतें बढ़ने की चिंता?</span></h2>
       <div>Phone prices change often. <strong>Call us to bargain</strong> and get today’s best price, gifts and offers, and buy without waiting.</div>
@@ -209,7 +130,7 @@
     </div>
   </section>
 
-  <section id="visit">
+  <section id="visit" class="rv">
     <div class="two">
       <div class="box">
         <h3>Visit the shop · दुकान पर आएँ</h3>
@@ -227,7 +148,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="rv">
     <div class="box qr" style="text-align:center">
       <h3>Share this page · शेयर करें</h3>
       <img src="qr/brandhoop-qr.png" alt="QR code for this page"><br>Scan to open this page.
@@ -236,58 +157,22 @@
 </main>
 
 <footer><div class="wrap">
-  <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="credits.html">Photo credits</a> · <a href="care/">Free phone check · फ़ोन की मुफ़्त जाँच</a> · <a href="brand/">Brand kit</a> ·
+  <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="credits.html">Photo credits</a> · <a href="care/">Free phone check · फ़ोन की मुफ़्त जाँच</a> · <a href="brand/">Brand kit</a> · <a href="brand/palette/">Colour palette</a> ·
   <a href="https://github.com/pallavsharmaofficial/brandhoop/issues">Report a problem</a><br>
   Brandhoop Mobile Point · Gate No. 5, Kamla Modi Market, Neem Ka Thana · +91 86197 67291
-</div></footer>
+<br><span class="hi">3D model on this page: <span id="modelCredit">see photo credits</span></span></div></footer>
 
-<script>
-(function () {
-  var ASK = 'https://wa.me/918619767291?text=';
-  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
-  fetch('live/shop.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (shop) {
-    // Brand colours and tagline set from the admin panel's Design Studio.
-    var br = shop.brand, hex = /^#[0-9a-fA-F]{6}$/;
-    if (br && !window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      var root = document.documentElement.style;
-      if (hex.test(br.primary || '')) { root.setProperty('--brand', br.primary); root.setProperty('--deep', br.primary); }
-      if (hex.test(br.accent || '')) root.setProperty('--accent', br.accent);
-    } else if (br && hex.test(br.accent || '')) document.documentElement.style.setProperty('--accent', br.accent);
-    if (br && br.tagline) { var tg = document.getElementById('brandTag'); var t = br.tagline.en || br.tagline.hi; if (tg && t) tg.textContent = br.tagline.hi && br.tagline.en ? br.tagline.en + ' · ' + br.tagline.hi : t; }
-    var phones = (shop.products || []).filter(function (p) { return p.category === 'smartphone'; });
-    // brands, most models first
-    var count = {}; phones.forEach(function (p) { if (p.brand) count[p.brand] = (count[p.brand] || 0) + 1; });
-    var brands = Object.keys(count).sort(function (a, b) { return count[b] - count[a] || a.localeCompare(b); }).slice(0, 14);
-    var chips = document.getElementById('brandChips');
-    brands.forEach(function (b) {
-      var a = el('a', 'chip'); a.href = 'app/#/shop?cat=smartphone&brand=' + encodeURIComponent(b);
-      var i = el('i', '', b.charAt(0).toUpperCase()); a.appendChild(i); a.appendChild(document.createTextNode(b)); chips.appendChild(a);
-    });
-    // popular phones: featured first, then those with a photo
-    var withPhoto = phones.filter(function (p) { return p.imageUrls && p.imageUrls.length; });
-    withPhoto.sort(function (a, b) { return (b.featured ? 1 : 0) - (a.featured ? 1 : 0); });
-    var show = withPhoto.slice(0, 8);
-    var grid = document.getElementById('grid');
-    show.forEach(function (p) {
-      var c = el('div', 'card'), ph = el('div', 'ph'), img = el('img'); img.src = p.imageUrls[0]; img.alt = p.name.en; img.loading = 'lazy'; ph.appendChild(img); c.appendChild(ph);
-      var b = el('div', 'b'); b.appendChild(el('div', 'brand', p.brand)); b.appendChild(el('div', 'name', p.name.en));
-      if (p.highlights && p.highlights.length) b.appendChild(el('div', 'spec', p.highlights[0].en));
-      b.appendChild(el('span', 'tag', 'Call for best price'));
-      var row = el('div', 'row');
-      var w = el('a', 'btn primary sm', 'Ask on WhatsApp'); w.href = ASK + encodeURIComponent('Hi Brandhoop, I want today’s best price and offers for ' + p.name.en);
-      var v = el('a', 'btn ghost sm', 'View'); v.href = 'app/#/product/' + encodeURIComponent(p.id);
-      row.appendChild(w); row.appendChild(v); b.appendChild(row); c.appendChild(b); grid.appendChild(c);
-    });
-    // phone mock-up reel (list twice for a seamless loop)
-    var reel = document.getElementById('reel');
-    show.concat(show).forEach(function (p) {
-      var m = el('div', 'mini'), i = el('img'); i.src = p.imageUrls[0]; i.alt = ''; m.appendChild(i);
-      var d = el('div', '', p.name.en); d.appendChild(el('span', '', 'Call for best price')); m.appendChild(d); reel.appendChild(m);
-    });
-  }).catch(function () {
-    document.getElementById('grid').appendChild(el('p', '', 'Open the shop app to see all phones.'));
-  });
-})();
-</script>
+
+<nav class="dock" aria-label="Contact the shop">
+  <a class="btn ghost" href="tel:+918619767291">Call</a>
+  <a class="btn primary" href="https://wa.me/918619767291?text=Hi%20Brandhoop%2C%20I%20want%20today%E2%80%99s%20best%20price%20and%20offers">WhatsApp</a>
+  <a class="btn ghost" href="app/">App</a>
+</nav>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="phones" viewBox="0 0 240 250">
+    <g transform="rotate(-8 70 150)"><rect x="22" y="70" width="86" height="150" rx="16" fill="#7F8798"/><rect x="32" y="80" width="54" height="36" rx="10" fill="#1F2744"/><circle cx="48" cy="92" r="7" fill="#0B0F20"/><circle cx="48" cy="106" r="7" fill="#0B0F20"/><circle cx="70" cy="98" r="4" fill="#F1A774"/></g>
+    <g transform="rotate(7 165 130)"><rect x="118" y="38" width="96" height="186" rx="18" fill="#A4ABBD"/><rect x="124" y="45" width="84" height="172" rx="14" fill="#2B3558"/><rect x="131" y="62" width="70" height="46" rx="8" fill="#D8662A"/><rect x="131" y="116" width="32" height="34" rx="7" fill="#fff" opacity=".2"/><rect x="169" y="116" width="32" height="34" rx="7" fill="#fff" opacity=".9"/><rect x="131" y="190" width="70" height="14" rx="7" fill="#F08A45"/></g>
+  </symbol></defs></svg>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

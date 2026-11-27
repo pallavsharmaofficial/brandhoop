@@ -2,6 +2,7 @@
 # Rebuilds every logo, print, social and icon file, then the Android/iOS icon resources.
 # Run from the repo root:  bash tools/brand/build_all.sh
 set -euo pipefail
+python3 tools/brand/palette.py
 python3 tools/brand/logo.py
 python3 tools/brand/make_assets.py
 (cd tools/brand && node shoot.js)

@@ -8,6 +8,7 @@ import '../domain/store_settings.dart';
 import '../l10n/l10n.dart';
 import '../services/emi_hint.dart';
 import 'common.dart';
+import 'motion.dart';
 import 'product_art.dart';
 
 class ProductCard extends StatelessWidget {
@@ -24,100 +25,102 @@ class ProductCard extends StatelessWidget {
     final EmiHint? emi = EmiHint.forProduct(settings, product, product.minPrice);
     return SizedBox(
       width: width,
-      child: Card(
-        clipBehavior: Clip.antiAlias,
-        child: InkWell(
-          onTap: () => context.push(Routes.product(product.id)),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Expanded(
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: <Widget>[
-                    ProductArt(product: product, radius: 0),
-                    if (product.discountPct > 0)
-                      Positioned(
-                        left: 8,
-                        top: 8,
-                        child: _Tag('${product.discountPct}% ${context.tr.off}', const Color(0xFF2E7D32)),
-                      ),
-                    if (product.callForBest)
-                      Positioned(
-                        left: 8,
-                        top: 8,
-                        child: _Tag(context.tr.liveCallForBest, const Color(0xFFEF6C00)),
-                      ),
-                    if (!product.callForBest && !product.inStock)
-                      Positioned.fill(
-                        child: ColoredBox(
-                          color: Colors.black38,
-                          child: Center(
-                            child: Text(context.tr.outOfStock, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800)),
+      child: Pressable(
+        child: Card(
+          clipBehavior: Clip.antiAlias,
+          child: InkWell(
+            onTap: () => context.push(Routes.product(product.id)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Expanded(
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: <Widget>[
+                      ProductArt(product: product, radius: 0),
+                      if (product.discountPct > 0)
+                        Positioned(
+                          left: 8,
+                          top: 8,
+                          child: _Tag('${product.discountPct}% ${context.tr.off}', const Color(0xFF2E7D32)),
+                        ),
+                      if (product.callForBest)
+                        Positioned(
+                          left: 8,
+                          top: 8,
+                          child: _Tag(context.tr.liveCallForBest, const Color(0xFFEF6C00)),
+                        ),
+                      if (!product.callForBest && !product.inStock)
+                        Positioned.fill(
+                          child: ColoredBox(
+                            color: Colors.black38,
+                            child: Center(
+                              child: Text(context.tr.outOfStock, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800)),
+                            ),
                           ),
                         ),
-                      ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10, 8, 10, 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(product.brand.toUpperCase(), style: t.textTheme.labelSmall?.copyWith(color: t.colorScheme.onSurfaceVariant, letterSpacing: 0.8)),
-                    const SizedBox(height: 2),
-                    ConstrainedBox(
-                      constraints: const BoxConstraints(minHeight: 36),
-                      child: Text(
-                        product.name.of(lang),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: t.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700, height: 1.25),
-                      ),
-                    ),
-                    if (product.highlights.isNotEmpty)
-                      Text(
-                        product.highlights.first.of(lang),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: t.textTheme.labelSmall?.copyWith(color: t.colorScheme.onSurfaceVariant),
-                      ),
-                    const SizedBox(height: 6),
-                    if (product.callForBest) ...<Widget>[
-                      Text(
-                        product.refPriceLabel.isEmpty ? context.tr.liveRefPrice : product.refPriceLabel.of(lang),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: t.textTheme.labelSmall?.copyWith(color: t.colorScheme.onSurfaceVariant),
-                      ),
-                      Text(
-                        product.minPrice > 0 ? formatRupees(product.minPrice) : context.tr.livePriceOnCall,
-                        style: t.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w900),
-                      ),
-                    ] else
-                      PriceBlock(price: product.minPrice, mrp: product.minMrp),
-                    if (!product.gift.isEmpty) ...<Widget>[
-                      const SizedBox(height: 4),
-                      Row(children: <Widget>[
-                        const Icon(Icons.card_giftcard, size: 14, color: Color(0xFF2E7D32)),
-                        const SizedBox(width: 4),
-                        Expanded(child: Text(product.gift.of(lang), maxLines: 1, overflow: TextOverflow.ellipsis, style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: Color(0xFF2E7D32)))),
-                      ]),
                     ],
-                    if (emi != null) ...<Widget>[
-                      const SizedBox(height: 4),
-                      Text(
-                        emi.zeroInterest
-                            ? context.tr.emiFromZero(formatRupees(emi.emi))
-                            : context.tr.emiFrom(formatRupees(emi.emi)),
-                        style: TextStyle(color: t.colorScheme.primary, fontSize: 12, fontWeight: FontWeight.w700),
-                      ),
-                    ],
-                  ],
+                  ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 8, 10, 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(product.brand.toUpperCase(), style: t.textTheme.labelSmall?.copyWith(color: t.colorScheme.onSurfaceVariant, letterSpacing: 0.8)),
+                      const SizedBox(height: 2),
+                      ConstrainedBox(
+                        constraints: const BoxConstraints(minHeight: 36),
+                        child: Text(
+                          product.name.of(lang),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: t.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700, height: 1.25),
+                        ),
+                      ),
+                      if (product.highlights.isNotEmpty)
+                        Text(
+                          product.highlights.first.of(lang),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: t.textTheme.labelSmall?.copyWith(color: t.colorScheme.onSurfaceVariant),
+                        ),
+                      const SizedBox(height: 6),
+                      if (product.callForBest) ...<Widget>[
+                        Text(
+                          product.refPriceLabel.isEmpty ? context.tr.liveRefPrice : product.refPriceLabel.of(lang),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: t.textTheme.labelSmall?.copyWith(color: t.colorScheme.onSurfaceVariant),
+                        ),
+                        Text(
+                          product.minPrice > 0 ? formatRupees(product.minPrice) : context.tr.livePriceOnCall,
+                          style: t.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w900),
+                        ),
+                      ] else
+                        PriceBlock(price: product.minPrice, mrp: product.minMrp),
+                      if (!product.gift.isEmpty) ...<Widget>[
+                        const SizedBox(height: 4),
+                        Row(children: <Widget>[
+                          const Icon(Icons.card_giftcard, size: 14, color: Color(0xFF2E7D32)),
+                          const SizedBox(width: 4),
+                          Expanded(child: Text(product.gift.of(lang), maxLines: 1, overflow: TextOverflow.ellipsis, style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: Color(0xFF2E7D32)))),
+                        ]),
+                      ],
+                      if (emi != null) ...<Widget>[
+                        const SizedBox(height: 4),
+                        Text(
+                          emi.zeroInterest
+                              ? context.tr.emiFromZero(formatRupees(emi.emi))
+                              : context.tr.emiFrom(formatRupees(emi.emi)),
+                          style: TextStyle(color: t.colorScheme.primary, fontSize: 12, fontWeight: FontWeight.w700),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

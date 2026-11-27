@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../core/money.dart';
+import '../app/theme.dart';
 import '../l10n/l10n.dart';
 import '../state/settings_cubit.dart';
+import 'motion.dart';
 
 /// Centres page content in a readable column on tablets and the web.
 class MaxWidth extends StatelessWidget {
@@ -52,21 +54,24 @@ class Section extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Padding(
         padding: padding,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: Text(title, style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800)),
-                ),
-                if (action != null && onAction != null)
-                  TextButton(onPressed: onAction, child: Text(action!)),
-              ],
-            ),
-            const SizedBox(height: 8),
-            child,
-          ],
+        child: Reveal(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Container(width: 4, height: 18, margin: const EdgeInsets.only(right: 8), decoration: BoxDecoration(color: BrandColors.saffron, borderRadius: BorderRadius.circular(2))),
+                  Expanded(
+                    child: Text(title, style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800)),
+                  ),
+                  if (action != null && onAction != null)
+                    TextButton(onPressed: onAction, child: Text(action!)),
+                ],
+              ),
+              const SizedBox(height: 8),
+              child,
+            ],
+          ),
         ),
       );
 }

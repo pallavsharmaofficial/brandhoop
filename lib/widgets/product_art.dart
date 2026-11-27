@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
+import '../app/palette.dart';
 import '../domain/product.dart';
 
+/// Stand-in colours by brand, kept inside the Brandhoop palette (navy, saffron, slate).
 const List<List<Color>> _palettes = <List<Color>>[
-  <Color>[Color(0xFF3949AB), Color(0xFF7986CB)],
-  <Color>[Color(0xFFEF6C00), Color(0xFFFFB74D)],
-  <Color>[Color(0xFF00897B), Color(0xFF4DB6AC)],
-  <Color>[Color(0xFF8E24AA), Color(0xFFBA68C8)],
-  <Color>[Color(0xFFC62828), Color(0xFFEF9A9A)],
-  <Color>[Color(0xFF1565C0), Color(0xFF64B5F6)],
-  <Color>[Color(0xFF455A64), Color(0xFF90A4AE)],
-  <Color>[Color(0xFF2E7D32), Color(0xFF81C784)],
+  <Color>[Palette.navy500, Palette.navy300],
+  <Color>[Palette.saffron600, Palette.saffron300],
+  <Color>[Palette.slate600, Palette.slate400],
+  <Color>[Palette.navy700, Palette.saffron400],
+  <Color>[Palette.navy600, Palette.slate300],
+  <Color>[Palette.saffron700, Palette.saffron200],
 ];
 
 IconData categoryIcon(ProductCategory c) {

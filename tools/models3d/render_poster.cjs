@@ -14,5 +14,12 @@ const id = process.argv[2]; const base = process.argv[3] || 'http://localhost:87
   await p.waitForTimeout(1500);
   const png = await p.screenshot();
   await sharp(png).resize(640, 640).webp({ quality: 80 }).toFile(path.join(__dirname, '../../site/models', id + '.webp'));
+  // the same phone on a transparent ground, for the dark hero on the website
+  const h = await b.newPage({ viewport: { width: 900, height: 900 }, deviceScaleFactor: 1 });
+  await h.goto(`${base}/viewer3d.html?src=models/${id}.glb&mode=inline&bg=none`);
+  await h.waitForFunction(() => document.getElementById('mv') && document.getElementById('mv').loaded, null, { timeout: 60000 });
+  await h.evaluate(() => { const m = document.getElementById('mv'); m.removeAttribute('auto-rotate'); m.cameraOrbit = '150deg 78deg auto'; m.jumpCameraToGoal(); document.getElementById('fsb').style.display = 'none'; document.getElementById('bar').style.display = 'none'; });
+  await h.waitForTimeout(1500);
+  await sharp(await h.screenshot({ omitBackground: true })).resize(720, 720).webp({ quality: 82, alphaQuality: 90 }).toFile(path.join(__dirname, '../../site/models', id + '-hero.webp'));
   await b.close(); console.log('poster', id);
 })().catch(e => { console.error(e); process.exit(1); });
