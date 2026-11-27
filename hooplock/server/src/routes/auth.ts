@@ -29,6 +29,15 @@ export async function authRoutes(app: FastifyInstance) {
     return row;
   });
 
+  app.patch('/api/me', async (req) => {
+    const u = await requireUser(req);
+    const body = z.object({ name: z.string().trim().min(2).max(80).optional(), phone: phoneSchema.optional() }).parse(req.body);
+    if (body.phone && (await one('select 1 from users where phone = $1 and id <> $2', [body.phone, u.id]))) throw badRequest('This mobile number already has an account');
+    await q('update users set name = coalesce($2, name), phone = coalesce($3, phone) where id = $1', [u.id, body.name ?? null, body.phone ?? null]);
+    await audit({ merchantId: u.merchantId, userId: u.id, action: 'auth.profile_changed', data: body });
+    return { ok: true };
+  });
+
   app.post('/api/me/password', async (req) => {
     const u = await requireUser(req);
     const body = z.object({ current: z.string(), next: z.string().min(8, 'Use at least 8 characters') }).parse(req.body);

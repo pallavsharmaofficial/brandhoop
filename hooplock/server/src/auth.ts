@@ -24,7 +24,10 @@ declare module 'fastify' {
 }
 
 export async function requireUser(req: FastifyRequest): Promise<AuthUser> {
-  const h = req.headers.authorization ?? '';
+  let h = req.headers.authorization ?? '';
+  // File downloads opened in a browser tab (CSV export) cannot set headers.
+  const qt = (req.query as any)?.access_token;
+  if (!h && req.method === 'GET' && typeof qt === 'string' && req.url.startsWith('/api/reports/')) h = `Bearer ${qt}`;
   if (!h.startsWith('Bearer ')) throw unauthorized();
   try {
     const { payload } = await jwtVerify(h.slice(7), key, { algorithms: ['HS256'] });

@@ -1,0 +1,12 @@
+**
+!hooplock/console/pubspec.yaml
+!hooplock/console/pubspec.lock
+!hooplock/console/lib/**
+!hooplock/console/web/**
+!hooplock/console/analysis_options.yaml
+!hooplock/server/package.json
+!hooplock/server/package-lock.json
+!hooplock/server/tsconfig.json
+!hooplock/server/src/**
+!hooplock/server/migrations/**
+!hooplock/agent-dist/**
