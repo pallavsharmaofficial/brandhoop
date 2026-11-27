@@ -14,6 +14,11 @@ PRINT = [('Business card, front', 'business-card-front.png', ''), ('Business car
          ('Counter card A5 portrait, Tech Grid (trim)', 'cards/counter-card-a5-trim-300dpi.png', 'cards/counter-card-a5-trim.pdf'), ('Counter card A5 portrait, Tech Grid (3 mm bleed)', 'cards/counter-card-a5-bleed-300dpi.png', 'cards/counter-card-a5-bleed.pdf'),
          ('Visiting card front, 600 dpi', 'cards/visiting-card-front-600dpi.png', 'cards/visiting-card-print-trim-size.pdf'), ('Visiting card back, 600 dpi', 'cards/visiting-card-back-600dpi.png', ''),
          ('Visiting card front + 3 mm bleed', 'cards/visiting-card-front-bleed-600dpi.png', 'cards/visiting-card-print-with-3mm-bleed.pdf'), ('Visiting card back + 3 mm bleed', 'cards/visiting-card-back-bleed-600dpi.png', '')] + [(f'Highlight: {n}', f'highlight-{n.lower().replace(" ", "-")}.png', '') for n in ['Phones', 'Accessories', 'Skin cutting', 'Repair', 'EMI', 'Shop tour', 'Customers']]
+PRINT += [('Auto-rickshaw poster 1: नया फ़ोन (3x2 ft)', 'rickshaw-poster-1.png', 'rickshaw-poster-1.pdf'), ('Auto-rickshaw poster 2: फ़ोन धीमा? (3x2 ft)', 'rickshaw-poster-2.png', 'rickshaw-poster-2.pdf'),
+          ('Counter card: EMI', 'cards/counter-card-emi-trim-300dpi.png', 'cards/counter-card-emi-bleed.pdf'), ('Counter card: Repair', 'cards/counter-card-repair-trim-300dpi.png', 'cards/counter-card-repair-bleed.pdf'),
+          ('Counter card: Accessories', 'cards/counter-card-accessories-trim-300dpi.png', 'cards/counter-card-accessories-bleed.pdf'), ('Counter card: Google Maps', 'cards/counter-card-google-trim-300dpi.png', 'cards/counter-card-google-bleed.pdf')]
+PRINT += [(f'Rate card {b} {i}', f'price-cards/price-card-{b.lower()}-{i}.png', '') for b, n in (('vivo', 4), ('OPPO', 3)) for i in range(1, n + 1)]
+
 COLORS = [('Navy', '#1F2744'), ('Navy 2', '#2B3558'), ('Slate', '#566170'), ('Slate light', '#8B94A0'), ('Orange', '#D8662A'), ('Orange light', '#F08A45'), ('Orange dark', '#A9481C'), ('Paper', '#F6F6F6')]
 
 def esc(s): return html.escape(s)

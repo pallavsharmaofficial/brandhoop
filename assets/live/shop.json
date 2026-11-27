@@ -110,6 +110,472 @@
       ]
     },
     {
+      "id": "vivo-y11-5g",
+      "name": {
+        "en": "vivo Y11 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": true,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "4 GB + 64 GB",
+          "color": "",
+          "price": 18999,
+          "mrp": 18999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "4 GB + 128 GB",
+          "color": "",
+          "price": 22499,
+          "mrp": 22499,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Shop price, updated 27 Nov 2026",
+        "hi": "दुकान की कीमत, 27 नवंबर 2026 तक"
+      },
+      "description": {
+        "en": "Shop price as of 27 Nov 2026. Prices can change, so call or WhatsApp to confirm today’s price, gifts, offers and EMI.",
+        "hi": "27 नवंबर 2026 तक की दुकान की कीमत। कीमत बदल सकती है, इसलिए आज की कीमत, गिफ़्ट, ऑफ़र और EMI के लिए कॉल या WhatsApp करें।"
+      },
+      "specs": {
+        "display": "6.74-inch HD+ LCD, 120 Hz",
+        "chip": "MediaTek Dimensity 6300",
+        "battery": "6,500 mAh, 15W charging",
+        "camera": "13 MP rear, 5 MP front",
+        "os": "OriginOS (Android 16)"
+      },
+      "highlights": [
+        {
+          "en": "6,500 mAh battery",
+          "hi": "6,500 mAh बैटरी"
+        },
+        {
+          "en": "120 Hz display",
+          "hi": "120 Hz डिस्प्ले"
+        },
+        {
+          "en": "MediaTek Dimensity 6300",
+          "hi": "MediaTek Dimensity 6300"
+        },
+        {
+          "en": "IP65 dust and splash protection",
+          "hi": "IP65 धूल और छींटों से सुरक्षा"
+        }
+      ]
+    },
+    {
+      "id": "vivo-y21-5g",
+      "name": {
+        "en": "vivo Y21 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": true,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "4 GB + 128 GB",
+          "color": "",
+          "price": 23999,
+          "mrp": 23999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 27999,
+          "mrp": 27999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Shop price, updated 27 Nov 2026",
+        "hi": "दुकान की कीमत, 27 नवंबर 2026 तक"
+      },
+      "description": {
+        "en": "Shop price as of 27 Nov 2026. Prices can change, so call or WhatsApp to confirm today’s price, gifts, offers and EMI.",
+        "hi": "27 नवंबर 2026 तक की दुकान की कीमत। कीमत बदल सकती है, इसलिए आज की कीमत, गिफ़्ट, ऑफ़र और EMI के लिए कॉल या WhatsApp करें।"
+      },
+      "specs": {
+        "display": "6.74-inch HD+ LCD, 120 Hz",
+        "chip": "MediaTek Dimensity 6300",
+        "battery": "6,500 mAh, 44W FlashCharge",
+        "camera": "5 MP front camera",
+        "os": "OriginOS 6 (Android 16)"
+      },
+      "highlights": [
+        {
+          "en": "6,500 mAh battery",
+          "hi": "6,500 mAh बैटरी"
+        },
+        {
+          "en": "44W fast charging",
+          "hi": "44W फ़ास्ट चार्जिंग"
+        },
+        {
+          "en": "120 Hz display",
+          "hi": "120 Hz डिस्प्ले"
+        },
+        {
+          "en": "MediaTek Dimensity 6300",
+          "hi": "MediaTek Dimensity 6300"
+        }
+      ]
+    },
+    {
+      "id": "vivo-y31t-5g",
+      "name": {
+        "en": "vivo Y31t 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": true,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "4 GB + 128 GB",
+          "color": "",
+          "price": 26999,
+          "mrp": 26999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 31499,
+          "mrp": 31499,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Shop price, updated 27 Nov 2026",
+        "hi": "दुकान की कीमत, 27 नवंबर 2026 तक"
+      },
+      "description": {
+        "en": "Shop price as of 27 Nov 2026. Prices can change, so call or WhatsApp to confirm today’s price, gifts, offers and EMI.",
+        "hi": "27 नवंबर 2026 तक की दुकान की कीमत। कीमत बदल सकती है, इसलिए आज की कीमत, गिफ़्ट, ऑफ़र और EMI के लिए कॉल या WhatsApp करें।"
+      },
+      "specs": {
+        "display": "6.75-inch HD+ LCD, 120 Hz, up to 1,250 nits",
+        "chip": "Snapdragon 4 Gen 2",
+        "battery": "7,200 mAh, 44W FlashCharge",
+        "camera": "50 MP + 2 MP rear, 8 MP front",
+        "os": "OriginOS 6 (Android 16)"
+      },
+      "highlights": [
+        {
+          "en": "7,200 mAh battery",
+          "hi": "7,200 mAh बैटरी"
+        },
+        {
+          "en": "44W fast charging",
+          "hi": "44W फ़ास्ट चार्जिंग"
+        },
+        {
+          "en": "Snapdragon 4 Gen 2",
+          "hi": "Snapdragon 4 Gen 2"
+        },
+        {
+          "en": "IP68 / IP69 water and dust protection",
+          "hi": "IP68 / IP69 पानी और धूल से सुरक्षा"
+        },
+        {
+          "en": "50 MP camera",
+          "hi": "50 MP कैमरा"
+        }
+      ]
+    },
+    {
+      "id": "vivo-s2-fe-5g",
+      "name": {
+        "en": "vivo S2 FE 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": true,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 38999,
+          "mrp": 38999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 42999,
+          "mrp": 42999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Shop price, updated 27 Nov 2026",
+        "hi": "दुकान की कीमत, 27 नवंबर 2026 तक"
+      },
+      "description": {
+        "en": "Shop price as of 27 Nov 2026. Prices can change, so call or WhatsApp to confirm today’s price, gifts, offers and EMI.",
+        "hi": "27 नवंबर 2026 तक की दुकान की कीमत। कीमत बदल सकती है, इसलिए आज की कीमत, गिफ़्ट, ऑफ़र और EMI के लिए कॉल या WhatsApp करें।"
+      },
+      "specs": {
+        "display": "6.83-inch Full HD+ AMOLED, 120 Hz",
+        "chip": "MediaTek Dimensity 7300e",
+        "battery": "10,000 mAh, 44W FlashCharge",
+        "os": "OriginOS 6 (Android 16)"
+      },
+      "highlights": [
+        {
+          "en": "10,000 mAh battery",
+          "hi": "10,000 mAh बैटरी"
+        },
+        {
+          "en": "44W fast charging",
+          "hi": "44W फ़ास्ट चार्जिंग"
+        },
+        {
+          "en": "6.83-inch 120 Hz AMOLED",
+          "hi": "6.83-इंच 120 Hz AMOLED"
+        },
+        {
+          "en": "MediaTek Dimensity 7300e",
+          "hi": "MediaTek Dimensity 7300e"
+        },
+        {
+          "en": "IP68 / IP69 water and dust protection",
+          "hi": "IP68 / IP69 पानी और धूल से सुरक्षा"
+        }
+      ]
+    },
+    {
+      "id": "vivo-s2-5g",
+      "name": {
+        "en": "vivo S2 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": true,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 42999,
+          "mrp": 42999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 48999,
+          "mrp": 48999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Shop price, updated 27 Nov 2026",
+        "hi": "दुकान की कीमत, 27 नवंबर 2026 तक"
+      },
+      "description": {
+        "en": "Shop price as of 27 Nov 2026. Prices can change, so call or WhatsApp to confirm today’s price, gifts, offers and EMI.",
+        "hi": "27 नवंबर 2026 तक की दुकान की कीमत। कीमत बदल सकती है, इसलिए आज की कीमत, गिफ़्ट, ऑफ़र और EMI के लिए कॉल या WhatsApp करें।"
+      },
+      "specs": {
+        "display": "6.83-inch curved 1.5K AMOLED, 120 Hz, up to 3,000 nits",
+        "chip": "MediaTek Dimensity 7360 Turbo",
+        "battery": "7,050 mAh, 44W FlashCharge",
+        "camera": "50 MP + 2 MP rear, 32 MP front"
+      },
+      "highlights": [
+        {
+          "en": "6.83-inch curved 1.5K AMOLED, 120 Hz",
+          "hi": "6.83-इंच कर्व्ड 1.5K AMOLED, 120 Hz"
+        },
+        {
+          "en": "7,050 mAh battery",
+          "hi": "7,050 mAh बैटरी"
+        },
+        {
+          "en": "MediaTek Dimensity 7360 Turbo",
+          "hi": "MediaTek Dimensity 7360 Turbo"
+        },
+        {
+          "en": "32 MP front camera",
+          "hi": "32 MP फ्रंट कैमरा"
+        },
+        {
+          "en": "IP68 / IP69 water and dust protection",
+          "hi": "IP68 / IP69 पानी और धूल से सुरक्षा"
+        }
+      ]
+    },
+    {
+      "id": "vivo-v70-fe-5g",
+      "name": {
+        "en": "vivo V70 FE 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": true,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 44999,
+          "mrp": 44999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 49999,
+          "mrp": 49999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Shop price, updated 27 Nov 2026",
+        "hi": "दुकान की कीमत, 27 नवंबर 2026 तक"
+      },
+      "description": {
+        "en": "Shop price as of 27 Nov 2026. Prices can change, so call or WhatsApp to confirm today’s price, gifts, offers and EMI.",
+        "hi": "27 नवंबर 2026 तक की दुकान की कीमत। कीमत बदल सकती है, इसलिए आज की कीमत, गिफ़्ट, ऑफ़र और EMI के लिए कॉल या WhatsApp करें।"
+      },
+      "specs": {
+        "display": "6.83-inch AMOLED, 120 Hz, up to 1,900 nits",
+        "chip": "MediaTek Dimensity 7360 Turbo",
+        "battery": "7,000 mAh, 90W charging",
+        "camera": "200 MP (OIS) + 8 MP ultrawide rear, 50 MP front",
+        "os": "OriginOS 6 (Android 16)"
+      },
+      "highlights": [
+        {
+          "en": "200 MP main camera with OIS",
+          "hi": "200 MP मुख्य कैमरा (OIS के साथ)"
+        },
+        {
+          "en": "7,000 mAh battery",
+          "hi": "7,000 mAh बैटरी"
+        },
+        {
+          "en": "90W fast charging",
+          "hi": "90W फ़ास्ट चार्जिंग"
+        },
+        {
+          "en": "6.83-inch 120 Hz AMOLED",
+          "hi": "6.83-इंच 120 Hz AMOLED"
+        },
+        {
+          "en": "50 MP front camera",
+          "hi": "50 MP फ्रंट कैमरा"
+        }
+      ]
+    },
+    {
+      "id": "vivo-v80-5g",
+      "name": {
+        "en": "vivo V80 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": true,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 62999,
+          "mrp": 62999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 69999,
+          "mrp": 69999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "8 GB + 512 GB",
+          "color": "",
+          "price": 79999,
+          "mrp": 79999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Shop price, updated 27 Nov 2026",
+        "hi": "दुकान की कीमत, 27 नवंबर 2026 तक"
+      },
+      "description": {
+        "en": "Shop price as of 27 Nov 2026. Prices can change, so call or WhatsApp to confirm today’s price, gifts, offers and EMI.",
+        "hi": "27 नवंबर 2026 तक की दुकान की कीमत। कीमत बदल सकती है, इसलिए आज की कीमत, गिफ़्ट, ऑफ़र और EMI के लिए कॉल या WhatsApp करें।"
+      },
+      "specs": {
+        "display": "6.59-inch AMOLED, 144 Hz",
+        "chip": "Snapdragon 7 Gen 4",
+        "battery": "7,200 mAh, 90W charging (as reported)",
+        "camera": "50 MP (OIS) + 50 MP telephoto + 8 MP ultrawide rear, 50 MP front"
+      },
+      "highlights": [
+        {
+          "en": "6.59-inch 144 Hz AMOLED",
+          "hi": "6.59-इंच 144 Hz AMOLED"
+        },
+        {
+          "en": "Snapdragon 7 Gen 4",
+          "hi": "Snapdragon 7 Gen 4"
+        },
+        {
+          "en": "50 MP main (OIS) + 50 MP telephoto + 8 MP ultrawide",
+          "hi": "50 MP मुख्य (OIS) + 50 MP टेलीफ़ोटो + 8 MP अल्ट्रावाइड"
+        },
+        {
+          "en": "50 MP front camera",
+          "hi": "50 MP फ्रंट कैमरा"
+        },
+        {
+          "en": "90W fast charging",
+          "hi": "90W फ़ास्ट चार्जिंग"
+        }
+      ]
+    },
+    {
       "id": "oppo-a6-5g",
       "name": {
         "en": "OPPO A6 5G",
@@ -637,6 +1103,239 @@
         {
           "en": "IP68 / IP69 water and dust protection",
           "hi": "IP68 / IP69 पानी और धूल से सुरक्षा"
+        }
+      ]
+    },
+    {
+      "id": "vivo-t5x-5g",
+      "name": {
+        "en": "vivo T5x 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": true,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 27999,
+          "mrp": 27999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 30999,
+          "mrp": 30999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 34999,
+          "mrp": 34999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Shop price, updated 27 Nov 2026",
+        "hi": "दुकान की कीमत, 27 नवंबर 2026 तक"
+      },
+      "description": {
+        "en": "Shop price as of 27 Nov 2026. Prices can change, so call or WhatsApp to confirm today’s price, gifts, offers and EMI.",
+        "hi": "27 नवंबर 2026 तक की दुकान की कीमत। कीमत बदल सकती है, इसलिए आज की कीमत, गिफ़्ट, ऑफ़र और EMI के लिए कॉल या WhatsApp करें।"
+      },
+      "specs": {
+        "display": "6.76-inch Full HD+ LCD, 120 Hz",
+        "chip": "MediaTek Dimensity 7400 Turbo",
+        "battery": "7,200 mAh, 44W FlashCharge",
+        "camera": "50 MP + 2 MP rear, 32 MP front",
+        "os": "OriginOS (Android 16)"
+      },
+      "highlights": [
+        {
+          "en": "7,200 mAh battery",
+          "hi": "7,200 mAh बैटरी"
+        },
+        {
+          "en": "44W fast charging",
+          "hi": "44W फ़ास्ट चार्जिंग"
+        },
+        {
+          "en": "6.76-inch 120 Hz display",
+          "hi": "6.76-इंच 120 Hz डिस्प्ले"
+        },
+        {
+          "en": "MediaTek Dimensity 7400 Turbo",
+          "hi": "MediaTek Dimensity 7400 Turbo"
+        },
+        {
+          "en": "IP68 / IP69 water and dust protection",
+          "hi": "IP68 / IP69 पानी और धूल से सुरक्षा"
+        }
+      ]
+    },
+    {
+      "id": "vivo-t5-pro-5g",
+      "name": {
+        "en": "vivo T5 Pro 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": true,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 36999,
+          "mrp": 36999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "8 GB + 128 GB",
+          "color": "",
+          "price": 41999,
+          "mrp": 41999,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "8 GB + 256 GB",
+          "color": "",
+          "price": 46999,
+          "mrp": 46999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Shop price, updated 27 Nov 2026",
+        "hi": "दुकान की कीमत, 27 नवंबर 2026 तक"
+      },
+      "description": {
+        "en": "Shop price as of 27 Nov 2026. Prices can change, so call or WhatsApp to confirm today’s price, gifts, offers and EMI.",
+        "hi": "27 नवंबर 2026 तक की दुकान की कीमत। कीमत बदल सकती है, इसलिए आज की कीमत, गिफ़्ट, ऑफ़र और EMI के लिए कॉल या WhatsApp करें।"
+      },
+      "specs": {
+        "display": "6.83-inch 1.5K AMOLED, 144 Hz",
+        "chip": "Snapdragon 7s Gen 4",
+        "battery": "9,020 mAh, 90W wired charging",
+        "camera": "50 MP Sony IMX882 + 2 MP rear, 32 MP front",
+        "os": "OriginOS 6 (Android 16)"
+      },
+      "highlights": [
+        {
+          "en": "9,020 mAh battery",
+          "hi": "9,020 mAh बैटरी"
+        },
+        {
+          "en": "90W fast charging",
+          "hi": "90W फ़ास्ट चार्जिंग"
+        },
+        {
+          "en": "6.83-inch 1.5K AMOLED, 144 Hz",
+          "hi": "6.83-इंच 1.5K AMOLED, 144 Hz"
+        },
+        {
+          "en": "Snapdragon 7s Gen 4",
+          "hi": "Snapdragon 7s Gen 4"
+        },
+        {
+          "en": "IP68 / IP69 water and dust protection",
+          "hi": "IP68 / IP69 पानी और धूल से सुरक्षा"
+        }
+      ]
+    },
+    {
+      "id": "vivo-t5-lite-5g",
+      "name": {
+        "en": "vivo T5 Lite 5G",
+        "hi": ""
+      },
+      "brand": "vivo",
+      "category": "smartphone",
+      "callForBest": true,
+      "featured": true,
+      "emiEligible": true,
+      "variants": [
+        {
+          "id": "v1",
+          "label": "4 GB + 64 GB",
+          "color": "",
+          "price": 17999,
+          "mrp": 17999,
+          "stock": 1
+        },
+        {
+          "id": "v2",
+          "label": "4 GB + 128 GB",
+          "color": "",
+          "price": 20499,
+          "mrp": 20499,
+          "stock": 1
+        },
+        {
+          "id": "v3",
+          "label": "6 GB + 128 GB",
+          "color": "",
+          "price": 22999,
+          "mrp": 22999,
+          "stock": 1
+        },
+        {
+          "id": "v4",
+          "label": "6 GB + 256 GB",
+          "color": "",
+          "price": 26999,
+          "mrp": 26999,
+          "stock": 1
+        }
+      ],
+      "refPriceLabel": {
+        "en": "Shop price, updated 27 Nov 2026",
+        "hi": "दुकान की कीमत, 27 नवंबर 2026 तक"
+      },
+      "description": {
+        "en": "Shop price as of 27 Nov 2026. Prices can change, so call or WhatsApp to confirm today’s price, gifts, offers and EMI.",
+        "hi": "27 नवंबर 2026 तक की दुकान की कीमत। कीमत बदल सकती है, इसलिए आज की कीमत, गिफ़्ट, ऑफ़र और EMI के लिए कॉल या WhatsApp करें।"
+      },
+      "specs": {
+        "display": "6.74-inch HD+ LCD, 120 Hz, up to 1,200 nits",
+        "chip": "MediaTek Dimensity 6300",
+        "battery": "6,500 mAh, 44W FlashCharge",
+        "camera": "50 MP rear, 5 MP front",
+        "os": "OriginOS 6 (Android 16)"
+      },
+      "highlights": [
+        {
+          "en": "6,500 mAh battery",
+          "hi": "6,500 mAh बैटरी"
+        },
+        {
+          "en": "44W fast charging",
+          "hi": "44W फ़ास्ट चार्जिंग"
+        },
+        {
+          "en": "120 Hz display",
+          "hi": "120 Hz डिस्प्ले"
+        },
+        {
+          "en": "50 MP camera",
+          "hi": "50 MP कैमरा"
+        },
+        {
+          "en": "IP65 dust and splash protection",
+          "hi": "IP65 धूल और छींटों से सुरक्षा"
         }
       ]
     },

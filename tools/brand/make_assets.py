@@ -8,6 +8,8 @@ All numbers and words come from CONTENT below; the admin panel's Design Studio e
 """
 import json, pathlib, html as H, sys
 import segno
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / 'catalog'))
+import phones as _phones, shop_data as _sd
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from logo import mark_svg, lockup_v, lockup_h, mark_inner, mark_defs, PALETTE as P, icon_svg
 
@@ -235,6 +237,147 @@ h1{position:absolute;left:0;right:0;top:57mm;text-align:center;font-size:18mm;li
 .bar{position:absolute;left:0;right:0;bottom:0;height:6mm;background:var(--orange)}"""
         page(name, w, h, body, css=css, unit='mm', out_png=OUTB + f'print/{name}.png', pdf=OUTB + f'print/{name}.pdf', dsf=(w / 25.4 * 300) / (w / 25.4 * 96))
 
+
+# ------------------------------------------------------------------ launch-day print set: auto-rickshaw posters, four more counter cards, daily-rate story cards
+SITE_URL = 'https://pallavsharmaofficial.github.io/brandhoop/'
+MAPS_URL = 'https://www.google.com/maps/place/Brandhoop+Mobile+Point/@27.7415504,75.7817561,17z/data=!3m1!4b1!4m6!3m5!1s0x396d275817d19c4f:0x92f9965c781103ad!8m2!3d27.7415504!4d75.7817561!16s%2Fg%2F11g1lxn9kc'
+def wa_link(text): return f"https://wa.me/{C['phone_raw']}?text=" + __import__('urllib.parse', fromlist=['quote']).quote(text)
+
+BG_CSS = """body{background:linear-gradient(165deg,#1F2744 0%,#141A33 55%,#0B0F1C 100%);color:#fff}
+.art{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.055) 0 .25mm,transparent .25mm 8mm),repeating-linear-gradient(90deg,rgba(255,255,255,.055) 0 .25mm,transparent .25mm 8mm)}
+.art:after{content:"";position:absolute;inset:0;background:url(../../site/brand/cards/lineart.png) center top/160mm auto repeat;opacity:.05}"""
+
+def rickshaw_posters():
+    # 3 ft x 2 ft (900 x 600 mm): read from a few metres away, so few words, huge numbers, one QR.
+    base = """.art:after{background-size:520mm auto}
+.lg{position:absolute;left:36mm;top:26mm}.q{position:absolute;right:36mm;bottom:70mm;background:#fff;border-radius:16mm;padding:14mm 14mm 7mm;border:5mm solid var(--orange)}
+.q .c{margin-top:4mm;text-align:center;font-weight:800;color:var(--navy);font-size:15mm;line-height:1.12}.q svg{display:block;width:190mm;height:190mm}
+h1{position:absolute;left:36mm;top:124mm;margin:0;font-weight:800;line-height:1.08;width:580mm}h1 span{display:block}h1 .o{color:var(--orange2)}
+.sub{position:absolute;left:38mm;top:%s;font-size:27mm;font-weight:700;color:#E3E7F6;width:580mm;line-height:1.22}
+.ph{position:absolute;left:36mm;bottom:52mm;font-size:56mm;font-weight:800;line-height:1.04;letter-spacing:.01em}.ph span{display:block}.ph .t{font-size:21mm;color:var(--orange2);font-weight:700;margin-bottom:2mm}
+.ad{position:absolute;left:38mm;bottom:19mm;font-size:20mm;font-weight:700;color:#C5CCE4}.bar{position:absolute;left:0;right:0;bottom:0;height:12mm;background:var(--orange)}"""
+    sets = [
+        ('rickshaw-poster-1', '<span>नया फ़ोन</span><span class="o">लेना है?</span>', 80, '290mm', 'vivo · OPPO · सारे नए 5G फ़ोन<br>सही दाम · EMI · रिपेयर', SITE_URL + 'app/', 'QR स्कैन करो<br>सारे फ़ोन और रेट'),
+        ('rickshaw-poster-2', '<span>फ़ोन धीमा है?</span><span class="o">बैटरी जल्दी ख़त्म?</span>', 58, '262mm', 'मुफ़्त जाँच · रिपेयर · स्किन कटिंग<br>ग्लास · कवर · चार्जर', SITE_URL + 'care/', 'QR स्कैन करो<br>फ़ोन की मुफ़्त जाँच')]
+    for name, h1, fs, subtop, sub, url, cap in sets:
+        body = f"""<div class="art"></div><div class="lg">{hlogo('205mm', 'dark')}</div><h1 class="hi" style="font-size:{fs}mm">{h1}</h1><div class="sub hi">{sub}</div>
+<div class="ph"><span class="t hi">कॉल / WhatsApp</span><span>{C['phone']}</span><span>{C['phone2']}</span></div>
+<div class="ad hi">गेट नं. 5, कमला मोदी मार्केट, नीम का थाना</div><div class="q">{qr(url, P['navy'], '190mm')}<div class="c hi">{cap}</div></div><div class="bar"></div>"""
+        page(name, 900, 600, body, css=BG_CSS + base % subtop, unit='mm', out_png=OUTB + f'print/{name}.png', pdf=OUTB + f'print/{name}.pdf', dsf=100 / 96)
+
+CARDS = [  # name, line1, line2, chip, points, qr url, caption, extra css class
+    ('counter-card-emi', 'फ़ोन अभी लीजिए,', 'पैसे किस्तों में', 'Bajaj Finserv EMI · सिर्फ़ दुकान पर', ['तीन कागज़ चाहिए: पैन कार्ड, आधार कार्ड, बैंक पासबुक', 'फ़ेस स्कैन ज़रूरी है, वह दुकान पर ही होता है', 'मंज़ूरी और दर फ़ाइनेंस कंपनी तय करती है'], wa_link('Hi Brandhoop, EMI info please'), 'QR स्कैन → WhatsApp पर EMI पूछिए'),
+    ('counter-card-repair', 'फ़ोन टूटा या अटकता है?', 'यहीं देखा जाएगा', 'रिपेयर · स्क्रीन ग्लास · स्किन कटिंग', ['मोबाइल रिपेयरिंग', 'टेम्पर्ड ग्लास और कवर', 'स्किन कटिंग, नए डिज़ाइन में'], wa_link('Hi Brandhoop, my phone needs a check'), 'QR स्कैन → WhatsApp पर पूछिए'),
+    ('counter-card-accessories', 'फ़ोन के साथ', 'ज़रूरी सामान', 'ग्लास · कवर · चार्जर · ईयरबड्स', ['कॉम्बो: ग्लास + कवर &nbsp; ₹ ________', 'फ़ास्ट चार्जर + केबल &nbsp; ₹ ________', 'ईयरबड्स / पावर बैंक &nbsp; ₹ ________'], SITE_URL + 'app/#/shop?cat=caseCover', 'QR स्कैन → ऐप में सारे एक्सेसरी'),
+    ('counter-card-google', 'हमें ढूँढिए', 'गूगल मैप पर', 'रास्ता · फ़ोटो · रिव्यू', ['नीम का थाना, कमला मोदी मार्केट, गेट नं. 5', 'दुकान अच्छी लगे तो गूगल पर रिव्यू दीजिए', 'रिव्यू में अपना सच्चा अनुभव लिखिए'], 'https://maps.google.com/?cid=10590661322633970605', 'QR स्कैन → गूगल मैप खुलेगा')]
+
+def counter_cards_more():
+    for name, l1, l2, chip, pts, url, cap in CARDS:
+        for suffix, b in (('trim', 0), ('bleed', 3)):
+            w, h = 148 + 2 * b, 210 + 2 * b
+            lis = ''.join(f'<li><i>✓</i><span class="hi">{t}</span></li>' for t in pts)
+            body = f"""<div class="art"></div><div class="in" style="left:{b}mm;top:{b}mm"><div class="lg">{hlogo('68mm', 'dark')}</div>
+<h1 class="hi"><span>{l1}</span><span class="o">{l2}</span></h1><div class="chip hi">{chip}</div>
+<div class="qc"><div class="qr">{qr(url, P['navy'], '58mm')}</div><div class="cap hi">{cap}</div></div>
+<ul class="pts">{lis}</ul><div class="ft hi">{C['addr_hi']}</div><div class="ph"><span class="hi">कॉल / WhatsApp</span> <b>{C['phone']}</b><i>·</i><b>{C['phone2']}</b></div></div><div class="bar" style="height:{4 + b}mm"></div>"""
+            css = BG_CSS.replace('160mm auto', '160mm auto') + """.in{position:absolute;width:148mm;height:210mm}.lg{position:absolute;left:0;right:0;top:11mm;display:flex;justify-content:center}
+h1{position:absolute;left:8mm;right:8mm;top:38mm;text-align:center;font-size:12.5mm;line-height:1.18;font-weight:800}h1 span{display:block}h1 .o{color:var(--orange2)}
+.chip{position:absolute;left:0;right:0;top:72mm;margin:0 auto;width:max-content;max-width:132mm;text-align:center;border:.5mm solid var(--orange);border-radius:6mm;padding:1.4mm 5mm;font-size:4.2mm;font-weight:700;background:rgba(216,102,42,.16)}
+.qc{position:absolute;left:0;right:0;top:86mm;margin:0 auto;width:72mm;background:#fff;border-radius:6mm;padding:6mm 7mm 3.5mm;border:1.2mm solid var(--orange)}.qr{width:58mm;height:58mm}.qr svg{display:block}
+.cap{margin-top:2.6mm;text-align:center;font-size:3.7mm;font-weight:800;color:var(--navy);line-height:1.25}
+.pts{position:absolute;left:14mm;right:10mm;top:166mm;list-style:none;margin:0;padding:0;font-size:3.9mm;font-weight:600}.pts li{display:flex;gap:3mm;align-items:flex-start;margin:1.1mm 0}.pts i{font-style:normal;color:var(--orange2);font-weight:800}
+.ft{position:absolute;left:8mm;right:8mm;top:192mm;text-align:center;font-size:3.1mm;font-weight:600;color:#C5CCE4}
+.ph{position:absolute;left:0;right:0;top:197.5mm;text-align:center;font-size:3.2mm;font-weight:600;color:#C5CCE4;white-space:nowrap}.ph b{color:#fff;font-size:3.8mm;font-weight:800}.ph i{margin:0 2mm;font-style:normal;color:var(--orange2)}
+.bar{position:absolute;left:0;right:0;bottom:0;background:var(--orange)}"""
+            page(f'{name}-{suffix}', w, h, body, css=css, unit='mm', out_png=OUTB + f'print/cards/{name}-{suffix}-300dpi.png', pdf=OUTB + f'print/cards/{name}-{suffix}.pdf', dsf=3.125)
+
+def price_cards():
+    names = {r[0]: r[1] for r in _phones.PHONES}
+    for brand, key in (('vivo', 'vivo'), ('OPPO', 'oppo')):
+        ids = [pid for pid in _sd.DATA if pid.startswith(key + '-')]
+        ids.sort(key=lambda i: min(p for _, p in _sd.DATA[i]['prices']))
+        n = 3 if len(ids) > 9 or brand == 'OPPO' else 4
+        groups = [ids[i::n] if False else None for i in range(0)]
+        per = -(-len(ids) // -(-len(ids) // 3))             # even groups of at most 3 so every row stays large
+        chunks = [ids[i:i + per] for i in range(0, len(ids), per)]
+        date_hi = _sd.DATA[ids[0]]['updated'][1]
+        for ci, chunk in enumerate(chunks):
+            rows = ''
+            for pid in chunk:
+                d = _sd.DATA[pid]
+                chips = ''.join(f'<span><i>{l.replace(" GB", "").replace(" + ", "/")}</i> ₹{p:,}</span>' for l, p in d['prices'])
+                rows += f'<div class="r"><div class="n">{H.escape(names[pid])}</div><div class="v">{chips}</div></div>'
+            body = f"""<div class="art"></div><div class="hd">{hlogo('420px', 'dark')}<div class="t hi">{brand} फ़ोन · आज के रेट</div><div class="d hi">दुकान की कीमत · {date_hi} तक{' · भाग ' + str(ci + 1) + '/' + str(len(chunks)) if len(chunks) > 1 else ''}</div></div>
+<div class="rows">{rows}</div><div class="note hi">कीमत बदल सकती है। आज का पक्का रेट, गिफ़्ट और EMI के लिए कॉल या WhatsApp कीजिए।</div>
+<div class="ft"><div class="qq">{qr(SITE_URL + 'app/', P['navy'], '230px')}<span class="hi">ऐप में सारे<br>फ़ोन देखें</span></div><div class="ad"><b>{C['phone']} · {C['phone2']}</b><span class="hi">{C['addr_hi'].replace(', राजस्थान 332713', '')}</span></div></div><div class="bar"></div>"""
+            css = BG_CSS.replace('mm', 'px').replace('.25px', '2px').replace('8px', '64px').replace('160px auto', '1200px auto') + """.hd{position:absolute;left:70px;right:70px;top:70px}.t{font-size:78px;font-weight:800;margin-top:34px;color:#fff}.d{font-size:36px;color:var(--orange2);font-weight:700;margin-top:6px}
+.rows{position:absolute;left:60px;right:60px;top:470px;display:flex;flex-direction:column;gap:22px}.r{background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.14);border-radius:28px;padding:22px 30px}
+.n{font-size:58px;font-weight:800}.v{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:12px}.v span{background:#fff;color:var(--navy);border-radius:44px;padding:10px 24px;font-size:40px;font-weight:800}.v i{font-style:normal;color:var(--orange);margin-right:8px}
+.note{position:absolute;left:70px;right:70px;bottom:440px;font-size:30px;color:#C5CCE4;line-height:1.35}.ft{position:absolute;left:60px;right:60px;bottom:70px;display:flex;gap:28px;align-items:center}
+.qq{background:#fff;border-radius:22px;padding:14px;text-align:center;color:var(--navy);font-weight:800;font-size:22px;line-height:1.2}.qq svg{display:block}.ad{font-size:30px;line-height:1.5;color:#C5CCE4}.ad b{display:block;color:#fff;font-size:44px}
+.bar{position:absolute;left:0;right:0;bottom:0;height:26px;background:var(--orange)}"""
+            page(f'price-card-{key}-{ci + 1}', 1080, 1920, body, css=css, out_png=OUTB + f'print/price-cards/price-card-{key}-{ci + 1}.png')
+
+
+# ------------------------------------------------------------------ launch-day plan, 3 A4 pages (merged into one PDF by tools/brand/build_plan.sh)
+def launch_plan():
+    css = """body{background:#fff;color:#14182B;font-size:3.35mm;line-height:1.38}.pg{position:absolute;inset:0;padding:9mm 11mm}
+h1{font-size:7.6mm;margin:0;color:#1F2744}h1 small{display:block;font-size:3.6mm;color:#566170;font-weight:600;margin-top:1mm}h2{font-size:4.7mm;margin:4mm 0 1.4mm;color:#1F2744;border-bottom:.5mm solid #D8662A;padding-bottom:.8mm}
+table{width:100%;border-collapse:collapse}td,th{border:.25mm solid #cfd4e0;padding:1.3mm 1.8mm;vertical-align:top;text-align:left}th{background:#1F2744;color:#fff;font-size:3.2mm}tr:nth-child(even) td{background:#f6f6f8}
+.t{white-space:nowrap;font-weight:800;color:#A9481C}.f{color:#566170;font-size:3mm}.box{display:inline-block;width:3.2mm;height:3.2mm;border:.35mm solid #1F2744;margin-right:1.6mm;vertical-align:-.4mm}
+.hd{display:flex;justify-content:space-between;align-items:center;border-bottom:1mm solid #D8662A;padding-bottom:3mm;margin-bottom:3mm}.pn{position:absolute;right:11mm;bottom:6mm;font-size:3mm;color:#566170}
+.n{background:#FBE3D2;border-radius:2mm;padding:2mm 3mm;margin:2mm 0;font-size:3.1mm}ul{margin:1mm 0 1mm 4.5mm;padding:0}li{margin:.4mm 0}.sm{font-size:3mm}.q{font-style:normal;background:#f1f3f9;border-radius:1.5mm;padding:1mm 2mm;display:inline-block;margin:.4mm 0}"""
+    hd = lambda t, sub: f"""<div class="hd"><div><h1 class="hi">{t}<small>{sub}</small></h1></div><div>{hlogo('52mm', 'light')}</div></div>"""
+    p1 = f"""<div class="pg">{hd('आज का प्लान: आज से ही असर दिखे', 'तारीख़ ___ · सबसे पहले प्रिंट का काम, क्योंकि वही सबसे देर लेता है')}
+<table class="hi"><tr><th>समय</th><th>काम</th><th>कौन</th><th>तैयार फ़ाइल / सामान</th></tr>
+<tr><td class="t">पहला आधा घंटा</td><td><b>प्रिंट प्रेस को ऑर्डर दीजिए (सबसे पहले)</b><br>विज़िटिंग कार्ड, 6 काउंटर कार्ड, 2 ऑटो-रिक्शा पोस्टर। आज की डिलीवरी पूछिए और रेट के कोटेशन लीजिए।</td><td>नरेश / पल्लव</td><td class="f">ज़िप: print-files (नीचे पन्ना 3 की शीट)</td></tr>
+<tr><td class="t">साथ-साथ</td><td><b>अभी, घर या दुकान के प्रिंटर से A4 निकालिए</b><br>फ़ोन केयर पोस्टर और ऐप वाला कार्ड काउंटर पर लगा दीजिए, ताकि प्रेस का इंतज़ार किए बिना QR आज ही लग जाए।</td><td>नरेश</td><td class="f">care-poster-a4.pdf, counter-card-a5-trim.pdf</td></tr>
+<tr><td class="t">घंटा 1</td><td><b>दुकान सजाइए (1 घंटा)</b><br><span class="box"></span>काउंटर साफ़, फ़ालतू सामान हटाया &nbsp; <span class="box"></span>शीशे, डिस्प्ले पोंछे &nbsp; <span class="box"></span>फ़ोन ब्रांड के हिसाब से लगाए (vivo / OPPO) &nbsp; <span class="box"></span>शेल्फ़ पर प्राइस-स्ट्रिप चिपकाईं &nbsp; <span class="box"></span>QR कार्ड काउंटर पर &nbsp; <span class="box"></span>सारी लाइटें चालू &nbsp; <span class="box"></span>बाहर का बोर्ड और शटर साफ़</td><td>नरेश + स्टाफ़</td><td class="f">shop-kit: प्राइस-स्ट्रिप, काउंटर साइन</td></tr>
+<tr><td class="t">घंटा 2</td><td><b>गूगल के लिए नई फ़ोटो (12 फ़ोटो, 30 मिनट)</b><br>सूची पन्ना 3 पर। दिन की रोशनी में, आड़ी (landscape), बिना फ़िल्टर। Google Maps ऐप में दुकान खोलकर "फ़ोटो जोड़ें"।</td><td>पल्लव / कोई एक</td><td class="f">फ़ोन कैमरा, साफ़ लेंस</td></tr>
+<tr><td class="t">घंटा 2.5–4</td><td><b>दो मुख्य रील बनाइए</b><br>रील 1: दुकान + नए फ़ोन। रील 2: "फ़ोन धीमा? 1 मिनट में जाँच"। पूरी स्क्रिप्ट पन्ना 2 पर। एक-दो टेक काफ़ी हैं, परफ़ेक्ट मत ढूँढिए।</td><td>पल्लव (कैमरा) + नरेश (बोलना)</td><td class="f">फ़ोन, ट्राइपॉड/टेक, छोटा माइक अगर हो</td></tr>
+<tr><td class="t">घंटा 4–5</td><td><b>एडिट और पोस्ट</b><br>CapCut या Instagram Edits में काटिए, अक्षर जोड़िए, 1080×1920 में निकालिए। Instagram + Facebook + YouTube Shorts पर एक ही रील डालिए।</td><td>पल्लव</td><td class="f">रील का कैप्शन पन्ना 2 पर</td></tr>
+<tr><td class="t">घंटा 5–5.5</td><td><b>ऑनलाइन पहचान एक साथ अपडेट</b><br><span class="box"></span>Instagram बायो, प्रोफ़ाइल फ़ोटो, हाइलाइट &nbsp; <span class="box"></span>Facebook पेज &nbsp; <span class="box"></span>Google प्रोफ़ाइल: फ़ोटो + पोस्ट + सेवाएँ + फ़ोन &nbsp; <span class="box"></span>WhatsApp Business प्रोफ़ाइल</td><td>पल्लव + नरेश</td><td class="f">profile-picture, facebook-cover, google-profile-cover, highlight-*.png</td></tr>
+<tr><td class="t">शाम से पहले</td><td><b>WhatsApp स्टेटस पर "आज के रेट" कार्ड डालिए (7 कार्ड)</b><br>अपने सभी कॉन्टैक्ट्स को एक बार। ग्रुप में तभी भेजिए जब ग्रुप के एडमिन की इजाज़त हो।</td><td>नरेश</td><td class="f">price-cards/price-card-vivo-1…4, oppo-1…3</td></tr>
+<tr><td class="t">शाम</td><td><b>प्रेस से सामान उठाइए और लगाइए</b><br>काउंटर कार्ड, विज़िटिंग कार्ड। ऑटो-रिक्शा वालों से बात कीजिए: कौन-सा रूट, कितने ऑटो, कितने दिन (जगह के रेट पूछकर तय कीजिए)।</td><td>नरेश</td><td class="f">—</td></tr>
+<tr><td class="t">आज रात</td><td><b>पाँच खुश ग्राहकों से Google रिव्यू माँगिए</b> (QR वाला कार्ड दिखाकर)। रिव्यू ख़रीदिए मत और न बदले में कुछ दीजिए। जवाब हर रिव्यू का दीजिए।</td><td>नरेश</td><td class="f">counter-card-google</td></tr></table>
+<div class="n hi"><b>आज से असर कैसे दिखेगा:</b> WhatsApp स्टेटस (आज ही), गूगल की नई फ़ोटो (कुछ घंटों में), रील (24 से 48 घंटे में पहुँच बनती है), काउंटर QR (आते हर ग्राहक पर), ऑटो पोस्टर (अगले एक-दो दिन में)। असर नापने के लिए हर ग्राहक से पूछिए "कैसे पता चला?" और कॉपी में गिनती रखिए।</div>
+<div class="n hi"><b>ईमानदारी का नियम:</b> रेट के हर पोस्ट पर तारीख़ लिखी है। नकली डिस्काउंट, नकली रेटिंग या "सिर्फ़ N बचे" मत लिखिए। EMI के बारे में सिर्फ़ वही लिखिए जो हमारे कार्ड पर है।</div><div class="pn">पन्ना 1/3</div></div>"""
+    rows = lambda items: ''.join(f"<tr><td class='t'>{a}</td><td>{b}</td><td>{c}</td></tr>" for a, b, c in items)
+    r1 = [('0–2 सेकंड', 'दुकान का बाहर से शॉट, फिर अंदर आते हुए', 'ऑन-स्क्रीन: "नीम का थाना में नया फ़ोन लेना है? 👇"'),
+          ('2–8 सेकंड', 'बोर्ड, फिर दरवाज़े से अंदर, नरेश जी कैमरे की तरफ़ देखकर', '"ये है ब्रांडहूप मोबाइल पॉइंट, कमला मोदी मार्केट, गेट नंबर 5, नीम का थाना।"'),
+          ('8–16 सेकंड', 'फ़ोन की दीवार पर धीमा पैन, vivo और OPPO के डिब्बों का क्लोज़-अप', '"vivo और OPPO के नए 5G फ़ोन, एक ही जगह।"'),
+          ('16–22 सेकंड', 'काउंटर पर रेट-कार्ड/प्राइस-स्ट्रिप दिखाना, फ़ोन उठाकर हाथ में', '"हर फ़ोन का रेट साफ़। EMI की सुविधा दुकान पर।"'),
+          ('22–28 सेकंड', 'काउंटर का QR कार्ड, फिर पते वाला आख़िरी फ़्रेम', '"QR स्कैन करो, ऐप में सारे फ़ोन और रेट देखो। आज ही आइए!"')]
+    r2 = [('0–2 सेकंड', 'हाथ में धीमा फ़ोन, अटकती स्क्रीन', 'ऑन-स्क्रीन: "फ़ोन धीमा है? 1 मिनट में जाँचो"'),
+          ('2–10 सेकंड', 'पोस्टर का QR स्कैन करना, फ़ोन केयर पेज खुलना', '"बस ये QR स्कैन करो। फ़ोन की मुफ़्त जाँच शुरू।"'),
+          ('10–18 सेकंड', 'स्क्रीन-रिकॉर्डिंग: जाँच चलना, स्कोर आना, एक-दो हार्डवेयर टेस्ट', '"रफ़्तार, टच, स्पीकर, कैमरा, सब यहीं जाँच लो।"'),
+          ('18–24 सेकंड', 'सफ़ाई के चरण वाली स्क्रीन, चेकबॉक्स पर टिक', '"फिर बताए गए आसान चरण करो, फ़ोन तेज़ होगा। कोई क्लीनर ऐप मत डालना।"'),
+          ('24–29 सेकंड', 'दुकान का अंदर का शॉट, नए फ़ोन पर हाथ', '"फ़ोन बहुत पुराना हो गया? बजट बताओ, सही नया फ़ोन यहीं।"')]
+    p2 = f"""<div class="pg">{hd('Instagram: 2 मुख्य रील + पेज अपडेट', 'सब कुछ फ़ोन से हो जाता है। असली आवाज़ और असली दुकान सबसे अच्छी लगती है')}
+<h2 class="hi">बायो (कॉपी करके चिपकाइए)</h2><div class="n hi">ब्रांडहूप मोबाइल पॉइंट 📱 नीम का थाना<br>नए फ़ोन · एक्सेसरी · रिपेयर · स्किन कटिंग · EMI<br>📍 गेट नं. 5, कमला मोदी मार्केट<br>📞 86197 67291 · 72399 38540<br>👇 सारे फ़ोन और आज के रेट</div>
+<div class="sm hi">लिंक: pallavsharmaofficial.github.io/brandhoop · प्रोफ़ाइल फ़ोटो: profile-picture.png · 7 हाइलाइट कवर: highlight-*.png (Phones, Accessories, Skin cutting, Repair, EMI, Shop tour, Customers)</div>
+<h2 class="hi">रील 1 · दुकान टूर और नए फ़ोन (लगभग 28 सेकंड)</h2><table class="hi"><tr><th style="width:20mm">समय</th><th>क्या दिखाएँ</th><th>क्या बोलें / लिखें</th></tr>{rows(r1)}</table>
+<h2 class="hi">रील 2 · फ़ोन धीमा? 1 मिनट में जाँच (लगभग 29 सेकंड)</h2><table class="hi"><tr><th style="width:20mm">समय</th><th>क्या दिखाएँ</th><th>क्या बोलें / लिखें</th></tr>{rows(r2)}</table>
+<h2 class="hi">कैप्शन और हैशटैग</h2>
+<div class="n hi"><b>रील 1:</b> नीम का थाना में नया फ़ोन? ब्रांडहूप मोबाइल पॉइंट, कमला मोदी मार्केट, गेट नं. 5। vivo और OPPO के नए 5G फ़ोन, साफ़ रेट, EMI की सुविधा। 📞 86197 67291 · 72399 38540<br><b>रील 2:</b> फ़ोन धीमा या बैटरी जल्दी ख़त्म? दुकान के QR से मुफ़्त जाँच कीजिए और फ़ोन तेज़ रखने के आसान तरीके पाइए। 📍 ब्रांडहूप मोबाइल पॉइंट, नीम का थाना<br><span class="f">#NeemKaThana #नीमकाथाना #Rajasthan #MobileShop #vivo #OPPO #NewPhone #PhoneCare #BrandhoopMobilePoint &nbsp;(8 से 10 हैशटैग काफ़ी)</span></div>
+<ul class="hi sm"><li>गाना: Instagram की अपनी रॉयल्टी-फ़्री लाइब्रेरी से लीजिए। अपनी आवाज़ सबसे अच्छी है, पहले 2 सेकंड में बोलना शुरू कीजिए।</li><li>पोस्ट का समय: शाम 6 से 9 बजे। पोस्ट के बाद पहले घंटे में हर कमेंट और मैसेज का जवाब दीजिए।</li><li>स्टोरी: रेट कार्ड डालिए और "लिंक" स्टिकर पर दुकान की वेबसाइट लगाइए। स्टोरी में लोकेशन टैग ज़रूर लगाइए।</li><li>पहले 9 पोस्ट: 2 रील + 7 रेट-कार्ड, ताकि पेज भरा-भरा दिखे।</li><li>पूरे हफ़्ते की रील: vivo T5 Pro अनबॉक्सिंग · OPPO Reno 16 हाथ में · स्किन कटिंग का काम · एक्सेसरी कॉम्बो · "5 फ़ोन ₹20,000 के आसपास"।</li></ul><div class="pn">पन्ना 2/3</div></div>"""
+    photos = ['दुकान का बाहर से दिन में पूरा सामने का शॉट', 'बोर्ड का क्लोज़-अप (नाम पढ़ने लायक)', 'दरवाज़ा/प्रवेश', 'अंदर का चौड़ा शॉट (दरवाज़े से)', 'अंदर का चौड़ा शॉट (काउंटर के पीछे से)', 'फ़ोन की दीवार (vivo / OPPO अलग-अलग क्लोज़-अप)', 'काउंटर और QR कार्ड', 'एक्सेसरी की दीवार', 'रिपेयर/स्किन कटिंग का कोना', 'नरेश जी काउंटर पर (मुस्कुराते हुए)', 'पोस्टर/बैनर जहाँ लगे हैं', 'दुकान का आसपास का बाज़ार (पहचान के लिए)']
+    ph = ''.join(f'<li><span class="box"></span>{x}</li>' for x in photos)
+    prt = [('विज़िटिंग कार्ड', '3.5×2 इंच (89×51 mm) + 3 mm ब्लीड', 'visiting-card-print-with-3mm-bleed.pdf', '300–350 GSM मैट, मैट लैमिनेशन', 'आप तय करें (आम तौर पर 500 से 1000)'),
+           ('काउंटर कार्ड ×6', 'A5 148×210 mm + 3 mm ब्लीड', 'counter-card-a5-bleed, -emi, -repair, -accessories, -google, care-poster-a5', '300 GSM, ग्लॉस या लैमिनेशन', 'हर एक की 2 कॉपी, स्टैंड/फ़्रेम में'),
+           ('ऑटो-रिक्शा पोस्टर ×2', '3×2 फ़ीट (900×600 mm) आड़ा', 'rickshaw-poster-1.pdf, rickshaw-poster-2.pdf', 'फ़्लेक्स या स्टिकर, किनारे सिले/आइलेट', 'जितने ऑटो, उतने। पहले 2 ऑटो से शुरू'),
+           ('A4 पोस्टर', 'A4', 'care-poster-a4.pdf, poster-a4.pdf', 'सादा या 130 GSM', '2–3 कॉपी: काउंटर, शटर, बाहर')]
+    pt = ''.join(f"<tr><td><b>{a}</b></td><td>{b}</td><td class='f'>{c}</td><td>{d}</td><td>{e}</td></tr>" for a, b, c, d, e in prt)
+    p3 = f"""<div class="pg">{hd('Facebook · Google · WhatsApp · प्रिंट शीट', 'एक बार सेट करें, फिर हर रील और कार्ड यहीं-वहीं चलता रहेगा')}
+<h2 class="hi">Facebook पेज</h2><ul class="hi"><li>नाम: <span class="q">Brandhoop Mobile Point · नीम का थाना</span> &nbsp; श्रेणी: Mobile Phone Shop</li><li>About: "नीम का थाना, कमला मोदी मार्केट (गेट नं. 5) में नए फ़ोन, एक्सेसरी, रिपेयर, स्किन कटिंग और EMI की सुविधा। 📞 86197 67291 · 72399 38540"</li><li>प्रोफ़ाइल फ़ोटो: profile-picture.png · कवर: facebook-cover.png · बटन: "WhatsApp संदेश भेजें" और "अभी कॉल करें"</li><li>पहली पोस्ट: रील 1, फिर 7 रेट-कार्ड एक एल्बम में। पेज का लिंक रील के कमेंट में डालिए और WhatsApp स्टेटस से शेयर कीजिए।</li></ul>
+<h2 class="hi">Google प्रोफ़ाइल (दुकान की लिस्टिंग)</h2><ul class="hi"><li>पता, दोनों फ़ोन नंबर और खुलने का समय जाँचिए। वेबसाइट: pallavsharmaofficial.github.io/brandhoop</li><li>श्रेणी: Mobile phone shop (अतिरिक्त: Mobile phone repair shop, Mobile phone accessory store) &nbsp; सेवाएँ और "Products" में vivo/OPPO फ़ोन "कीमत से शुरू" के साथ जोड़िए।</li><li>"अपडेट" पोस्ट: रेट-कार्ड की फ़ोटो + "फ़ोन देखने आइए"। हर हफ़्ते एक पोस्ट।</li><li>रिव्यू के लिए QR वाला काउंटर कार्ड दिखाइए और हर रिव्यू का जवाब दीजिए।</li></ul>
+<div class="sm hi"><b>12 नई फ़ोटो की सूची:</b></div><ul class="hi sm" style="columns:2;margin-top:0">{ph}</ul>
+<h2 class="hi">WhatsApp Business</h2><ul class="hi"><li>प्रोफ़ाइल: नाम, पता, खुलने का समय, वेबसाइट, "जवाब देने का संदेश" (छोटा स्वागत संदेश) चालू कीजिए। कैटलॉग में 4–5 सबसे ज़्यादा बिकने वाले फ़ोन डालिए।</li><li>रोज़ एक स्टेटस: एक फ़ोन या रेट कार्ड। ब्रॉडकास्ट सिर्फ़ उन्हीं को, जिन्होंने हामी भरी हो।</li></ul>
+<h2 class="hi">प्रिंट शीट (प्रेस को यही दिखाइए)</h2><table class="hi"><tr><th>चीज़</th><th>साइज़</th><th>फ़ाइल</th><th>काग़ज़/माध्यम</th><th>मात्रा</th></tr>{pt}</table>
+<div class="n hi sm">कोटेशन तीन जगह से लीजिए और रेट आप ख़ुद तय करके तुलना कीजिए। PDF में रंग RGB में हैं, प्रेस CMYK में बदलेगा तो नारंगी थोड़ा हल्का छपेगा। पहले एक कार्ड का प्रूफ़ ज़रूर देखिए। विज़िटिंग कार्ड में ब्लीड वाली फ़ाइल दीजिए, काटने के निशान प्रेस ख़ुद लगाएगा।</div><div class="pn">पन्ना 3/3</div></div>"""
+    for i, body in enumerate((p1, p2, p3), 1):
+        page(f'launch-plan-{i}', 210, 297, body, css=css, unit='mm', out_png=None, pdf=OUTB + f'print/plan/launch-plan-{i}.pdf')
+
 # ------------------------------------------------------------------ app and web icons
 def icons():
     tile = f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">{mark_defs("ia")}<rect width="1024" height="1024" fill="{P["paper"]}"/><g transform="translate(512 512) scale(1.5) translate(-521 -412)">{mark_inner("color", "ia")}</g></svg>'
@@ -261,6 +404,6 @@ def logo_pngs():
     page('png-brandhoop-mark', 1200, 1200, f'<div class="c">{mark("900px")}</div>', css='body{background:transparent}.c{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}', out_png=OUTB + 'logo/brandhoop-mark.png')
 
 if __name__ == '__main__':
-    cards(); poster(); social(); misc(); counter_tech(); care_poster(); icons(); logo_pngs()
+    cards(); poster(); social(); misc(); counter_tech(); care_poster(); rickshaw_posters(); counter_cards_more(); price_cards(); launch_plan(); icons(); logo_pngs()
     (BUILD / 'manifest.json').write_text(json.dumps(MANIFEST, ensure_ascii=False, indent=1))
     print(len(MANIFEST), 'pages')

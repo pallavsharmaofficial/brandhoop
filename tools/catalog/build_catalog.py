@@ -7,7 +7,7 @@ accessories.py. Settings, offers, gallery and features in the file are kept.
 Run it only to regenerate the starting catalogue. Once the owner edits products
 in the admin panel, edit there instead; running this again replaces products.
 """
-import json, pathlib, sys
+import json, os, pathlib, sys
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -39,9 +39,9 @@ for pid, name, brand, launch, variants, highlights, _q, _must in phones.PHONES:
         'variants': [{'id': f'v{i+1}', 'label': l, 'color': '', 'price': (pr or 0), 'mrp': (pr or 0), 'stock': 1} for i, (l, pr) in enumerate(variants)],
     }
     if sd:
-        p['refPriceLabel'] = {'en': f'Shop price, updated {shop_data.UPDATED[0]}', 'hi': f'दुकान की कीमत, {shop_data.UPDATED[1]} तक'}
-        p['description'] = {'en': f'Shop price as of {shop_data.UPDATED[0]}. Prices can change, so call or WhatsApp to confirm today’s price, gifts, offers and EMI.',
-                            'hi': f'{shop_data.UPDATED[1]} तक की दुकान की कीमत। कीमत बदल सकती है, इसलिए आज की कीमत, गिफ़्ट, ऑफ़र और EMI के लिए कॉल या WhatsApp करें।'}
+        p['refPriceLabel'] = {'en': f'Shop price, updated {sd["updated"][0]}', 'hi': f'दुकान की कीमत, {sd["updated"][1]} तक'}
+        p['description'] = {'en': f'Shop price as of {sd["updated"][0]}. Prices can change, so call or WhatsApp to confirm today’s price, gifts, offers and EMI.',
+                            'hi': f'{sd["updated"][1]} तक की दुकान की कीमत। कीमत बदल सकती है, इसलिए आज की कीमत, गिफ़्ट, ऑफ़र और EMI के लिए कॉल या WhatsApp करें।'}
         p['specs'] = dict(sd.get('specs', {}))
     elif known:
         mon, _, yr = launch.partition(' ')
@@ -88,7 +88,7 @@ def updated_on(p):
     import re
     m = re.search(r'updated (\d+) (\w{3}) (\d{4})', (p.get('refPriceLabel') or {}).get('en', ''))
     return datetime.date(int(m.group(3)), MON.index(m.group(2)) + 1, int(m.group(1))) if m else None
-base_date = datetime.datetime.strptime(shop_data.UPDATED[0], '%d %b %Y').date()
+base_date_of = lambda pid: datetime.datetime.strptime(shop_data.DATA[pid]['updated'][0], '%d %b %Y').date() if pid in shop_data.DATA else None
 existing = {p['id']: p for p in shop.get('products', [])}
 generated = {p['id'] for p in products}
 known_ids = {row[0] for row in phones.PHONES} | {row[0] for row in accessories.ACC}
@@ -96,7 +96,8 @@ kept = 0
 for i, p in enumerate(products):
     old_p = existing.get(p['id'])
     d = updated_on(old_p) if old_p else None
-    if old_p and d and d > base_date:
+    bd = base_date_of(p['id'])
+    if old_p and d and bd and d > bd and not os.environ.get('CATALOG_FORCE'):
         products[i] = old_p; kept += 1
 owner_added = [p for pid, p in existing.items() if pid not in generated and pid not in known_ids]
 products = owner_added + products

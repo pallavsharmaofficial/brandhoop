@@ -128,6 +128,7 @@ PHONES = [
  # ---- seen on the shop's own shelves (Nov 2026 photos)
  ('vivo-t5x-5g', 'vivo T5x 5G', 'vivo', 'Mar 2026', [('6 GB + 128 GB', 18999), ('8 GB + 128 GB', 20999), ('8 GB + 256 GB', 22999)],
      hl(('7,200 mAh battery', '7,200 mAh बैटरी'), ('120 Hz display', '120 Hz डिस्प्ले'), ('MediaTek Dimensity 7400 Turbo', 'MediaTek Dimensity 7400 Turbo')), 'vivo T5x', ['t5x']),
+ ('vivo-t5-pro-5g', 'vivo T5 Pro 5G', 'vivo', 'Apr 2026', [('6 GB + 128 GB', None)], [], 'vivo T5 Pro', ['t5 pro']),
  ('vivo-t5-lite-5g', 'vivo T5 Lite 5G', 'vivo', 'Jul 2026', [('4 GB + 128 GB', 19999), ('6 GB + 128 GB', 21999), ('6 GB + 256 GB', 24999)],
      hl(('6,500 mAh battery', '6,500 mAh बैटरी'), ('44W fast charging', '44W फ़ास्ट चार्जिंग'), ('MediaTek Dimensity 6300', 'MediaTek Dimensity 6300')), 'vivo T5 Lite', ['t5 lite']),
  ('oppo-f33-pro-5g', 'OPPO F33 Pro 5G', 'OPPO', 'Apr 2026', [('8 GB + 128 GB', 37999), ('8 GB + 256 GB', 40999)],

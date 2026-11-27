@@ -14,7 +14,7 @@ import segno
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path.insert(0, str(ROOT / 'tools' / 'catalog'))
-import phones, accessories  # noqa: E402
+import phones, accessories, shop_data  # noqa: E402
 
 OUT = HERE / 'build'
 OUT.mkdir(exist_ok=True)
@@ -76,23 +76,40 @@ h1.pg {{ font-size: 10pt; margin: 0 0 2mm; color: #555; font-weight: 600; }}
 .price small {{ font-size: 6.5pt; color: #555; }}
 .price .box {{ font-size: 14pt; font-weight: 800; margin-top: 2mm; border-bottom: .35mm solid #151515; height: 9mm; display: flex; align-items: flex-end; }}
 .price .two {{ font-size: 8.5pt; font-weight: 700; margin-top: 1.4mm; border-bottom: .3mm solid #151515; height: 6mm; display: flex; align-items: flex-end; }}
+.name, .spec, .vp {{ font-feature-settings: "calt" 0, "liga" 0; }}
+.vp {{ font-size: 7.6pt; font-weight: 700; line-height: 1.45; }}
+.vp b {{ font-size: 8.4pt; }}
 .qr {{ text-align: center; font-size: 5.6pt; color: #444; line-height: 1.15; }}
 .qr svg {{ width: 19mm; height: 19mm; display: block; margin: 0 auto 0.6mm; }}
 '''
 
 
+def price_block(sd):
+    if not sd:
+        return '<div class="price"><small>आज की कीमत · Today’s price</small><div class="box">₹</div></div>'
+    rows = ''.join(f'<div class="vp">{esc(compact(l))} &nbsp; <b>{inr(p)}</b></div>' for l, p in sd['prices'])
+    return f'<div class="price"><small>दुकान की कीमत · {esc(sd["updated"][0])}</small>{rows}</div>'
+
+
 def phone_strips():
     order = {b: i for i, b in enumerate(['vivo', 'OPPO', 'Nothing', 'realme', 'Redmi', 'POCO', 'iQOO', 'Samsung', 'Motorola', 'OnePlus', 'Infinix', 'Tecno', 'Google', 'Apple', 'Nokia'])}
     rows = sorted(phones.PHONES, key=lambda r: (order.get(r[2], 99), min([v[1] for v in r[4] if v[1]] or [10 ** 9])))
+    if shop_data.ONLY_SHOP_PHONES:
+        rows = [r for r in rows if r[0] in shop_data.DATA]    # only the range the shop has priced
     cells = []
     for pid, name, brand, launch, variants, hl, _q, _m in rows:
+        sd = shop_data.DATA.get(pid)
+        if sd:
+            variants, hl = sd['prices'], (sd.get('highlights') or hl)
         known = [v[1] for v in variants if v[1]]
         keypad = pid in phones.KEYPAD
         spec = ' · '.join(h[1] for h in hl[:2])
         vs = ' · '.join(compact(v[0]) for v in variants if v[0] not in ('Standard', 'Base model', 'Single SIM')) if not keypad else ''
         line1 = esc(spec) if spec else ''
         line2 = (f'<div class="spec">{esc(vs)} GB</div>' if vs and re.search(r'\d\+\d', vs) else '')
-        if known:
+        if sd:
+            ref = f'दुकान की कीमत · {sd["updated"][1]} तक'
+        elif known:
             ref = f'लॉन्च कीमत {inr(min(known))} से' + (f' ({launch})' if launch else '')
             if pid in phones.RAISED:
                 ref += ' · <b>कीमत बढ़ चुकी है, आज की लिखें</b>'
@@ -102,7 +119,7 @@ def phone_strips():
         long = ' long' if len(name) > 17 else ''
         cells.append(f'''<div class="strip"><div><div class="brand">{esc(brand)}</div><div class="name{long}">{esc(name)}</div>
 <div class="spec">{line1}</div>{line2}<div class="ref">{ref}</div></div>
-<div class="price"><small>आज की कीमत · Today’s price</small><div class="box">₹</div></div>
+{price_block(sd)}
 <div class="qr">{q}WhatsApp पर<br>यही मॉडल पूछें</div></div>''')
     return cells
 
