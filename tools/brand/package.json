@@ -1,0 +1,6 @@
+{
+  "name": "brandhoop-brand-tools",
+  "private": true,
+  "description": "canvas2svg turns the Card Studio canvas drawing into SVG for the vector print files (make_vector_card.js)",
+  "dependencies": { "canvas2svg": "1.0.16" }
+}

@@ -8,6 +8,7 @@ python3 tools/brand/make_assets.py
 (cd tools/brand && node shoot.js)
 python3 tools/brand/resize_icons.py
 node tools/brand/export_cards.js
+(cd tools/brand && npm i --silent) && node tools/brand/make_vector_card.js && python3 tools/brand/make_vector_cmyk.py   # vector CMYK card PDFs for the printer
 python3 tools/brand/make_print_pdfs.py
 python3 tools/brand/make_brand_page.py
 dart run flutter_launcher_icons
